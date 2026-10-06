@@ -1,0 +1,9 @@
+{
+"mappings": [
+   "/content/saudiaeds/"
+ ],
+"includes": [
+   "/content/saudiaeds/",
+  "/content/dam/saudiaeds/"
+ ]
+}
