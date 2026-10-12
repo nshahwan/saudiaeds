@@ -1,0 +1,9 @@
+{"ts":"2026-10-07T08:22:22Z","skill":"stardust:replica","phase":"extract","event":"start","detail":"bounded --pages: explore fly-to-athens, book-and-manage flight-pass, experience classes-of-travel"}
+{"ts":"2026-10-07T08:48:33Z","skill":"stardust:replica","phase":"extract","event":"end","detail":"crawl.mjs captured Imperva challenge (HTTP 200 iframe) for all 3 pages - moved to current/_invalid-challenge-capture/; live side captured via interactive browser session (user-approved) at 1440+360, 48 assets harvested","artifact":"stardust/replica/gates/"}
+{"ts":"2026-10-07T09:58:46Z","skill":"stardust:replica","phase":"preserve-direction","event":"end","detail":"3 archetypes x 2 breakpoints"}
+{"ts":"2026-10-07T09:58:46Z","skill":"stardust:replica","phase":"recreate","event":"end","detail":"3 archetypes x 2 breakpoints"}
+{"ts":"2026-10-07T09:58:46Z","skill":"stardust:replica","phase":"source-fidelity-gate","event":"end","detail":"3 archetypes x 2 breakpoints"}
+{"ts":"2026-10-07T10:28:31Z","skill":"stardust:replica","phase":"approval","event":"end","detail":"3 archetypes approved by user"}
+{"ts":"2026-10-07T12:00:00Z","skill":"stardust:deploy","phase":"convert","event":"end","detail":"3 pages + 6 chrome fragments as .plain.html; gates green; handoff done; upload is a UI action"}
+{"ts": "2026-10-08T08:13:53Z", "skill": "stardust:replica", "phase": "source-fidelity-gate", "event": "end", "detail": "home: 1440 2.02%/\u03940, 360 4.86%/\u0394-3, awaiting approval"}
+{"ts": "2026-10-08T09:17:34Z", "skill": "excat-content-import", "phase": "import", "event": "end", "detail": "home \u2192 /content/saudiaeds/en/index; shared nav (+dark logos) and footer (+payment partners) re-imported"}

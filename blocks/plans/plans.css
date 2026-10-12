@@ -1,0 +1,142 @@
+/* plans — values from the gated replica (stardust/prototypes/book-manage-flight-pass.css) */
+
+.plans {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.plans .plan {
+  border: 1px solid rgb(221 221 221);
+  border-radius: 10px;
+  padding: 6px;
+  background: rgb(248 248 248);
+  box-shadow: rgb(0 0 0 / 8%) 0 2px 5px 0;
+}
+
+.plans .plan__head {
+  padding: 28px 12px 20px;
+  border-bottom: 1px solid rgb(227 227 227);
+  text-align: center;
+}
+
+.plans .plan__head :is(h2, h3, h4) {
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: normal;
+}
+
+.plans .plan__head p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 25.2px;
+}
+
+.plans .plan__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 12px 22px;
+}
+
+.plans .plan__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.plans .plan__group + .plan__group {
+  margin-top: 24px;
+}
+
+.plans .plan__label {
+  display: flex;
+  flex: 0 0 100%;
+  align-items: center;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.plans .plan__detail {
+  flex: 0 0 100%;
+  margin: 0 0 8px;
+  padding-left: 8px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+/* the pill: one or two authored lines on one green capsule, each led by its icon */
+.plans .plan__pill {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  background: rgb(0 128 62 / 8%);
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.plans .plan__pill--who {
+  --plan-ico: url('/icons/how_to_reg.svg');
+
+  margin-left: 8px;
+  padding-left: 14px;
+  border-radius: 999px 0 0 999px;
+}
+
+.plans .plan__pill--more {
+  --plan-ico: url('/icons/supervisor_account.svg');
+
+  padding-right: 14px;
+  border-radius: 0 999px 999px 0;
+}
+
+.plans .plan__pill--more::before {
+  margin-left: 6px;
+}
+
+.plans .plan__pill--only {
+  padding-right: 14px;
+  border-radius: 999px;
+}
+
+.plans .plan__label::before,
+.plans .plan__pill::before {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background: var(--plan-ico) center / contain no-repeat;
+}
+
+.plans .plan__pill::before {
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+}
+
+.plans .plan__group--quarterly .plan__label { --plan-ico: url('/icons/replay_30.svg'); }
+.plans .plan__group--onetime .plan__label { --plan-ico: url('/icons/payment.svg'); }
+
+@media (width >= 900px) {
+  .plans {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23.5px;
+  }
+
+  .plans .plan__head :is(h2, h3, h4) {
+    letter-spacing: -0.24px;
+  }
+}

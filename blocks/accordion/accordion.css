@@ -1,0 +1,89 @@
+/* accordion (FAQ) — values from the gated replica (stardust/prototypes/explore-destination.css) */
+
+.accordion {
+  margin-top: 20px;
+}
+
+.accordion .faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.accordion .faq__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 96px;
+  padding: 24px 0;
+  cursor: pointer;
+}
+
+.accordion .faq__item.is-open .faq__head {
+  min-height: 0;
+  padding: 16px 0;
+}
+
+.accordion .faq__q {
+  color: #000;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+.accordion .faq__btn {
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 39px;
+  border-radius: 40px;
+  background: var(--beige);
+  box-shadow: rgb(0 0 0 / 12%) 0 4px 6px 0;
+}
+
+.accordion .faq__btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -70%) rotate(45deg);
+}
+
+.accordion .faq__item.is-open .faq__btn::after {
+  transform: translate(-50%, -30%) rotate(225deg);
+}
+
+.accordion .faq__a {
+  padding-bottom: 24px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+
+.accordion .faq__item:not(.is-open) .faq__a {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+@media (width >= 900px) {
+  .accordion {
+    margin-top: 0;
+  }
+
+  .accordion .faq__head {
+    min-height: 71px;
+    padding: 16px 0;
+  }
+
+  .accordion .faq__q {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+}

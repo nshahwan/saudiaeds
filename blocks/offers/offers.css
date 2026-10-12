@@ -1,0 +1,187 @@
+/* offers — values from the gated replica (stardust/prototypes/home.css, .offers) */
+
+/* section head (default content): <h2> + <p> link "Explore all offers" */
+main .offers-container {
+  padding-top: 80px;
+  color: #fff;
+}
+
+main .offers-container .default-content-wrapper h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+}
+
+main .offers-container .default-content-wrapper p {
+  margin-top: 12px;
+}
+
+main .offers-container .default-content-wrapper p a {
+  display: inline-flex;
+  align-items: center;
+  color: #08b35f;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+main .offers-container .default-content-wrapper p a::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url('/icons/chevron_right.svg') center / contain no-repeat;
+}
+
+.offers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.offers .offers__tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 165px;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* an authored link covers the whole tile: the text box is itself absolutely placed, so the
+   overlay overshoots it and the tile's overflow clips it to the tile */
+.offers .offers__text a::after {
+  content: '';
+  position: absolute;
+  inset: -100vmax;
+}
+
+.offers .offers__tile:first-child {
+  height: 343px;
+}
+
+.offers .offers__media,
+.offers .offers__pic,
+.offers .offers__pic picture {
+  display: block;
+  height: 100%;
+}
+
+.offers .offers__pic--desktop {
+  display: none;
+}
+
+.offers .offers__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(26 38 25 / 0%) 50%, rgb(22 32 21 / 80%) 100%) no-repeat;
+}
+
+.offers .offers__pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.offers .offers__text {
+  position: absolute;
+  right: 104px;
+  bottom: 24px;
+  left: 24px;
+}
+
+.offers .offers__text :is(h2, h3, h4) {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+.offers .offers__text p {
+  margin-top: 8px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.288px;
+}
+
+.offers .offers__go {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: var(--green);
+}
+
+.offers .offers__go::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  background-color: #fff;
+  mask: url('/icons/arrow_forward.svg') center / contain no-repeat;
+}
+
+@media (width >= 900px) {
+  main .offers-container .default-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  main .offers-container .default-content-wrapper h2 {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -1.2px;
+  }
+
+  main .offers-container .default-content-wrapper p {
+    margin: 0 0 5px;
+  }
+
+  .offers {
+    display: grid;
+    grid-template-columns: 588px 282px 282px;
+    grid-template-rows: 211px 211px;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .offers .offers__tile,
+  .offers .offers__tile:first-child {
+    height: auto;
+  }
+
+  .offers .offers__tile:nth-child(-n + 2) {
+    grid-row: span 2;
+  }
+
+  .offers .offers__pic--desktop {
+    display: block;
+  }
+
+  .offers .offers__pic--mobile {
+    display: none;
+  }
+
+  .offers .offers__text :is(h2, h3, h4) {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+
+  .offers .offers__text p {
+    margin-top: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+  }
+}

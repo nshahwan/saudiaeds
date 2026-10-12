@@ -1,0 +1,69 @@
+/* Archetype: press-release (About us › press release, "modern article" CMS component).
+ * Layered on canon.css. Article values lifted verbatim from the page's own CMS stylesheet
+ * (.saudia-modern-article / .saudia-article-* / .saudia-btn-*, inline in the rich text);
+ * offsets from gates/press-release-{1440,360} live geometry (the column margins collapse:
+ * title-text 64|80px, rich-text p 16px, article -48px).
+ */
+
+/* live mobile: 76px column gap + the footer's own 80px top padding (+ subscribe offset) */
+.page-article .main { padding: 76px 0 188px; }
+/* footer variant shared with experience-cards (no SkyTeam logo, empty slot kept) */
+.page-article .footer-legal p { margin-top: 68px; }
+.page-article .footer-brand .skyteam-slot { width: 44px; height: 44px; }
+
+.article { letter-spacing: 0.16px; }
+.article__inner { display: flex; flex-direction: column; gap: 40px; color: rgb(51 51 51); font-size: 16px; line-height: 1.6; }
+
+/* ---------- Hero: copy + image ---------- */
+.article-hero {
+  display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center;
+  overflow: hidden; border-radius: 12px; background: #f8fcf9;
+}
+.article-hero__media { order: -1; min-height: 300px; height: 100%; }
+.article-hero__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.article-hero__text { padding: 30px 20px; }
+
+.article-meta {
+  display: flex; gap: 12px; margin-bottom: 8px;
+  color: #666; font-size: 13px; font-weight: 600; line-height: 20.8px; letter-spacing: 1px; text-transform: uppercase;
+}
+.article-meta span:not(:last-child)::after { content: '|'; margin-left: 12px; color: #00803e; }
+
+.article-title { margin-bottom: 16px; color: #1a1a1a; font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: -0.96px; }
+.article-subtitle { margin: 16px 0 24px; color: #00803e; font-size: 18px; font-weight: 500; line-height: 1.4; }
+
+/* ---------- Body ---------- */
+.article-body p { margin: 16px 0 24px; color: #4a4a4a; font-size: 16px; line-height: 25.6px; }
+.article-body > p + p { margin-top: 0; }
+
+.article-quote {
+  position: relative; margin: 48px 0; padding: 40px;
+  border: 1px solid #e6e6e6; border-left: 5px solid #00803e; background: #fff;
+}
+.article-quote::before { content: '\201C'; position: absolute; top: 10px; left: 15px; color: #f0f7f3; font-size: 60px; line-height: 1; }
+.article-quote p { margin: 16px 0; color: #1a1a1a; font-size: 18px; font-style: italic; line-height: 28.8px; }
+.article-quote p + p { margin-top: 0; }
+.article-quote cite { display: block; color: #00803e; font-size: 15px; font-weight: 700; font-style: normal; line-height: 24px; text-transform: uppercase; }
+
+/* ---------- Back to news ---------- */
+.article-back { display: flex; justify-content: center; margin-top: 16px; padding: 32px 0; border-top: 1px solid #e6e6e6; }
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px;
+  border: 2px solid #00803e; border-radius: 2px; color: #00803e;
+  font-size: 16px; font-weight: 600; line-height: 1.2; letter-spacing: 0.16px;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover { background: #00803e; color: #fff; }
+.btn-outline:focus { outline: 3px solid #6abf4b; outline-offset: 2px; }
+
+@media (min-width: 900px) {
+  .page-article .main { padding: 32px 0 120px; }
+  .page-article .site-footer { padding-bottom: 20px; }
+  .page-article .footer-legal p { margin-top: 0; }
+  .page-article .footer-brand .skyteam-slot { width: 64px; height: 64px; }
+  .article-hero { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .article-hero__media { order: 0; min-height: 400px; }
+  .article-hero__text { padding: 40px 20px 40px 40px; }
+  .article-title { letter-spacing: -1.28px; }
+  .article-back { margin-top: 32px; }
+}

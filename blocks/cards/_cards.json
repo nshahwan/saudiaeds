@@ -43,6 +43,12 @@
           "multi": false
         },
         {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Alt"
+        },        
+        {
           "component": "richtext",
           "name": "text",
           "value": "",
@@ -55,9 +61,7 @@
   "filters": [
     {
       "id": "cards",
-      "components": [
-        "card"
-      ]
+      "components": ["card"]
     }
   ]
 }

@@ -1,0 +1,185 @@
+/* fares — values from the gated replica (stardust/prototypes/home.css, .fares) */
+
+/* section head (default content): <h2> "Best fares from <em>city</em>", <p> note, <p> link */
+main .fares-container {
+  padding-top: 100px;
+  color: #fff;
+}
+
+main .fares-container .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 25px;
+}
+
+main .fares-container .default-content-wrapper h2 {
+  flex: 0 0 100%;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.64px;
+}
+
+main .fares-container .default-content-wrapper h2 em {
+  display: inline-block;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: -1.2px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* the city is a selector on live (D-14): chevron */
+main .fares-container .default-content-wrapper h2 em::after {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-left: 2px;
+  vertical-align: -6px;
+  background-color: rgb(255 255 255 / 70%);
+  mask: url('/icons/keyboard_arrow_down.svg') center / contain no-repeat;
+}
+
+main .fares-container .default-content-wrapper p {
+  margin-top: 14px;
+}
+
+main .fares-container .default-content-wrapper p:not(:last-child) {
+  flex: 1;
+  color: rgb(255 255 255 / 70%);
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.32px;
+}
+
+/* live lets the link overhang the container by 9px */
+main .fares-container .default-content-wrapper p:last-child {
+  margin-right: -9px;
+}
+
+main .fares-container .default-content-wrapper p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  color: #08b35f;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+main .fares-container .default-content-wrapper p:last-child a::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url('/icons/navigate_next.svg') center / contain no-repeat;
+}
+
+.fares .fares__list {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  margin: 30px -20px 0;
+  padding: 0 20px;
+  list-style: none;
+}
+
+.fares .fares__list > li {
+  flex: none;
+  width: 246px;
+}
+
+.fares .fares__card {
+  position: relative;
+  display: block;
+  color: inherit;
+}
+
+/* the authored city link covers the whole card */
+.fares .fares__content a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.fares .fares__media img {
+  display: block;
+  width: 100%;
+  height: 324px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.fares .fares__content :is(h2, h3, h4) {
+  margin-top: 16px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+.fares .fares__content p:first-of-type {
+  color: #08b35f;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+.fares .fares__content p + p {
+  margin-top: 8px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+}
+
+@media (width >= 900px) {
+  main .fares-container {
+    padding-top: 120px;
+  }
+
+  main .fares-container .default-content-wrapper h2 {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -1.2px;
+  }
+
+  main .fares-container .default-content-wrapper h2 em::after {
+    width: 40px;
+    height: 40px;
+    vertical-align: -8px;
+  }
+
+  main .fares-container .default-content-wrapper p {
+    margin-top: 12px;
+  }
+
+  .fares .fares__list {
+    gap: 24px;
+    margin: 32px 0 0;
+    padding: 0;
+  }
+
+  .fares .fares__list > li {
+    width: 282px;
+  }
+
+  .fares .fares__media img {
+    height: 372px;
+  }
+
+  .fares .fares__content :is(h2, h3, h4),
+  .fares .fares__content p:first-of-type {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+}

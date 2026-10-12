@@ -24,7 +24,7 @@
           "component": "reference",
           "valueType": "string",
           "name": "image",
-          "label": "Image",
+          "label": "Image (desktop)",
           "multi": false
         },
         {
@@ -35,11 +35,46 @@
           "value": ""
         },
         {
+          "component": "reference",
+          "valueType": "string",
+          "name": "mobileImage",
+          "label": "Image (mobile)",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "mobileImageAlt",
+          "label": "Mobile alt",
+          "value": ""
+        },
+        {
           "component": "richtext",
           "name": "text",
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Variant",
+          "valueType": "string",
+          "value": "",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Banner (in-copy image banner)",
+              "value": "banner"
+            },
+            {
+              "name": "Campaign (press release banner)",
+              "value": "campaign"
+            }
+          ]
         }
       ]
     }

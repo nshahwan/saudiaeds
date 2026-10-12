@@ -1,0 +1,10 @@
+{
+  "runtime": "eds-xwalk (aem-boilerplate-xwalk)",
+  "contentSource": "AEM Sites (xwalk markup mountpoint) — content pages written as content/<path>.plain.html with <!-- field:x --> hints; platform uploader ingests",
+  "blockWrapperClass": "block (div.<name>-wrapper > div.<name>.block, section gains .<name>-container)",
+  "buttonClasses": "a.button.primary|secondary|accent inside p.button-wrapper",
+  "buttonization": "formatted-only (strong/em required)",
+  "fragmentScriptPolicy": "loadFragment decorates the fragment main (sections + blocks)",
+  "emptySectionCollapse": true,
+  "iconPolicy": "repo /icons/*.svg rendered as CSS masks by blocks (no Material icon webfont)"
+}

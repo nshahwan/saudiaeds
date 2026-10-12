@@ -1,0 +1,145 @@
+/* Archetype: explore-destination (Explore › destination landing, e.g. fly-to-athens).
+ * Layered on canon.css. Values from gates/explore-destination-{1440,360}/live-capture/styles.json.
+ */
+
+/* Live paints the beige theme body down to y=900, white below (content + footer). */
+.page-destination { position: relative; z-index: 0; }
+.page-destination::before { content: ''; position: absolute; inset: 900px 0 0; background: #fff; z-index: -1; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; margin-top: 60px; height: 496px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero__content { position: absolute; inset: 146px 20px auto; text-align: center; }
+.hero h1 { font-size: 40px; font-weight: 600; line-height: 44px; letter-spacing: -1.2px; color: #fff; }
+
+/* ---------- Booking widget (static recreation of the JS widget's initial state) ---------- */
+.booking { position: relative; z-index: 11; margin: -56px 20px 0; background: #fff; border-radius: 4px; }
+.booking__panel { position: relative; padding: 16px 16px 32px; height: 243px; }
+
+.booking__tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
+.booking__tab { flex: none; padding-bottom: 15px; border-bottom: 3px solid transparent; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: #000; }
+.booking__tab.is-active { font-weight: 600; border-bottom-color: var(--green); }
+
+.booking__promo {
+  position: absolute; left: 20px; top: 243px;
+  display: inline-flex; align-items: center; height: 24px;
+  font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--green);
+}
+
+.booking__promo .icon { font-size: 16px; width: 16px; }
+
+.booking__options { display: none; }
+
+.booking__fields { position: relative; margin-top: 24px; }
+.field { position: relative; height: 60px; border-radius: 4px; background: var(--field); border: 2px solid transparent; }
+.field + .booking__swap + .field { margin-top: 8px; }
+.field__label { position: absolute; left: 16px; top: 16px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--text-42); }
+.field__value, .field__icon { display: none; }
+
+.booking__swap {
+  position: absolute; right: 20px; top: 40px; z-index: 1; width: 40px; height: 40px; border-radius: 40px;
+  background: #fff; box-shadow: rgb(0 0 0 / 12%) 0 4px 6px 0; color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.booking__swap .icon { font-size: 24px; transform: rotate(90deg); }
+
+.booking__info {
+  margin-top: 48px; display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 22px 12px 20px; border-radius: 0 0 4px 4px; background: var(--info-blue); color: #fff;
+  font-size: 14px; line-height: 20px; letter-spacing: 0.28px;
+}
+
+.booking__info-icon { font-size: 24px; width: 24px; }
+.booking__info p { width: 208px; }
+.booking__info a { margin-left: auto; display: flex; align-items: center; }
+.booking__info-more, .booking__chev-d { display: none; }
+.booking__info a::after { content: 'arrow_forward'; font-family: 'Material Symbols Outlined'; font-size: 24px; line-height: 1; width: 24px; font-feature-settings: 'liga'; }
+
+/* ---------- Rich destination copy ---------- */
+.destination-copy { padding: 112px 44px 0; }
+.destination-copy p { margin-bottom: 16px; font-size: 16px; line-height: 25.6px; letter-spacing: 0.16px; color: var(--body-copy); }
+.destination-copy__lead { margin: 24px 0 16px; font-size: 24px; font-weight: 700; line-height: 24px; color: var(--green-deep); }
+
+.saudia-banner {
+  position: relative; margin-top: 48px; height: 300px; border-radius: 8px; overflow: hidden;
+  background: url('assets/media/ATH-01134d.jpg') center / cover;
+  display: flex; align-items: flex-end; padding: 32px;
+}
+
+.saudia-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 0%) 100%); }
+.saudia-banner h3 { position: relative; font-size: 28px; font-weight: 700; line-height: 24px; color: #fff; }
+
+.itinerary { margin-top: 24px; padding: 32px; background: rgb(249 250 251); border: 1px solid rgb(229 231 235); border-radius: 8px; }
+.itinerary > p:first-child { margin-top: 16px; }
+.itinerary h4 { margin: 24px 0 16px; font-size: 18.4px; font-weight: 700; line-height: 29.44px; letter-spacing: 0.16px; color: rgb(25 37 24); }
+
+/* ---------- FAQ ---------- */
+.page-destination .main { padding-bottom: 171px; }
+.faq { padding-top: 224px; }
+.faq h2 { padding-bottom: 16px; font-size: 40px; font-weight: 600; line-height: 48px; letter-spacing: -1.2px; color: #000; }
+.faq__list { margin-top: 20px; }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__head { width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 96px; padding: 24px 0; }
+.faq__item.is-open .faq__head { min-height: 0; padding: 16px 0; }
+.faq__q { font-size: 18px; line-height: 24px; color: #000; }
+.faq__btn { position: relative; flex: none; width: 40px; height: 39px; border-radius: 40px; background: var(--beige); box-shadow: rgb(0 0 0 / 12%) 0 4px 6px 0; }
+.faq__btn::after { content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border: solid #000; border-width: 0 2px 2px 0; transform: translate(-50%, -70%) rotate(45deg); }
+.faq__item.is-open .faq__btn::after { transform: translate(-50%, -30%) rotate(225deg); }
+.faq__item:not(.is-open) .faq__a { height: 0; overflow: hidden; visibility: hidden; padding: 0; }
+.faq__a { padding-bottom: 24px; font-size: 14px; line-height: 20px; color: var(--text); }
+
+/* ================= Desktop ================= */
+@media (min-width: 900px) {
+  .hero { margin-top: -72px; height: 450px; }
+  .hero__content { inset: 130px 0 auto; max-width: var(--container); margin: 0 auto; text-align: left; }
+  .hero h1 { font-size: 64px; line-height: 68px; letter-spacing: -2.56px; }
+
+  .booking { max-width: var(--container); margin: 26px auto 0; }
+  .booking__panel { padding: 16px 24px 24px; height: auto; }
+  .booking__tabs { width: 1152px; }
+  .booking__promo { left: auto; right: 24px; top: 16px; }
+
+  .booking__options { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; height: 24px; }
+  .booking__trip { display: flex; gap: 24px; }
+  .radio { display: flex; align-items: center; }
+  .radio__ring { position: relative; width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgb(0 0 0 / 42%); }
+  .radio.is-checked .radio__ring { border-color: var(--green); }
+  .radio.is-checked .radio__ring::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--green); }
+  .radio__label { padding-left: 10px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: #000; }
+
+  .toggle { display: flex; align-items: center; gap: 8px; }
+  .toggle__track { position: relative; width: 44px; height: 24px; border-radius: 100px; background: rgb(0 0 0 / 20%); }
+  .toggle__thumb { position: absolute; left: 2px; top: 2px; width: 20px; height: 20px; border-radius: 100%; background: #fff; box-shadow: rgb(0 0 0 / 20%) 0 2px 1px -1px, rgb(0 0 0 / 14%) 0 1px 1px 0, rgb(0 0 0 / 12%) 0 1px 3px 0; }
+  .toggle__label { font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--green); }
+
+  .booking__fields { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+  .field { flex: 1; height: 80px; }
+  .field + .booking__swap + .field { margin-top: 0; }
+  .field__label { left: 24px; top: 11px; font-size: 12px; line-height: 16px; letter-spacing: 0.48px; }
+  .field__value { display: block; position: absolute; left: 24px; top: 30px; font-size: 24px; line-height: 32px; letter-spacing: -0.24px; color: #000; }
+  .field--to .field__label { top: 24px; font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+  .field__icon { display: block; position: absolute; right: 24px; top: 22px; font-size: 32px; width: 32px; color: var(--green); }
+  .field--to .field__icon { color: rgb(0 0 0 / 30%); }
+
+  .booking__swap { position: static; flex: none; background: none; box-shadow: none; }
+  .booking__swap .icon { transform: none; }
+
+  .booking__info { margin-top: 0; align-items: center; }
+  .booking__info p { width: auto; }
+  .booking__info-more { display: inline; }
+  .booking__chev-d { display: inline-block; font-size: 24px; width: 24px; }
+  .booking__info a::after { content: none; }
+
+  .destination-copy { padding: 128px 0 0; }
+  .destination-copy__inner { max-width: 952px; margin: 0 auto; }
+  .destination-copy__lead { line-height: 32px; letter-spacing: -0.24px; }
+  .saudia-banner h3 { line-height: 32px; letter-spacing: -0.28px; }
+
+  .page-destination .main { padding-bottom: 199px; }
+  .faq__inner { display: flex; justify-content: space-between; align-items: flex-start; }
+  .faq h2 { width: 588px; padding-bottom: 24px; }
+  .faq__list { width: 588px; margin-top: 0; }
+  .faq__head { min-height: 71px; padding: 16px 0; }
+  .faq__q { font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+}

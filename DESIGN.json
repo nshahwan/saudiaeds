@@ -1,0 +1,108 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:replica",
+    "writtenAt": "2026-10-07T09:58:46Z",
+    "mode": "bounded-single",
+    "synthesizedFrom": [
+      "stardust/current/pages/*.json",
+      "stardust/replica/tokens.json"
+    ]
+  },
+  "tokens": "see stardust/replica/tokens.json (lifted values; this file mirrors its top-level groups)",
+  "font": {
+    "family": "'Saudia Sans', arial, sans-serif",
+    "weights": [
+      400,
+      500,
+      600,
+      900
+    ]
+  },
+  "color": {
+    "primary": "rgb(0 128 62)",
+    "primaryDark": "rgb(2 102 52)",
+    "text": "rgb(0 0 0 / 70%)",
+    "line": "rgb(0 0 0 / 10%)",
+    "notice": "rgb(235 187 35)",
+    "info": "rgb(0 119 185)",
+    "beige": "rgb(243 237 225)"
+  },
+  "container": {
+    "maxWidth": "1200px",
+    "gutterMobile": "20px"
+  },
+  "extensions": {
+    "modules": [
+      {
+        "id": "hero-banner",
+        "seenOn": [
+          "explore-destination",
+          "book-manage-product",
+          "experience-cards"
+        ]
+      },
+      {
+        "id": "booking-widget",
+        "seenOn": [
+          "explore-destination"
+        ],
+        "dynamic": true
+      },
+      {
+        "id": "rich-destination-copy",
+        "seenOn": [
+          "explore-destination"
+        ]
+      },
+      {
+        "id": "faq-accordion",
+        "seenOn": [
+          "explore-destination"
+        ]
+      },
+      {
+        "id": "intro-checklist",
+        "seenOn": [
+          "book-manage-product"
+        ]
+      },
+      {
+        "id": "plan-cards",
+        "seenOn": [
+          "book-manage-product"
+        ]
+      },
+      {
+        "id": "image-cards",
+        "seenOn": [
+          "experience-cards"
+        ]
+      }
+    ],
+    "breakpoints": {
+      "containerMaxWidth": "1200px",
+      "probeWidth": 2560,
+      "shellMaxWidth": "1248px",
+      "caps": [
+        {
+          "kind": "content",
+          "px": 1200,
+          "via": ".container max-width 1248px − 2×24px padding",
+          "selector": "app-jss-columns .container",
+          "pages": [
+            "/en-SA",
+            "/en-SA/explore/saudia-new-destinations-2026/fly-to-athens",
+            "/en-SA/about-us/press-releases/press-release-07082026",
+            "/en-SA/plan/on-board/classes-of-travel"
+          ]
+        }
+      ],
+      "capProvenance": {
+        "measuredAt": "2026-10-08",
+        "channel": "interactive browser session (headless capture is blocked by Imperva)",
+        "viewport": "2560x1200",
+        "result": "content column 1200px wide, centred (left 680px) on all four templates"
+      }
+    }
+  }
+}

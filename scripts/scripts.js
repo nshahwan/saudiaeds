@@ -9,6 +9,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  getMetadata,
 } from './aem.js';
 
 /**
@@ -43,6 +44,21 @@ export function moveInstrumentation(from, to) {
       .map(({ nodeName }) => nodeName)
       .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
   );
+}
+
+/**
+ * Resolves the path of a chrome fragment (nav, footer). An authored `nav`/`footer` page
+ * property wins; otherwise the fragment of the page's language root is used, so every
+ * page under /en (or /content/<site>/en in the editor) shares /en/nav and /en/footer.
+ * @param {string} name fragment name, e.g. 'nav' or 'footer'
+ * @returns {string} fragment path
+ */
+export function getChromePath(name) {
+  const meta = getMetadata(name);
+  if (meta) return new URL(meta, window.location).pathname;
+  const [, site = '', lang] = window.location.pathname
+    .match(/^(\/content\/[^/]+)?(?:\/([a-z]{2}(?:-[a-z]{2})?)(?=[/.]|$))?/i);
+  return `${site}${lang ? `/${lang}` : ''}/${name}`;
 }
 
 /**

@@ -1,37 +1,180 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
+/* hero — values from the gated replica prototypes (stardust/prototypes/*.css) */
+
+main .hero-container:not(.narrow) > .hero-wrapper {
+  max-width: none;
   padding: 0;
 }
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  height: 496px;
+  overflow: hidden;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+body.product .hero {
+  height: 460px;
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+.hero .hero__media,
+.hero .hero__pic,
+.hero .hero__pic picture {
+  position: relative;
+  display: block;
+  height: 100%;
 }
 
-.hero img {
-  object-fit: cover;
+.hero .hero__pic img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.hero .hero__pic--desktop {
+  display: none;
+}
+
+/* live scrim: .custom-carousel .swiper-slide__image::after */
+.hero .hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(22 22 33 / 0%) 47.76%, #192518 100%) no-repeat;
+  pointer-events: none;
+}
+
+.hero .hero__content {
+  position: absolute;
+  inset: 146px 20px auto;
+  color: #fff;
+  text-align: center;
+}
+
+body.listing .hero .hero__content {
+  inset: 168px 20px auto;
+  text-align: left;
+}
+
+.hero .hero__content :is(h1, h2) {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -1.2px;
+}
+
+.hero .hero__content p {
+  display: none;
+}
+
+/* legacy press release (template `news`): the plain campaign banner is 460px; the
+   `campaign` variant (pages themed `legacy-cms`) is a rounded, unshaded 335px banner that starts
+   under the fixed header on mobile, 32px below it and 12px short of the right edge on desktop */
+body.news .hero {
+  height: 460px;
+}
+
+body.news .hero.campaign {
+  height: 335px;
+  border-radius: 4px;
+}
+
+.hero.campaign .hero__media::after {
+  display: none;
+}
+
+.hero.campaign .hero__pic img {
+  border-radius: 4px;
+}
+
+/* banner variant: rounded image banner inside the narrow copy column */
+.hero.banner {
+  height: 300px;
+  margin-top: 32px;
+  border-radius: 8px;
+}
+
+.hero.banner .hero__media::after {
+  background: linear-gradient(0deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 0%) 100%);
+}
+
+.hero.banner .hero__pic img {
+  object-position: center;
+}
+
+.hero.banner .hero__content {
+  inset: auto 0 0;
+  padding: 32px;
+  text-align: left;
+}
+
+.hero.banner .hero__content :is(h2, h3) {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: normal;
 }
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    height: 450px;
+  }
+
+  body.product .hero {
+    height: 460px;
+  }
+
+  .hero .hero__pic--desktop {
+    display: block;
+  }
+
+  .hero .hero__pic--mobile {
+    display: none;
+  }
+
+  .hero .hero__content,
+  body.listing .hero .hero__content {
+    inset: 130px 0 auto;
+    max-width: var(--container);
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  body.product .hero .hero__content {
+    inset: 64px 0 auto;
+  }
+
+  .hero .hero__content :is(h1, h2) {
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2.56px;
+  }
+
+  .hero .hero__content p {
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: normal;
+  }
+
+  .hero.banner {
+    height: 300px;
+  }
+
+  body.news .hero.campaign {
+    width: calc(100% - 12px);
+    height: 372px;
+    margin-top: 32px;
+  }
+
+  .hero.banner .hero__content {
+    inset: auto 0 0;
+    max-width: none;
+  }
+
+  .hero.banner .hero__content :is(h2, h3) {
+    line-height: 32px;
+    letter-spacing: -0.28px;
   }
 }

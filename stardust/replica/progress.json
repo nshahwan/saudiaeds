@@ -1,0 +1,417 @@
+{
+ "_provenance": {
+  "writtenBy": "stardust:replica",
+  "writtenAt": "2026-10-07T09:58:46Z",
+  "gateChannel": "symmetric: live + prototype both captured by the interactive browser session (live-capture.js routine); headless gate scripts are blocked by Imperva and the local headless shell rounds glyph advances (\u22481.4% wider text), so it is not a valid instrument for this site"
+ },
+ "breakpoints": [
+  1440,
+  360
+ ],
+ "archetypes": {
+  "explore-destination": {
+   "pageType": "destination landing (Explore)",
+   "live": "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026/fly-to-athens",
+   "prototype": "stardust/prototypes/explore-destination-proposed.html",
+   "css": [
+    "canon.css",
+    "explore-destination.css"
+   ],
+   "iterations": {
+    "1440": 2,
+    "360": 2
+   },
+   "gate": {
+    "1440": {
+     "pixel": "0.34%",
+     "heightDelta": 0,
+     "contentDiff": "0 structural",
+     "pass": true
+    },
+    "360": {
+     "pixel": "1.04%",
+     "heightDelta": 4,
+     "contentDiff": "1 structural \u2014 justified (live renders a different icon ligature inside the same 'Learn more' link per breakpoint; same href/label)",
+     "pass": true
+    }
+   },
+   "residuals": [
+    "nav labels ~1px wider each than live with identical CSS (cumulative \u22649px at 'Support'); logged, not tuned",
+    "booking widget is a static initial state (desktop default origin 'Jeddah (JED)', mobile placeholder) \u2014 capture-state, D-01"
+   ],
+   "motion": {
+    "observed": [
+     "FAQ single-open"
+    ],
+    "implemented": [
+     "FAQ single-open"
+    ],
+    "dead": []
+   }
+  },
+  "book-manage-product": {
+   "pageType": "product / service (Book & Manage)",
+   "live": "https://www.saudia.com/en-SA/book-and-manage/book/flight-pass",
+   "prototype": "stardust/prototypes/book-manage-flight-pass-proposed.html",
+   "css": [
+    "canon.css",
+    "book-manage-flight-pass.css"
+   ],
+   "iterations": {
+    "1440": 2,
+    "360": 2
+   },
+   "gate": {
+    "1440": {
+     "pixel": "1.57%",
+     "heightDelta": -4,
+     "contentDiff": "0 structural (\ud83d\udfe0 Sign up now is an <a> \u2014 live is a script button that opens the same URL)",
+     "pass": true
+    },
+    "360": {
+     "pixel": "3.18%",
+     "heightDelta": -1,
+     "contentDiff": "0 structural",
+     "pass": true
+    }
+   },
+   "residuals": [
+    "plan-card bands 4\u20136% at 360 (pill/label glyph positions)"
+   ],
+   "motion": {
+    "observed": [
+     "Sign up now \u2192 new tab flightpass.saudia.com"
+    ],
+    "implemented": [
+     "link target=_blank"
+    ],
+    "dead": []
+   }
+  },
+  "experience-cards": {
+   "pageType": "card listing (Experience)",
+   "live": "https://www.saudia.com/en-SA/experience/on-board/classes-of-travel (\u2192 /en-SA/plan/on-board/classes-of-travel)",
+   "prototype": "stardust/prototypes/experience-classes-proposed.html",
+   "css": [
+    "canon.css",
+    "experience-classes.css"
+   ],
+   "iterations": {
+    "1440": 2,
+    "360": 2
+   },
+   "gate": {
+    "1440": {
+     "pixel": "0.56%",
+     "heightDelta": 0,
+     "contentDiff": "0 structural",
+     "pass": true
+    },
+    "360": {
+     "pixel": "1.04%",
+     "heightDelta": 2,
+     "contentDiff": "0 structural",
+     "pass": true
+    }
+   },
+   "residuals": [],
+   "motion": {
+    "observed": [
+     "card hover",
+     "footer accordion (mobile)"
+    ],
+    "implemented": [
+     "card hover",
+     "footer accordion"
+    ],
+    "dead": []
+   }
+  },
+  "home": {
+   "pageType": "home page (dark theme, fixed morphing header)",
+   "live": "https://www.saudia.com/en-SA",
+   "prototype": "stardust/prototypes/home-proposed.html",
+   "css": [
+    "canon.css",
+    "home.css"
+   ],
+   "iterations": {
+    "1440": 3,
+    "360": 3
+   },
+   "gate": {
+    "1440": {
+     "pixel": "2.02%",
+     "heightDelta": 0,
+     "contentDiff": "16 structural \u2014 all justified (12 heading role swaps: live wraps heading text in spans; 2 newsletter-nudge links not rendered, D-13; 2 offer tiles: live overlay link vs build card link, same href)",
+     "pass": true
+    },
+    "360": {
+     "pixel": "4.86%",
+     "heightDelta": -3,
+     "contentDiff": "17 structural \u2014 as 1440 + mobile 'Learn more' icon-ligature pair (same class as explore-destination)",
+     "pass": true
+    }
+   },
+   "residuals": [
+    "360 band 0\u2013500 15%: CDP newsletter nudge + chatbot bubble not rendered (D-13, D-11), notice clamp glyphs, AI-search label box (canon, as explore-destination)",
+    "360 band 6000\u20136500 15%: chat launcher position at a chunk seam; \u00b13px text offsets",
+    "hero slide reset to slide 1 for capture on both sides (live: swiper.slideToLoop(0); prototype: carouselShow(0))"
+   ],
+   "motion": {
+    "observed": [
+     "header fixed + solid on scroll (notice collapses)",
+     "dark\u2192light page theme once the theme marker passes the viewport top",
+     "hero carousel autoplay + prev/next/pause + progress bars"
+    ],
+    "implemented": [
+     "header fixed + solid on scroll (notice collapses)",
+     "dark\u2192light page theme once the theme marker passes the viewport top",
+     "hero carousel autoplay + prev/next/pause + progress bars"
+    ],
+    "dead": []
+   },
+   "eds": {
+    "1440": {
+     "pixel": "2.25%",
+     "heightDelta": 0
+    },
+    "360": {
+     "pixel": "5.94%",
+     "heightDelta": -3
+    },
+    "qaGate": "PASS 29/0/0",
+    "ew": "73/73",
+    "path": "/content/saudiaeds/en/index"
+   }
+  },
+  "press-release": {
+   "pageType": "press release \u2014 modern article layout (51 pages; legacy banner+h2 layout, 168 pages, is a separate archetype)",
+   "live": "https://www.saudia.com/en-SA/about-us/press-releases/press-release-07082026",
+   "prototype": "stardust/prototypes/press-release-proposed.html",
+   "css": [
+    "canon.css",
+    "press-release.css"
+   ],
+   "iterations": {
+    "1440": 2,
+    "360": 2
+   },
+   "gate": {
+    "1440": {
+     "pixel": "0.23%",
+     "heightDelta": 0,
+     "contentDiff": "verbatim text parity 12/12 (article + back link)",
+     "pass": true
+    },
+    "360": {
+     "pixel": "1.14%",
+     "heightDelta": -4,
+     "contentDiff": "as 1440",
+     "pass": true
+    }
+   },
+   "residuals": [
+    "canon footer residuals (awards wrap, 'Download the Saudia app' line-height) \u2014 same as explore-destination / experience-cards",
+    "live hero stacks below 992px, replica at the project's 900px breakpoint (between 900\u2013991px live is single-column, replica two-column)"
+   ],
+   "motion": {
+    "observed": [
+     "Back to news button hover/focus"
+    ],
+    "implemented": [
+     "Back to news button hover/focus"
+    ],
+    "dead": []
+   },
+   "source": "article CSS lifted verbatim from the inline CMS stylesheet (.saudia-modern-article, .saudia-btn-*)",
+   "approvedBy": "user",
+   "approvedAt": "2026-10-08",
+   "eds": {
+    "withNotice": {
+     "1440": {
+      "pixel": "0.76%",
+      "heightDelta": 0
+     },
+     "360": {
+      "pixel": "2.18%",
+      "heightDelta": -4
+     }
+    },
+    "noNotice": {
+     "1440": {
+      "pixel": "1.40%",
+      "heightDelta": -20,
+      "note": "R-04 footer wording"
+     },
+     "360": {
+      "pixel": "1.86%",
+      "heightDelta": -2
+     }
+    },
+    "qaGate": "PASS on 5 variants",
+    "ew": "7/7",
+    "pages": 51,
+    "path": "/content/saudiaeds/en/about-us/press-releases"
+   }
+  },
+  "press-legacy": {
+   "pageType": "press release \u2014 legacy layout: campaign banner (image-link-list), h2 title + h3 subtitle, body copy (168 pages)",
+   "live": "https://www.saudia.com/en-SA/about-us/press-releases/2024/12/press-release-26122024",
+   "prototype": "stardust/prototypes/press-legacy-proposed.html",
+   "css": [
+    "canon.css",
+    "press-legacy.css"
+   ],
+   "iterations": {
+    "1440": 2,
+    "360": 2
+   },
+   "gate": {
+    "1440": {
+     "pixel": "0.23%",
+     "heightDelta": 0,
+     "contentDiff": "verbatim 9/9",
+     "pass": true
+    },
+    "360": {
+     "pixel": "0.96%",
+     "heightDelta": 0,
+     "contentDiff": "verbatim 9/9",
+     "pass": true
+    }
+   },
+   "residuals": [
+    "canon footer residuals only",
+    "banner is 12px short of the right edge on desktop (live swiper width = viewport \u2212 12px), replicated as captured",
+    "mobile banner is a separate rendition per page (this page: a Jakarta campaign image), replicated as captured"
+   ],
+   "chrome": "fixed header (banner under it on mobile), no notice, footer legal links as bulleted list items, '\u2026travel offers' footer copy (R-04 at EDS)",
+   "motion": {
+    "observed": [
+     "fixed header (no scroll morph)"
+    ],
+    "implemented": [
+     "fixed header"
+    ],
+    "dead": []
+   },
+   "approvedBy": "user",
+   "approvedAt": "2026-10-08",
+   "eds": {
+    "legacyCms": {
+     "1440": {
+      "pixel": "1.96%",
+      "heightDelta": -20,
+      "note": "R-04"
+     },
+     "360": {
+      "pixel": "2.10%",
+      "heightDelta": 0
+     }
+    },
+    "plain": {
+     "1440": {
+      "pixel": "7.88%",
+      "heightDelta": -40,
+      "note": "R-11 + R-04"
+     },
+     "360": {
+      "pixel": "9.51%",
+      "heightDelta": -24,
+      "note": "R-11"
+     }
+    },
+    "qaGate": "PASS (both variants)",
+    "pages": 167,
+    "path": "/content/saudiaeds/en/about-us/press-releases"
+   }
+  }
+ },
+ "canon": {
+  "css": "stardust/prototypes/canon.css",
+  "js": "stardust/prototypes/canon.js",
+  "tokens": "stardust/replica/tokens.json",
+  "chromeBuilder": "stardust/replica/build-chrome.py"
+ },
+ "notGated": [
+  "visual-diff heuristics probe (needs live navigation; pixel + parity probes cover the same ground here)",
+  "published-origin gate (no EDS delivery yet)"
+ ],
+ "siblings": {
+  "explore-destination-2026": {
+   "archetype": "explore-destination (fly-to-athens)",
+   "importer": "tools/importer/import-destination.js",
+   "pages": [
+    "abha",
+    "antalya",
+    "bodrum",
+    "el-alamein",
+    "malaga",
+    "mykonos",
+    "nice",
+    "salalah"
+   ],
+   "variants": {
+    "banner + itinerary box": {
+     "pages": [
+      "abha",
+      "antalya",
+      "el-alamein",
+      "malaga",
+      "nice"
+     ],
+     "gatedOn": "abha",
+     "gate": {
+      "1440": {
+       "pixel": "1.25%",
+       "heightDelta": 0
+      },
+      "360": {
+       "pixel": "2.04%",
+       "heightDelta": -4
+      }
+     }
+    },
+    "feature rows (new block: features)": {
+     "pages": [
+      "bodrum",
+      "mykonos",
+      "salalah"
+     ],
+     "gatedOn": "salalah",
+     "gate": {
+      "1440": {
+       "pixel": "0.97%",
+       "heightDelta": 0
+      },
+      "360": {
+       "pixel": "2.24%",
+       "heightDelta": -3
+      }
+     },
+     "values": "lifted from live computed .saudia-feature-row (1440 + 360)"
+    }
+   },
+   "archetypeRecheck": {
+    "1440": {
+     "pixel": "0.87%",
+     "heightDelta": 0
+    },
+    "360": {
+     "pixel": "2.11%",
+     "heightDelta": -4
+    }
+   },
+   "qaGate": {
+    "abha": "PASS 19/1/0",
+    "salalah": "PASS 19/0/0",
+    "fly-to-athens": "PASS 19/1/0"
+   },
+   "roundtrip": {
+    "features": "0 structural, EW 6/6"
+   },
+   "contentCompleteness": "94.3\u201396.6% (importer report)"
+  }
+ }
+}

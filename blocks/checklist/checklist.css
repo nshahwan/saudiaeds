@@ -1,0 +1,88 @@
+/* checklist — values from the gated replica (stardust/prototypes/book-manage-flight-pass.css) */
+
+main .section .checklist-wrapper {
+  margin-top: 48px;
+}
+
+.checklist .checklist__list {
+  list-style: none;
+}
+
+.checklist .checklist__list > li {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 12px;
+  margin-bottom: 32px;
+}
+
+.checklist .checklist__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: var(--field);
+  color: var(--info-blue);
+}
+
+.checklist .checklist__icon .ico {
+  width: 18px;
+  height: 18px;
+}
+
+.checklist .checklist__body :is(h2, h3, h4) {
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+.checklist .checklist__body {
+  padding-bottom: 4px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.checklist .checklist__body.has-list {
+  padding-bottom: 0;
+}
+
+.checklist .checklist__body ul {
+  margin-top: 20px;
+  padding-left: 16px;
+  list-style: disc;
+}
+
+.checklist .checklist__body ul ul {
+  margin-top: 1px;
+}
+
+.checklist .checklist__body strong {
+  font-weight: 700;
+}
+
+@media (width >= 900px) {
+  main .section .checklist-wrapper {
+    width: 588px;
+    margin-top: 0;
+  }
+
+  .checklist .checklist__list > li {
+    column-gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .checklist .checklist__icon .ico {
+    width: 32px;
+    height: 32px;
+  }
+
+  .checklist .checklist__body :is(h2, h3, h4) {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+}

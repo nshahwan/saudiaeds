@@ -1,0 +1,82 @@
+/* Archetype: book-manage-product (Book & Manage › product page, e.g. Flight Pass).
+ * Layered on canon.css. Values from gates/book-manage-flight-pass-{1440,360}/live-capture/styles.json.
+ */
+
+
+/* ---------- Hero ---------- */
+.hero { position: relative; height: 460px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero__content { position: absolute; inset: 146px 20px auto; text-align: center; color: #fff; }
+.hero h1 { font-size: 40px; font-weight: 600; line-height: 44px; letter-spacing: -1.2px; }
+.hero__desc { display: none; }
+
+/* ---------- Intro: copy + CTA, checklist ---------- */
+.product-intro { padding-top: 40px; }
+.product-intro h2 { font-size: 32px; font-weight: 600; line-height: 36px; letter-spacing: -0.64px; color: #000; }
+.product-intro__copy p { margin-top: 16px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--text); }
+
+.btn-primary {
+  display: flex; justify-content: center; align-items: center; width: 100%; height: 60px; margin-top: 24px; padding: 16px;
+  border: 2px solid var(--green); border-radius: 2px; background: var(--green); color: #fff;
+  font-size: 18px; font-weight: 600; line-height: 24px;
+}
+
+.btn-primary .icon { font-size: 28px; width: 28px; vertical-align: middle; }
+
+.checklist { margin-top: 48px; }
+.checklist > li { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; margin-bottom: 32px; }
+.checklist__icon { grid-row: 1 / span 2; width: 40px; height: 40px; border-radius: 100%; background: var(--field); display: flex; align-items: center; justify-content: center; }
+.checklist__icon .icon { font-size: 18px; color: var(--info-blue); }
+.checklist h3 { font-size: 18px; font-weight: 600; line-height: 24px; color: #000; }
+.checklist__body:not(:has(ul)) { padding-bottom: 4px; }
+.checklist__body { font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--text); }
+.checklist__body ul { list-style: disc; margin-top: 20px; padding-left: 16px; }
+.checklist__body ul ul { margin-top: 1px; }
+.checklist strong { font-weight: 700; }
+
+/* ---------- Subscription plans ---------- */
+.plans { padding: 100px 20px 232px; }
+.plans h2 { text-align: center; font-size: 32px; font-weight: 600; line-height: 36px; letter-spacing: -0.64px; color: #000; }
+.plans__lead { margin-top: 16px; text-align: center; font-size: 16px; line-height: 24.8px; letter-spacing: 0.16px; color: rgb(85 85 85); }
+.plans__grid { display: grid; gap: 16px; margin-top: 24px; }
+
+.plan { padding: 6px; border: 1px solid rgb(221 221 221); border-radius: 10px; background: rgb(248 248 248); box-shadow: rgb(0 0 0 / 8%) 0 2px 5px 0; }
+.plan__head { padding: 28px 12px 20px; border-bottom: 1px solid rgb(227 227 227); text-align: center; }
+.plan__head h3 { font-size: 24px; font-weight: 600; line-height: 30px; color: rgb(17 17 17); }
+.plan__head p { margin-top: 6px; font-size: 18px; line-height: 25.2px; letter-spacing: 0.16px; color: rgb(85 85 85); }
+.plan__body { padding: 18px 12px 22px; display: flex; flex-direction: column; align-items: flex-start; }
+.plan__label { display: flex; align-items: center; margin-bottom: 8px; font-size: 14px; line-height: 20px; letter-spacing: 0.28px; text-transform: uppercase; color: rgb(85 85 85); }
+.plan__label img { width: 16px; height: 16px; margin-right: 8px; }
+.plan__detail { margin: 0 0 8px 8px; font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: 0.16px; color: rgb(17 17 17); }
+.plan__pill { display: flex; align-items: center; margin: 0 0 24px 8px; padding: 5px 14px; border-radius: 999px; background: rgb(0 128 62 / 8%); font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: 0.16px; color: var(--green); }
+.plan__pill:last-child { margin-bottom: 0; }
+.plan__pill img { width: 15px; height: 15px; margin-right: 6px; }
+.plan__pill img + img, .plan__pill img:not(:first-child) { margin-left: 6px; }
+
+.plans__note { margin-top: 30px; text-align: center; font-size: 16px; line-height: 24.8px; letter-spacing: 0.16px; color: rgb(85 85 85); }
+.plans__note strong { font-weight: 700; }
+
+/* ================= Desktop ================= */
+@media (min-width: 900px) {
+  .page-product .site-footer { padding-bottom: 20px; }
+  .hero__content { inset: 64px 0 auto; max-width: var(--container); margin: 0 auto; text-align: left; }
+  .hero h1 { font-size: 64px; line-height: 68px; letter-spacing: -2.56px; }
+  .hero__desc { display: block; margin-top: 12px; font-size: 18px; line-height: 24px; }
+
+  .product-intro { padding-top: 56px; }
+  .product-intro__inner { display: flex; justify-content: space-between; align-items: flex-start; }
+  .product-intro__copy { width: 582px; }
+  .product-intro h2 { font-size: 40px; line-height: 48px; letter-spacing: -1.2px; }
+  .btn-primary { display: inline-flex; width: auto; }
+
+  .checklist { width: 588px; margin-top: 0; }
+  .checklist > li { grid-template-columns: 40px 1fr; column-gap: 16px; margin-bottom: 24px; }
+  .checklist__icon .icon { font-size: 32px; }
+  .checklist h3 { font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+
+  .plans { padding: 116px 0 120px; }
+  .plans__inner { max-width: 1100px; margin: 0 auto; }
+  .plans h2 { font-size: 40px; line-height: 48px; letter-spacing: -1.2px; }
+  .plans__grid { grid-template-columns: repeat(3, 1fr); gap: 23.5px; }
+  .plan__head h3 { letter-spacing: -0.24px; }
+}

@@ -1,57 +1,113 @@
 {
-  "definitions": [
-    {
-      "title": "Section",
-      "id": "section",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/section/v1/section",
-            "template": {
-              "model": "section"
-            }
-          }
-        }
+ "definitions": [
+  {
+   "title": "Section",
+   "id": "section",
+   "plugins": {
+    "xwalk": {
+     "page": {
+      "resourceType": "core/franklin/components/section/v1/section",
+      "template": {
+       "model": "section"
       }
+     }
     }
-  ],
-  "models": [
+   }
+  }
+ ],
+ "models": [
+  {
+   "id": "section",
+   "fields": [
     {
-      "id": "section",
-      "fields": [
-        {
-          "component": "text",
-          "name": "name",
-          "label": "Section Name",
-          "description": "The label shown for this section in the Content Tree"
-        },
-        {
-          "component": "multiselect",
-          "name": "style",
-          "label": "Style",
-          "options": [
-            {
-              "name": "Highlight",
-              "value": "highlight"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "filters": [
+     "component": "text",
+     "name": "name",
+     "label": "Section Name",
+     "description": "The label shown for this section in the Content Tree"
+    },
     {
-      "id": "section",
-      "components": [
-        "text",
-        "image",
-        "button",
-        "title",
-        "hero",
-        "cards",
-        "columns",
-        "fragment"
-      ]
+     "component": "multiselect",
+     "name": "style",
+     "label": "Style",
+     "options": [
+      {
+       "name": "Highlight",
+       "value": "highlight"
+      },
+      {
+       "name": "Narrow copy column",
+       "value": "narrow"
+      },
+      {
+       "name": "Itinerary box",
+       "value": "itinerary"
+      },
+      {
+       "name": "Split (copy + list)",
+       "value": "split"
+      },
+      {
+       "name": "Centered",
+       "value": "centered"
+      },
+      {
+       "name": "FAQ",
+       "value": "faq"
+      },
+      {
+       "name": "Notice strip (nav fragment)",
+       "value": "notice"
+      },
+      {
+       "name": "Light page theme from here (home)",
+       "value": "theme-light"
+      },
+      {
+       "name": "Article (press release body)",
+       "value": "article"
+      },
+      {
+       "name": "Article end (back link)",
+       "value": "article-end"
+      },
+      {
+       "name": "News title (legacy press release)",
+       "value": "news"
+      },
+      {
+       "name": "News body (legacy press release)",
+       "value": "news-body"
+      }
+     ]
     }
-  ]
+   ]
+  }
+ ],
+ "filters": [
+  {
+   "id": "section",
+   "components": [
+    "text",
+    "image",
+    "button",
+    "title",
+    "hero",
+    "cards",
+    "columns",
+    "fragment",
+    "booking",
+    "accordion",
+    "checklist",
+    "plans",
+    "carousel",
+    "fares",
+    "features",
+    "offers",
+    "promo",
+    "stories",
+    "article-hero",
+    "quote"
+   ]
+  }
+ ]
 }

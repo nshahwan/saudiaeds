@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/quote"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/faq-item"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/press-release"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/destination"/>
+    <filter root="/content/dam/saudiaeds/jcr:content" mode="merge_properties"/>
+</workspaceFilter>

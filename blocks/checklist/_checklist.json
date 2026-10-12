@@ -1,0 +1,45 @@
+{
+  "definitions": [
+    {
+      "title": "Checklist",
+      "id": "checklist",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Checklist",
+              "filter": "checklist"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Checklist Item",
+      "id": "checklist-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Checklist Item",
+              "model": "checklist-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "checklist-item",
+      "fields": [
+        { "component": "richtext", "name": "text", "label": "Text (heading + body)", "valueType": "string", "value": "" }
+      ]
+    }
+  ],
+  "filters": [
+    { "id": "checklist", "components": ["checklist-item"] }
+  ]
+}

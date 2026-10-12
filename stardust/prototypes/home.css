@@ -1,0 +1,260 @@
+/* Archetype: home (https://www.saudia.com/en-SA). Layered on canon.css.
+ * Values from gates/home-{1440,360}/live-capture/styles.json and the page's inline component CSS.
+ * Live runs a dark theme (body.dark-theme, --background #192518) that switches to the standard
+ * light theme once the theme marker before "Exceptional experiences" scrolls above the viewport
+ * (app-jss-theme data-theme-change="White"); the header is fixed and morphs on scroll.
+ */
+
+.page-home { background: #192518; }
+.page-home.theme-light { background: #fff; }
+
+/* ---------- Fixed header: transparent over the hero, solid once scrolled, light with the page ---------- */
+.page-home .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; }
+.page-home .nav-bar { height: 74px; background: linear-gradient(180deg, #1a1a1a 0%, rgb(23 23 36 / 0%) 100%); box-shadow: none; }
+.page-home.is-scrolled .notice { display: none; }
+.page-home.is-scrolled .nav-bar { background: #1a1a1a; }
+
+.page-home .on-light { display: none; }
+.page-home .logo--mobile img { height: 40px; }
+.page-home .nav-tools { top: 4px; }
+.page-home .ai-search { border-color: rgb(255 255 255 / 20%); background: rgb(0 0 0 / 5%); color: #fff; }
+.page-home .person-btn { background: rgb(255 255 255 / 5%); }
+.page-home .person-btn .icon { color: rgb(255 255 255 / 70%); }
+.page-home .menu-btn { margin-top: 4px; color: #fff; }
+
+.page-home.theme-light .nav-bar { background: #fff; box-shadow: rgb(0 0 0 / 10%) 0 1px 0 0; }
+.page-home.theme-light .on-dark { display: none; }
+.page-home.theme-light .on-light { display: block; }
+.page-home.theme-light .logo--mobile img { height: 32px; }
+.page-home.theme-light .ai-search { border-color: var(--line); background: none; color: var(--text); }
+.page-home.theme-light .person-btn { background: var(--field); }
+.page-home.theme-light .person-btn .icon { color: var(--text); }
+.page-home.theme-light .menu-btn { color: var(--text); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 6px 12px 6px 10px; border-radius: 2px; border: 2px solid; font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: normal; color: #fff; }
+.btn--primary { background: var(--green); border-color: var(--green); }
+.btn--dark { background: #1a1a1a; border-color: #1a1a1a; }
+.btn .icon { font-size: 30px; width: 30px; line-height: 24px; overflow: hidden; }
+
+.more-link { display: inline-flex; align-items: center; flex: none; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: #08b35f; }
+.more-link .icon { font-size: 24px; width: 24px; }
+.theme-light .more-link { color: var(--green); }
+
+/* ---------- Hero carousel ---------- */
+.home-hero { position: relative; margin-top: 60px; height: 496px; overflow: hidden; color: #fff; }
+.home-hero__track { height: 100%; }
+.home-hero__slide { position: absolute; inset: 0; visibility: hidden; }
+.home-hero__slide.is-active { visibility: visible; }
+.home-hero picture { position: relative; display: block; height: 100%; }
+.home-hero picture::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(22 22 33 / 0%) 47.76%, #192518 100%) no-repeat; }
+.home-hero img { width: 100%; height: 100%; object-fit: cover; }
+.home-hero__content { position: absolute; inset: 126px 20px auto; text-align: center; }
+.home-hero h2 { font-size: 40px; font-weight: 600; line-height: 44px; letter-spacing: -1.2px; }
+.home-hero__desc { display: none; }
+.home-hero__cta { margin-top: 14px; }
+
+.home-hero__controls { position: absolute; left: 50%; top: 320px; transform: translateX(-50%); display: flex; align-items: center; }
+.home-hero__bars { display: flex; gap: 4px; margin-right: 8px; }
+.home-hero__bars span { width: 68px; height: 3px; border-radius: 2px; border: 1px solid rgb(255 255 255 / 70%); border-width: 1px 0; background: rgb(255 255 255 / 30%); }
+.home-hero__bars span.is-active { background: #fff; }
+.home-hero__btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgb(0 0 0 / 20%); color: #fff; }
+.home-hero__btn .icon { font-size: 24px; width: 24px; }
+.home-hero__prev, .home-hero__next { display: none; }
+
+/* ---------- Booking widget (home variant; base rules mirror explore-destination.css) ---------- */
+.booking { position: relative; z-index: 11; margin: -116px 20px 80px; background: #fff; border-radius: 4px; }
+.booking__panel { position: relative; padding: 16px 16px 32px; height: 243px; }
+.booking__tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; }
+.booking__tab { flex: none; padding-bottom: 15px; border-bottom: 3px solid transparent; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--text); }
+.booking__tab.is-active { font-weight: 600; color: #000; border-bottom-color: var(--green); }
+.booking__options { display: none; }
+.booking__fields { position: relative; margin-top: 24px; }
+.field { position: relative; height: 60px; border-radius: 4px; background: var(--field); border: 2px solid transparent; }
+.field + .booking__swap + .field { margin-top: 8px; }
+.field__label { position: absolute; left: 16px; top: 16px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--text-42); }
+.field__value, .field__icon { display: none; }
+.booking__swap { position: absolute; right: 20px; top: 40px; z-index: 1; width: 40px; height: 40px; border-radius: 40px; background: #fff; box-shadow: rgb(0 0 0 / 12%) 0 4px 6px 0; color: var(--text); display: flex; align-items: center; justify-content: center; }
+.booking__swap .icon { font-size: 24px; transform: rotate(90deg); }
+
+.booking__links { display: flex; flex-direction: column; gap: 16px; padding: 0 20px; }
+.booking__links a { display: inline-flex; align-items: center; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--green); }
+.booking__links .icon { font-size: 16px; width: 16px; }
+.booking__links .plus { font-size: 12px; }
+.booking__link--desktop { display: none; }
+
+.booking__info { margin-top: 24px; display: flex; align-items: flex-start; gap: 14px; padding: 12px 22px 12px 20px; border-radius: 0 0 4px 4px; background: var(--info-blue); color: #fff; font-size: 14px; line-height: 20px; letter-spacing: 0.28px; }
+.booking__info-icon { font-size: 24px; width: 24px; }
+.booking__info p { width: 208px; }
+.booking__info a { margin-left: auto; display: flex; align-items: center; }
+.booking__info-more, .booking__chev-d { display: none; }
+.booking__info a::after { content: 'arrow_forward'; font-family: 'Material Symbols Outlined'; font-size: 24px; line-height: 1; width: 24px; font-feature-settings: 'liga'; }
+
+/* ---------- Best fares ---------- */
+.fares { padding-top: 80px; color: #fff; }
+.fares__title { padding-top: 20px; font-size: 32px; font-weight: 600; line-height: 36px; letter-spacing: -0.64px; }
+.fares__city { display: inline-block; font-size: 40px; font-weight: 400; line-height: 48px; letter-spacing: -1.2px; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.fares__chev { font-size: 32px; width: 32px; vertical-align: -2px; color: rgb(255 255 255 / 70%); }
+.fares__bar { display: flex; justify-content: space-between; align-items: center; gap: 25px; margin: 14px -9px 0 0; }
+.fares__note { flex: 1; font-size: 16px; line-height: 20px; letter-spacing: 0.32px; color: rgb(255 255 255 / 70%); }
+.fares__list { display: flex; gap: 16px; margin: 30px -20px 0; padding: 0 20px; overflow: hidden; }
+.fares__list li { flex: none; width: 246px; }
+.fares__list img { width: 100%; height: 324px; object-fit: cover; border-radius: 4px; }
+.fares__list h3 { margin-top: 16px; font-size: 18px; font-weight: 600; line-height: 24px; color: #fff; }
+.fares__price { font-size: 18px; font-weight: 600; line-height: 24px; color: #08b35f; }
+.fares__trip { margin-top: 8px; font-size: 14px; line-height: 20px; letter-spacing: 0.28px; color: rgb(255 255 255 / 70%); }
+
+/* ---------- Exclusive offers ---------- */
+.offers { padding-top: 80px; color: #fff; }
+.offers h2 { font-size: 32px; font-weight: 600; line-height: 36px; letter-spacing: -0.64px; }
+.offers__head .more-link { margin-top: 12px; }
+.offers__grid { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+.offers__stack { display: flex; flex-direction: column; gap: 16px; }
+.offer { position: relative; display: block; height: 165px; border-radius: 4px; overflow: hidden; }
+.offer--lead { height: 343px; }
+.offer picture { display: block; height: 100%; }
+.offer picture::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(26 38 25 / 0%) 50%, rgb(22 32 21 / 80%) 100%) no-repeat; }
+.offer img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.offer__text { position: absolute; left: 24px; right: 104px; bottom: 24px; }
+.offer h3 { font-size: 18px; font-weight: 600; line-height: 24px; color: #fff; }
+.offer p { margin-top: 8px; font-size: 14px; line-height: 20px; letter-spacing: 0.288px; color: rgb(255 255 255 / 70%); }
+.offer__go { position: absolute; right: 24px; bottom: 24px; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 40px; background: var(--green); font-size: 24px; color: #fff; }
+.offer__go::after { content: 'arrow_forward'; font-family: 'Material Icons'; font-size: 24px; line-height: 1; font-feature-settings: 'liga'; }
+
+/* ---------- Promo banners ---------- */
+.promo { padding-top: 80px; }
+.promo__card { position: relative; height: 532px; border-radius: 4px; overflow: hidden; }
+.promo__card picture, .promo__card img { display: block; width: 100%; height: 100%; }
+.promo__card img { object-fit: cover; border-radius: 4px; }
+.promo__content { position: absolute; inset: 24px 20px auto; color: #fff; }
+.promo--bottom .promo__content { inset: auto 20px 24px; }
+.promo h2 { font-size: 32px; font-weight: 600; line-height: 36px; letter-spacing: -0.64px; }
+.promo p { margin-top: 10px; font-size: 14px; line-height: 20px; letter-spacing: 0.28px; }
+.promo .btn { margin-top: 26px; }
+.promo p + .btn { margin-top: 16px; }
+
+/* ---------- Exceptional experiences ---------- */
+.news { padding-top: 100px; color: #fff; }
+.news__intro { text-align: center; }
+.news h2 { font-size: 40px; font-weight: 600; line-height: 44px; letter-spacing: -1.2px; }
+.news__intro p { margin-top: 16px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: rgb(255 255 255 / 70%); }
+.news__list { display: flex; flex-direction: column; gap: 40px; margin-top: 76px; }
+.news__list a { display: block; }
+/* live lays every mobile news image out in a 180px slot (the 670x423 one overflows it) */
+.news__list picture { display: block; height: 180px; }
+.news__list img { width: 100%; height: auto; border-radius: 4px; }
+.news__text { margin-top: 32px; }
+.news h3 { font-size: 18px; font-weight: 600; line-height: 24px; color: #fff; }
+.news__text p { margin-top: 8px; font-size: 14px; line-height: 20px; letter-spacing: 0.28px; color: rgb(255 255 255 / 70%); }
+.news__text .more-link { margin-top: 8px; }
+.theme-light .news h3 { color: #000; }
+.theme-light .news__text p { color: var(--text); }
+
+.promo--last { padding-bottom: 232px; }
+
+/* ---------- Footer: payment partners (home only) ---------- */
+.payments { margin-top: 40px; }
+.payments h3 { font-size: 14px; font-weight: 400; line-height: 24px; letter-spacing: 0.16px; color: var(--text); }
+.payments ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.payments img { height: 20px; width: auto; }
+.page-home .footer-awards { padding-bottom: 32px; }
+
+/* ================= Desktop ================= */
+@media (min-width: 900px) {
+  .page-home .nav-bar { height: 72px; }
+  .page-home .logo--mobile img { height: auto; }
+
+  .home-hero { margin-top: 0; height: 560px; }
+  .home-hero__content { inset: 128px 0 auto; max-width: var(--container); margin: 0 auto; text-align: left; }
+  .home-hero h2 { max-width: 780px; font-size: 64px; line-height: 68px; letter-spacing: -2.56px; }
+  .home-hero__desc { display: block; margin-top: 12px; font-size: 18px; line-height: 24px; }
+  .home-hero__cta { height: 60px; margin-top: 36px; padding: 16px 18px; }
+  .home-hero__desc + .home-hero__cta { margin-top: 24px; }
+  .home-hero__controls { left: auto; right: max(120px, calc((100% - var(--container)) / 2)); top: 416px; transform: none; gap: 16px; }
+  .home-hero__bars span { width: 102px; }
+  .home-hero__bars { margin-right: 0; }
+  .home-hero__prev, .home-hero__next { display: flex; }
+
+  .booking { max-width: var(--container); margin: 2px auto 0; }
+  .booking__panel { padding: 16px 24px 24px; height: auto; }
+  .booking__tabs { width: 1152px; }
+  .booking__options { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; height: 24px; }
+  .booking__trip { display: flex; gap: 24px; }
+  .radio { display: flex; align-items: center; }
+  .radio__ring { position: relative; width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgb(0 0 0 / 42%); }
+  .radio.is-checked .radio__ring { border-color: var(--green); }
+  .radio.is-checked .radio__ring::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--green); }
+  .radio__label { padding-left: 10px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--text); }
+  .toggle { display: flex; align-items: center; gap: 8px; }
+  .toggle__track { position: relative; width: 44px; height: 24px; border-radius: 100px; background: rgb(0 0 0 / 20%); }
+  .toggle__thumb { position: absolute; left: 2px; top: 2px; width: 20px; height: 20px; border-radius: 100%; background: #fff; box-shadow: rgb(0 0 0 / 20%) 0 2px 1px -1px, rgb(0 0 0 / 14%) 0 1px 1px 0, rgb(0 0 0 / 12%) 0 1px 3px 0; }
+  .toggle__label { font-size: 16px; line-height: 24px; letter-spacing: 0.16px; color: var(--green); }
+  .booking__fields { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+  .field { flex: 1; height: 80px; }
+  .field + .booking__swap + .field { margin-top: 0; }
+  .field__label { left: 24px; top: 11px; font-size: 12px; line-height: 16px; letter-spacing: 0.48px; }
+  .field__value { display: block; position: absolute; left: 24px; top: 30px; font-size: 24px; line-height: 32px; letter-spacing: -0.24px; color: #000; }
+  .field--to .field__label { top: 24px; font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+  .field__icon { display: block; position: absolute; right: 24px; top: 22px; font-size: 32px; width: 32px; color: var(--green); }
+  .field--to .field__icon { color: rgb(0 0 0 / 30%); }
+  .booking__swap { position: static; flex: none; background: none; box-shadow: none; }
+  .booking__swap .icon { transform: none; }
+
+  .booking__links { position: absolute; top: 16px; right: 48px; flex-direction: row; gap: 24px; padding: 0; }
+  .booking__link--desktop { display: block; }
+  .booking__info { margin-top: 0; align-items: center; }
+  .booking__info p { width: auto; }
+  .booking__info-more { display: inline; }
+  .booking__chev-d { display: inline-block; font-size: 24px; width: 24px; }
+  .booking__info a::after { content: none; }
+
+  .fares { padding-top: 120px; }
+  .fares__title { padding-top: 0; font-size: 40px; line-height: 48px; letter-spacing: -1.2px; }
+  .fares__city { margin-left: 0; }
+  .fares__chev { font-size: 40px; width: 40px; vertical-align: -6px; }
+  .fares__bar { margin: 12px -9px 0 0; }
+  .fares__list { gap: 24px; margin: 32px 0 0; padding: 0; }
+  .fares__list li { width: 282px; }
+  .fares__list img { height: 372px; }
+  .fares__list h3, .fares__price { font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+
+  .offers h2 { font-size: 40px; line-height: 48px; letter-spacing: -1.2px; }
+  .offers__head { display: flex; justify-content: space-between; align-items: flex-end; }
+  .offers__head .more-link { margin: 0 0 5px; }
+  .offers__grid { flex-direction: row; gap: 24px; height: 446px; margin-top: 32px; }
+  .offer, .offer--lead { height: 446px; }
+  .offer--lead { flex: 0 0 588px; }
+  .offer--tall { flex: 0 0 282px; }
+  .offers__stack { flex: 0 0 282px; gap: 24px; }
+  .offers__stack .offer { height: 211px; }
+  .offer h3 { font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+  .offer p { margin-top: 4px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; }
+
+  .promo { padding-top: 120px; }
+  .promo__card { height: 372px; }
+  .promo__content { inset: 0 auto 0 32px; max-width: 520px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  .promo--bottom .promo__content { inset: 0 auto 62px 32px; justify-content: flex-end; }
+  .promo h2 { font-size: 40px; line-height: 48px; letter-spacing: -1.2px; }
+  .promo p { margin-top: 12px; font-size: 16px; line-height: 24px; letter-spacing: 0.16px; }
+  .promo .btn { height: 60px; margin-top: 32px; padding: 16px 18px; }
+  .promo p + .btn { margin-top: 20px; }
+
+  .news { padding-top: 120px; }
+  .news .container { display: flex; justify-content: space-between; align-items: flex-start; }
+  .news__intro { width: 488px; text-align: left; }
+  .news h2 { font-size: 64px; line-height: 68px; letter-spacing: -2.56px; }
+  .news__list { width: 588px; gap: 32px; margin-top: 0; }
+  .news__list a { display: flex; gap: 24px; align-items: flex-start; }
+  .news__list picture { flex: 0 0 282px; height: auto; }
+  .news__list img { height: 218px; object-fit: cover; }
+  .news__text { flex: 1; margin-top: 0; }
+  .news h3 { font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+
+  .promo--last { padding-bottom: 48px; }
+
+  .footer-awards__side { display: flex; flex-direction: column; align-items: flex-start; }
+  .payments { width: 320px; margin: 28px 0 16px; }
+  .payments ul { gap: 8px; }
+  .payments img { height: 16px; }
+  .page-home .footer-awards { padding-bottom: 44px; }
+}

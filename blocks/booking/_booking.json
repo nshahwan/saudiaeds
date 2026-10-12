@@ -1,0 +1,31 @@
+{
+  "definitions": [
+    {
+      "title": "Booking",
+      "id": "booking",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Booking",
+              "model": "booking"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "booking",
+      "fields": [
+        { "component": "richtext", "name": "tabs", "label": "Tabs (bulleted list, first = active) + promo link paragraph", "valueType": "string", "value": "" },
+        { "component": "richtext", "name": "trip", "label": "Trip options (round trip, one way, miles toggle)", "valueType": "string", "value": "" },
+        { "component": "richtext", "name": "route", "label": "Route fields (From label, default origin, To label)", "valueType": "string", "value": "" },
+        { "component": "richtext", "name": "info", "label": "Info bar (message + link)", "valueType": "string", "value": "" }
+      ]
+    }
+  ],
+  "filters": []
+}

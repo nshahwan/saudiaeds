@@ -1,0 +1,6 @@
+http://127.0.0.1:8795/en/index.html
+http://127.0.0.1:8795/en/explore/saudia-new-destinations-2026/fly-to-athens.html
+http://127.0.0.1:8795/en/book-and-manage/book/flight-pass.html
+http://127.0.0.1:8795/en/plan/on-board/classes-of-travel.html
+http://127.0.0.1:8795/en/nav.html
+http://127.0.0.1:8795/en/footer.html

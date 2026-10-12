@@ -20,6 +20,30 @@
         "name": "keywords",
         "multi": true,
         "label": "Keywords"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "template",
+        "label": "Template (home | destination | product | listing | article | news)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "theme",
+        "label": "Theme (beige | no-notice | legacy-cms, comma-separated)"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "nav",
+        "label": "Navigation fragment"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "footer",
+        "label": "Footer fragment"
       }
     ]
   },
@@ -136,8 +160,137 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Narrow copy column",
+            "value": "narrow"
+          },
+          {
+            "name": "Itinerary box",
+            "value": "itinerary"
+          },
+          {
+            "name": "Split (copy + list)",
+            "value": "split"
+          },
+          {
+            "name": "Centered",
+            "value": "centered"
+          },
+          {
+            "name": "FAQ",
+            "value": "faq"
+          },
+          {
+            "name": "Notice strip (nav fragment)",
+            "value": "notice"
+          },
+          {
+            "name": "Light page theme from here (home)",
+            "value": "theme-light"
+          },
+          {
+            "name": "Article (press release body)",
+            "value": "article"
+          },
+          {
+            "name": "Article end (back link)",
+            "value": "article-end"
+          },
+          {
+            "name": "News title (legacy press release)",
+            "value": "news"
+          },
+          {
+            "name": "News body (legacy press release)",
+            "value": "news-body"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "summary",
+        "value": "",
+        "label": "Summary"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "article-hero",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "meta",
+        "value": "",
+        "label": "Meta line (one paragraph per item: location, date)",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (the h1 title, then the subtitle)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "booking",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "tabs",
+        "label": "Tabs (bulleted list, first = active) + promo link paragraph",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "trip",
+        "label": "Trip options (round trip, one way, miles toggle)",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "route",
+        "label": "Route fields (From label, default origin, To label)",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "info",
+        "label": "Info bar (message + link)",
+        "valueType": "string",
+        "value": ""
       }
     ]
   },
@@ -152,11 +305,69 @@
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt"
+      },
+      {
         "component": "richtext",
         "name": "text",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image (desktop)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Image (mobile)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobileImageAlt",
+        "label": "Mobile alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (title, optional description, CTA link)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "checklist-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text (heading + body)",
+        "valueType": "string",
+        "value": ""
       }
     ]
   },
@@ -180,17 +391,33 @@
     ]
   },
   {
-    "id": "fragment",
+    "id": "fare",
     "fields": [
       {
-        "component": "aem-content",
-        "name": "reference",
-        "label": "Reference"
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (linked city heading, price, trip line)",
+        "valueType": "string"
       }
     ]
   },
   {
-    "id": "hero",
+    "id": "feature",
     "fields": [
       {
         "component": "reference",
@@ -211,6 +438,259 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "fragment",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Reference"
+      }
+    ]
+  },
+  {
+    "id": "hero",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image (desktop)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Image (mobile)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobileImageAlt",
+        "label": "Mobile alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Variant",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Banner (in-copy image banner)",
+            "value": "banner"
+          },
+          {
+            "name": "Campaign (press release banner)",
+            "value": "campaign"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "offer",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image (desktop)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Image (mobile)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobileImageAlt",
+        "label": "Mobile alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (title — link it to make the tile a link — and optional description)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "plan-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "head",
+        "label": "Head (title + audience)",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "quarterly",
+        "label": "Quarterly payment (label, detail, pill lines)",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "onetime",
+        "label": "One-time payment (label, detail, pill lines)",
+        "valueType": "string",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "promo",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image (desktop)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Image (mobile)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobileImageAlt",
+        "label": "Mobile alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (heading, optional description, CTA link)",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Text position",
+        "valueType": "string",
+        "value": "",
+        "options": [
+          {
+            "name": "Default (centred on desktop, top on mobile)",
+            "value": ""
+          },
+          {
+            "name": "Bottom",
+            "value": "bottom"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quote",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "quotation",
+        "value": "",
+        "label": "Quotation",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "attribution",
+        "label": "Attribution",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "story",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image (desktop)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "mobileImage",
+        "label": "Image (mobile)",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobileImageAlt",
+        "label": "Mobile alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text (title, summary, link — the link is the story target)",
         "valueType": "string"
       }
     ]
