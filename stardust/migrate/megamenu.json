@@ -1,0 +1,829 @@
+{
+ "_comment": "Live saudia.com mega menus (captured 2026-10-13 in the interactive session): groups, links, column layout, promo card per top-level item.",
+ "menus": [
+  {
+   "label": "Explore",
+   "columns": [
+    [
+     "Our Network"
+    ],
+    [
+     "Visit Saudi Arabia"
+    ],
+    [
+     "Travel Partners"
+    ],
+    [
+     "Flight Deals"
+    ]
+   ],
+   "groups": [
+    {
+     "title": "Our Network",
+     "links": [
+      {
+       "label": "Middle East",
+       "href": "/en-SA/our-network",
+       "external": false
+      },
+      {
+       "label": "Asia",
+       "href": "/en-SA/our-network",
+       "external": false
+      },
+      {
+       "label": "Africa",
+       "href": "/en-SA/our-network",
+       "external": false
+      },
+      {
+       "label": "Europe",
+       "href": "/en-SA/our-network",
+       "external": false
+      },
+      {
+       "label": "North America",
+       "href": "/en-SA/our-network",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Visit Saudi Arabia",
+     "links": [
+      {
+       "label": "About Saudi Arabia",
+       "href": "https://www.visitsaudi.com/about-saudi",
+       "external": true
+      },
+      {
+       "label": "Flights",
+       "href": "/en-SA/plan/about-saudia/discover-saudi-arabia",
+       "external": false
+      },
+      {
+       "label": "Visa",
+       "href": "/en-SA/explore/visit-saudi-arabia/visas",
+       "external": false
+      },
+      {
+       "label": "UNESCO sites",
+       "href": "/en-SA/plan/about-saudia/discover-saudi-arabia",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Travel Partners",
+     "links": [
+      {
+       "label": "Overview",
+       "href": "https://www.saudia.com/en-SA/plan/about-saudia/travel-partners?tabid=overview-main",
+       "external": false
+      },
+      {
+       "label": "Lounges",
+       "href": "https://www.saudia.com/en-SA/plan/about-saudia/travel-partners?tabid=lounges",
+       "external": false
+      },
+      {
+       "label": "Planner",
+       "href": "https://www.saudia.com/en-SA/plan/about-saudia/travel-partners?tabid=planner",
+       "external": false
+      },
+      {
+       "label": "Passes",
+       "href": "https://www.saudia.com/en-SA/plan/about-saudia/travel-partners?tabid=passes",
+       "external": false
+      },
+      {
+       "label": "Partners",
+       "href": "https://www.saudia.com/en-SA/plan/about-saudia/travel-partners?tabid=partners",
+       "external": false
+      },
+      {
+       "label": "Skycare & Protect",
+       "href": "https://www.saudia.com/en-SA/plan/about-saudia/travel-partners?tabid=SkyCareProtect",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Flight Deals",
+     "links": [
+      {
+       "label": "Jeddah",
+       "href": "https://www.saudia.com/en-sa/flight-deals-to-jeddah",
+       "external": false
+      },
+      {
+       "label": "Riyadh",
+       "href": "https://www.saudia.com/en-sa/flight-deals-to-riyadh",
+       "external": false
+      },
+      {
+       "label": "Dubai",
+       "href": "https://www.saudia.com/en-sa/flight-deals-to-dubai",
+       "external": false
+      },
+      {
+       "label": "Cairo",
+       "href": "https://www.saudia.com/en-sa/flight-deals-to-cairo",
+       "external": false
+      },
+      {
+       "label": "London",
+       "href": "https://www.saudia.com/en-sa/flight-deals-to-london",
+       "external": false
+      },
+      {
+       "label": "New York",
+       "href": "https://www.saudia.com/en-sa/flight-deals-to-new-york",
+       "external": false
+      },
+      {
+       "label": "Other Deals",
+       "href": "https://www.saudia.com/en-sa/flight-deals",
+       "external": false
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "img": "-/media/SaudiaWebApp/data/media/img/Live-images/Menu_banners/Menu_Explore.ashx?h=280&iar=0&w=384&rev=8cc05f270f4647aab363ea1fa86737f7&hash=AD39BF9F2D547E6A6877FBA15E7024B8",
+    "alt": "Elephant Rock, a landmark in the Al Ula region of Saudi Arabia",
+    "text": "Journey with us on a unique adventure to discover Saudi Arabia",
+    "href": "/en-SA/plan/about-saudia/discover-saudi-arabia",
+    "heading": "Discover the wonders of Saudi Arabia"
+   }
+  },
+  {
+   "label": "Plan",
+   "columns": [
+    [
+     "Travel information",
+     "Flight Information"
+    ],
+    [
+     "Visa & permits"
+    ],
+    [
+     "Baggage"
+    ],
+    [
+     "Special assistance"
+    ]
+   ],
+   "groups": [
+    {
+     "title": "Travel information",
+     "links": [
+      {
+       "label": "Guidance & tips",
+       "href": "/en-SA/book/travel-information/guidance-and-tips",
+       "external": false
+      },
+      {
+       "label": "Branded Fares",
+       "href": "/en-SA/book/travel-information/branded-fares",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Flight Information",
+     "links": [
+      {
+       "label": "Flight Status",
+       "href": "/en-SA/flightstatus",
+       "external": false
+      },
+      {
+       "label": "Flight Schedule",
+       "href": "/en-SA/flightschedule",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Visa & permits",
+     "links": [
+      {
+       "label": "Saudi Stopover",
+       "href": "/en-SA/transit-visa",
+       "external": false
+      },
+      {
+       "label": "Visa",
+       "href": "/en-SA/explore/visit-saudi-arabia/visas",
+       "external": false
+      },
+      {
+       "label": "Umrah by Saudia visa",
+       "href": "/en-SA/plan/before-you-fly/hajj-and-umrah",
+       "external": false
+      },
+      {
+       "label": "NUSUK with Saudia",
+       "href": "/en-SA/plan/before-you-fly/umrah-with-saudia",
+       "external": false
+      },
+      {
+       "label": "Saudi Arabian embassies",
+       "href": "https://saudiembassy.sa/en/Pages/default.aspx",
+       "external": true
+      }
+     ]
+    },
+    {
+     "title": "Baggage",
+     "links": [
+      {
+       "label": "Baggage Guidelines & Services",
+       "href": "/en-SA/manage/baggage/baggage-info",
+       "external": false
+      },
+      {
+       "label": "Baggage allowances",
+       "href": "/en-SA/before-flying/travel-information/branded-fares",
+       "external": false
+      },
+      {
+       "label": "Additional baggage",
+       "href": "/en-SA/manage/baggage/additional-baggage",
+       "external": false
+      },
+      {
+       "label": "Extra baggage",
+       "href": "/en-SA/manage/baggage/extra-baggage",
+       "external": false
+      },
+      {
+       "label": "Carry on baggage",
+       "href": "/en-SA/manage/baggage/carry-on-baggage",
+       "external": false
+      },
+      {
+       "label": "Special baggage",
+       "href": "/en-SA/manage/baggage/special-baggage",
+       "external": false
+      },
+      {
+       "label": "Permitted items",
+       "href": "/en-SA/manage/baggage/permitted-items",
+       "external": false
+      },
+      {
+       "label": "Prohibited items",
+       "href": "/en-SA/manage/baggage/prohibited-items",
+       "external": false
+      },
+      {
+       "label": "Lost baggage",
+       "href": "",
+       "external": false
+      },
+      {
+       "label": "Mishandled Baggage (Delayed/Lost/Damaged)",
+       "href": "/en-SA/forms/baggage-claim-form",
+       "external": false
+      },
+      {
+       "label": "Track baggage",
+       "href": "/en-SA/BaggageTracker/Trackbags",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Special assistance",
+     "links": [
+      {
+       "label": "Special care",
+       "href": "/en-SA/book/special-assistance/special-care",
+       "external": false
+      },
+      {
+       "label": "Special dining selection",
+       "href": "/en-SA/book/special-assistance/special-meals",
+       "external": false
+      },
+      {
+       "label": "Medical information forms",
+       "href": "/en-SA/book/special-assistance/medif",
+       "external": false
+      },
+      {
+       "label": "Traveling with children",
+       "href": "/en-SA/book/special-assistance/travelling-with-children",
+       "external": false
+      },
+      {
+       "label": "Traveling with pets",
+       "href": "/en-SA/book/flight-information/travelling-with-pets",
+       "external": false
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "img": "-/media/SaudiaWebApp/data/media/img/Live-images/Menu_banners/Saudia_A321_logo.ashx?h=280&iar=0&w=384&rev=8481d0057a7b499cabb253658f6641ea&hash=E34ECE5D5812E4179FDDB8B22F82060E",
+    "alt": "Saudia aircraft flying over the clouds during daytime",
+    "text": "",
+    "href": "/en-SA/our-network",
+    "heading": "Discover the destinations you can travel with Saudia"
+   }
+  },
+  {
+   "label": "Book & Manage",
+   "columns": [
+    [
+     "Book"
+    ],
+    [
+     "Manage"
+    ],
+    [
+     "Business & Governmental Travel Services"
+    ],
+    [
+     "Additional travel services"
+    ]
+   ],
+   "groups": [
+    {
+     "title": "Book",
+     "links": [
+      {
+       "label": "Flights",
+       "href": "https://www.saudia.com/en-SA/Multicity/FlightSearch?triptype=round-trip",
+       "external": false
+      },
+      {
+       "label": "Reservation Services",
+       "href": "/en-SA/book/flight-information/reservation-services",
+       "external": false
+      },
+      {
+       "label": "Holidays packages",
+       "href": "https://www.saudia.com/holidays/",
+       "external": true
+      },
+      {
+       "label": "Umrah Packages",
+       "href": "/en-SA/umrah/fly-saudia-for-umrah-packages",
+       "external": false
+      },
+      {
+       "label": "Hotels",
+       "href": "https://www.expedia.sa/SaudiaEN ",
+       "external": true
+      },
+      {
+       "label": "Cars",
+       "href": "https://www.expedia.sa/SaudiaEN?cid=sEm3EcxC8PWqlXcm3EMV8mYJFs6xCg/PlB6ilqe/p0BKiFgGRbEM52IEOeEGSDcAWQgxH5P7bfqMnZjyAIYWEbaKFVzvRdPs5J4Kmg8t5kDacRjTa9XVepkUqrJ+NJEOQbcJUONY0I2ZHYfq/9ykuXj+gPTS0hMeityqiaM/u7bkFn5loHYQ0MgFYVL2TlHrLvHbOmq3WdsepS+1d9RXqLorJ6GGOhH/CY2w7AOUXu4HoV+32LgO/V2iIdbtN5/7t3X6wYTdcYpAFXpZXTdX8NRZxyVY773dpFJdOI8YfIBK5y+E6Z8exlPj7DqWA1GHfmuhCKZITRZqJmtaUZu4Jw==",
+       "external": true
+      },
+      {
+       "label": "Travel insurance",
+       "href": "/en-SA/book-and-manage/book/travel-insurance?cid=S8mJ1gkAUt8Fno7Mg1vDZJZGBp2aYv7EaVVkJ7Z/5xI4l6/evmaVPA7ZBtUkYxbIeBIppF5q0QrkJqRp/4KtxS0pA43tAW/mt/X8lLmdqy+MVHwHaJa19TgsR/PoZ3kB8vOfsDdjaQFHAu8JMJJv26TeCNeFybCGtecAvrWtlSi/0FSOpacdCnFoFV7pfZQ7MZ6pxmR+jx68gZw9Sbh9qQUN5FpbPz+AXyY1Acvfp571YEjP9+6xd0jdveqWyeOv/E+GIzIXXYBHkUhQh1pDOP7NgH61taByCEh9w3jiMb+6EyJv4HH93DXs6XcHKVUCIo/fYjDFpZ8KdSVro1gqJQ==",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Manage",
+     "links": [
+      {
+       "label": "Change flights",
+       "href": "/en-SA/book-and-manage/manage/manage-booking",
+       "external": false
+      },
+      {
+       "label": "Upgrade",
+       "href": "/en-SA/book-n-manage/manage/my-upgrade",
+       "external": false
+      },
+      {
+       "label": "Refund",
+       "href": "/en-SA/book-and-manage/manage/refund",
+       "external": false
+      },
+      {
+       "label": "Check-in",
+       "href": "/en-SA/checkIn/checkInoverview/checkInStandAlone",
+       "external": false
+      },
+      {
+       "label": "Extra baggage",
+       "href": "/en-SA/manage/baggage/extra-baggage",
+       "external": false
+      },
+      {
+       "label": "Seat reservation",
+       "href": "/en-SA/book-n-manage/manage/seat-selection",
+       "external": false
+      },
+      {
+       "label": "Extra Seat",
+       "href": "/en-SA/book-n-manage/manage/seat-plus",
+       "external": false
+      },
+      {
+       "label": "Meal selection",
+       "href": "/en-SA/book/special-assistance/special-meals",
+       "external": false
+      },
+      {
+       "label": "E-Invoice",
+       "href": "https://einvoice.saudia.com",
+       "external": true
+      }
+     ]
+    },
+    {
+     "title": "Business & Governmental Travel Services",
+     "links": [
+      {
+       "label": "Corporate travel services",
+       "href": "/en-SA/business",
+       "external": false
+      },
+      {
+       "label": "Government Ticket (GovClick)",
+       "href": "/en-SA/Govt/GovernmentFares",
+       "external": false
+      },
+      {
+       "label": "MICE travel request",
+       "href": "/en-SA/forms/mice-form",
+       "external": false
+      },
+      {
+       "label": "Private aircrafts",
+       "href": "/en-SA/book-n-manage/travel-services/private-aircrafts",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "Additional travel services",
+     "links": [
+      {
+       "label": "Guests with Disability",
+       "href": "/en-SA/Govt/SpecialAssistance",
+       "external": false
+      },
+      {
+       "label": "Retiree Program",
+       "href": "/en-SA/Govt/Pensioner",
+       "external": false
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "img": "-/media/SaudiaWebApp/data/media/img/Ancillary/Ancilary-2-en-new.ashx?h=280&iar=0&w=384&rev=9945be3893224eb983a8f540fce8a254&hash=95F8C0A80D296E38E2CDB2B9F78BFAFC",
+    "alt": "ancillary",
+    "text": "",
+    "href": "/en-SA/book-n-manage/manage/ancillary?cid=dfpcs8RCS9WKnvPAVbm4bIKhba5MKRwhgF+fJXghulb1NgZe6u7obImaK3mDqKqPyw1I1BcgmTmHuYhn3gL/t/SMmulyxmP6iCxKLK+bnst8KtbrK/PNW/a52/EhTEqUbyBlr8LS9cJa35A3oeJfA4MCijBug8luVO4SVZ88jAdlUp8uLZRXRYbxT/f7903y3zQ6CgqiWqN56pgbXrhN38UxqDmVh9rEVcS/T5AFXQSlwDoOLNCLBHgX31CR4+iBdbRKypnseNRwbNzzsOEZwCUHQIaaMbim9A0gCg7kFj91DjYk6X6heL3FySkZgUdyBX072samZyHv6KvzFDjSlQ==",
+    "heading": "Create the Journey That Fits You"
+   }
+  },
+  {
+   "label": "Experience",
+   "columns": [
+    [
+     "Onboard"
+    ],
+    [
+     "At the airport"
+    ],
+    [
+     "About Saudia"
+    ]
+   ],
+   "groups": [
+    {
+     "title": "Onboard",
+     "links": [
+      {
+       "label": "SaudiaBEYOND Entertainment",
+       "href": "https://entertainment.saudia.com",
+       "external": true
+      },
+      {
+       "label": "Travel classes",
+       "href": "/en-SA/plan/on-board/classes-of-travel",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "At the airport",
+     "links": [
+      {
+       "label": "Fast Track services",
+       "href": "/en-SA/experience-saudia/at-the-airport/fast-track",
+       "external": false
+      },
+      {
+       "label": "Altanfeethi",
+       "href": "/en-SA/experience-saudia/at-the-airport/altanfeethi",
+       "external": false
+      },
+      {
+       "label": "Saudia and partner lounges",
+       "href": "/en-SA/plan/at-the-airport/lounges-information",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "About Saudia",
+     "links": [
+      {
+       "label": "Our history",
+       "href": "/en-SA/experience/about-us/saudia-history",
+       "external": false
+      },
+      {
+       "label": "Our fleet",
+       "href": "/en-SA/experience/about-us/our-fleet",
+       "external": false
+      },
+      {
+       "label": "Awards & recognitions",
+       "href": "/en-SA/experience/about-us/awards-recognitions",
+       "external": false
+      },
+      {
+       "label": "Careers",
+       "href": "/en-SA/information/careers-overview",
+       "external": false
+      },
+      {
+       "label": "S.O.A.R program",
+       "href": "/en-SA/about-us/soar-program",
+       "external": false
+      },
+      {
+       "label": "Media center",
+       "href": "/en-SA/information/media-centre",
+       "external": false
+      },
+      {
+       "label": "Saudia News",
+       "href": "/en-SA/experience-saudia/about-saudia/saudia-news",
+       "external": false
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "img": "-/media/SaudiaWebApp/data/media/img/Live-images/Menu_banners/Menu_Experience.ashx?h=280&iar=0&w=384&rev=5aa579d9769e4f68a483eda845d70da9&hash=A34F0B0C88BCD57664A19D1A482E39C7",
+    "alt": "Male passenger in first class talking on the phone",
+    "text": "Sit back, relax and enjoy your flight with our onboard services. Learn more about our dining options, inflight entertainment, and seat information.",
+    "href": "/en-SA/experience",
+    "heading": "Time flies on board Saudia"
+   }
+  },
+  {
+   "label": "Loyalty",
+   "columns": [
+    [
+     "AlFursan program"
+    ],
+    [
+     "AlFursan partners"
+    ],
+    [
+     "AlFursan news & offers"
+    ]
+   ],
+   "groups": [
+    {
+     "title": "AlFursan program",
+     "links": [
+      {
+       "label": "Join AlFursan",
+       "href": "/en-SA/loyalty",
+       "external": false
+      },
+      {
+       "label": "AlFursan Miles",
+       "href": "/en-SA/earn-and-redeem",
+       "external": false
+      },
+      {
+       "label": "Tiers & benefits",
+       "href": "/en-SA/tier-credits",
+       "external": false
+      },
+      {
+       "label": "Family member program",
+       "href": "/en-SA/alfursan-information/family-member-program",
+       "external": false
+      },
+      {
+       "label": "Cash + Miles",
+       "href": "/en-SA/loyalty/cash-plus-miles",
+       "external": false
+      },
+      {
+       "label": "Manage Reward Ticket",
+       "href": "/en-SA/loyalty/manage-reward-ticket",
+       "external": false
+      },
+      {
+       "label": "Upgrade with Miles",
+       "href": "/en-SA/upgrade-by-miles",
+       "external": false
+      },
+      {
+       "label": "AlFursan lounge pass",
+       "href": "/en-SA/plan/at-the-airport/lounges-information",
+       "external": false
+      },
+      {
+       "label": "AlFursan Store",
+       "href": "unsafe:javascript:void(0)",
+       "external": true
+      },
+      {
+       "label": "Expiry policy",
+       "href": "/en-SA/earn-and-redeem/miles-types/expiry-policy",
+       "external": false
+      },
+      {
+       "label": "AlFursan Credit Cards",
+       "href": "/en-SA/earn-and-redeem/program-partners/credit-cards",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "AlFursan partners",
+     "links": [
+      {
+       "label": "Airlines",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Financial",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Hotels",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Car rentals",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Travel",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Retail partners",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Services",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Telecom",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Insurance",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      },
+      {
+       "label": "Charity",
+       "href": "/en-SA/earn-and-redeem/program-partners",
+       "external": false
+      }
+     ]
+    },
+    {
+     "title": "AlFursan news & offers",
+     "links": [
+      {
+       "label": "Latest offers & more",
+       "href": "/en-SA/loyalty/Partneroffers",
+       "external": false
+      },
+      {
+       "label": "AlFursan Digital Experience",
+       "href": "/en-SA/alfursan-complete-digital",
+       "external": false
+      },
+      {
+       "label": "Miles Calculator",
+       "href": "/en-SA/milesCalculator",
+       "external": false
+      }
+     ]
+    }
+   ],
+   "promo": {
+    "img": "-/media/SaudiaWebApp/data/media/img/Live-images/pages/menu/WebDesktop-MegaMenuBanner-EnglishVersion.ashx?h=560&iar=0&w=768&rev=4acec4beed5a458b9b9d82a78f6c5372&hash=3B36BCE773D8995ACE11AD224E968746",
+    "alt": "Start your journey with alfursan",
+    "text": "Exclusive offers, special rewards, and amazing privileges await AlFursan members",
+    "href": "/en-SA/loyalty",
+    "heading": "Start your journey with AlFursan"
+   }
+  },
+  {
+   "label": "Support",
+   "columns": [
+    [
+     "Help Centre"
+    ],
+    [
+     "Useful links"
+    ]
+   ],
+   "groups": [
+    {
+     "title": "Help Centre",
+     "links": [
+      {
+       "label": "Help & support",
+       "href": "/en-SA/Support/HelpAndSupport",
+       "external": false
+      },
+      {
+       "label": "FAQs",
+       "href": "/en-SA/Support/HelpAndSupport/FAQs",
+       "external": false
+      },
+      {
+       "label": "Sales support",
+       "href": "/en-SA/forms/sales-support-form",
+       "external": false
+      },
+      {
+       "label": "AlFursan",
+       "href": "/en-SA/loyalty",
+       "external": false
+      },
+      {
+       "label": "Suggestions & complaints",
+       "href": "/en-SA/forms/contact-form",
+       "external": false
+      },
+      {
+       "label": "Student travel care team",
+       "href": "/en-SA/Support/help-centre/student-travel-care",
+       "external": false
+      },
+      {
+       "label": "Our Offices",
+       "href": "/en-SA/Support/HelpAndSupport/WorldWideOffices",
+       "external": false
+      },
+      {
+       "label": "Saudia Cargo",
+       "href": "https://saudiacargo.com/",
+       "external": true
+      }
+     ]
+    },
+    {
+     "title": "Useful links",
+     "links": [
+      {
+       "label": "Ministry of Foreign Affairs (MOFA)",
+       "href": "https://www.mofa.gov.sa/ar/Pages/default.aspx",
+       "external": true
+      },
+      {
+       "label": "The General Authority of Civil Aviation (GACA)",
+       "href": "https://gaca.gov.sa/",
+       "external": true
+      },
+      {
+       "label": "Ministry of Tourism",
+       "href": "https://mt.gov.sa",
+       "external": true
+      }
+     ]
+    }
+   ],
+   "promo": null
+  }
+ ]
+}

@@ -78,6 +78,36 @@ var CustomImportScript = (() => {
     });
   }
 
+  // tools/importer/transformers/booking-fragment.js
+  var FRAGMENTS = "/content/dam/saudiaeds/fragments/booking-engine";
+  var NAMES = ["home", "abha", "antalya", "athens", "bodrum", "el-alamein", "malaga", "mykonos", "nice", "salalah"];
+  function bookingFragmentName(pagePath) {
+    const path = pagePath.replace(/\.html$/, "").replace(/\/$/, "");
+    if (/\/en(\/index)?$/.test(path)) return "home";
+    return path.split("/").pop().replace(/^fly-to-/, "");
+  }
+  function addBookingFragment(main, document, pagePath) {
+    const name = bookingFragmentName(pagePath);
+    if (!NAMES.includes(name)) return;
+    main.querySelectorAll("div.booking").forEach((block) => {
+      if (block.children.length > 4) return;
+      const href = `${FRAGMENTS}/${name}`;
+      const cell = document.createElement("div");
+      cell.dataset.xwalkField = "fragment";
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = href;
+      p.append(a);
+      cell.append(p);
+      const row = document.createElement("div");
+      row.append(cell);
+      const variationRow = document.createElement("div");
+      variationRow.append(document.createElement("div"));
+      block.append(row, variationRow);
+    });
+  }
+
   // tools/importer/import-replica.js
   var META_BLOCKS = ["metadata", "section-metadata"];
   var import_replica_default = {
@@ -99,6 +129,7 @@ var CustomImportScript = (() => {
     }),
     transform: ({ document, params }) => {
       const main = document.querySelector("main");
+      addBookingFragment(main, document, new URL(params.originalURL).pathname);
       main.querySelectorAll(":scope > div > div[class]").forEach((block) => {
         if (!META_BLOCKS.includes(block.classList[0])) parse(block, { document });
       });

@@ -7,17 +7,24 @@ Models live under /conf/saudiaeds/settings/dam/cfm/models; the package also poin
 folder /content/dam/saudiaeds at /conf/saudiaeds (cq:conf, merged — nothing else in the DAM is
 touched) so the models are offered when authors create fragments there.
 
-The models describe the structured content of the migrated page types: press releases (both
-layouts), their pull quotes, destination landings and their FAQ items.
+The models describe the structured content of the migrated page types: destination landings and
+their FAQ items, and the booking engine (the press release / quote models were withdrawn with
+the press release pages).
+
+The package also carries the booking engine Content Fragments, one per page that shows the
+booking engine, built from tools/aem-packages/booking-engine-fragments.json (extracted from the
+migrated pages): /content/dam/saudiaeds/fragments/booking-engine/<page> and the links they
+reference, /content/dam/saudiaeds/fragments/booking-links/<name>.
 usage: python3 tools/aem-packages/build-cf-models.py
 """
+import json
 import os
 import shutil
 import zipfile
 from xml.sax.saxutils import quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.0.0'
+NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.2.0'
 CONF = '/conf/saudiaeds'
 MODELS = f'{CONF}/settings/dam/cfm/models'
 DAM = '/content/dam/saudiaeds'
@@ -61,6 +68,27 @@ def fragments(name, label, model, desc=None):
                    'allowNew': 'true'})
 
 
+def fragment(name, label, model, required=False, desc=None):
+    f = fragments(name, label, model, desc)
+    f.update(required=required, valueType='string/content-fragment')
+    return f
+
+
+def texts(name, label, required=False, desc=None, maxlength=255):
+    """a multi-value single-line text field (Render as: multiple field)"""
+    return dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
+                _child={'sling:resourceType': 'granite/ui/components/coral/foundation/form/textfield',
+                        'maxlength': str(maxlength), 'name': name, 'renderReadOnly': 'false'},
+                **{'sling:resourceType': 'granite/ui/components/coral/foundation/form/multifield',
+                   'metaType': 'text-single', 'valueType': 'string[]'})
+
+
+def boolean(name, label, desc=None, checked=False):
+    return dict(name=name, fieldLabel=label, required=False, fieldDescription=desc, text=label,
+                **{'sling:resourceType': 'granite/ui/components/coral/foundation/form/checkbox',
+                   'metaType': 'boolean', 'valueType': 'boolean', 'checked': str(checked).lower()})
+
+
 def enumeration(name, label, options, required=False, desc=None):
     return dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
                 **{'sling:resourceType': 'granite/ui/components/coral/foundation/form/select',
@@ -69,26 +97,28 @@ def enumeration(name, label, options, required=False, desc=None):
 
 
 MODEL_DEFS = {
-    'quote': ('Quote', 'A pull quote with its speaker line (press release body).', [
-        richtext('quotation', 'Quotation', True),
-        text('attribution', 'Attribution', desc='Speaker name and role, e.g. "H.E. Engr. Ibrahim Al-Omar, Director General of Saudia Group".'),
-    ]),
     'faq-item': ('FAQ Item', 'One question and its answer (destination and help pages).', [
         text('question', 'Question', True),
         richtext('answer', 'Answer', True),
     ]),
-    'press-release': ('Press Release', 'A Saudia press release (About us › press releases).', [
-        text('title', 'Title', True),
-        text('subtitle', 'Subtitle'),
-        text('location', 'Location', desc='Dateline city, e.g. "Jeddah".'),
-        date('date', 'Release date'),
-        enumeration('layout', 'Layout', ['article', 'legacy'],
-                    desc='article: split lead (meta line, title, subtitle beside the image); legacy: campaign banner above the title.'),
-        asset('heroImage', 'Lead image'),
-        asset('heroImageMobile', 'Lead image (mobile)', desc='Optional mobile rendition of the lead or banner image.'),
-        text('heroImageAlt', 'Lead image alt text', maxlength=500),
-        richtext('body', 'Body', True),
-        fragments('quotes', 'Quotes', 'quote', 'Pull quotes shown in the body, in order.'),
+    'booking-link': ('Booking Link', 'A link shown by the booking engine (promo or quick link, notice link).', [
+        text('label', 'Label', True, desc='e.g. "Flight + Hotel".'),
+        text('url', 'URL', True, maxlength=2000),
+        boolean('external', 'Opens an external site', 'Shows the external-link icon and opens in a new tab.'),
+    ]),
+    'booking-engine': ('Booking Engine', 'The flight booking widget: tabs, trip types, route fields and notice.', [
+        text('title', 'Title', True, desc='Internal name, e.g. "Booking engine — Home".'),
+        texts('tabs', 'Tabs', True, 'One per tab, in order; the first is selected.'),
+        texts('tripTypes', 'Trip types', True, 'One per option, in order; the first is selected.'),
+        text('milesLabel', 'Miles toggle label', desc='e.g. "Book with Miles".'),
+        text('fromLabel', 'From label', True),
+        text('defaultOrigin', 'Default origin', desc='e.g. "Jeddah (JED)".'),
+        text('toLabel', 'To label', True),
+        text('swapLabel', 'Swap button label', desc='Accessible name of the swap button.'),
+        text('infoMessage', 'Notice message', maxlength=500),
+        fragment('infoLink', 'Notice link', 'booking-link'),
+        fragments('links', 'Promo and quick links', 'booking-link',
+                  'One link shows as a promo at the top right; several show as quick links.'),
     ]),
     'destination': ('Destination', 'A destination landing (Explore › Fly to …).', [
         text('name', 'Destination name', True, desc='e.g. "Athens".'),
@@ -110,13 +140,21 @@ def attrs(d):
 def field_xml(i, f):
     props = {'jcr:primaryType': 'nt:unstructured', 'listOrder': str(i), 'renderReadOnly': 'false',
              'showEmptyInReadOnly': 'true'}
+    child = f.get('_child')
     for k, v in f.items():
+        if k == '_child':
+            continue
         if k == 'required':
             if v:
                 props['required'] = 'on'
         else:
             props[k] = v
     body = '\n'.join(f'                            {k}={quoteattr(v)}' for k, v in props.items() if v is not None)
+    if child:
+        cbody = '\n'.join(f'                                {k}={quoteattr(v)}' for k, v in
+                          {'jcr:primaryType': 'nt:unstructured', **child}.items())
+        return (f'                        <{f["name"]}\n{body}>\n                            <field\n{cbody}/>\n'
+                f'                        </{f["name"]}>')
     return f'                        <{f["name"]}\n{body}/>'
 
 
@@ -165,20 +203,84 @@ def simple(primary, extra=''):
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<jcr:root {NS}\n    jcr:primaryType="{primary}"{extra}/>\n'
 
 
+# ---- booking engine content fragments ----
+FRAGMENTS = f'{DAM}/fragments'
+BOOKING = json.load(open(os.path.join(HERE, 'booking-engine-fragments.json'), encoding='utf-8'))
+
+
+def jcr_value(v):
+    """FileVault docview value: typed booleans, escaped multi-value arrays"""
+    if isinstance(v, bool):
+        return '{Boolean}' + str(v).lower()
+    if isinstance(v, list):
+        return '[' + ','.join(x.replace('\\', '\\\\').replace(',', '\\,') for x in v) + ']'
+    return v.replace('\\', '\\\\') if v.startswith('{') else v
+
+
+def fragment_xml(model, name, parent, title, values):
+    master = '\n'.join(f'                {k}={quoteattr(jcr_value(v))}' for k, v in values.items())
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root {NS}
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        cq:name={quoteattr(name)}
+        cq:parentPath={quoteattr(parent)}
+        contentFragment="{{Boolean}}true"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title={quoteattr(title)}>
+        <data
+            cq:model="{MODELS}/{model}"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:primaryType="nt:unstructured"
+{master}/>
+        </data>
+        <metadata jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
+"""
+
+
+def folder_xml(title):
+    return (f'<?xml version="1.0" encoding="UTF-8"?>\n<jcr:root {NS}\n    jcr:primaryType="sling:OrderedFolder">\n'
+            f'    <jcr:content\n        jcr:primaryType="nt:unstructured"\n        jcr:title={quoteattr(title)}/>\n</jcr:root>\n')
+
+
+fragment_files = {
+    f'jcr_root{FRAGMENTS}/.content.xml': folder_xml('Content Fragments'),
+    f'jcr_root{FRAGMENTS}/booking-engine/.content.xml': folder_xml('Booking engine'),
+    f'jcr_root{FRAGMENTS}/booking-links/.content.xml': folder_xml('Booking links'),
+}
+for key, link in BOOKING['links'].items():
+    fragment_files[f'jcr_root{FRAGMENTS}/booking-links/{key}/.content.xml'] = fragment_xml(
+        'booking-link', key, f'{FRAGMENTS}/booking-links', link['label'],
+        {'label': link['label'], 'url': link['url'], 'external': link['external']})
+for e in BOOKING['engines']:
+    values = {k: e[k] for k in ('title', 'tabs', 'tripTypes', 'milesLabel', 'fromLabel', 'defaultOrigin',
+                                'toLabel', 'swapLabel', 'infoMessage')}
+    values['infoLink'] = f"{FRAGMENTS}/booking-links/{e['infoLink']}"
+    if e['links']:
+        values['links'] = [f'{FRAGMENTS}/booking-links/{k}' for k in e['links']]
+    fragment_files[f"jcr_root{FRAGMENTS}/booking-engine/{e['name']}/.content.xml"] = fragment_xml(
+        'booking-engine', e['name'], f'{FRAGMENTS}/booking-engine', e['title'], values)
+
 root = os.path.join(HERE, NAME)
 if os.path.isdir(root):
     shutil.rmtree(root)
 files = {
     'META-INF/vault/filter.xml': '<?xml version="1.0" encoding="UTF-8"?>\n<workspaceFilter version="1.0">\n'
     + ''.join(f'    <filter root="{MODELS}/{m}"/>\n' for m in MODEL_DEFS)
-    + f'    <filter root="{DAM}/jcr:content" mode="merge_properties"/>\n</workspaceFilter>\n',
+    + f'    <filter root="{DAM}/jcr:content" mode="merge_properties"/>\n'
+    + f'    <filter root="{DAM}/fragments/booking-engine"/>\n'
+    + f'    <filter root="{DAM}/fragments/booking-links"/>\n</workspaceFilter>\n',
     'META-INF/vault/properties.xml': f'''<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="name">{NAME}</entry>
 <entry key="group">{GROUP}</entry>
 <entry key="version">{VERSION}</entry>
-<entry key="description">Saudia Content Fragment Models (press release, quote, destination, FAQ item) and the cq:conf of {DAM}.</entry>
+<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link), the booking engine Content Fragments and the cq:conf of {DAM}.</entry>
 <entry key="packageType">content</entry>
 <entry key="requiresRoot">false</entry>
 <entry key="allowIndexDefinitions">false</entry>
@@ -201,6 +303,7 @@ files = {
 }
 for m, (title, desc, fields) in MODEL_DEFS.items():
     files[f'jcr_root{MODELS}/{m}/.content.xml'] = model_xml(m, title, desc, fields)
+files.update(fragment_files)
 
 for rel, text_ in files.items():
     path = os.path.join(root, rel)
@@ -212,4 +315,5 @@ zpath = os.path.join(HERE, 'dist', f'{NAME}-{VERSION}.zip')
 with zipfile.ZipFile(zpath, 'w', zipfile.ZIP_DEFLATED) as z:
     for rel in sorted(files):
         z.write(os.path.join(root, rel), rel)
-print(zpath, len(files), 'files;', ', '.join(f'{m} ({len(f[2])} fields)' for m, f in MODEL_DEFS.items()))
+print(zpath, len(files), 'files;', ', '.join(f'{m} ({len(f[2])} fields)' for m, f in MODEL_DEFS.items()),
+      f"; fragments: {len(BOOKING['engines'])} booking engines, {len(BOOKING['links'])} links")

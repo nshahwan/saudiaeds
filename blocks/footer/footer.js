@@ -1,4 +1,4 @@
-import { getChromePath } from '../../scripts/scripts.js';
+import { copyTextOptions, getChromePath } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -126,9 +126,13 @@ export default async function decorate(block) {
 
   const [subscribe, links, awards, legal] = [...fragment.querySelectorAll(':scope > .section')];
   const root = el('div', 'site-footer');
-  if (subscribe) root.append(buildSubscribe(subscribe));
-  if (links) root.append(buildLinks(links));
-  if (awards) root.append(buildAwards(awards));
-  if (legal) root.append(buildLegal(legal));
+  // each footer band keeps the "Text style" options of the fragment section it is built from
+  [[subscribe, buildSubscribe], [links, buildLinks], [awards, buildAwards], [legal, buildLegal]]
+    .forEach(([section, build]) => {
+      if (!section) return;
+      const part = build(section);
+      copyTextOptions(section, part);
+      root.append(part);
+    });
   block.append(root);
 }

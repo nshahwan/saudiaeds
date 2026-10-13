@@ -253,7 +253,8 @@
     "ew": "7/7",
     "pages": 51,
     "path": "/content/saudiaeds/en/about-us/press-releases"
-   }
+   },
+   "status": "removed 2026-10-12 (user decision: delete About us and all press releases)"
   },
   "press-legacy": {
    "pageType": "press release \u2014 legacy layout: campaign banner (image-link-list), h2 title + h3 subtitle, body copy (168 pages)",
@@ -325,7 +326,8 @@
     "qaGate": "PASS (both variants)",
     "pages": 167,
     "path": "/content/saudiaeds/en/about-us/press-releases"
-   }
+   },
+   "status": "removed 2026-10-12 (user decision: delete About us and all press releases)"
   }
  },
  "canon": {

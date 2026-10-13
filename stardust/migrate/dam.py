@@ -49,6 +49,9 @@ for page, full in pages.items():
     for ref in set(REF.findall(open(full, encoding='utf-8').read())):
         uses.setdefault(ref, set()).add(area(page))
 
+MAP_FILE = ROOT + 'stardust/migrate/dam-map.json'
+# merge with earlier runs (sources already rewritten no longer show their local refs)
+previous = json.load(open(MAP_FILE)) if os.path.exists(MAP_FILE) else {}
 mapping, copied, names = {}, 0, {}
 for ref, areas in sorted(uses.items()):
     folder = next(iter(areas)) if len(areas) == 1 else 'shared'
@@ -81,7 +84,7 @@ link = SRC + 'content'
 if not os.path.islink(link):
     os.symlink(ROOT + 'content/content', link)
 
-json.dump(mapping, open(ROOT + 'stardust/migrate/dam-map.json', 'w'), indent=1, sort_keys=True)
+json.dump({**previous, **mapping}, open(MAP_FILE, 'w'), indent=1, sort_keys=True)
 by_folder = {}
 for v in mapping.values():
     by_folder[v.split('/')[4]] = by_folder.get(v.split('/')[4], 0) + 1

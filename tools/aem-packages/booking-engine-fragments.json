@@ -1,0 +1,325 @@
+{
+ "_comment": "Booking engine content per page, extracted from the migrated pages (booking block). build-cf-models.py turns it into Content Fragments.",
+ "engines": [
+  {
+   "name": "abha",
+   "title": "Booking engine — Abha",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-abha",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": []
+  },
+  {
+   "name": "antalya",
+   "title": "Booking engine — Antalya",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-antalya",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "antalya-flight-hotel"
+   ]
+  },
+  {
+   "name": "athens",
+   "title": "Booking engine — Athens",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-athens",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "athens-book-flight-hotel-30-off"
+   ]
+  },
+  {
+   "name": "bodrum",
+   "title": "Booking engine — Bodrum",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-bodrum",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "bodrum-book-flight-hotel-30-off"
+   ]
+  },
+  {
+   "name": "el-alamein",
+   "title": "Booking engine — El Alamein",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-el-alamein",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "el-alamein-book-flight-hotel-30-off"
+   ]
+  },
+  {
+   "name": "malaga",
+   "title": "Booking engine — Malaga",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-malaga",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "malaga-book-flight-hotel-30-off"
+   ]
+  },
+  {
+   "name": "mykonos",
+   "title": "Booking engine — Mykonos",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-mykonos",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": []
+  },
+  {
+   "name": "nice",
+   "title": "Booking engine — Nice",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-nice",
+   "tabs": [
+    "Book",
+    "Check-in",
+    "Flight schedule",
+    "Flight status",
+    "Manage"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "nice-book-flight-hotel-30-off"
+   ]
+  },
+  {
+   "name": "salalah",
+   "title": "Booking engine — Salalah",
+   "page": "/en/explore/saudia-new-destinations-2026/fly-to-salalah",
+   "tabs": [
+    "Book",
+    "Manage",
+    "Check-in"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "salalah-flight-hotel"
+   ]
+  },
+  {
+   "name": "home",
+   "title": "Booking engine — Home",
+   "page": "/en/index",
+   "tabs": [
+    "Book",
+    "Manage",
+    "Check-in",
+    "Flight status",
+    "Flight schedule"
+   ],
+   "tripTypes": [
+    "Round trip",
+    "One way",
+    "Multi-city"
+   ],
+   "milesLabel": "Book with Miles",
+   "fromLabel": "From",
+   "defaultOrigin": "Jeddah (JED)",
+   "toLabel": "To",
+   "swapLabel": "Click here to swap to and from Destinations",
+   "infoMessage": "Read more about the latest travel requirements for your next destination",
+   "infoLink": "travel-requirements",
+   "links": [
+    "home-stopover",
+    "home-flight-hotel",
+    "home-umrah",
+    "home-hotels"
+   ]
+  }
+ ],
+ "links": {
+  "antalya-flight-hotel": {
+   "label": "Flight + Hotel",
+   "url": "https://www.saudia.com/en-SA/package-deals",
+   "external": false
+  },
+  "athens-book-flight-hotel-30-off": {
+   "label": "Book Flight + Hotel (30% off)",
+   "url": "https://www.saudia.com/holidays/en-SA/sdp/listing?destinationResortCode=4832&cabinCode=Economy&duration=4&departureDate=1782432000000&occupancies%5B0%5D%5Badults%5D=2&occupancies%5B0%5D%5Bchildren%5D=0&page=1&pageSize=48&departureCityCode=RUH&endDate=1782863999999&sort=price_asc&stars=4.5%2C5%2C4&utm_source=svsummer_lp&utm_medium=web&utm_campaign=Summer2026&utm_content=athens_en",
+   "external": false
+  },
+  "bodrum-book-flight-hotel-30-off": {
+   "label": "Book Flight + Hotel (30% off)",
+   "url": "https://www.saudia.com/holidays/en-SA/sdp/listing?destinationResortCode=3932&cabinCode=Economy&duration=4&departureDate=1783296000000&occupancies%5B0%5D%5Badults%5D=2&occupancies%5B0%5D%5Bchildren%5D=0&page=1&pageSize=48&departureCityCode=RUH&endDate=1783727999999&sort=price_asc&stars=4%2C5&utm_source=svsummer_lp&utm_medium=web&utm_campaign=Summer2026&utm_content=bodrum_en",
+   "external": false
+  },
+  "el-alamein-book-flight-hotel-30-off": {
+   "label": "Book Flight + Hotel (30% off)",
+   "url": "https://www.saudia.com/en-SA/package-deals",
+   "external": false
+  },
+  "home-flight-hotel": {
+   "label": "Flight + Hotel",
+   "url": "https://www.saudia.com/en-SA/saudia-holidays/holidays-exclusive-offers",
+   "external": false
+  },
+  "home-hotels": {
+   "label": "Hotels",
+   "url": "https://www.expedia.sa/Saudia",
+   "external": true
+  },
+  "home-stopover": {
+   "label": "Stopover",
+   "url": "https://www.saudia.com/en-SA/transit-visa",
+   "external": false
+  },
+  "home-umrah": {
+   "label": "Umrah",
+   "url": "https://www.saudia.com/en-SA/umrah/fly-saudia-for-umrah-packages",
+   "external": false
+  },
+  "malaga-book-flight-hotel-30-off": {
+   "label": "Book Flight + Hotel (30% off)",
+   "url": "https://www.saudia.com/holidays/en-SA/sdp/listing?destinationResortCode=3718&cabinCode=Economy&duration=4&departureDate=1783296000000&occupancies%5B0%5D%5Badults%5D=2&occupancies%5B0%5D%5Bchildren%5D=0&page=1&pageSize=48&departureCityCode=RUH&endDate=1783727999999&sort=price_asc&stars=4%2C5&utm_source=svsummer_lp&utm_medium=web&utm_campaign=Summer2026&utm_content=malaga_en",
+   "external": false
+  },
+  "nice-book-flight-hotel-30-off": {
+   "label": "Book Flight + Hotel (30% off)",
+   "url": "https://www.saudia.com/holidays/en-SA/sdp/listing?destinationResortCode=1092&cabinCode=Economy&duration=4&departureDate=1783036800000&occupancies%5B0%5D%5Badults%5D=2&occupancies%5B0%5D%5Bchildren%5D=0&page=1&pageSize=48&departureCityCode=RUH&endDate=1783468799999&sort=price_asc&stars=4%2C5&utm_source=svsummer_lp&utm_medium=web&utm_campaign=Summer2026&utm_content=Nice_en",
+   "external": false
+  },
+  "salalah-flight-hotel": {
+   "label": "Flight + Hotel",
+   "url": "https://www.saudia.com/en-SA/package-deals",
+   "external": false
+  },
+  "travel-requirements": {
+   "label": "Learn more",
+   "url": "https://www.saudia.com/en-SA/plan/before-you-fly/travel-requirements",
+   "external": false
+  }
+ }
+}

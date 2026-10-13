@@ -7,7 +7,10 @@ the target path; prototype media is symlinked in so /stardust/... image srcs res
 Duplicated chrome is collapsed: nav-home (the superset: notice + AI search) becomes the one
 /en/nav, footer-saudia becomes the one /en/footer.
 """
+import html
+import json
 import os
+import re
 
 ROOT = '/backups/nshahwan/saudiaeds/repo/'
 OUT = ROOT + 'stardust/.work/import-src/'
@@ -35,11 +38,57 @@ PAYMENTS = ('<p><strong>Payment Partners</strong></p><p>'
             + '</p>')
 
 
+# Mega menus (live, captured 2026-10-13: stardust/migrate/megamenu.json): every top-level menu
+# item carries its groups as a nested list — group title, then its links (title="External link"
+# marks the live external-link icon) — and its promo card as a last item: image, heading link,
+# description. Live hrefs to migrated pages point at /en, the rest at www.saudia.com.
+MEGA = json.load(open(ROOT + 'stardust/migrate/megamenu.json', encoding='utf-8'))['menus']
+MEDIA = json.load(open(ROOT + 'stardust/migrate/media-map.json', encoding='utf-8'))
+MIGRATED = {'/en', '/en/plan/on-board/classes-of-travel', '/en/book-and-manage/book/flight-pass'} | {
+    f'/en/explore/saudia-new-destinations-2026/fly-to-{n}' for n in
+    'abha antalya athens bodrum el-alamein malaga mykonos nice salalah'.split()}
+
+
+def mega_href(url):
+    if not url or url.startswith(('http:', 'https:', 'mailto:', 'tel:')):
+        return url
+    path = url.split('?')[0].split('#')[0].rstrip('/')
+    target = re.sub(r'^/en(-sa)?(?=/|$)', '/en', path, flags=re.I).lower()
+    if target in MIGRATED:
+        return target + url[len(path):]
+    return 'https://www.saudia.com' + (url if url.startswith('/') else '/' + url)
+
+
+def mega_link(link):
+    label = html.escape(link['label'])
+    if not link.get('href'):
+        return f'<li>{label}</li>'
+    ext = ' title="External link"' if link.get('external') else ''
+    return f'<li><a href="{html.escape(mega_href(link["href"]))}"{ext}>{label}</a></li>'
+
+
+def mega_menu(menu):
+    items = [f'<li>{html.escape(g["title"])}<ul>{"".join(mega_link(l) for l in g["links"])}</ul></li>'
+             for g in menu['groups']]
+    promo = menu.get('promo')
+    if promo:
+        key = re.sub(r'^https?://www\.saudia\.com', '', html.unescape(promo['img']).split('?')[0])
+        key = key if key.startswith('/') else '/' + key
+        img = MEDIA.get(key, key)
+        text = f' {html.escape(promo["text"])}' if promo.get('text') else ''
+        items.append(f'<li><img src="{img}" alt="{html.escape(promo["alt"])}"> '
+                     f'<a href="{html.escape(mega_href(promo["href"]))}">{html.escape(promo["heading"])}</a>{text}</li>')
+    return f'<li>{html.escape(menu["label"])}<ul>{"".join(items)}</ul></li>'
+
+
 def chrome(src, body):
     if src == 'nav-home':
         anchor = 'alt="Skyteam Airlines Alliance"></a>'
         assert body.count(anchor) == 1
         body = body.replace(anchor, anchor + DARK_LOGOS)
+        menu = re.search(r'<ul>\s*<li>Explore</li>.*?</ul>', body, re.S)
+        assert menu, 'nav menu list not found'
+        body = body.replace(menu.group(0), '<ul>' + ''.join(mega_menu(m) for m in MEGA) + '</ul>')
     if src == 'footer-saudia':
         anchor = 'alt="linkedIn"></a></li></ul>'
         assert body.count(anchor) == 1

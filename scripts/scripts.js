@@ -11,6 +11,7 @@ import {
   loadCSS,
   getMetadata,
 } from './aem.js';
+import { SECTION_TEXT_OPTIONS, TEXT_OPTION_PREFIXES } from './text-options.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -44,6 +45,35 @@ export function moveInstrumentation(from, to) {
       .map(({ nodeName }) => nodeName)
       .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
   );
+}
+
+/**
+ * Turns the section "Text style" options (section metadata, see tools/text-options) into the
+ * option classes styles/text-options.css applies to the text inside the section.
+ * @param {Element} main The container element
+ */
+function decorateSectionTextOptions(main) {
+  main.querySelectorAll(':scope > .section').forEach((section) => {
+    SECTION_TEXT_OPTIONS.forEach((key) => {
+      const value = section.dataset[key];
+      if (value && TEXT_OPTION_PREFIXES.some((prefix) => value.startsWith(prefix))) {
+        section.classList.add(value);
+      }
+    });
+  });
+}
+
+/**
+ * Copies the text option classes of an authored element (a fragment section, a block row) onto
+ * the element built from it, so header, footer and container items keep the author's text style.
+ * @param {Element} from the authored element
+ * @param {Element} to the decorated element
+ */
+export function copyTextOptions(from, to) {
+  if (!from || !to) return;
+  [...from.classList]
+    .filter((c) => TEXT_OPTION_PREFIXES.some((prefix) => c.startsWith(prefix)))
+    .forEach((c) => to.classList.add(c));
 }
 
 /**
@@ -134,6 +164,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionTextOptions(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

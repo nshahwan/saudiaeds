@@ -17,6 +17,7 @@
  */
 import edsBlockParser from './parsers/eds-block.js';
 import edsSectionsTransformer from './transformers/eds-sections.js';
+import addBookingFragment from './transformers/booking-fragment.js';
 
 const HOST = 'https://www.saudia.com';
 // pages already migrated to /en: their live links point at the new paths
@@ -206,6 +207,8 @@ export default {
     if (q('app-jss-faq')) sections.push(faq(document, q('app-jss-faq')));
 
     main.replaceChildren(...sections);
+    // booking blocks reference the page's Booking Engine Content Fragment
+    addBookingFragment(main, document, new URL(params.originalURL).pathname);
     main.querySelectorAll(':scope > div > div[class]').forEach((b) => {
       if (!['metadata', 'section-metadata'].includes(b.classList[0])) edsBlockParser(b, { document });
     });

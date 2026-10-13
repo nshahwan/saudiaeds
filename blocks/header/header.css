@@ -4,13 +4,10 @@ header .header .nav-wrapper {
   position: relative;
 }
 
-/* one nav fragment serves every template; the live product pages (and pages themed
-   `no-notice`) carry no notice strip
+/* one nav fragment serves every template; the live product pages carry no notice strip
    and only destination pages and the home page carry AI search (the header reservation per
    template assumes this) */
 body.product header .notice,
-body.no-notice header .notice,
-body.news header .notice,
 body:not(.destination, .home) header .ai-search {
   display: none;
 }
@@ -129,6 +126,11 @@ header .ai-search {
   cursor: pointer;
 }
 
+/* live keeps the label on one line (it is ~2px wider than the box's text area) */
+header .ai-search p {
+  white-space: nowrap;
+}
+
 header .person-btn {
   display: flex;
   align-self: flex-start;
@@ -166,10 +168,168 @@ header .nav-bar[aria-expanded='true'] .main-nav {
   box-shadow: rgb(0 0 0 / 10%) 0 1px 0 0;
 }
 
-header .nav-bar[aria-expanded='true'] .main-nav li {
-  padding: 12px 0;
-  font-size: 18px;
+header .nav-bar[aria-expanded='true'] .main-nav > ul > li {
+  padding: 8px 0;
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+/* ---- mega menus (dynamics D-02; live values, desktop panel + mobile drill-down) ---- */
+header .main-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header .main-nav .menu-label {
+  margin: 0;
+  cursor: pointer;
+}
+
+header .mega {
+  display: none;
+}
+
+header .main-nav li.is-open > .mega {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: block;
+  overflow-y: auto;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
+  letter-spacing: 0.28px;
+}
+
+header .mega__head {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+header .mega__back,
+header .mega__close {
+  width: 24px;
+  height: 24px;
+  color: #000;
+}
+
+header .mega__heading {
+  flex: 1;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+header .mega__inner {
+  padding: 22px 20px 40px;
+}
+
+header .mega__group + .mega__group,
+header .mega__col + .mega__col,
+header .mega .mega__aside {
+  margin-top: 24px;
+}
+
+header .mega__title {
+  margin: 0 0 8px;
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: normal;
+}
+
+header .mega__group li {
+  padding: 8px 0;
+  color: rgb(0 0 0 / 55%);
+}
+
+header .mega__group a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header .mega__group a:hover {
+  color: #000;
+}
+
+header .mega__group .ico-call_made {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: -2px;
+}
+
+header .mega__promo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 384 / 280;
+  border-radius: 4px;
+}
+
+header .mega__promo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header .mega__promo-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 24px;
+  color: #fff;
+}
+
+header .mega__promo-text {
+  flex: 1;
+}
+
+header .mega__promo-link {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+header .mega__promo-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+header .mega__promo-desc {
+  display: block;
+  min-height: 1px;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+header .mega__promo-go {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: var(--green);
 }
 
 /* dark-theme logo renditions (4th–6th brand images) are only used by the home template */
@@ -275,7 +435,9 @@ body.home.theme-light header .nav-bar {
     padding: 0;
   }
 
+  /* static, so an open mega menu spans the nav bar (full width) below the label */
   header .nav-bar__inner {
+    position: static;
     max-width: var(--container);
     margin: 0 auto;
     padding: 0;
@@ -325,28 +487,94 @@ body.home.theme-light header .nav-bar {
     box-shadow: none;
   }
 
-  header .main-nav ul {
+  header .main-nav > ul {
     display: flex;
-    list-style: none;
   }
 
-  header .main-nav li,
-  header .nav-bar[aria-expanded='true'] .main-nav li {
-    padding: 26px 12px;
+  header .main-nav > ul > li,
+  header .nav-bar[aria-expanded='true'] .main-nav > ul > li {
+    padding: 16px 0;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  header .main-nav > ul > li {
+    display: block;
+    width: max-content;
+    letter-spacing: 0.28px;
+  }
+
+  header .main-nav .menu-label {
+    padding: 10px 12px;
+    border-radius: 4px;
+  }
+
+  header .main-nav li.is-open > .menu-label {
+    background: rgb(0 0 0 / 10%);
+    color: #000;
+    font-weight: 500;
+  }
+
+  header .main-nav li.is-open > .mega {
+    position: absolute;
+    inset: 58px 0 auto;
+    overflow: visible;
+    padding: 40px 0;
     font-size: 14px;
     line-height: 20px;
   }
 
-  header .main-nav li {
-    display: block;
-    width: max-content;
-    border-radius: 4px;
-    letter-spacing: 0.28px;
-    color: var(--text);
+  header .mega__head {
+    display: none;
   }
 
-  header .main-nav li::marker {
-    content: none;
+  header .mega__inner {
+    display: flex;
+    gap: 24px;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* live: every group ends with 40px, which also sets the panel's height */
+  header .mega__group {
+    margin-bottom: 40px;
+  }
+
+  header .mega__group + .mega__group,
+  header .mega__col + .mega__col,
+  header .mega .mega__aside {
+    margin-top: 0;
+  }
+
+  /* four columns share the room left of the promo (180px each); fewer stay 190px wide */
+  header .mega__col {
+    flex: 1 1 0;
+    max-width: 190px;
+  }
+
+  header .mega .mega__aside {
+    margin-left: auto;
+  }
+
+  header .mega__title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.28px;
+  }
+
+  header .mega__group li {
+    margin-top: 12px;
+    padding: 0;
+  }
+
+  header .mega__promo {
+    width: 384px;
+    height: 280px;
+    aspect-ratio: auto;
   }
 
   header .nav-tools {
@@ -406,7 +634,8 @@ body.home.theme-light header .nav-bar {
   }
 
   body.beige header .login-btn,
-  body.home:not(.theme-light) header .login-btn {
+  body.home:not(.theme-light) header .login-btn,
+  body.home.menu-open header .login-btn {
     background: var(--green);
     color: #fff;
   }
@@ -423,7 +652,7 @@ body.home.theme-light header .nav-bar {
     display: block;
   }
 
-  body.home:not(.theme-light) header .main-nav li {
+  body.home:not(.theme-light) header .main-nav > ul > li {
     color: #fff;
   }
 

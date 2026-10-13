@@ -1,4 +1,4 @@
-import { getChromePath } from '../../scripts/scripts.js';
+import { copyTextOptions, getChromePath } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -10,7 +10,10 @@ import { loadFragment } from '../fragment/fragment.js';
  *             (<strong>Important Notice:</strong> <a>message</a>)
  *   brand     one paragraph of image links: desktop logo, mobile logo, SkyTeam logo, then
  *             optionally the same three for the dark theme (home template)
- *   menu      a <ul> of top-level menu labels (mega menus: dynamics D-02, not yet wired)
+ *   menu      a <ul> of top-level menu labels; a label holding a nested list opens a mega menu
+ *             (dynamics D-02): each nested item is a group (title + list of links) or, when it
+ *             holds an image, the promo card (image, heading link, optional description).
+ *             Links titled "External link" get the external-link icon.
  *   tools     paragraphs: [AI search], language (contains the flag image), Login (last)
  *
  * Authored nodes are MOVED into the layout (Experience Workspace EW1); generated controls
@@ -43,6 +46,140 @@ function control(label, iconName, className) {
   return b;
 }
 
+function closeMenus(nav) {
+  nav.querySelectorAll('.main-nav > ul > li.is-open').forEach((li) => {
+    li.classList.remove('is-open');
+    li.querySelector('.menu-label').setAttribute('aria-expanded', 'false');
+  });
+  document.body.classList.remove('menu-open');
+  nav.dispatchEvent(new Event('megatoggle'));
+}
+
+function toggleMenu(li, nav) {
+  const open = !li.classList.contains('is-open');
+  closeMenus(nav);
+  li.classList.toggle('is-open', open);
+  li.querySelector('.menu-label').setAttribute('aria-expanded', String(open));
+  document.body.classList.toggle('menu-open', open);
+  nav.dispatchEvent(new Event('megatoggle'));
+}
+
+// live packs consecutive short groups into one column (Plan: Travel information + Flight
+// Information) and gives every other group its own column
+const COLUMN_LINKS = 4;
+
+function packColumns(groups) {
+  const columns = [];
+  let count = Infinity;
+  groups.forEach((group) => {
+    const n = group.querySelectorAll('li').length;
+    if (count + n > COLUMN_LINKS) {
+      columns.push([]);
+      count = 0;
+    }
+    columns[columns.length - 1].push(group);
+    count += n;
+  });
+  return columns;
+}
+
+function decoratePromo(item) {
+  item.className = 'mega__promo';
+  const media = item.querySelector('picture, img');
+  const link = item.querySelector('a');
+  // the description is the text that follows the heading link
+  const desc = document.createElement('span');
+  desc.className = 'mega__promo-desc';
+  if (link) {
+    let next = link.nextSibling;
+    while (next) {
+      const cur = next;
+      next = next.nextSibling;
+      desc.append(cur);
+    }
+  }
+  // live keeps the (empty) description line under a heading-only promo, so it stays put
+  const text = wrap(link, 'mega__promo-text');
+  text.append(desc);
+  const body = wrap(text, 'mega__promo-body');
+  body.append(wrap(icon('arrow_forward'), 'mega__promo-go'));
+  if (link) link.classList.add('mega__promo-link');
+  const holder = media ? media.closest('p') : null;
+  item.textContent = '';
+  if (media) item.append(media);
+  item.append(body);
+  if (holder) holder.remove();
+}
+
+function buildMega(li, index, nav) {
+  const sub = li.querySelector(':scope > ul');
+  if (!sub) return;
+  // the label: the authored paragraph, or the text before the nested list
+  let label = li.querySelector(':scope > p');
+  if (!label) {
+    label = document.createElement('span');
+    [...li.childNodes].filter((n) => n !== sub).forEach((n) => label.append(n));
+    li.prepend(label);
+  }
+  const id = `nav-mega-${index}`;
+  label.classList.add('menu-label');
+  label.setAttribute('role', 'button');
+  label.tabIndex = 0;
+  label.setAttribute('aria-expanded', 'false');
+  label.setAttribute('aria-controls', id);
+  label.addEventListener('click', () => toggleMenu(li, nav));
+  label.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    toggleMenu(li, nav);
+  });
+
+  const items = [...sub.querySelectorAll(':scope > li')];
+  const promos = items.filter((item) => item.querySelector('img'));
+  const groups = items.filter((item) => !promos.includes(item));
+  groups.forEach((group) => {
+    group.classList.add('mega__group');
+    const title = group.querySelector(':scope > p');
+    if (title) {
+      title.classList.add('mega__title');
+      title.setAttribute('role', 'heading');
+      title.setAttribute('aria-level', '3');
+    }
+  });
+  promos.forEach(decoratePromo);
+  sub.querySelectorAll('a[title="External link"]').forEach((a) => a.append(icon('call_made')));
+
+  const panel = wrap(null, 'mega');
+  panel.id = id;
+  // mobile drill-down head: back to the menu list, the menu name, close the navigation
+  const head = wrap(null, 'mega__head');
+  const back = control('Back', 'arrow_back', 'mega__back');
+  back.addEventListener('click', () => closeMenus(nav));
+  const heading = document.createElement('span');
+  heading.className = 'mega__heading';
+  heading.textContent = label.textContent.trim();
+  const close = control('Close navigation', 'close', 'mega__close');
+  close.addEventListener('click', () => nav.querySelector('.menu-btn').click());
+  head.append(back, heading, close);
+
+  const inner = wrap(null, 'mega__inner');
+  packColumns(groups).forEach((column) => {
+    const col = document.createElement('ul');
+    col.className = 'mega__col';
+    col.append(...column);
+    inner.append(col);
+  });
+  if (promos.length) {
+    const aside = document.createElement('ul');
+    aside.className = 'mega__aside';
+    aside.append(...promos);
+    inner.append(aside);
+  }
+  panel.append(head, inner);
+  sub.replaceWith(panel);
+  li.classList.add('has-mega');
+}
+
 export default async function decorate(block) {
   const navPath = getChromePath('nav');
   const fragment = await loadFragment(navPath);
@@ -65,6 +202,7 @@ export default async function decorate(block) {
     close.addEventListener('click', () => notice.remove());
     inner.append(close);
     notice.append(inner);
+    copyTextOptions(noticeSection, notice);
     root.append(notice);
   }
 
@@ -93,12 +231,14 @@ export default async function decorate(block) {
       brandBox.append(link);
     });
   });
+  copyTextOptions(brand, brandBox);
   bar.append(brandBox);
 
   const list = menu ? menu.querySelector('ul') : null;
   if (list) {
     const menuBox = wrap(list, 'main-nav');
-    list.querySelectorAll(':scope > li').forEach((li) => li.setAttribute('role', 'menuitem'));
+    copyTextOptions(menu, menuBox);
+    [...list.querySelectorAll(':scope > li')].forEach((li, i) => buildMega(li, i, nav));
     bar.append(menuBox);
   }
 
@@ -133,8 +273,10 @@ export default async function decorate(block) {
     nav.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     document.body.style.overflowY = open && !isDesktop.matches ? 'hidden' : '';
+    if (!open) closeMenus(nav);
   });
   toolsBox.append(burger);
+  copyTextOptions(tools, toolsBox);
   bar.append(toolsBox);
 
   nav.append(bar);
@@ -144,13 +286,29 @@ export default async function decorate(block) {
   // home (observed on live): the fixed header turns solid once the page scrolls (the notice
   // collapses), and the page switches from the dark to the light theme once the section
   // styled "theme-light" reaches the top of the viewport
+  // an open mega menu shows the light header too (observed on live)
   if (document.body.classList.contains('home')) {
     const marker = document.querySelector('main .section.theme-light');
     const sync = () => {
       document.body.classList.toggle('is-scrolled', window.scrollY > 0);
-      if (marker) document.body.classList.toggle('theme-light', marker.getBoundingClientRect().top < 0);
+      const light = (marker && marker.getBoundingClientRect().top < 0)
+        || document.body.classList.contains('menu-open');
+      document.body.classList.toggle('theme-light', light);
     };
     window.addEventListener('scroll', sync, { passive: true });
+    nav.addEventListener('megatoggle', sync);
     sync();
   }
+
+  document.addEventListener('click', (e) => {
+    if (isDesktop.matches && !e.target.closest('header .main-nav > ul > li')) closeMenus(nav);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const open = nav.querySelector('.main-nav > ul > li.is-open');
+    if (!open) return;
+    closeMenus(nav);
+    open.querySelector('.menu-label').focus();
+  });
+  isDesktop.addEventListener('change', () => closeMenus(nav));
 }

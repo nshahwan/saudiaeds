@@ -163,10 +163,8 @@ footer .footer-brand p {
   gap: 14px;
 }
 
-/* one footer fragment serves every template; the live listing pages and the article pages
-   with the travel notice leave the SkyTeam slot empty */
-body.listing footer .footer-brand a + a,
-body.article:not(.no-notice) footer .footer-brand a + a {
+/* one footer fragment serves every template; the live listing pages leave the SkyTeam slot empty */
+body.listing footer .footer-brand a + a {
   visibility: hidden;
 }
 
@@ -319,16 +317,6 @@ footer .footer-legal li:first-child {
   margin-bottom: 16px;
 }
 
-/* pages themed `legacy-cms` render the legal links as bulleted list items; the empty item after
-   the first link keeps a full line */
-body.legacy-cms footer .footer-legal li {
-  display: list-item;
-  list-style: disc;
-}
-
-body.legacy-cms footer .footer-legal li:first-child {
-  margin-bottom: 36px;
-}
 
 footer .footer-legal li,
 footer .footer-legal p {
@@ -343,8 +331,7 @@ footer .footer-legal p {
   color: var(--text-55);
 }
 
-body.listing footer .footer-legal p,
-body.article:not(.no-notice) footer .footer-legal p {
+body.listing footer .footer-legal p {
   margin-top: 68px;
 }
 
@@ -358,9 +345,7 @@ body.article:not(.no-notice) footer .footer-legal p {
   }
 
   body.product footer .site-footer,
-  body.listing footer .site-footer,
-  body.article footer .site-footer,
-  body.news footer .site-footer {
+  body.listing footer .site-footer {
     padding-bottom: 20px;
   }
 
@@ -606,14 +591,12 @@ body.article:not(.no-notice) footer .footer-legal p {
     gap: 20px;
   }
 
-  footer .footer-legal li:first-child,
-  body.legacy-cms footer .footer-legal li:first-child {
+  footer .footer-legal li:first-child {
     margin: 0 20px 0 0;
   }
 
   footer .footer-legal p,
-  body.listing footer .footer-legal p,
-  body.article:not(.no-notice) footer .footer-legal p {
+  body.listing footer .footer-legal p {
     margin: 0;
   }
 }

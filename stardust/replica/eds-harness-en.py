@@ -12,13 +12,6 @@ ROOT = '/backups/nshahwan/saudiaeds/repo/'
 PAGES = {
     'abha': 'en/explore/saudia-new-destinations-2026/fly-to-abha',
     'salalah': 'en/explore/saudia-new-destinations-2026/fly-to-salalah',
-    'press-release': 'en/about-us/press-releases/press-release-07082026',
-    'pr-list': 'en/about-us/press-releases/2024/05/press-release-24052024',
-    'pr-figure': 'en/about-us/press-releases/press-release-30042026-2',
-    'pr-divquote': 'en/about-us/press-releases/press-release-04052026-1',
-    'pr-nosub': 'en/about-us/press-releases/press-release-04052026',
-    'press-legacy': 'en/about-us/press-releases/2024/12/press-release-26122024',
-    'press-plain': 'en/about-us/press-releases/press-release-19062025',
     'index': 'en/index',
     'fly-to-athens': 'en/explore/saudia-new-destinations-2026/fly-to-athens',
     'flight-pass': 'en/book-and-manage/book/flight-pass',

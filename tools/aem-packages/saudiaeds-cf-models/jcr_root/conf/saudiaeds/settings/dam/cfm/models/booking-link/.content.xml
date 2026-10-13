@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Template"
+    allowedPaths="[^/content/dam/saudiaeds(/.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        cq:scaffolding="/conf/saudiaeds/settings/dam/cfm/models/booking-link/jcr:content/model"
+        cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
+        jcr:description="A link shown by the booking engine (promo or quick link, notice link)."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Booking Link"
+        sling:resourceSuperType="dam/cfm/models/console/components/data/entity"
+        sling:resourceType="dam/cfm/models/console/components/data/entity/default"
+        status="enabled">
+        <model
+            cq:targetPath="/content/entities"
+            dataTypesConfig="/mnt/overlay/settings/dam/cfm/models/formbuilderconfig/datatypes"
+            jcr:primaryType="cq:PageContent"
+            maxGeneratedOrder="20"
+            sling:resourceType="wcm/scaffolding/components/scaffolding">
+            <cq:dialog
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/authoring/dialog">
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                    <items
+                        jcr:primaryType="nt:unstructured"
+                        maxGeneratedOrder="20">
+                        <label
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="1"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="label"
+                            fieldLabel="Label"
+                            required="on"
+                            fieldDescription='e.g. "Flight + Hotel".'
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <url
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="2"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="url"
+                            fieldLabel="URL"
+                            required="on"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="2000"/>
+                        <external
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="3"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="external"
+                            fieldLabel="Opens an external site"
+                            fieldDescription="Shows the external-link icon and opens in a new tab."
+                            text="Opens an external site"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                            metaType="boolean"
+                            valueType="boolean"
+                            checked="false"/>
+                    </items>
+                </content>
+            </cq:dialog>
+        </model>
+    </jcr:content>
+</jcr:root>

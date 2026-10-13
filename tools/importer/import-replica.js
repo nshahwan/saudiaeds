@@ -9,6 +9,7 @@
  */
 import edsBlockParser from './parsers/eds-block.js';
 import edsSectionsTransformer from './transformers/eds-sections.js';
+import addBookingFragment from './transformers/booking-fragment.js';
 
 const META_BLOCKS = ['metadata', 'section-metadata'];
 
@@ -32,6 +33,8 @@ export default {
 
   transform: ({ document, params }) => {
     const main = document.querySelector('main');
+    // booking blocks reference the page's Booking Engine Content Fragment
+    addBookingFragment(main, document, new URL(params.originalURL).pathname);
 
     main.querySelectorAll(':scope > div > div[class]').forEach((block) => {
       if (!META_BLOCKS.includes(block.classList[0])) edsBlockParser(block, { document });

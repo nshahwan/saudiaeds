@@ -74,7 +74,7 @@ article pages with the notice (R-03).
 - **Evidence:** 15 article-layout press releases from May–June 2024 (e.g. `press-release-06052024-2`, the anb credit-card release) all use `Media-Center/2026/04/press-release-17042026-hero` with alt "Saudia and AlUla Partnership".
 - **Finding:** these pages show the hero image and alt text from a different (2026) release; the picture does not match the story.
 - **Minimal change:** the authors pick each release's own image, or drop the hero image.
-- **Status:** deferred (replicated as captured; flagged to the content owners)
+- **Status:** **withdrawn** — press release pages removed from the migration (user decision 2026-10-12); was: deferred (replicated as captured; flagged to the content owners)
 - **Where:** press releases › article layout, 2024
 
 ## R-09 — Inline links in press releases are styled two ways
@@ -82,7 +82,7 @@ article pages with the notice (R-03).
 - **Evidence:** across the 51 article-layout releases, 4 body links carry `a.saudia-inline-link` (green #00803e, semibold, no underline) and 9 are plain links with the site default style.
 - **Finding:** the same kind of link looks different from one release to the next.
 - **Minimal change:** one inline-link style for every press release body.
-- **Status:** deferred (all body links take the default link style, which is what the majority use; the 4 green links lose their green colour)
+- **Status:** **withdrawn** — press release pages removed from the migration (user decision 2026-10-12); was: deferred (all body links take the default link style, which is what the majority use; the 4 green links lose their green colour)
 - **Where:** press releases › article layout, body copy
 
 ## R-10 — Legacy press releases have no `<h1>`; the title is an `<h2>`
@@ -90,7 +90,7 @@ article pages with the notice (R-03).
 - **Evidence:** every legacy-layout release (167 pages) renders its title as `h2.UpdateHeading` and the subtitle as `<h3>`; the header's own `<h1>` is empty.
 - **Finding:** the page has no top-level heading, and the outline starts at level 2.
 - **Minimal change:** author the title as `<h1>` and the subtitle as `<h2>`, styled exactly like the live h2/h3. Headings in the body are unchanged.
-- **Status:** **applied** — semantic only, no visual change.
+- **Status:** **withdrawn** — press release pages removed from the migration (user decision 2026-10-12); was: **applied** — semantic only, no visual change.
 - **Where:** press releases › legacy layout
 
 ## R-11 — A stray blank line follows the subtitle on 59 legacy press releases
@@ -98,5 +98,5 @@ article pages with the notice (R-03).
 - **Evidence:** the title component ends with `<div>&nbsp;</div>` on 59 legacy releases, adding a 24px empty line before the image or body.
 - **Finding:** this is an authoring artefact: an empty paragraph used as a spacer.
 - **Minimal change:** drop the empty line; the spacing is set by the section styles.
-- **Status:** **applied** — those 59 pages sit 24px shorter than live.
+- **Status:** **withdrawn** — press release pages removed from the migration (user decision 2026-10-12); was: **applied** — those 59 pages sit 24px shorter than live.
 - **Where:** press releases › legacy layout, title

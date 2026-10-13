@@ -6,7 +6,7 @@ recreation renders every widget's initial state; this table is the migration gat
 | # | Feature | Where | Observed behaviour | Disposition |
 |---|---|---|---|---|
 | D-01 | Booking widget (Book / Check-in / Flight schedule / Flight status / Manage tabs, trip type, From/To airport comboboxes, Book with Miles) | explore-destination | Angular app; airport autocomplete + booking flow hit saudia.com booking APIs; default origin "Jeddah (JED)" filled by script on desktop only | **Integrate** — embed the existing booking app/widget as a block (host-bound API); static replica shows initial state |
-| D-02 | Main-nav mega menu | all (header) | click on a top-level item opens a 284px submenu panel | **Implement** in the EDS header block from the nav fragment (content not captured in this pilot) |
+| D-02 | Main-nav mega menu | all (header) | click on a top-level item opens a 284px submenu panel | **Implemented** (2026-10-13) in `blocks/header` from the nav fragment's nested lists — all six menus, desktop + mobile |
 | D-03 | AI search | explore-destination header | opens Saudia AI search overlay | **Integrate** (third-party/app) |
 | D-04 | Language / country selector, Login | header | open selector / login flows | **Integrate** (existing app routes) |
 | D-05 | Notice strip | header (Athens, Classes) | link to /en-SA/travel-updates/202602281; mobile close button | **Implement** as authored banner fragment; close is client-side |

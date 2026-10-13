@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Template"
+    allowedPaths="[^/content/dam/saudiaeds(/.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        cq:scaffolding="/conf/saudiaeds/settings/dam/cfm/models/booking-engine/jcr:content/model"
+        cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
+        jcr:description="The flight booking widget: tabs, trip types, route fields and notice."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Booking Engine"
+        sling:resourceSuperType="dam/cfm/models/console/components/data/entity"
+        sling:resourceType="dam/cfm/models/console/components/data/entity/default"
+        status="enabled">
+        <model
+            cq:targetPath="/content/entities"
+            dataTypesConfig="/mnt/overlay/settings/dam/cfm/models/formbuilderconfig/datatypes"
+            jcr:primaryType="cq:PageContent"
+            maxGeneratedOrder="20"
+            sling:resourceType="wcm/scaffolding/components/scaffolding">
+            <cq:dialog
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/authoring/dialog">
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                    <items
+                        jcr:primaryType="nt:unstructured"
+                        maxGeneratedOrder="20">
+                        <title
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="1"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="title"
+                            fieldLabel="Title"
+                            required="on"
+                            fieldDescription='Internal name, e.g. "Booking engine — Home".'
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <tabs
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="2"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="tabs"
+                            fieldLabel="Tabs"
+                            required="on"
+                            fieldDescription="One per tab, in order; the first is selected."
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            metaType="text-single"
+                            valueType="string[]">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                maxlength="255"
+                                name="tabs"
+                                renderReadOnly="false"/>
+                        </tabs>
+                        <tripTypes
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="3"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="tripTypes"
+                            fieldLabel="Trip types"
+                            required="on"
+                            fieldDescription="One per option, in order; the first is selected."
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            metaType="text-single"
+                            valueType="string[]">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                maxlength="255"
+                                name="tripTypes"
+                                renderReadOnly="false"/>
+                        </tripTypes>
+                        <milesLabel
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="4"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="milesLabel"
+                            fieldLabel="Miles toggle label"
+                            fieldDescription='e.g. "Book with Miles".'
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <fromLabel
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="5"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="fromLabel"
+                            fieldLabel="From label"
+                            required="on"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <defaultOrigin
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="6"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="defaultOrigin"
+                            fieldLabel="Default origin"
+                            fieldDescription='e.g. "Jeddah (JED)".'
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <toLabel
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="7"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="toLabel"
+                            fieldLabel="To label"
+                            required="on"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <swapLabel
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="8"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="swapLabel"
+                            fieldLabel="Swap button label"
+                            fieldDescription="Accessible name of the swap button."
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <infoMessage
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="9"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="infoMessage"
+                            fieldLabel="Notice message"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="500"/>
+                        <infoLink
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="10"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="infoLink"
+                            fieldLabel="Notice link"
+                            sling:resourceType="dam/cfm/models/editor/components/fragmentreference"
+                            metaType="fragment-reference"
+                            valueType="string/content-fragment"
+                            fragmentmodelreference="[/conf/saudiaeds/settings/dam/cfm/models/booking-link]"
+                            rootPath="/content/dam/saudiaeds"
+                            allowNew="true"/>
+                        <links
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="11"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="links"
+                            fieldLabel="Promo and quick links"
+                            fieldDescription="One link shows as a promo at the top right; several show as quick links."
+                            sling:resourceType="dam/cfm/models/editor/components/fragmentreference"
+                            metaType="fragment-reference"
+                            valueType="string/content-fragment[]"
+                            fragmentmodelreference="[/conf/saudiaeds/settings/dam/cfm/models/booking-link]"
+                            rootPath="/content/dam/saudiaeds"
+                            allowNew="true"/>
+                    </items>
+                </content>
+            </cq:dialog>
+        </model>
+    </jcr:content>
+</jcr:root>

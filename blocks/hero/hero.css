@@ -66,26 +66,6 @@ body.listing .hero .hero__content {
   display: none;
 }
 
-/* legacy press release (template `news`): the plain campaign banner is 460px; the
-   `campaign` variant (pages themed `legacy-cms`) is a rounded, unshaded 335px banner that starts
-   under the fixed header on mobile, 32px below it and 12px short of the right edge on desktop */
-body.news .hero {
-  height: 460px;
-}
-
-body.news .hero.campaign {
-  height: 335px;
-  border-radius: 4px;
-}
-
-.hero.campaign .hero__media::after {
-  display: none;
-}
-
-.hero.campaign .hero__pic img {
-  border-radius: 4px;
-}
-
 /* banner variant: rounded image banner inside the narrow copy column */
 .hero.banner {
   height: 300px;
@@ -160,12 +140,6 @@ body.news .hero.campaign {
 
   .hero.banner {
     height: 300px;
-  }
-
-  body.news .hero.campaign {
-    width: calc(100% - 12px);
-    height: 372px;
-    margin-top: 32px;
   }
 
   .hero.banner .hero__content {

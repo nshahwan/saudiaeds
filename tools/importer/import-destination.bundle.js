@@ -78,6 +78,36 @@ var CustomImportScript = (() => {
     });
   }
 
+  // tools/importer/transformers/booking-fragment.js
+  var FRAGMENTS = "/content/dam/saudiaeds/fragments/booking-engine";
+  var NAMES = ["home", "abha", "antalya", "athens", "bodrum", "el-alamein", "malaga", "mykonos", "nice", "salalah"];
+  function bookingFragmentName(pagePath) {
+    const path = pagePath.replace(/\.html$/, "").replace(/\/$/, "");
+    if (/\/en(\/index)?$/.test(path)) return "home";
+    return path.split("/").pop().replace(/^fly-to-/, "");
+  }
+  function addBookingFragment(main, document, pagePath) {
+    const name = bookingFragmentName(pagePath);
+    if (!NAMES.includes(name)) return;
+    main.querySelectorAll("div.booking").forEach((block2) => {
+      if (block2.children.length > 4) return;
+      const href2 = `${FRAGMENTS}/${name}`;
+      const cell = document.createElement("div");
+      cell.dataset.xwalkField = "fragment";
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href2;
+      a.textContent = href2;
+      p.append(a);
+      cell.append(p);
+      const row = document.createElement("div");
+      row.append(cell);
+      const variationRow = document.createElement("div");
+      variationRow.append(document.createElement("div"));
+      block2.append(row, variationRow);
+    });
+  }
+
   // tools/importer/import-destination.js
   var HOST = "https://www.saudia.com";
   var MIGRATED = /* @__PURE__ */ new Set([
@@ -280,6 +310,7 @@ var CustomImportScript = (() => {
       if (q("app-jss-title-text")) sections.push(...richText(document, q("app-jss-title-text")));
       if (q("app-jss-faq")) sections.push(faq(document, q("app-jss-faq")));
       main.replaceChildren(...sections);
+      addBookingFragment(main, document, new URL(params.originalURL).pathname);
       main.querySelectorAll(":scope > div > div[class]").forEach((b) => {
         if (!["metadata", "section-metadata"].includes(b.classList[0])) parse(b, { document });
       });

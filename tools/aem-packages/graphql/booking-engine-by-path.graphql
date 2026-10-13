@@ -1,0 +1,32 @@
+query bookingEngineByPath($path: String!, $variation: String = "master") {
+  bookingEngineByPath(_path: $path, variation: $variation) {
+    item {
+      _path
+      title
+      tabs
+      tripTypes
+      milesLabel
+      fromLabel
+      defaultOrigin
+      toLabel
+      swapLabel
+      infoMessage
+      infoLink {
+        ... on BookingLinkModel {
+          _path
+          label
+          url
+          external
+        }
+      }
+      links {
+        ... on BookingLinkModel {
+          _path
+          label
+          url
+          external
+        }
+      }
+    }
+  }
+}

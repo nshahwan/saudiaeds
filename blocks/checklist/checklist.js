@@ -10,8 +10,10 @@
  */
 
 // carry the Universal Editor instrumentation of an authored row over to the element that
-// replaces it (same as moveInstrumentation in scripts.js, inlined so the block has no imports)
+// replaces it (same as moveInstrumentation in scripts.js, inlined so the block has no imports),
+// together with the row's classes: the item's "Text style" options
 function moveInstrumentation(from, to) {
+  if (from.className) to.classList.add(...from.classList);
   [...from.attributes]
     .filter(({ name }) => name.startsWith('data-aue-') || name.startsWith('data-richtext-'))
     .forEach(({ name, value }) => {

@@ -26,13 +26,13 @@
           "component": "text",
           "valueType": "string",
           "name": "template",
-          "label": "Template (home | destination | product | listing | article | news)"
+          "label": "Template (home | destination | product | listing)"
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "theme",
-          "label": "Theme (beige | no-notice | legacy-cms, comma-separated)"
+          "label": "Theme (beige)"
         },
         {
           "component": "aem-content",

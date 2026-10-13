@@ -25,7 +25,7 @@ adobe-rnd/aem-block-collection-xwalk models. Content pages are written as
 | Prose | default content in `narrow` / `itinerary` sections (Explore); `plans` section style centres head + note. |
 | Icons | Material Symbols SVGs in /icons rendered as CSS masks (no 3 MB icon webfont); plan icons are the live SVGs. |
 | Fixed third-party chrome | Medallia "Send feedback" tab + chatbot launcher NOT authored — integrate via delayed.js (D-11). |
-| Mega menu | deferred (D-02): top-level labels render; submenus not captured in the pilot. |
+| Mega menu | implemented (D-02, 2026-10-13): all six menus, desktop panel + mobile drill-down — see the section below. |
 | Fonts | Saudia Sans 400/500/600/900 self-hosted from saudia.com's own files — LICENSING ALERT (fonts/LICENSING.md). |
 
 ## Heading levels
@@ -202,3 +202,95 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   2560px: 1200px column on four templates). Remaining FAILs on Athens / Abha (952px itinerary
   column), Classes (1170px card grid) and Flight Pass (empty full-width section box) are the cap
   heuristic reading intentional narrower modules — no visible content exceeds the live widths.
+
+## Press releases removed; author text options on every block, item and section (2026-10-12)
+
+- **Removed (user decision 2026-10-12: "delete About us and all press releases")**: blocks
+  `article-hero`, `quote`; page templates `article`, `news` and themes `no-notice`,
+  `legacy-cms` (styles, header, footer, hero `campaign` variant); section styles `article`,
+  `article-end`, `news`, `news-body`; importers `import-article` / `import-news` and their
+  reports; JCR output under migration-work/jcr-content/en/about-us; the Press Release and Quote
+  content fragment models (package now `saudiaeds-cf-models-1.1.0.zip`: Destination, FAQ Item).
+  Register R-08..R-11 withdrawn. **The pages themselves (content/en/about-us, 218) and their
+  images (content/content/dam/saudiaeds/about-us, 174) must be deleted in the UI** — the
+  workspace guard forbids deleting content.
+- **Text options** — single source `tools/text-options/options.json`, generator
+  `tools/text-options/build.py` (then `npm run build:json`):
+  - a "Text style" tab on all 23 block / item / section models (default-content components and
+    page metadata excluded): font, heading size, text size, font weight, font style, letter
+    case, letter spacing, line height, text / heading / link colour (brand palette), text
+    alignment, and content position (hero, carousel + slide, promo);
+  - blocks and items: `classes_*` select fields → classes on the block / item (container blocks
+    got a container model; their JS copies the row's classes onto the decorated item);
+    sections: metadata fields → classes (scripts.js `decorateSectionTextOptions`); header and
+    footer carry their fragment sections' options onto the parts built from them
+    (`copyTextOptions`);
+  - `styles/text-options.css` (imported by styles.css): each option class sets a variable — the
+    nearest item / block / section wins — and one id-level rule per property applies it, so an
+    author's choice beats the block typography; every option defaults to the live design.
+  - lint: `xwalk/max-cells` raised for `booking` (5) and `section` (14) — the classes_* group and
+    section metadata are not block cells.
+- Verified: `stardust/.work/probe/text-options-probe.mjs` (authors every option on every block,
+  one item per container, every section and the nav/footer fragments, then checks computed
+  styles) → 597/597 visible text elements on 5 page types follow their nearest options; content
+  position moves the text in hero, carousel and promo at both widths; with no options set all
+  pixel gates are unchanged (home 2.25/5.94, Athens 0.87/2.11, Abha 1.25/2.04, Salalah
+  0.97/2.24, Flight Pass 2.41/4.33, Classes 1.13/2.32); UE markers 163/163 intact.
+
+## Booking engine Content Fragment model + fragments (2026-10-13)
+
+- Models `booking-engine` (title, tabs[], tripTypes[], milesLabel, fromLabel, defaultOrigin,
+  toLabel, swapLabel, infoMessage, infoLink → booking-link, links → booking-link[]) and
+  `booking-link` (label, url, external) added to tools/aem-packages/build-cf-models.py.
+- Fragments: 10 Booking Engines (home + 9 destinations) and 12 Booking Links under
+  /content/dam/saudiaeds/fragments/{booking-engine,booking-links}, built from
+  tools/aem-packages/booking-engine-fragments.json (extracted from the pages' booking blocks;
+  the destinations' duplicated "Flight status" tab listed once).
+- Package `saudiaeds-cf-models-1.2.0.zip`. Not installed from here: the AEM author answers 401
+  (no author credentials in this environment) — install via Package Manager.
+- The pages' booking blocks still carry their own authored content; they do not read the
+  fragments yet.
+
+## Booking block connected to the Booking Engine fragments (2026-10-13)
+
+- `booking` model: `fragment` (aem-content-fragment picker, root …/fragments/booking-engine) and
+  hidden `fragmentVariation`, after the four label rows (existing content keeps its row order).
+- `booking.js`: renders the authored rows first, then loads the fragment via the persisted query
+  `saudiaeds/booking-engine-by-path` (author origin inside UE with the session cookie, publish
+  host otherwise; 4 s timeout) and re-renders from it inside `div.booking__fragment`
+  (`data-aue-resource` = the fragment's master variation, `data-aue-type="reference"`; single-
+  value labels as `data-aue-prop` text fields; each link as a reference to its Booking Link
+  fragment). Falls back silently to the authored rows.
+- Importers: transformer `booking-fragment.js` appends the fragment rows (page → fragment name:
+  /en/index → home, fly-to-X → X); 10 pages re-imported; JCR carries `fragment="/content/dam/…"`.
+- Query: tools/aem-packages/graphql/booking-engine-by-path.graphql + persist-queries.sh (run by
+  the user with their own credentials); AEM setup steps in tools/aem-packages/README.md.
+- Verified: with a mocked query response the widget renders entirely from the fragment
+  (instrumented, same layout); against the real publish (query not yet persisted → 404) it keeps
+  the authored labels; pixel gates unchanged (home 2.25/5.94, Athens 0.87/2.11, Salalah
+  0.97/2.24); UE markers intact; lint clean.
+
+## Header mega menus (D-02, 2026-10-13)
+
+- Content: the six menus were captured from live (`stardust/migrate/megamenu.json`, promo images
+  `megamenu-media.json` → DAM `/content/dam/saudiaeds/chrome/`). `stage-import-src.py` writes
+  them into the nav source as nested lists: label → groups (title + links) + promo item (image,
+  heading link, description); external links carry `title="External link"`. Nav re-imported
+  (`en/nav`), so authors edit the menus as ordinary nested lists in the nav page.
+- `blocks/header`: each label with a nested list becomes a disclosure button (`aria-expanded`,
+  `aria-controls`); one menu open at a time, closes on a second click, Escape (focus back to the
+  label) or an outside click. Groups are packed into columns as live does (consecutive groups
+  share a column while they total ≤ 4 links: Plan's Travel information + Flight Information).
+  Promo = image card, heading link stretched over the card, description, green arrow.
+- Desktop (live values): panel full width at nav top + 58px, 40px padding; 1200px content; 180px
+  columns with four groups (190px with fewer), gap 24; titles 500 14/20 #000; links 14/20
+  rgba(0,0,0,.55), 12px apart; 40px after each group; promo 384×280 right; open label
+  rgba(0,0,0,.1) bg, 500. Home: an open menu switches the header to its light theme (live).
+- Mobile: the burger list (24px 600, 48px pitch); tapping a label opens a full-screen drill-down
+  (back, title, close; titles 24/32, links 16/24 at 40px pitch, promo last).
+- Verified against live at 1440: every menu's title/column/promo positions within 2px and panel
+  heights within 2px; mobile drill-down rows match the live capture. Closed header unchanged:
+  Athens gate 0.87% (282 px vs the previous capture — the "AI search" label no longer wraps,
+  which also matches live). UE markers intact, text options 100%, lint clean.
+- Note: the live "AlFursan Store" menu link is broken on live itself
+  (`https://www.saudia.com/unsafe:javascript:void(0)`); carried as captured.

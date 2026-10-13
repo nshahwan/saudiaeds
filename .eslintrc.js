@@ -18,5 +18,9 @@ module.exports = {
     'import/extensions': ['error', { js: 'always' }], // require js file extensions in imports
     'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
     'no-param-reassign': [2, { props: false }], // allow modifying properties of param
+    // the "Text style" options (tools/text-options) are classes_* fields — block classes, not
+    // cells — and the section model renders as key-value section metadata, not as cells;
+    // booking: 4 label cells + the Booking Engine fragment picker and its (hidden) variation
+    'xwalk/max-cells': ['error', { '*': 4, booking: 7, section: 14 }],
   },
 };
