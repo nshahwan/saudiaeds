@@ -1,0 +1,101 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:replica",
+    "writtenAt": "2026-10-07T09:53:11.473Z",
+    "captureChannel": "interactive-browser-session (crawl.mjs blocked by Imperva challenge — see current/_invalid-challenge-capture/)",
+    "source": [
+      "stardust/replica/gates/explore-destination-1440/live-capture/",
+      "stardust/replica/gates/explore-destination-360/live-capture/"
+    ]
+  },
+  "slug": "explore-destination",
+  "url": "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026/fly-to-athens",
+  "finalUrl": "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026/fly-to-athens",
+  "section": "Explore",
+  "title": "Fly to Athens",
+  "lang": "en-SA",
+  "dir": "ltr",
+  "meta": {
+    "description": "Fly to Athens with Saudia and explore a city where ancient history meets modern charm, with comfortable flights and exceptional service every step of the way.",
+    "keywords": null,
+    "canonical": null
+  },
+  "fonts": [
+    "Material Icons 400",
+    "Material Symbols Outlined 200 500",
+    "Saudia Sans 400",
+    "Saudia Sans 500",
+    "Saudia Sans 600",
+    "Saudia Sans 900"
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "Your Summer in Athens"
+    },
+    {
+      "level": 3,
+      "text": "3 weekly flights from Jeddah (16 Jun – 5 Sep) and 3 weekly flights from Riyadh (29 Mar – Sep)"
+    },
+    {
+      "level": 3,
+      "text": "Explore Athens: Where Ancient Heritage Meets Modern Ambition"
+    },
+    {
+      "level": 4,
+      "text": "1. Visit the Acropolis and Parthenon"
+    },
+    {
+      "level": 4,
+      "text": "2. Explore the Acropolis Museum"
+    },
+    {
+      "level": 4,
+      "text": "3. Wander through the Plaka neighborhood"
+    },
+    {
+      "level": 4,
+      "text": "4. See the Ancient Agora and Temple of Hephaestus"
+    },
+    {
+      "level": 4,
+      "text": "5. Walk through the National Garden or Mount Lycabettus"
+    },
+    {
+      "level": 2,
+      "text": "FAQs"
+    }
+  ],
+  "links": [
+    {
+      "text": "Book Flight + Hotel (30% off)call_made",
+      "href": "https://www.saudia.com/holidays/en-SA/sdp/listing?destinationResortCode=4832&cabinCode=Economy&duration=4&departureDate=1782432000000&occupancies%5B0%5D%5Badults%5D=2&occupancies%5B0%5D%5Bchildren%5D=0&page=1&pageSize=48&departureCityCode=RUH&endDate=1782863999999&sort=price_asc&stars=4.5%2C5%2C4&utm_source=svsummer_lp&utm_medium=web&utm_campaign=Summer2026&utm_content=athens_en"
+    },
+    {
+      "text": "Learn more chevron_right",
+      "href": "/en-SA/plan/before-you-fly/travel-requirements"
+    },
+    {
+      "text": "cancellation and refund policy for more information",
+      "href": "/en-SA/book-and-manage/manage/refund"
+    },
+    {
+      "text": "addition baggage charges",
+      "href": "/sitecore/service/notfound.aspx?item=web%3a%7b31152426-158B-48D0-8AE9-BADDD086F264%7d%40en-SA"
+    }
+  ],
+  "images": [
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/Campaign-Banner/2026/04/Saudia_Athens_1920X600_EN.ashx?h=600&iar=0&w=1920&rev=164128b08a5b4847883d48f2a84f54ea&hash=517084EA1658453EBFCEDD9C9DAAD96C",
+      "alt": ""
+    }
+  ],
+  "capture": {
+    "width1440": {
+      "totalH": 4476
+    },
+    "width360": {
+      "totalH": 7438
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        cq:name="antalya"
+        cq:parentPath="/content/dam/saudiaeds/fragments/booking-engine"
+        contentFragment="{Boolean}true"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Booking engine — Antalya">
+        <data
+            cq:model="/conf/saudiaeds/settings/dam/cfm/models/booking-engine"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:primaryType="nt:unstructured"
+                title="Booking engine — Antalya"
+                tabs="[Book,Check-in,Flight schedule,Flight status,Manage]"
+                tripTypes="[Round trip,One way]"
+                milesLabel="Book with Miles"
+                fromLabel="From"
+                defaultOrigin="Jeddah (JED)"
+                toLabel="To"
+                swapLabel="Click here to swap to and from Destinations"
+                infoMessage="Read more about the latest travel requirements for your next destination"
+                infoLink="/content/dam/saudiaeds/fragments/booking-links/travel-requirements"
+                links="[/content/dam/saudiaeds/fragments/booking-links/antalya-flight-hotel]"/>
+        </data>
+        <metadata jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

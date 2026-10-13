@@ -1,0 +1,101 @@
+{
+  "discovery": {
+    "fetchTechnique": "headless",
+    "count": 3,
+    "concurrency": 1
+  },
+  "consent": {
+    "method": "auto"
+  },
+  "favicon": {
+    "url": "https://www.saudia.com/favicon.ico",
+    "file": "assets/favicon.ico"
+  },
+  "crawl": {
+    "failures": []
+  },
+  "dynamicSurface": {
+    "pages": 3,
+    "pagesWithSameSiteData": 3,
+    "pagesWithSearchForm": 0,
+    "pagesHydrated": 0,
+    "truncatedPages": 0,
+    "endpoints": [
+      {
+        "method": "POST",
+        "host": "www.saudia.com",
+        "path": "/olfe-to-done-Eye-owe-fore-tothe-so-preciall-She-",
+        "query": [
+          "d"
+        ],
+        "resourceType": "fetch",
+        "contentType": "application/json",
+        "sameSite": true,
+        "example": "https://www.saudia.com/olfe-to-done-Eye-owe-fore-tothe-so-preciall-She-",
+        "pages": 3,
+        "examples": [
+          "en-sa-explore-saudia-new-destinations-2026-fly-to-athens",
+          "en-sa-book-and-manage-book-flight-pass",
+          "en-sa-experience-on-board-classes-of-travel"
+        ]
+      },
+      {
+        "method": "GET",
+        "host": "www.saudia.com",
+        "path": "/_Incapsula_Resource",
+        "query": [
+          "SWCNGEEC"
+        ],
+        "resourceType": "xhr",
+        "contentType": "application/json",
+        "sameSite": true,
+        "example": "https://www.saudia.com/_Incapsula_Resource",
+        "pages": 3,
+        "examples": [
+          "en-sa-explore-saudia-new-destinations-2026-fly-to-athens",
+          "en-sa-book-and-manage-book-flight-pass",
+          "en-sa-experience-on-board-classes-of-travel"
+        ]
+      },
+      {
+        "method": "POST",
+        "host": "www.saudia.com",
+        "path": "/rk-shall-The-Casted-Exeunterd-from-Fie-Mowes-him/RUfO_KkTM-twb-x3OnGDmOuSEHkf6tSJtbktOofUpeg",
+        "query": [
+          "d"
+        ],
+        "resourceType": "fetch",
+        "contentType": "application/json",
+        "sameSite": true,
+        "example": "https://www.saudia.com/rk-shall-The-Casted-Exeunterd-from-Fie-Mowes-him/RUfO_KkTM-twb-x3OnGDmOuSEHkf6tSJtbktOofUpeg",
+        "pages": 1,
+        "examples": [
+          "en-sa-explore-saudia-new-destinations-2026-fly-to-athens"
+        ]
+      }
+    ],
+    "thirdPartyScriptHosts": [
+      {
+        "host": "api.geetest.com",
+        "pages": 3,
+        "examples": [
+          "en-sa-explore-saudia-new-destinations-2026-fly-to-athens",
+          "en-sa-book-and-manage-book-flight-pass",
+          "en-sa-experience-on-board-classes-of-travel"
+        ]
+      },
+      {
+        "host": "static.geetest.com",
+        "pages": 3,
+        "examples": [
+          "en-sa-explore-saudia-new-destinations-2026-fly-to-athens",
+          "en-sa-book-and-manage-book-flight-pass",
+          "en-sa-experience-on-board-classes-of-travel"
+        ]
+      }
+    ],
+    "frameworkHints": [],
+    "globalState": [],
+    "formTargets": []
+  }
+}

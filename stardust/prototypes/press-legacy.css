@@ -1,0 +1,36 @@
+/* Archetype: press-legacy (About us › press release, legacy layout: campaign banner, title,
+ * body copy). Layered on canon.css. Offsets from gates/press-legacy-{1440,360} live geometry
+ * (Sitecore image-link-list banner + two title-text components; CMS column margins 64|80px).
+ * Live chrome on these pages: fixed header (the banner starts under it on mobile), no notice,
+ * footer legal links rendered as bulleted list items.
+ */
+
+.page-legacy .site-header { position: fixed; top: 0; right: 0; left: 0; }
+.page-legacy .main { padding: 0 0 232px; }
+.page-legacy .footer-legal li { display: list-item; list-style: disc; }
+/* live keeps an empty bulleted item after the first link: it takes a full 16px line + gap */
+.page-legacy .footer-legal li:first-child { margin-bottom: 36px; }
+
+/* ---------- Campaign banner ---------- */
+.pr-banner { height: 335px; overflow: hidden; border-radius: 4px; }
+.pr-banner img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+
+/* ---------- Title ---------- */
+.pr-head { margin-top: 64px; }
+.pr-head h2 { color: #000; font-size: 32px; font-weight: 600; line-height: 36px; letter-spacing: -0.64px; }
+.pr-head h3 { margin-top: 16px; color: #000; font-size: 18px; font-weight: 600; line-height: 24px; letter-spacing: normal; }
+
+/* ---------- Body ---------- */
+.pr-body { margin-top: 64px; letter-spacing: 0.16px; }
+.pr-body p { margin-top: 16px; color: var(--text); font-size: 16px; line-height: 24px; }
+
+@media (min-width: 900px) {
+  .page-legacy .main { padding: 72px 0 48px; }
+  .page-legacy .site-footer { padding-bottom: 20px; }
+  .page-legacy .footer-legal li:first-child { margin: 0 20px 0 0; }
+  .pr-banner { width: calc(100% - 12px); height: 372px; margin-top: 32px; }
+  .pr-head { margin-top: 80px; }
+  .pr-head h2 { font-size: 40px; line-height: 48px; letter-spacing: -1.2px; }
+  .pr-head h3 { font-size: 24px; line-height: 32px; letter-spacing: -0.24px; }
+  .pr-body { margin-top: 80px; }
+}

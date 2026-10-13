@@ -1,0 +1,16 @@
+{
+  "sites": {
+    "saudiaeds": {
+      "previewOrg": "nshahwan",
+      "previewSite": "saudiaeds",
+      "contentHostUrl": "author-p208666-e2180259.adobeaemcloud.com",
+      "aemSitePath": "/content/saudiaeds",
+      "aemAssetsFolderPath": "/content/dam/saudiaeds",
+      "aemSiteName": "saudiaeds",
+      "aemSiteTitle": "saudiaeds",
+      "botProtected": true,
+      "baseUrl": "https://www.saudia.com",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

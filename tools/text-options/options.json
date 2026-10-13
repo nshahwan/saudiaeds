@@ -1,0 +1,90 @@
+{
+  "_comment": "Single source of the author text options (Universal Editor 'Text style' tab). build.py writes the editor fields into every block / item / section model, styles/text-options.css and scripts/text-options.js. Each option class sets a CSS variable; the nearest block, item or section that sets it wins.",
+  "palette": {
+    "Black": "#000",
+    "Dark grey": "rgb(0 0 0 / 70%)",
+    "Grey": "#666",
+    "White": "#fff",
+    "Saudia green": "rgb(0 128 62)",
+    "Dark green": "rgb(2 102 52)",
+    "Gold": "rgb(235 187 35)",
+    "Blue": "rgb(0 119 185)"
+  },
+  "groups": [
+    {
+      "key": "font", "label": "Font", "prefix": "ff", "var": "--opt-ff",
+      "options": [
+        ["Saudia Sans", "saudia", "'Saudia Sans', saudia-sans-fallback, arial, sans-serif"],
+        ["Arial", "arial", "arial, helvetica, sans-serif"],
+        ["Georgia (serif)", "serif", "georgia, 'Times New Roman', serif"]
+      ]
+    },
+    {
+      "key": "headingsize", "label": "Heading size", "prefix": "hs", "var": "--opt-hs", "var2": "--opt-hlh",
+      "options": [
+        ["Small (18px)", "s", "18px", "24px"],
+        ["Medium (24px)", "m", "24px", "32px"],
+        ["Large (32px)", "l", "32px", "36px"],
+        ["Extra large (40px)", "xl", "32px", "36px", "40px", "48px"],
+        ["Display (64px)", "xxl", "40px", "44px", "64px", "68px"]
+      ]
+    },
+    {
+      "key": "textsize", "label": "Text size", "prefix": "ts", "var": "--opt-ts", "var2": "--opt-tlh",
+      "options": [
+        ["Extra small (12px)", "xs", "12px", "16px"],
+        ["Small (14px)", "s", "14px", "20px"],
+        ["Medium (16px)", "m", "16px", "24px"],
+        ["Large (18px)", "l", "18px", "28px"],
+        ["Extra large (20px)", "xl", "20px", "30px"]
+      ]
+    },
+    {
+      "key": "fontweight", "label": "Font weight", "prefix": "fw", "var": "--opt-fw",
+      "options": [["Regular", "regular", "400"], ["Medium", "medium", "500"], ["Semibold", "semibold", "600"], ["Black", "black", "900"]]
+    },
+    {
+      "key": "fontstyle", "label": "Font style", "prefix": "fs", "var": "--opt-fs",
+      "options": [["Normal", "normal", "normal"], ["Italic", "italic", "italic"]]
+    },
+    {
+      "key": "textcase", "label": "Letter case", "prefix": "tt", "var": "--opt-tt",
+      "options": [["As written", "none", "none"], ["UPPERCASE", "upper", "uppercase"], ["lowercase", "lower", "lowercase"], ["Capitalize Each Word", "capitalize", "capitalize"]]
+    },
+    {
+      "key": "letterspacing", "label": "Letter spacing", "prefix": "ls", "var": "--opt-ls",
+      "options": [["Tight", "tight", "-0.02em"], ["Normal", "normal", "0"], ["Wide", "wide", "0.06em"], ["Extra wide", "xwide", "0.12em"]]
+    },
+    {
+      "key": "lineheight", "label": "Line height", "prefix": "lh", "var": "--opt-lh",
+      "options": [["Tight", "tight", "1.15"], ["Normal", "normal", "1.5"], ["Relaxed", "relaxed", "1.8"]]
+    },
+    { "key": "textcolor", "label": "Text color", "prefix": "tc", "var": "--opt-tc", "palette": true },
+    { "key": "headingcolor", "label": "Heading color", "prefix": "hc", "var": "--opt-hc", "palette": true },
+    { "key": "linkcolor", "label": "Link color", "prefix": "lc", "var": "--opt-lc", "palette": true },
+    {
+      "key": "textalign", "label": "Text alignment", "prefix": "ta", "var": "--opt-ta",
+      "options": [["Left", "left", "left"], ["Center", "center", "center"], ["Right", "right", "right"], ["Justify", "justify", "justify"]]
+    },
+    {
+      "key": "position", "label": "Content position", "prefix": "pos", "overlay": true,
+      "options": [
+        ["Top left", "top-left", "flex-start", "flex-start", "left"],
+        ["Top center", "top-center", "flex-start", "center", "center"],
+        ["Top right", "top-right", "flex-start", "flex-end", "right"],
+        ["Middle left", "middle-left", "center", "flex-start", "left"],
+        ["Center", "center", "center", "center", "center"],
+        ["Middle right", "middle-right", "center", "flex-end", "right"],
+        ["Bottom left", "bottom-left", "flex-end", "flex-start", "left"],
+        ["Bottom center", "bottom-center", "flex-end", "center", "center"],
+        ["Bottom right", "bottom-right", "flex-end", "flex-end", "right"]
+      ]
+    }
+  ],
+  "overlay": {
+    "_comment": "blocks whose text sits over an image: they get the Content position option",
+    "models": ["hero", "carousel", "slide", "promo"],
+    "content": [".hero__content", ".carousel__content", ".promo__content"]
+  },
+  "skipModels": ["fragment", "section-metadata", "page-metadata", "title", "button", "image", "text"]
+}

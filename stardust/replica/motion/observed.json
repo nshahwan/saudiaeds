@@ -1,0 +1,8 @@
+{
+  "_provenance": { "writtenBy": "stardust:replica", "writtenAt": "2026-10-07T09:58:46Z", "instrument": "interactive browser session probe (motion-observe.mjs cannot reach the live site: Imperva challenge)" },
+  "experience-cards": { "observed": ["card hover: img transform matrix(1.03,0,0,1.03,0,0); box-shadow rgba(15,23,42,.1) 0 14px 32px; border rgba(0,105,55,.25)", "footer group tap-to-expand at 360"], "implemented": ["card hover", "footer accordion"], "dead": [] },
+  "explore-destination": { "observed": ["FAQ single-open accordion (aria-expanded false,true,false after clicking panel 2)"], "implemented": ["FAQ single-open"], "dead": [] },
+  "book-manage-product": { "observed": ["Sign up now opens new tab https://flightpass.saudia.com/sv/subscriptions"], "implemented": ["link target=_blank"], "dead": [] },
+  "header": { "observed": ["top-level nav click opens 284px submenu panel"], "implemented": [], "deferred": ["mega menu — header block build"] },
+  "carousels": "hero is a single-slide swiper on all three pages; no autoplay observed"
+}

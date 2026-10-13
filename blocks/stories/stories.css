@@ -1,0 +1,184 @@
+/* stories — values from the gated replica (stardust/prototypes/home.css, .news) */
+
+/* section: default content (heading + intro) beside the story list on desktop */
+main .stories-container {
+  padding-top: 100px;
+  color: #fff;
+}
+
+main .stories-container .default-content-wrapper {
+  text-align: center;
+}
+
+main .stories-container .default-content-wrapper h2 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -1.2px;
+}
+
+main .stories-container .default-content-wrapper p {
+  margin-top: 16px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.stories .stories__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 76px;
+  list-style: none;
+}
+
+.stories .stories__item {
+  position: relative;
+  display: block;
+  color: inherit;
+}
+
+/* the authored link covers the whole story */
+.stories .stories__text a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* live lays every mobile story image out in a 180px slot (a taller one overflows it) */
+.stories .stories__media {
+  height: 180px;
+}
+
+.stories .stories__pic--desktop {
+  display: none;
+}
+
+.stories .stories__pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.stories .stories__text {
+  margin-top: 32px;
+}
+
+.stories .stories__text :is(h2, h3, h4) {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: normal;
+}
+
+.stories .stories__text p {
+  margin-top: 8px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+}
+
+.stories .stories__text p:last-child {
+  display: flex;
+  align-items: center;
+  color: #08b35f;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.16px;
+}
+
+.stories .stories__text p:last-child::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url('/icons/navigate_next.svg') center / contain no-repeat;
+}
+
+/* light page theme (home, once this section reaches the top of the viewport) */
+body.theme-light .stories .stories__text :is(h2, h3, h4) {
+  color: #000;
+}
+
+body.theme-light .stories .stories__text p {
+  color: var(--text);
+}
+
+body.theme-light .stories .stories__text p:last-child {
+  color: var(--green);
+}
+
+@media (width >= 900px) {
+  main .stories-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-top: 120px;
+  }
+
+  main .stories-container > div {
+    margin: 0;
+    padding: 0;
+  }
+
+  main .stories-container .default-content-wrapper {
+    width: 488px;
+    text-align: left;
+  }
+
+  main .stories-container .default-content-wrapper h2 {
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2.56px;
+  }
+
+  main .stories-container .stories-wrapper {
+    width: 588px;
+  }
+
+  .stories .stories__list {
+    gap: 32px;
+    margin-top: 0;
+  }
+
+  .stories .stories__item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .stories .stories__media {
+    flex: 0 0 282px;
+    height: auto;
+  }
+
+  .stories .stories__pic--desktop {
+    display: block;
+  }
+
+  .stories .stories__pic--mobile {
+    display: none;
+  }
+
+  .stories .stories__pic img {
+    height: 218px;
+    object-fit: cover;
+  }
+
+  .stories .stories__text {
+    flex: 1;
+    margin-top: 0;
+  }
+
+  .stories .stories__text :is(h2, h3, h4) {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+}

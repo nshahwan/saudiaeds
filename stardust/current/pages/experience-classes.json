@@ -1,0 +1,89 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:replica",
+    "writtenAt": "2026-10-07T09:53:11.826Z",
+    "captureChannel": "interactive-browser-session (crawl.mjs blocked by Imperva challenge — see current/_invalid-challenge-capture/)",
+    "source": [
+      "stardust/replica/gates/experience-classes-1440/live-capture/",
+      "stardust/replica/gates/experience-classes-360/live-capture/"
+    ]
+  },
+  "slug": "experience-classes",
+  "url": "https://www.saudia.com/en-SA/experience/on-board/classes-of-travel",
+  "finalUrl": "https://www.saudia.com/en-SA/plan/on-board/classes-of-travel",
+  "section": "Experience",
+  "title": "Classes of Travel and Cabin Experience | Saudia",
+  "lang": "en-SA",
+  "dir": "ltr",
+  "meta": {
+    "description": "Explore Saudia classes of travel including Guest, Business and First Class. Compare cabin features and onboard services. Choose your preferred class and fly with Saudia today.",
+    "keywords": null,
+    "canonical": null
+  },
+  "fonts": [
+    "Material Icons Outlined 400",
+    "Material Symbols Outlined 200 500",
+    "Saudia Sans 400",
+    "Saudia Sans 500",
+    "Saudia Sans 600",
+    "Saudia Sans 900"
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "Classes of Travel"
+    },
+    {
+      "level": 4,
+      "text": "First Suite"
+    },
+    {
+      "level": 4,
+      "text": "Business Class"
+    },
+    {
+      "level": 4,
+      "text": "Guest Class"
+    }
+  ],
+  "links": [
+    {
+      "text": "First Suite Step in and make yourself comfortable at home. Discover flying in First Suite",
+      "href": "https://entertainment.saudia.com/cabin-classes"
+    },
+    {
+      "text": "Business Class Relax or catch up on work with our uniquely designed seat. Discover flying in Business Class",
+      "href": "https://entertainment.saudia.com/cabin-classes"
+    },
+    {
+      "text": "Guest Class Enjoy personal space and comfort on your journey. Discover flying in Guest Class",
+      "href": "https://entertainment.saudia.com/cabin-classes"
+    }
+  ],
+  "images": [
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/pages/classes/classes-web.ashx?h=600&iar=0&w=1920&rev=7022e7a4a7d047a58bee40bd8ee93326&hash=401AF816376A2FDB8C89197D9A51F73F",
+      "alt": "Interior view of a luxurious Saudia premium class cabin suite. The large in-flight entertainment screen prominently displays the 'BEYOND' interface with a welcome message in Arabic and English, set against a backdrop of AlUla's Elephant Rock. The elegant suite features modern seat controls, a secondary touchscreen remote, and a green amenity kit resting on the side console."
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/cabin-classes/FirstSuite02.ashx?rev=bdfa8f26f1d44684bfd290dbd15c6fd5&hash=534C0170B28556128097BE4243B95CEF",
+      "alt": "Saudia First Suite cabin"
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/cabin-classes/Business02.ashx?rev=950b1a12ceb740f4962277fef490bb40&hash=32562FAC9E9C4CF62F5FA4BDF8167E22",
+      "alt": "Saudia Business Class seats"
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/cabin-classes/Guest_02.ashx?rev=d572e351db474c5aacca915ec4b33823&hash=0181B885F25B125D457AF7386F33134E",
+      "alt": "Saudia Guest Class cabin"
+    }
+  ],
+  "capture": {
+    "width1440": {
+      "totalH": 2566
+    },
+    "width360": {
+      "totalH": 4134
+    }
+  }
+}

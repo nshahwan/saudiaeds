@@ -1,0 +1,423 @@
+/* booking — values from the gated replica (stardust/prototypes/explore-destination.css) */
+
+/* the beige theme paints down to y=900 on the live page; mobile switches to white 218px
+   into this section (the card overlaps the switch) */
+body.beige main .booking-container {
+  background: linear-gradient(var(--beige) 218px, #fff 218px);
+}
+
+.booking {
+  position: relative;
+  z-index: 11;
+  margin-top: -56px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.booking .booking__panel {
+  position: relative;
+  height: 243px;
+  padding: 16px 16px 32px;
+}
+
+.booking .booking__tabs {
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.booking .booking__tabs ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.booking .booking__tabs li {
+  flex: none;
+  padding-bottom: 15px;
+  border-bottom: 3px solid transparent;
+  color: #000;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.booking .booking__tabs li[aria-selected='true'] {
+  border-bottom-color: var(--green);
+  font-weight: 600;
+}
+
+.booking .booking__promo {
+  position: absolute;
+  top: 243px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  color: var(--green);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.booking .booking__promo .ico {
+  width: 16px;
+  height: 16px;
+}
+
+/* quick links (several promo paragraphs, home): stacked under the fields on mobile, where
+   live shows the first three; a row at the top right of the panel on desktop */
+.booking .booking__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px;
+  list-style: none;
+}
+
+.booking .booking__links li:nth-child(n + 4) {
+  display: none;
+}
+
+.booking .booking__links a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--green);
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+/* live: Stopover carries an arrow_forward_ios glyph */
+.booking .booking__links li:first-child a::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url('/icons/arrow_forward_ios.svg') center / contain no-repeat;
+}
+
+/* the 48px gap only makes room for the absolutely placed promo link (live: 24px without one) */
+.booking .booking__links + .booking__info,
+.booking .booking__panel:not(:has(.booking__promo)) + .booking__info {
+  margin-top: 24px;
+}
+
+/* home: the widget sits over the dark page theme; live greys the inactive labels there */
+body.home main .booking-container {
+  padding-bottom: 80px;
+}
+
+body.home .booking {
+  margin-top: -116px;
+}
+
+body.home .booking .booking__tabs li,
+body.home .booking .radio p {
+  color: var(--text);
+}
+
+body.home .booking .booking__tabs li[aria-selected='true'] {
+  color: #000;
+}
+
+.booking .booking__options {
+  display: none;
+}
+
+.booking .booking__fields {
+  position: relative;
+  margin-top: 24px;
+}
+
+.booking .field {
+  position: relative;
+  height: 60px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: var(--field);
+}
+
+.booking .field + .booking__swap + .field {
+  margin-top: 8px;
+}
+
+.booking .field__label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: var(--text-42);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.booking .field__value,
+.booking .field__icon {
+  display: none;
+}
+
+.booking .booking__swap {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: rgb(0 0 0 / 12%) 0 4px 6px 0;
+  color: var(--text);
+}
+
+.booking .booking__swap .ico {
+  transform: rotate(90deg);
+}
+
+.booking .booking__info {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 48px;
+  padding: 12px 22px 12px 20px;
+  border-radius: 0 0 4px 4px;
+  background: var(--info-blue);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+}
+
+.booking .booking__info-text {
+  width: 208px;
+}
+
+.booking .booking__info-more {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.booking .booking__info-more p,
+.booking .booking__chev-d {
+  display: none;
+}
+
+@media (width >= 900px) {
+  body.beige main .booking-container {
+    background: none;
+  }
+
+  main .booking-container {
+    padding: 26px 0 93px;
+  }
+
+  .booking {
+    margin-top: 0;
+  }
+
+  .booking .booking__panel {
+    height: auto;
+    padding: 16px 24px 24px;
+  }
+
+  .booking .booking__tabs {
+    width: 1152px;
+  }
+
+  .booking .booking__promo {
+    top: 16px;
+    right: 24px;
+    left: auto;
+  }
+
+  .booking .booking__links {
+    position: absolute;
+    top: 16px;
+    right: 48px;
+    flex-direction: row;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .booking .booking__links li:nth-child(n + 4) {
+    display: block;
+  }
+
+  .booking .booking__links + .booking__info,
+  .booking .booking__panel:not(:has(.booking__promo)) + .booking__info {
+    margin-top: 0;
+  }
+
+  body.home main .booking-container {
+    padding: 2px 0 0;
+  }
+
+  body.home .booking {
+    margin-top: 0;
+  }
+
+  .booking .booking__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 24px;
+    margin-top: 24px;
+  }
+
+  .booking .booking__trip {
+    display: flex;
+    gap: 24px;
+  }
+
+  .booking .radio {
+    display: flex;
+    align-items: center;
+  }
+
+  .booking .radio__ring {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(0 0 0 / 42%);
+    border-radius: 50%;
+  }
+
+  .booking .radio.is-checked .radio__ring {
+    border-color: var(--green);
+  }
+
+  .booking .radio.is-checked .radio__ring::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  .booking .radio p {
+    padding-left: 10px;
+    color: #000;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .booking .toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .booking .toggle__track {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border-radius: 100px;
+    background: rgb(0 0 0 / 20%);
+  }
+
+  .booking .toggle__thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 20%) 0 2px 1px -1px, rgb(0 0 0 / 14%) 0 1px 1px 0, rgb(0 0 0 / 12%) 0 1px 3px 0;
+  }
+
+  .booking .toggle__label {
+    color: var(--green);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .booking .booking__fields {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .booking .field {
+    flex: 1;
+    height: 80px;
+  }
+
+  .booking .field + .booking__swap + .field {
+    margin-top: 0;
+  }
+
+  .booking .field__label {
+    top: 11px;
+    left: 24px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.48px;
+  }
+
+  .booking .field__value {
+    position: absolute;
+    top: 30px;
+    left: 24px;
+    display: block;
+    color: #000;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+
+  .booking .field--to .field__label {
+    top: 24px;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+  }
+
+  .booking .field__icon {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: var(--green);
+  }
+
+  .booking .field--to .field__icon {
+    color: rgb(0 0 0 / 30%);
+  }
+
+  .booking .booking__swap {
+    position: static;
+    flex: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .booking .booking__swap .ico {
+    transform: none;
+  }
+
+  .booking .booking__info {
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .booking .booking__info-text {
+    width: auto;
+  }
+
+  .booking .booking__info-more p {
+    display: block;
+  }
+
+  .booking .booking__chev-d {
+    display: inline-block;
+  }
+
+  .booking .booking__chev-m {
+    display: none;
+  }
+}

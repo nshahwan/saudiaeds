@@ -1,57 +1,493 @@
 {
-  "definitions": [
-    {
-      "title": "Section",
-      "id": "section",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/section/v1/section",
-            "template": {
-              "model": "section"
-            }
-          }
-        }
+ "definitions": [
+  {
+   "title": "Section",
+   "id": "section",
+   "plugins": {
+    "xwalk": {
+     "page": {
+      "resourceType": "core/franklin/components/section/v1/section",
+      "template": {
+       "model": "section"
       }
+     }
     }
-  ],
-  "models": [
+   }
+  }
+ ],
+ "models": [
+  {
+   "id": "section",
+   "fields": [
     {
-      "id": "section",
-      "fields": [
-        {
-          "component": "text",
-          "name": "name",
-          "label": "Section Name",
-          "description": "The label shown for this section in the Content Tree"
-        },
-        {
-          "component": "multiselect",
-          "name": "style",
-          "label": "Style",
-          "options": [
-            {
-              "name": "Highlight",
-              "value": "highlight"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "filters": [
+     "component": "tab",
+     "label": "Content",
+     "name": "content-tab"
+    },
     {
-      "id": "section",
-      "components": [
-        "text",
-        "image",
-        "button",
-        "title",
-        "hero",
-        "cards",
-        "columns",
-        "fragment"
-      ]
+     "component": "text",
+     "name": "name",
+     "label": "Section Name",
+     "description": "The label shown for this section in the Content Tree"
+    },
+    {
+     "component": "multiselect",
+     "name": "style",
+     "label": "Style",
+     "options": [
+      {
+       "name": "Highlight",
+       "value": "highlight"
+      },
+      {
+       "name": "Narrow copy column",
+       "value": "narrow"
+      },
+      {
+       "name": "Itinerary box",
+       "value": "itinerary"
+      },
+      {
+       "name": "Split (copy + list)",
+       "value": "split"
+      },
+      {
+       "name": "Centered",
+       "value": "centered"
+      },
+      {
+       "name": "FAQ",
+       "value": "faq"
+      },
+      {
+       "name": "Notice strip (nav fragment)",
+       "value": "notice"
+      },
+      {
+       "name": "Light page theme from here (home)",
+       "value": "theme-light"
+      }
+     ]
+    },
+    {
+     "component": "tab",
+     "label": "Text style",
+     "name": "text-style-tab"
+    },
+    {
+     "component": "select",
+     "name": "font",
+     "label": "Font",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Saudia Sans",
+       "value": "ff-saudia"
+      },
+      {
+       "name": "Arial",
+       "value": "ff-arial"
+      },
+      {
+       "name": "Georgia (serif)",
+       "value": "ff-serif"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "headingsize",
+     "label": "Heading size",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Small (18px)",
+       "value": "hs-s"
+      },
+      {
+       "name": "Medium (24px)",
+       "value": "hs-m"
+      },
+      {
+       "name": "Large (32px)",
+       "value": "hs-l"
+      },
+      {
+       "name": "Extra large (40px)",
+       "value": "hs-xl"
+      },
+      {
+       "name": "Display (64px)",
+       "value": "hs-xxl"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "textsize",
+     "label": "Text size",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Extra small (12px)",
+       "value": "ts-xs"
+      },
+      {
+       "name": "Small (14px)",
+       "value": "ts-s"
+      },
+      {
+       "name": "Medium (16px)",
+       "value": "ts-m"
+      },
+      {
+       "name": "Large (18px)",
+       "value": "ts-l"
+      },
+      {
+       "name": "Extra large (20px)",
+       "value": "ts-xl"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "fontweight",
+     "label": "Font weight",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Regular",
+       "value": "fw-regular"
+      },
+      {
+       "name": "Medium",
+       "value": "fw-medium"
+      },
+      {
+       "name": "Semibold",
+       "value": "fw-semibold"
+      },
+      {
+       "name": "Black",
+       "value": "fw-black"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "fontstyle",
+     "label": "Font style",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Normal",
+       "value": "fs-normal"
+      },
+      {
+       "name": "Italic",
+       "value": "fs-italic"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "textcase",
+     "label": "Letter case",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "As written",
+       "value": "tt-none"
+      },
+      {
+       "name": "UPPERCASE",
+       "value": "tt-upper"
+      },
+      {
+       "name": "lowercase",
+       "value": "tt-lower"
+      },
+      {
+       "name": "Capitalize Each Word",
+       "value": "tt-capitalize"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "letterspacing",
+     "label": "Letter spacing",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Tight",
+       "value": "ls-tight"
+      },
+      {
+       "name": "Normal",
+       "value": "ls-normal"
+      },
+      {
+       "name": "Wide",
+       "value": "ls-wide"
+      },
+      {
+       "name": "Extra wide",
+       "value": "ls-xwide"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "lineheight",
+     "label": "Line height",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Tight",
+       "value": "lh-tight"
+      },
+      {
+       "name": "Normal",
+       "value": "lh-normal"
+      },
+      {
+       "name": "Relaxed",
+       "value": "lh-relaxed"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "textcolor",
+     "label": "Text color",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Black",
+       "value": "tc-black"
+      },
+      {
+       "name": "Dark grey",
+       "value": "tc-dark-grey"
+      },
+      {
+       "name": "Grey",
+       "value": "tc-grey"
+      },
+      {
+       "name": "White",
+       "value": "tc-white"
+      },
+      {
+       "name": "Saudia green",
+       "value": "tc-saudia-green"
+      },
+      {
+       "name": "Dark green",
+       "value": "tc-dark-green"
+      },
+      {
+       "name": "Gold",
+       "value": "tc-gold"
+      },
+      {
+       "name": "Blue",
+       "value": "tc-blue"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "headingcolor",
+     "label": "Heading color",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Black",
+       "value": "hc-black"
+      },
+      {
+       "name": "Dark grey",
+       "value": "hc-dark-grey"
+      },
+      {
+       "name": "Grey",
+       "value": "hc-grey"
+      },
+      {
+       "name": "White",
+       "value": "hc-white"
+      },
+      {
+       "name": "Saudia green",
+       "value": "hc-saudia-green"
+      },
+      {
+       "name": "Dark green",
+       "value": "hc-dark-green"
+      },
+      {
+       "name": "Gold",
+       "value": "hc-gold"
+      },
+      {
+       "name": "Blue",
+       "value": "hc-blue"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "linkcolor",
+     "label": "Link color",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Black",
+       "value": "lc-black"
+      },
+      {
+       "name": "Dark grey",
+       "value": "lc-dark-grey"
+      },
+      {
+       "name": "Grey",
+       "value": "lc-grey"
+      },
+      {
+       "name": "White",
+       "value": "lc-white"
+      },
+      {
+       "name": "Saudia green",
+       "value": "lc-saudia-green"
+      },
+      {
+       "name": "Dark green",
+       "value": "lc-dark-green"
+      },
+      {
+       "name": "Gold",
+       "value": "lc-gold"
+      },
+      {
+       "name": "Blue",
+       "value": "lc-blue"
+      }
+     ]
+    },
+    {
+     "component": "select",
+     "name": "textalign",
+     "label": "Text alignment",
+     "valueType": "string",
+     "value": "",
+     "options": [
+      {
+       "name": "Default",
+       "value": ""
+      },
+      {
+       "name": "Left",
+       "value": "ta-left"
+      },
+      {
+       "name": "Center",
+       "value": "ta-center"
+      },
+      {
+       "name": "Right",
+       "value": "ta-right"
+      },
+      {
+       "name": "Justify",
+       "value": "ta-justify"
+      }
+     ]
     }
-  ]
+   ]
+  }
+ ],
+ "filters": [
+  {
+   "id": "section",
+   "components": [
+    "text",
+    "image",
+    "button",
+    "title",
+    "hero",
+    "cards",
+    "columns",
+    "fragment",
+    "booking",
+    "accordion",
+    "checklist",
+    "plans",
+    "carousel",
+    "fares",
+    "features",
+    "offers",
+    "promo",
+    "stories"
+   ]
+  }
+ ]
 }

@@ -1,0 +1,770 @@
+{
+  "slug": "home",
+  "url": "https://www.saudia.com/en-SA",
+  "meta": {
+    "title": "Saudia | Book flights | Hotels | Holidays",
+    "description": "Saudia Home Page"
+  },
+  "desktop": {
+    "title": "Saudia | Book flights | Hotels | Holidays",
+    "description": "Saudia Home Page",
+    "slides": [
+      {
+        "title": "Fly Saudia for Umrah",
+        "desc": null,
+        "cta": "Book Now",
+        "href": "/en-SA/umrah/fly-saudia-for-umrah-packages",
+        "imgs": [
+          {
+            "src": "assets/media/26122023-fly-saudia-stopover-makkah-top-2b-en-2-77aa80.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ],
+        "idx": "4"
+      },
+      {
+        "title": "27% Off on domestic flights",
+        "desc": "Promo code: FALCONS",
+        "cta": "Buy now",
+        "href": "/en-SA/campaigns/falcons",
+        "imgs": [
+          {
+            "src": "assets/media/Saudia_Gulf-Cup_1920-600-en-a86c8b.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ],
+        "idx": "0"
+      },
+      {
+        "title": "An autumn you love in our destinations",
+        "desc": null,
+        "cta": "Buy now",
+        "href": "/en-SA/explore/fall_destinations",
+        "imgs": [
+          {
+            "src": "assets/media/Saudia_Europe-Fall-Campaign_2026_3840x1200_EN-72b9bb.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ],
+        "idx": "1"
+      },
+      {
+        "title": "Tokyo, Now Within Reach",
+        "desc": "3 direct weekly flights from Riyadh starting from 16 Nov 2026",
+        "cta": "Book now",
+        "href": "/en-SA/campaigns/flights-to-tokyo",
+        "imgs": [
+          {
+            "src": "assets/media/Saudia_Tokyo_Culture_1920-600-en-1-e51aad.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ],
+        "idx": "2"
+      },
+      {
+        "title": "Flight + Hotel Sale",
+        "desc": "Book early. Save more. 60+ destinations",
+        "cta": "Discover Now",
+        "href": "https://www.saudia.com/en-SA/saudia-holidays/holidays-exclusive-offers",
+        "imgs": [
+          {
+            "src": "assets/media/BANNERS_web-banner-SV-EN-9a9d01.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ],
+        "idx": "3"
+      }
+    ],
+    "booking": {
+      "tabs": [
+        "Book",
+        "Manage",
+        "Check-in",
+        "Flight status",
+        "Flight schedule"
+      ],
+      "links": [
+        {
+          "text": "Stopoverarrow_forward_ios",
+          "href": "/en-SA/transit-visa",
+          "target": "_self"
+        },
+        {
+          "text": "Flight + Hotel",
+          "href": "/en-SA/saudia-holidays/holidays-exclusive-offers",
+          "target": "_self"
+        },
+        {
+          "text": "Umrah",
+          "href": "/en-SA/umrah/fly-saudia-for-umrah-packages",
+          "target": "_self"
+        },
+        {
+          "text": "Hotels",
+          "href": "https://www.expedia.sa/Saudia",
+          "target": "_blank"
+        },
+        {
+          "text": "",
+          "href": null,
+          "target": "_self"
+        }
+      ],
+      "trips": [
+        "Round trip",
+        "One way",
+        "Multi-city"
+      ],
+      "info": "Read more about the latest travel requirements for your next destination",
+      "infoLink": null
+    },
+    "fares": {
+      "heading": "Best fares from",
+      "note": "Fares include taxes",
+      "all": {
+        "text": "Explore all destinations navigate_next",
+        "href": null
+      },
+      "cards": [
+        {
+          "city": "Phuket",
+          "price": "From SAR 2246",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=HKT&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/phuket-f44b79.jpg",
+              "alt": "Phuket sea view",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Casablanca",
+          "price": "From SAR 2423",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=CMN&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-cassablanca-1-b3bdda.jpg",
+              "alt": "The Casablanca clock tower in Morocco.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Guangzhou",
+          "price": "From SAR 2012",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=CAN&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-guangzho-1-3aedde.jpg",
+              "alt": " The entrance to the Ancestral temple in the Foshan region of Guangzhou region, China.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Cairo",
+          "price": "From SAR 852",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=CAI&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-cairo-1-1a26c5.jpg",
+              "alt": " A camel resting with the great pyramids in the background, Cairo, Egypt.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Mumbai",
+          "price": "From SAR 1159",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=BOM&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-Mumbai-78c7dd.jpg",
+              "alt": " Landscape of Gateway Of India Mumbai, with multiple boats sailing the river and tourists enjoying the view.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        }
+      ]
+    },
+    "offers": {
+      "heading": "Exclusive Offers for You",
+      "all": {
+        "text": "Explore all offerschevron_right",
+        "href": "/en-SA/offers"
+      },
+      "tiles": [
+        {
+          "title": "Let’s get you upgraded",
+          "desc": "",
+          "imgs": [
+            {
+              "src": "assets/media/my-upgrade-web-7e1053.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        },
+        {
+          "title": "Hot deals",
+          "desc": "",
+          "imgs": [
+            {
+              "src": "assets/media/card3-ba42db.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        },
+        {
+          "title": "Travel insurance",
+          "desc": null,
+          "href": "/en/book-and-manage/book/travel-insurance",
+          "imgs": [
+            {
+              "src": "assets/media/insurance-web-ee5238.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            },
+            {
+              "src": "assets/media/flight-pass-web-en-290864.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        },
+        {
+          "title": "Travel insurance",
+          "desc": null,
+          "href": "/en/book-and-manage/book/travel-insurance",
+          "imgs": [
+            {
+              "src": "assets/media/insurance-web-ee5238.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            },
+            {
+              "src": "assets/media/flight-pass-web-en-290864.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        }
+      ]
+    },
+    "banners": [
+      {
+        "title": "Flight + Hotel Deals",
+        "desc": null,
+        "cta": "Book now arrow_forward",
+        "href": "/en-SA/saudia-holidays/holidays-exclusive-offers",
+        "imgs": [
+          {
+            "src": "assets/media/saudia-holidays-banner-web-en-opt-c0a05a.jpg",
+            "alt": "A promotional green Saudia Holidays banner highlighting discounts of up to 50%, alongside a smartphone interface displaying a Maldives resort vacation package with pricing and stay details.",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ]
+      },
+      {
+        "title": "Shop with Miles",
+        "desc": null,
+        "cta": "AlFursan Store arrow_forward",
+        "href": "javascript:void(0)",
+        "imgs": [
+          {
+            "src": "assets/media/Banner_Desktop-1366--550---EN-1-86679c.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ]
+      },
+      {
+        "title": "Be first to know",
+        "desc": null,
+        "cta": "I want to be first arrow_forward",
+        "href": "https://www.saudia.com/Subscribe/",
+        "imgs": [
+          {
+            "src": "assets/media/SVW-MID-newsletter-en-9f1f1a.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ]
+      },
+      {
+        "title": "The best that Saudi Arabia has to offer",
+        "desc": null,
+        "cta": "Explore arrow_forward",
+        "href": "https://www.visitsaudi.com/content/dam/documents/saudi-calendar.pdf",
+        "imgs": [
+          {
+            "src": "assets/media/sta-calendar-en-ae8d69.jpg",
+            "alt": "visit saudi",
+            "cls": "swiper-slide__image desktop-view ng-star-inserted"
+          }
+        ]
+      }
+    ],
+    "news": {
+      "heading": "Exceptional experiences with Saudia",
+      "intro": "",
+      "items": [
+        {
+          "title": "Time Flies with BEYOND",
+          "text": "Discover our new entertainment experience BEYOND and learn more about the various entertainment channels and services available on your flight.",
+          "cta": "Time Flies with BEYONDDiscover our new entertainment experience BEYOND and learn more about the various entertainment channels and services available on your flight.Learn more navigate_next",
+          "href": "https://entertainment.saudia.com",
+          "imgs": [
+            {
+              "src": "assets/media/Time-flies-6c116b.jpg",
+              "alt": "Time Flies. Saudia Beyond.",
+              "cls": "desktop-view ng-star-inserted"
+            }
+          ]
+        },
+        {
+          "title": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards",
+          "text": "The airline climbs to 17th place in global ranking, reflecting excellence across the guest journey",
+          "cta": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax AwardsThe airline climbs to 17th place in global ranking, reflecting excellence across the guest journeyLearn more navigate_next",
+          "href": "https://www.saudia.com/en/about-us/press-releases/press-release-17062025",
+          "imgs": [
+            {
+              "src": "assets/media/banner-1270x1200-d4def5.jpg",
+              "alt": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards",
+              "cls": "desktop-view ng-star-inserted"
+            }
+          ]
+        },
+        {
+          "title": "Saudia Travel Companion",
+          "text": "A cutting-edge tool crafted to elevate the travel experience through the power of artificial intelligence and natural language processing.",
+          "cta": "Saudia Travel CompanionA cutting-edge tool crafted to elevate the travel experience through the power of artificial intelligence and natural language processing.Learn more navigate_next",
+          "href": "/en-SA/Companion",
+          "imgs": [
+            {
+              "src": "assets/media/Saudia_Travel-Companion_Web_1240x1171_EN-78fe0c.jpg",
+              "alt": "Saudia Travel Companion",
+              "cls": "desktop-view ng-star-inserted"
+            }
+          ]
+        }
+      ]
+    },
+    "payments": [
+      {
+        "src": "assets/media/apple-pay-b01753.png",
+        "alt": "Apple Pay"
+      },
+      {
+        "src": "assets/media/mada-33c666.png",
+        "alt": "Mada"
+      },
+      {
+        "src": "assets/media/visa-ab0ee5.png",
+        "alt": "Visa"
+      },
+      {
+        "src": "assets/media/mc-5269c1.png",
+        "alt": "Mastercard"
+      },
+      {
+        "src": "assets/media/amex-74fdee.png",
+        "alt": "American Express"
+      },
+      {
+        "src": "assets/media/sadad-5e5ef7.png",
+        "alt": "SADAD"
+      },
+      {
+        "src": "assets/media/tamara-en-1426f5.png",
+        "alt": "Tamara"
+      }
+    ]
+  },
+  "mobile": {
+    "title": "Saudia | Book flights | Hotels | Holidays",
+    "description": "Saudia Home Page",
+    "slides": [
+      {
+        "title": "Fly Saudia for Umrah",
+        "desc": null,
+        "cta": "Book Now",
+        "href": "/en-SA/umrah/fly-saudia-for-umrah-packages",
+        "imgs": [
+          {
+            "src": "assets/media/26122023-fly-saudia-stopover-makkah-mweb-2-5bf49f.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ],
+        "idx": "4"
+      },
+      {
+        "title": "27% Off on domestic flights",
+        "desc": "Promo code: FALCONS",
+        "cta": "Buy now",
+        "href": "/en-SA/campaigns/falcons",
+        "imgs": [
+          {
+            "src": "assets/media/Saudia_Gulf-Cup_1270x1200-272d96.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ],
+        "idx": "0"
+      },
+      {
+        "title": "An autumn you love in our destinations",
+        "desc": null,
+        "cta": "Buy now",
+        "href": "/en-SA/explore/fall_destinations",
+        "imgs": [
+          {
+            "src": "assets/media/Saudia_Europe-Fall-Campaign_2026_1270x1200-027f4c.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ],
+        "idx": "1"
+      },
+      {
+        "title": "Tokyo, Now Within Reach",
+        "desc": "3 direct weekly flights from Riyadh starting from 16 Nov 2026",
+        "cta": "Book now",
+        "href": "/en-SA/campaigns/flights-to-tokyo",
+        "imgs": [
+          {
+            "src": "assets/media/Saudia_Tokyo_Culture_1270x1200-1-8d0cae.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ],
+        "idx": "2"
+      },
+      {
+        "title": "Flight + Hotel Sale",
+        "desc": "Book early. Save more. 60+ destinations",
+        "cta": "Discover Now",
+        "href": "https://www.saudia.com/en-SA/saudia-holidays/holidays-exclusive-offers",
+        "imgs": [
+          {
+            "src": "assets/media/BANNERS_mweb-banner-SV-EN-b56fa6.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ],
+        "idx": "3"
+      }
+    ],
+    "booking": {
+      "tabs": [
+        "Book",
+        "Manage",
+        "Check-in",
+        "Flight status",
+        "Flight schedule"
+      ],
+      "links": [
+        {
+          "text": "Stopoverarrow_forward_ios",
+          "href": "/en-SA/transit-visa",
+          "target": "_self"
+        },
+        {
+          "text": "Flight + Hotel",
+          "href": "/en-SA/saudia-holidays/holidays-exclusive-offers",
+          "target": "_self"
+        },
+        {
+          "text": "Umrah",
+          "href": "/en-SA/umrah/fly-saudia-for-umrah-packages",
+          "target": "_self"
+        }
+      ],
+      "trips": [],
+      "info": "Read more about the latest travel requirements for your next destination",
+      "infoLink": null
+    },
+    "fares": {
+      "heading": "Best fares from",
+      "note": "Fares include taxes",
+      "all": {
+        "text": "Explore all destinations navigate_next",
+        "href": null
+      },
+      "cards": [
+        {
+          "city": "Phuket",
+          "price": "From SAR 2246",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=HKT&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/phuket-f44b79.jpg",
+              "alt": "Phuket sea view",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Casablanca",
+          "price": "From SAR 2423",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=CMN&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-cassablanca-1-b3bdda.jpg",
+              "alt": "The Casablanca clock tower in Morocco.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Guangzhou",
+          "price": "From SAR 2012",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=CAN&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-guangzho-1-3aedde.jpg",
+              "alt": " The entrance to the Ancestral temple in the Foshan region of Guangzhou region, China.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Cairo",
+          "price": "From SAR 852",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=CAI&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-cairo-1-1a26c5.jpg",
+              "alt": " A camel resting with the great pyramids in the background, Cairo, Egypt.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        },
+        {
+          "city": "Mumbai",
+          "price": "From SAR 1159",
+          "note": "Round trip From Jeddah",
+          "href": "/en-SA/Multicity/FlightSearch?B_LOCATION=JED&E_LOCATION=BOM&trip_type=R",
+          "imgs": [
+            {
+              "src": "assets/media/L-Mumbai-78c7dd.jpg",
+              "alt": " Landscape of Gateway Of India Mumbai, with multiple boats sailing the river and tourists enjoying the view.",
+              "cls": "featuredlist__img"
+            }
+          ]
+        }
+      ]
+    },
+    "offers": {
+      "heading": "Exclusive Offers for You",
+      "all": {
+        "text": "Explore all offerschevron_right",
+        "href": "/en-SA/offers"
+      },
+      "tiles": [
+        {
+          "title": "Let’s get you upgraded",
+          "desc": "",
+          "imgs": [
+            {
+              "src": "assets/media/my-upgrade-mweb-de2a13.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        },
+        {
+          "title": "Hot deals",
+          "desc": "",
+          "imgs": [
+            {
+              "src": "assets/media/last-minute-offer-3-07072024-home-mweb-en-f1a9e0.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        },
+        {
+          "title": "Travel insurance",
+          "desc": null,
+          "href": "/en/book-and-manage/book/travel-insurance",
+          "imgs": [
+            {
+              "src": "assets/media/insurance-mweb-ede8cc.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            },
+            {
+              "src": "assets/media/flight-pass-mweb-en-143615.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        },
+        {
+          "title": "Travel insurance",
+          "desc": null,
+          "href": "/en/book-and-manage/book/travel-insurance",
+          "imgs": [
+            {
+              "src": "assets/media/insurance-mweb-ede8cc.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            },
+            {
+              "src": "assets/media/flight-pass-mweb-en-143615.jpg",
+              "alt": "",
+              "cls": "offer-img"
+            }
+          ]
+        }
+      ]
+    },
+    "banners": [
+      {
+        "title": "Flight + Hotel Deals",
+        "desc": null,
+        "cta": "Book now arrow_forward",
+        "href": "/en-SA/saudia-holidays/holidays-exclusive-offers",
+        "imgs": [
+          {
+            "src": "assets/media/saudia-holidays-banner-mweb-en-opt-d8cf18.jpg",
+            "alt": "A promotional green Saudia Holidays banner highlighting discounts of up to 50%, alongside a smartphone interface displaying a Maldives resort vacation package with pricing and stay details.",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ]
+      },
+      {
+        "title": "Shop with Miles",
+        "desc": null,
+        "cta": "AlFursan Store arrow_forward",
+        "href": "javascript:void(0)",
+        "imgs": [
+          {
+            "src": "assets/media/Banner_Web-1020x864-EN-1-31598e.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ]
+      },
+      {
+        "title": "Be first to know",
+        "desc": null,
+        "cta": "I want to be first arrow_forward",
+        "href": "https://www.saudia.com/Subscribe/",
+        "imgs": [
+          {
+            "src": "assets/media/SVW-MID-newsletter-mobile-92e431.jpg",
+            "alt": "",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ]
+      },
+      {
+        "title": "The best that Saudi Arabia has to offer",
+        "desc": null,
+        "cta": "Explore arrow_forward",
+        "href": "https://www.visitsaudi.com/content/dam/documents/saudi-calendar.pdf",
+        "imgs": [
+          {
+            "src": "assets/media/sta-calendar-en-mobile-7ceefe.jpg",
+            "alt": "visit saudia",
+            "cls": "swiper-slide__image mobile-view ng-star-inserted"
+          }
+        ]
+      }
+    ],
+    "news": {
+      "heading": "Exceptional experiences with Saudia",
+      "intro": "",
+      "items": [
+        {
+          "title": "Time Flies with BEYOND",
+          "text": "Discover our new entertainment experience BEYOND and learn more about the various entertainment channels and services available on your flight.",
+          "cta": "Time Flies with BEYONDDiscover our new entertainment experience BEYOND and learn more about the various entertainment channels and services available on your flight.Learn more navigate_next",
+          "href": "https://entertainment.saudia.com",
+          "imgs": [
+            {
+              "src": "assets/media/Time-flies-mob-8497e1.jpg",
+              "alt": "",
+              "cls": "mobile-view ng-star-inserted"
+            }
+          ]
+        },
+        {
+          "title": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards",
+          "text": "The airline climbs to 17th place in global ranking, reflecting excellence across the guest journey",
+          "cta": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax AwardsThe airline climbs to 17th place in global ranking, reflecting excellence across the guest journeyLearn more navigate_next",
+          "href": "https://www.saudia.com/en/about-us/press-releases/press-release-17062025",
+          "imgs": [
+            {
+              "src": "assets/media/banner-670x423-cf89a0.jpg",
+              "alt": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards",
+              "cls": "mobile-view ng-star-inserted"
+            }
+          ]
+        },
+        {
+          "title": "Saudia Travel Companion",
+          "text": "A cutting-edge tool crafted to elevate the travel experience through the power of artificial intelligence and natural language processing.",
+          "cta": "Saudia Travel CompanionA cutting-edge tool crafted to elevate the travel experience through the power of artificial intelligence and natural language processing.Learn more navigate_next",
+          "href": "/en-SA/Companion",
+          "imgs": [
+            {
+              "src": "assets/media/Saudia_Travel-Companion_Web_960x540_EN-60398f.jpg",
+              "alt": "Saudia Travel Companion",
+              "cls": "mobile-view ng-star-inserted"
+            }
+          ]
+        }
+      ]
+    },
+    "payments": [
+      {
+        "src": "assets/media/apple-pay-b01753.png",
+        "alt": "Apple Pay"
+      },
+      {
+        "src": "assets/media/mada-33c666.png",
+        "alt": "Mada"
+      },
+      {
+        "src": "assets/media/visa-ab0ee5.png",
+        "alt": "Visa"
+      },
+      {
+        "src": "assets/media/mc-5269c1.png",
+        "alt": "Mastercard"
+      },
+      {
+        "src": "assets/media/amex-74fdee.png",
+        "alt": "American Express"
+      },
+      {
+        "src": "assets/media/sadad-5e5ef7.png",
+        "alt": "SADAD"
+      },
+      {
+        "src": "assets/media/tamara-en-1426f5.png",
+        "alt": "Tamara"
+      }
+    ]
+  }
+}

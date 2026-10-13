@@ -1,0 +1,156 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:replica",
+    "writtenAt": "2026-10-07T09:53:11.650Z",
+    "captureChannel": "interactive-browser-session (crawl.mjs blocked by Imperva challenge — see current/_invalid-challenge-capture/)",
+    "source": [
+      "stardust/replica/gates/book-manage-flight-pass-1440/live-capture/",
+      "stardust/replica/gates/book-manage-flight-pass-360/live-capture/"
+    ]
+  },
+  "slug": "book-manage-flight-pass",
+  "url": "https://www.saudia.com/en-SA/book-and-manage/book/flight-pass",
+  "finalUrl": "https://www.saudia.com/en-SA/book-and-manage/book/flight-pass",
+  "section": "Book & Manage",
+  "title": "Saudia Annual Flight Pass: Fixed Fares & Flexible Travel",
+  "lang": "en-SA",
+  "dir": "ltr",
+  "meta": {
+    "description": "Enjoy fixed fares and year-round freedom with the Saudia Flight Pass. Book flights at a set price with flexible payment options. Get your Flight Pass today.",
+    "keywords": null,
+    "canonical": null
+  },
+  "fonts": [
+    "Material Icons Outlined 400",
+    "Material Symbols Outlined 200 500",
+    "Saudia Sans 400",
+    "Saudia Sans 500",
+    "Saudia Sans 600",
+    "Saudia Sans 900"
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "Saudia Flight Pass"
+    },
+    {
+      "level": 2,
+      "text": "Fixed Fares and Travel Flexibility All Year Round"
+    },
+    {
+      "level": 3,
+      "text": "Travel Your Way"
+    },
+    {
+      "level": 3,
+      "text": "Travel with Family and Friends"
+    },
+    {
+      "level": 3,
+      "text": "Earn AlFursan Miles with Flight Pass"
+    },
+    {
+      "level": 3,
+      "text": "Subscribe, Book, and Manage Your Trips Easily"
+    },
+    {
+      "level": 2,
+      "text": "Subscription Plans"
+    },
+    {
+      "level": 3,
+      "text": "8 trips per year"
+    },
+    {
+      "level": 3,
+      "text": "16 trips per year"
+    },
+    {
+      "level": 3,
+      "text": "24 trips per year"
+    }
+  ],
+  "links": [],
+  "images": [
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/pages/flight-pass/Saudia_Flight-Subscription_Banner_web-en.ashx?h=600&iar=0&w=1920&rev=f4be635b17e44f7a9aeda3228a130f75&hash=F9FD11E14B3457E5ADF350439DF96437",
+      "alt": "A Saudia promotional banner showing diverse travelers with luggage in front of vibrant destination images, set on a green dynamic background representing effortless and inspiring travel experiences."
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/replay_30.ashx?rev=69c7fa4c640c44abae86aa51b5232c25&hash=762A610888AE96A25BDEB5B26A749F1C",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/how_to_reg.ashx?rev=f1bd2bbfd9ba4fc9928b16540d92a606&hash=B9D8D3089B54F1A70C3BC9975A894DD1",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/payment.ashx?rev=2acd4630ae58457cb49338f225de78e8&hash=7D0B999552D11BFC429F170FE0EEA05A",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/how_to_reg.ashx?rev=f1bd2bbfd9ba4fc9928b16540d92a606&hash=B9D8D3089B54F1A70C3BC9975A894DD1",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/supervisor_account.ashx?rev=e5fa27bc8e2c49dd8a2417c3068731a4&hash=B8F7670FB9C848718005E3D24F33CE70",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/replay_30.ashx?rev=69c7fa4c640c44abae86aa51b5232c25&hash=762A610888AE96A25BDEB5B26A749F1C",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/how_to_reg.ashx?rev=f1bd2bbfd9ba4fc9928b16540d92a606&hash=B9D8D3089B54F1A70C3BC9975A894DD1",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/supervisor_account.ashx?rev=e5fa27bc8e2c49dd8a2417c3068731a4&hash=B8F7670FB9C848718005E3D24F33CE70",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/payment.ashx?rev=2acd4630ae58457cb49338f225de78e8&hash=7D0B999552D11BFC429F170FE0EEA05A",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/how_to_reg.ashx?rev=f1bd2bbfd9ba4fc9928b16540d92a606&hash=B9D8D3089B54F1A70C3BC9975A894DD1",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/supervisor_account.ashx?rev=e5fa27bc8e2c49dd8a2417c3068731a4&hash=B8F7670FB9C848718005E3D24F33CE70",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/replay_30.ashx?rev=69c7fa4c640c44abae86aa51b5232c25&hash=762A610888AE96A25BDEB5B26A749F1C",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/how_to_reg.ashx?rev=f1bd2bbfd9ba4fc9928b16540d92a606&hash=B9D8D3089B54F1A70C3BC9975A894DD1",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/supervisor_account.ashx?rev=e5fa27bc8e2c49dd8a2417c3068731a4&hash=B8F7670FB9C848718005E3D24F33CE70",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/payment.ashx?rev=2acd4630ae58457cb49338f225de78e8&hash=7D0B999552D11BFC429F170FE0EEA05A",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/how_to_reg.ashx?rev=f1bd2bbfd9ba4fc9928b16540d92a606&hash=B9D8D3089B54F1A70C3BC9975A894DD1",
+      "alt": ""
+    },
+    {
+      "src": "/-/media/SaudiaWebApp/data/media/img/Live-images/flight-pass/icons/27092026/supervisor_account.ashx?rev=e5fa27bc8e2c49dd8a2417c3068731a4&hash=B8F7670FB9C848718005E3D24F33CE70",
+      "alt": ""
+    }
+  ],
+  "capture": {
+    "width1440": {
+      "totalH": 3466
+    },
+    "width360": {
+      "totalH": 6266
+    }
+  }
+}

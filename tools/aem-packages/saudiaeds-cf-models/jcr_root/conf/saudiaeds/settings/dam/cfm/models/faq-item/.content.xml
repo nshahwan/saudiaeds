@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Template"
+    allowedPaths="[^/content/dam/saudiaeds(/.*)?]"
+    ranking="{Long}100">
+    <jcr:content
+        cq:scaffolding="/conf/saudiaeds/settings/dam/cfm/models/faq-item/jcr:content/model"
+        cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
+        jcr:description="One question and its answer (destination and help pages)."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="FAQ Item"
+        sling:resourceSuperType="dam/cfm/models/console/components/data/entity"
+        sling:resourceType="dam/cfm/models/console/components/data/entity/default"
+        status="enabled">
+        <model
+            cq:targetPath="/content/entities"
+            dataTypesConfig="/mnt/overlay/settings/dam/cfm/models/formbuilderconfig/datatypes"
+            jcr:primaryType="cq:PageContent"
+            maxGeneratedOrder="20"
+            sling:resourceType="wcm/scaffolding/components/scaffolding">
+            <cq:dialog
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/authoring/dialog">
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                    <items
+                        jcr:primaryType="nt:unstructured"
+                        maxGeneratedOrder="20">
+                        <question
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="1"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="question"
+                            fieldLabel="Question"
+                            required="on"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
+                            valueType="string"
+                            maxlength="255"/>
+                        <answer
+                            jcr:primaryType="nt:unstructured"
+                            listOrder="2"
+                            renderReadOnly="false"
+                            showEmptyInReadOnly="true"
+                            name="answer"
+                            fieldLabel="Answer"
+                            required="on"
+                            sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
+                            metaType="text-multi"
+                            valueType="string"
+                            default-mime-type="text/html"
+                            cfm-element="true"/>
+                    </items>
+                </content>
+            </cq:dialog>
+        </model>
+    </jcr:content>
+</jcr:root>

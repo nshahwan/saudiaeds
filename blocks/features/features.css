@@ -1,0 +1,87 @@
+/* features — values lifted from the live .saudia-feature-row (computed, 1440 + 360) */
+.features .features__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 12px;
+  background: rgb(249 250 251);
+}
+
+.features .features__row:last-child {
+  margin-bottom: 0;
+}
+
+.features .features__text,
+.features .features__media {
+  width: 100%;
+}
+
+.features .features__text h4 {
+  margin: 0 0 8px;
+  color: rgb(25 37 24);
+  font-size: 18.4px;
+  font-weight: 700;
+  line-height: 29.44px;
+  letter-spacing: 0.16px;
+}
+
+.features .features__text p {
+  margin: 0;
+}
+
+.features .features__media {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.features .features__media picture,
+.features .features__media img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* live: the row box keeps 48px below it; the closing line after it is bold 18px */
+.features-wrapper:not(:last-child) {
+  margin-bottom: 48px;
+}
+
+/* live: the closing line after the feature rows is bold 18px */
+main .section .features-wrapper + .default-content-wrapper p {
+  color: rgb(51 51 51);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+@media (width >= 900px) {
+  .features .features__row {
+    flex-direction: row;
+    padding: 24px;
+  }
+
+  .features .features__row:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .features .features__text {
+    flex: 1 1 0;
+    width: auto;
+  }
+
+  .features .features__media {
+    flex: 0 0 42%;
+    width: auto;
+  }
+
+  .features .features__media picture,
+  .features .features__media img {
+    height: 230px;
+  }
+}

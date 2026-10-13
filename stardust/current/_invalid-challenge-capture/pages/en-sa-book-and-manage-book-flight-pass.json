@@ -1,0 +1,113 @@
+{
+  "_provenance": {
+    "renderedBy": "playwright",
+    "fetchedAt": "2026-10-07T08:22:33.592Z",
+    "waitMode": "medium",
+    "waitMs": 2500,
+    "httpStatus": 200
+  },
+  "slug": "en-sa-book-and-manage-book-flight-pass",
+  "url": "https://www.saudia.com/en-SA/book-and-manage/book/flight-pass",
+  "renderedBy": "playwright",
+  "fetchedAt": "2026-10-07T08:22:33.592Z",
+  "finalUrl": "https://www.saudia.com/en-SA/book-and-manage/book/flight-pass",
+  "title": null,
+  "description": null,
+  "og": {
+    "title": null,
+    "description": null,
+    "image": null,
+    "type": null
+  },
+  "headings": [],
+  "body": [],
+  "codeBlocks": [],
+  "ctas": [],
+  "links": [],
+  "media": {
+    "imgs": [],
+    "allImgCount": 0,
+    "cssBackgrounds": [],
+    "modals": [],
+    "videos": [],
+    "iframes": [
+      {
+        "src": "https://www.saudia.com/_Incapsula_Resource?SWUDNSAI=31&xinfo=47-114126907-0%20pNNN%20RT%281791361343285%205241%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B12%2814%2c0%2c0%29%20U18&incident_id=1007000131043151318-614411989634974575&edet=12&cinfo=0e0000008edc&rpinfo=956&cts=vPYY8o01IFSBHtbTh61qm%2fN2zLE4Fvem48YWs6gW3tccDD8W3codY%2b%2b%2bD4aMYT%2bS&cip=3.224.194.242&mth=GET",
+        "title": null
+      }
+    ]
+  },
+  "customProps": {},
+  "_signals": {
+    "filteredInterstitials": 0,
+    "distinctHeadings": 0,
+    "mainTextLen": 83,
+    "realImageCount": 0,
+    "trackingOnlyMedia": false,
+    "spaShellSuspect": true,
+    "screenshotMode": "fullPage"
+  },
+  "dynamic": {
+    "endpoints": [
+      {
+        "method": "POST",
+        "host": "www.saudia.com",
+        "path": "/olfe-to-done-Eye-owe-fore-tothe-so-preciall-She-",
+        "query": [
+          "d"
+        ],
+        "resourceType": "fetch",
+        "contentType": "application/json",
+        "status": 200,
+        "bytes": null,
+        "hits": 1,
+        "example": "https://www.saudia.com/olfe-to-done-Eye-owe-fore-tothe-so-preciall-She-",
+        "sameSite": true
+      },
+      {
+        "method": "GET",
+        "host": "www.saudia.com",
+        "path": "/_Incapsula_Resource",
+        "query": [
+          "SWCNGEEC"
+        ],
+        "resourceType": "xhr",
+        "contentType": "application/json",
+        "status": 200,
+        "bytes": 126,
+        "hits": 1,
+        "example": "https://www.saudia.com/_Incapsula_Resource",
+        "sameSite": true
+      }
+    ],
+    "thirdPartyScriptHosts": [
+      {
+        "host": "api.geetest.com",
+        "count": 2
+      },
+      {
+        "host": "static.geetest.com",
+        "count": 1
+      }
+    ],
+    "truncated": false,
+    "inlineData": [],
+    "globalState": [],
+    "frameworkHints": [],
+    "forms": [],
+    "ariaLiveRegions": 0,
+    "triggers": [],
+    "mediaIds": [],
+    "summary": {
+      "sameSiteEndpoints": 2,
+      "thirdPartyEndpoints": 0,
+      "thirdPartyScriptHosts": 2,
+      "inlineDataBlobs": 0,
+      "forms": 0,
+      "searchForms": 0,
+      "hydrated": false
+    }
+  },
+  "screenshot": "assets/screenshots/en-sa-book-and-manage-book-flight-pass.png",
+  "renderedHtml": "pages/en-sa-book-and-manage-book-flight-pass.html"
+}

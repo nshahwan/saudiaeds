@@ -1,0 +1,1589 @@
+[
+ {
+  "key": "FLIGHT-DEALS",
+  "count": 207,
+  "sample": [
+   "/en/flight-deals-beach-bliss",
+   "/en/flight-deals-city-adventures",
+   "/en/flight-deals-family-and-friends",
+   "/en/flight-deals-from-ad-dawadimi-to-thailand"
+  ],
+  "paths": [
+   "/en/flight-deals-beach-bliss",
+   "/en/flight-deals-city-adventures",
+   "/en/flight-deals-family-and-friends",
+   "/en/flight-deals-from-ad-dawadimi-to-thailand",
+   "/en/flight-deals-from-al-baha-to-dhaka",
+   "/en/flight-deals-from-al-jouf-to-ad-dawadimi",
+   "/en/flight-deals-from-al-jouf-to-thailand",
+   "/en/flight-deals-from-al-qurayyat-to-canada",
+   "/en/flight-deals-from-al-wajh-to-japan",
+   "/en/flight-deals-from-alexandria-to-singapore",
+   "/en/flight-deals-from-algiers-to-jizan",
+   "/en/flight-deals-from-alula-to-lahore",
+   "/en/flight-deals-from-amman-to-dhaka",
+   "/en/flight-deals-from-antalya-to-kuwait-city",
+   "/en/flight-deals-from-antalya-to-nice",
+   "/en/flight-deals-from-bahrain-to-sharm-el-sheikh",
+   "/en/flight-deals-from-bangalore-to-bodrum",
+   "/en/flight-deals-from-bangalore-to-peshawar",
+   "/en/flight-deals-from-bangalore-to-united-states",
+   "/en/flight-deals-from-bisha-to-kenya",
+   "/en/flight-deals-from-bodrum-to-zurich",
+   "/en/flight-deals-from-cairo-to-port-louis",
+   "/en/flight-deals-from-delhi-to-alula",
+   "/en/flight-deals-from-dhaka-to-hyderabad",
+   "/en/flight-deals-from-doha-to-qaisumah",
+   "/en/flight-deals-from-dubai-to-tunisia",
+   "/en/flight-deals-from-dubai-to-washington-dc",
+   "/en/flight-deals-from-guangzhou-to-jordan",
+   "/en/flight-deals-from-guangzhou-to-malaga",
+   "/en/flight-deals-from-hail-to-tabuk",
+   "/en/flight-deals-from-hyderabad-to-red-sea",
+   "/en/flight-deals-from-ibn-suqi-to-barcelona",
+   "/en/flight-deals-from-jizan-to-cairo",
+   "/en/flight-deals-from-jizan-to-hail",
+   "/en/flight-deals-from-kano-to-al-wajh",
+   "/en/flight-deals-from-karachi-to-kuala-lumpur",
+   "/en/flight-deals-from-karachi-to-united-arab-emirates",
+   "/en/flight-deals-from-lucknow-to-bali-denpasar",
+   "/en/flight-deals-from-medina-to-bangalore",
+   "/en/flight-deals-from-multan-to-kuwait",
+   "/en/flight-deals-from-munich-to-moscow",
+   "/en/flight-deals-from-mykonos-to-jordan",
+   "/en/flight-deals-from-nairobi-to-addis-ababa",
+   "/en/flight-deals-from-oran-to-tunisia",
+   "/en/flight-deals-from-port-louis-to-amsterdam",
+   "/en/flight-deals-from-qaisumah-to-republic-singapore",
+   "/en/flight-deals-from-rome-to-amman",
+   "/en/flight-deals-from-rome-to-new-york",
+   "/en/flight-deals-from-sharurah-to-nice",
+   "/en/flight-deals-from-toronto-to-saudi-arabia",
+   "/en/flight-deals-from-vienna-to-amsterdam",
+   "/en/flight-deals-from-wadi-ad-dawasir-to-bisha",
+   "/en/flight-deals-from-washington-dc-to-abu-dhabi",
+   "/en/flight-deals-heritage",
+   "/en/flight-deals-hot-deals",
+   "/en/flight-deals-nature-discovery",
+   "/en/flight-deals-relaxation",
+   "/en/flight-deals-romantic-getaways",
+   "/en/flight-deals-to-abha",
+   "/en/flight-deals-to-abu-dhabi",
+   "/en/flight-deals-to-ad-dawadimi",
+   "/en/flight-deals-to-addis-ababa",
+   "/en/flight-deals-to-africa",
+   "/en/flight-deals-to-al-baha",
+   "/en/flight-deals-to-al-jouf",
+   "/en/flight-deals-to-al-qurayyat",
+   "/en/flight-deals-to-al-wajh",
+   "/en/flight-deals-to-alexandria",
+   "/en/flight-deals-to-algeria",
+   "/en/flight-deals-to-algiers",
+   "/en/flight-deals-to-alula",
+   "/en/flight-deals-to-amman",
+   "/en/flight-deals-to-amsterdam",
+   "/en/flight-deals-to-antalya",
+   "/en/flight-deals-to-arar",
+   "/en/flight-deals-to-asia",
+   "/en/flight-deals-to-athens",
+   "/en/flight-deals-to-austria",
+   "/en/flight-deals-to-bahrain",
+   "/en/flight-deals-to-bali-denpasar",
+   "/en/flight-deals-to-bangalore",
+   "/en/flight-deals-to-bangkok",
+   "/en/flight-deals-to-bangladesh",
+   "/en/flight-deals-to-barcelona",
+   "/en/flight-deals-to-beijing",
+   "/en/flight-deals-to-birmingham",
+   "/en/flight-deals-to-bisha",
+   "/en/flight-deals-to-bodrum",
+   "/en/flight-deals-to-buraidah",
+   "/en/flight-deals-to-cairo",
+   "/en/flight-deals-to-canada",
+   "/en/flight-deals-to-casablanca",
+   "/en/flight-deals-to-china",
+   "/en/flight-deals-to-dammam",
+   "/en/flight-deals-to-delhi",
+   "/en/flight-deals-to-dhaka",
+   "/en/flight-deals-to-doha",
+   "/en/flight-deals-to-dubai",
+   "/en/flight-deals-to-egypt",
+   "/en/flight-deals-to-el-alamein",
+   "/en/flight-deals-to-ethiopia",
+   "/en/flight-deals-to-europe",
+   "/en/flight-deals-to-france",
+   "/en/flight-deals-to-frankfurt",
+   "/en/flight-deals-to-geneva",
+   "/en/flight-deals-to-germany",
+   "/en/flight-deals-to-greece",
+   "/en/flight-deals-to-guangzhou",
+   "/en/flight-deals-to-hail",
+   "/en/flight-deals-to-hofuf",
+   "/en/flight-deals-to-hyderabad",
+   "/en/flight-deals-to-ibn-suqi",
+   "/en/flight-deals-to-india",
+   "/en/flight-deals-to-indonesia",
+   "/en/flight-deals-to-islamabad",
+   "/en/flight-deals-to-islands-getaways",
+   "/en/flight-deals-to-istanbul",
+   "/en/flight-deals-to-italy",
+   "/en/flight-deals-to-jakarta",
+   "/en/flight-deals-to-japan",
+   "/en/flight-deals-to-jeddah",
+   "/en/flight-deals-to-jizan",
+   "/en/flight-deals-to-jordan",
+   "/en/flight-deals-to-kano",
+   "/en/flight-deals-to-karachi",
+   "/en/flight-deals-to-kenya",
+   "/en/flight-deals-to-kingdom-bahrain",
+   "/en/flight-deals-to-kochi-1",
+   "/en/flight-deals-to-kozhikode",
+   "/en/flight-deals-to-kuala-lumpur",
+   "/en/flight-deals-to-kuwait-city",
+   "/en/flight-deals-to-kuwait",
+   "/en/flight-deals-to-lahore",
+   "/en/flight-deals-to-london",
+   "/en/flight-deals-to-los-angeles",
+   "/en/flight-deals-to-lucknow",
+   "/en/flight-deals-to-madrid",
+   "/en/flight-deals-to-malaga",
+   "/en/flight-deals-to-malaysia",
+   "/en/flight-deals-to-maldives",
+   "/en/flight-deals-to-male",
+   "/en/flight-deals-to-manchester",
+   "/en/flight-deals-to-manila",
+   "/en/flight-deals-to-mauritius",
+   "/en/flight-deals-to-medina",
+   "/en/flight-deals-to-middle-east",
+   "/en/flight-deals-to-milan",
+   "/en/flight-deals-to-morocco",
+   "/en/flight-deals-to-moscow",
+   "/en/flight-deals-to-multan",
+   "/en/flight-deals-to-mumbai",
+   "/en/flight-deals-to-munich",
+   "/en/flight-deals-to-mykonos",
+   "/en/flight-deals-to-nairobi",
+   "/en/flight-deals-to-najran",
+   "/en/flight-deals-to-neom",
+   "/en/flight-deals-to-netherlands",
+   "/en/flight-deals-to-new-york",
+   "/en/flight-deals-to-nice",
+   "/en/flight-deals-to-nigeria",
+   "/en/flight-deals-to-north-america",
+   "/en/flight-deals-to-oman",
+   "/en/flight-deals-to-oran",
+   "/en/flight-deals-to-pakistan",
+   "/en/flight-deals-to-paris",
+   "/en/flight-deals-to-peshawar",
+   "/en/flight-deals-to-philippines",
+   "/en/flight-deals-to-phuket",
+   "/en/flight-deals-to-port-louis",
+   "/en/flight-deals-to-qaisumah",
+   "/en/flight-deals-to-qatar",
+   "/en/flight-deals-to-red-sea",
+   "/en/flight-deals-to-republic-singapore",
+   "/en/flight-deals-to-riyadh",
+   "/en/flight-deals-to-rome",
+   "/en/flight-deals-to-russia",
+   "/en/flight-deals-to-salalah",
+   "/en/flight-deals-to-saudi-arabia",
+   "/en/flight-deals-to-sharm-el-sheikh",
+   "/en/flight-deals-to-sharurah",
+   "/en/flight-deals-to-singapore",
+   "/en/flight-deals-to-skiing-destinations",
+   "/en/flight-deals-to-spain",
+   "/en/flight-deals-to-switzerland",
+   "/en/flight-deals-to-tabuk",
+   "/en/flight-deals-to-taif",
+   "/en/flight-deals-to-thailand",
+   "/en/flight-deals-to-tokyo",
+   "/en/flight-deals-to-toronto",
+   "/en/flight-deals-to-tunis",
+   "/en/flight-deals-to-tunisia",
+   "/en/flight-deals-to-turaif",
+   "/en/flight-deals-to-turkey",
+   "/en/flight-deals-to-united-arab-emirates",
+   "/en/flight-deals-to-united-kingdom",
+   "/en/flight-deals-to-united-states",
+   "/en/flight-deals-to-vienna",
+   "/en/flight-deals-to-wadi-ad-dawasir",
+   "/en/flight-deals-to-washington-dc",
+   "/en/flight-deals-to-yanbu",
+   "/en/flight-deals-to-zurich",
+   "/en/flight-deals-travel-planner",
+   "/en/flight-deals-weekly-domestic",
+   "/en/flight-deals-weekly-international",
+   "/en/flight-deals",
+   "/en/sitemap/flight-deals-to-city/page-1",
+   "/en/sitemap/flight-deals-to-country/page-1"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-image | app-jss-title-text",
+  "count": 70,
+  "sample": [
+   "/en-SA/about-us/press-releases/press-release-02042026",
+   "/en-SA/about-us/press-releases/press-release-02052025",
+   "/en-SA/about-us/press-releases/press-release-03102025",
+   "/en-SA/about-us/press-releases/press-release-04022025"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/press-release-02042026",
+   "/en-SA/about-us/press-releases/press-release-02052025",
+   "/en-SA/about-us/press-releases/press-release-03102025",
+   "/en-SA/about-us/press-releases/press-release-04022025",
+   "/en-SA/about-us/press-releases/press-release-05022025",
+   "/en-SA/about-us/press-releases/press-release-05042026",
+   "/en-SA/about-us/press-releases/press-release-05052025-1",
+   "/en-SA/about-us/press-releases/press-release-05052025-2",
+   "/en-SA/about-us/press-releases/press-release-05052025-3",
+   "/en-SA/about-us/press-releases/press-release-05112025",
+   "/en-SA/about-us/press-releases/press-release-06112025",
+   "/en-SA/about-us/press-releases/press-release-07092025",
+   "/en-SA/about-us/press-releases/press-release-08012026",
+   "/en-SA/about-us/press-releases/press-release-08042025",
+   "/en-SA/about-us/press-releases/press-release-08052025-1",
+   "/en-SA/about-us/press-releases/press-release-08112025",
+   "/en-SA/about-us/press-releases/press-release-09072025-1",
+   "/en-SA/about-us/press-releases/press-release-10042025",
+   "/en-SA/about-us/press-releases/press-release-10072025",
+   "/en-SA/about-us/press-releases/press-release-10102025",
+   "/en-SA/about-us/press-releases/press-release-11022025-1",
+   "/en-SA/about-us/press-releases/press-release-11022025",
+   "/en-SA/about-us/press-releases/press-release-11072025",
+   "/en-SA/about-us/press-releases/press-release-12022025",
+   "/en-SA/about-us/press-releases/press-release-12052025",
+   "/en-SA/about-us/press-releases/press-release-12092025",
+   "/en-SA/about-us/press-releases/press-release-13072025-1",
+   "/en-SA/about-us/press-releases/press-release-13072025",
+   "/en-SA/about-us/press-releases/press-release-14052025",
+   "/en-SA/about-us/press-releases/press-release-15022026-1",
+   "/en-SA/about-us/press-releases/press-release-15022026",
+   "/en-SA/about-us/press-releases/press-release-15042025",
+   "/en-SA/about-us/press-releases/press-release-15072025",
+   "/en-SA/about-us/press-releases/press-release-16092025-1",
+   "/en-SA/about-us/press-releases/press-release-16092025",
+   "/en-SA/about-us/press-releases/press-release-16102025",
+   "/en-SA/about-us/press-releases/press-release-17022026",
+   "/en-SA/about-us/press-releases/press-release-17042025",
+   "/en-SA/about-us/press-releases/press-release-17062025",
+   "/en-SA/about-us/press-releases/press-release-18062025",
+   "/en-SA/about-us/press-releases/press-release-19012026",
+   "/en-SA/about-us/press-releases/press-release-19022025",
+   "/en-SA/about-us/press-releases/press-release-19062025",
+   "/en-SA/about-us/press-releases/press-release-19102025",
+   "/en-SA/about-us/press-releases/press-release-21022025",
+   "/en-SA/about-us/press-releases/press-release-21042025",
+   "/en-SA/about-us/press-releases/press-release-21112025",
+   "/en-SA/about-us/press-releases/press-release-22012025",
+   "/en-SA/about-us/press-releases/press-release-22062025",
+   "/en-SA/about-us/press-releases/press-release-23042025",
+   "/en-SA/about-us/press-releases/press-release-24112025",
+   "/en-SA/about-us/press-releases/press-release-24122025",
+   "/en-SA/about-us/press-releases/press-release-25042025",
+   "/en-SA/about-us/press-releases/press-release-25102025",
+   "/en-SA/about-us/press-releases/press-release-26012026",
+   "/en-SA/about-us/press-releases/press-release-27022025",
+   "/en-SA/about-us/press-releases/press-release-27042025",
+   "/en-SA/about-us/press-releases/press-release-27052025",
+   "/en-SA/about-us/press-releases/press-release-28092025",
+   "/en-SA/about-us/press-releases/press-release-29012025",
+   "/en-SA/about-us/press-releases/press-release-29012026",
+   "/en-SA/about-us/press-releases/press-release-29032026",
+   "/en-SA/about-us/press-releases/press-release-29062025-1",
+   "/en-SA/about-us/press-releases/press-release-29062025",
+   "/en-SA/about-us/press-releases/press-release-29072025",
+   "/en-SA/about-us/press-releases/press-release-29092025",
+   "/en-SA/about-us/press-releases/press-release-30042025",
+   "/en-SA/about-us/press-releases/press-release-30062025",
+   "/en-SA/about-us/press-releases/press-release-30102025",
+   "/en-SA/about-us/press-releases/press-release-31082025"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image-link-list | app-jss-title-text",
+  "count": 59,
+  "sample": [
+   "/en-SA/about-us/press-releases/2024/06/press-release-06062024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-09062024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-16062024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-25062024"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/2024/06/press-release-06062024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-09062024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-16062024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-25062024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-02072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-08072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-09072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-10072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-11072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-15072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-18072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-23072024",
+   "/en-SA/about-us/press-releases/2024/07/press-release-27072024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-01082024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-04082024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-18082024-1",
+   "/en-SA/about-us/press-releases/2024/08/press-release-18082024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-25082024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-26082024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-27082024",
+   "/en-SA/about-us/press-releases/2024/08/press-release-31082024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-01092024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-08092024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-11092024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-16092024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-18092024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-26092024",
+   "/en-SA/about-us/press-releases/2024/09/press-release-30092024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-02102024-1",
+   "/en-SA/about-us/press-releases/2024/10/press-release-02102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-03102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-11102024-1",
+   "/en-SA/about-us/press-releases/2024/10/press-release-11102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-13102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-20102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-23102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-24102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-28102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-29102024",
+   "/en-SA/about-us/press-releases/2024/10/press-release-31102024-1",
+   "/en-SA/about-us/press-releases/2024/10/press-release-31102024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-13112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-14112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-20112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-23112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-26112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-27112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-28112024",
+   "/en-SA/about-us/press-releases/2024/11/press-release-31112024-1",
+   "/en-SA/about-us/press-releases/2024/11/press-release-31112024",
+   "/en-SA/about-us/press-releases/2024/12/Press-release-02122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-03122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-05122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-16122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-17122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-18122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-20122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-22122024",
+   "/en-SA/about-us/press-releases/2024/12/press-release-26122024"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text",
+  "count": 53,
+  "sample": [
+   "/en-SA/about-us/press-releases/press-release-01042025",
+   "/en-SA/about-us/press-releases/press-release-01112025",
+   "/en-SA/about-us/press-releases/press-release-02042025",
+   "/en-SA/about-us/press-releases/press-release-02072025"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/press-release-01042025",
+   "/en-SA/about-us/press-releases/press-release-01112025",
+   "/en-SA/about-us/press-releases/press-release-02042025",
+   "/en-SA/about-us/press-releases/press-release-02072025",
+   "/en-SA/about-us/press-releases/press-release-05052025",
+   "/en-SA/about-us/press-releases/press-release-06032025",
+   "/en-SA/about-us/press-releases/press-release-08052025-2",
+   "/en-SA/about-us/press-releases/press-release-08122025",
+   "/en-SA/about-us/press-releases/press-release-09072025",
+   "/en-SA/about-us/press-releases/press-release-10042025-1",
+   "/en-SA/about-us/press-releases/press-release-10082025",
+   "/en-SA/about-us/press-releases/press-release-12022026",
+   "/en-SA/about-us/press-releases/press-release-12032026",
+   "/en-SA/about-us/press-releases/press-release-12062025",
+   "/en-SA/about-us/press-releases/press-release-13012026",
+   "/en-SA/about-us/press-releases/press-release-14102025",
+   "/en-SA/about-us/press-releases/press-release-15012026-1",
+   "/en-SA/about-us/press-releases/press-release-15012026",
+   "/en-SA/about-us/press-releases/press-release-16102025-1",
+   "/en-SA/about-us/press-releases/press-release-17042025-1",
+   "/en-SA/about-us/press-releases/press-release-17082025",
+   "/en-SA/about-us/press-releases/press-release-18112025",
+   "/en-SA/about-us/press-releases/press-release-20042025",
+   "/en-SA/about-us/press-releases/press-release-20062025",
+   "/en-SA/about-us/press-releases/press-release-21012026",
+   "/en-SA/about-us/press-releases/press-release-21092025",
+   "/en-SA/about-us/press-releases/press-release-23012025",
+   "/en-SA/about-us/press-releases/press-release-23062025",
+   "/en-SA/about-us/press-releases/press-release-24102025",
+   "/en-SA/about-us/press-releases/press-release-26012025",
+   "/en-SA/about-us/press-releases/press-release-27062025",
+   "/en-SA/about-us/press-releases/press-release-27112025",
+   "/en-SA/about-us/press-releases/press-release-28022025",
+   "/en-SA/about-us/press-releases/press-release-28102025",
+   "/en-SA/about-us/press-releases/press-release-31032025",
+   "/en-SA/about-us/soar-program",
+   "/en-SA/before-flying/special-assistance/special-meals",
+   "/en-SA/book/flight-information/travelling-with-pets",
+   "/en-SA/book/special-assistance/special-meals",
+   "/en-SA/help/useful-links/legal-and-terms-and-conditions",
+   "/en-SA/help/useful-links/legal-and-terms-and-conditions/privacy-policy",
+   "/en-SA/help/useful-links/legal-and-terms-and-conditions/terms-and-conditions",
+   "/en-SA/information/terms-and-conditions",
+   "/en-SA/information/terms-and-conditions/alfursan",
+   "/en-SA/information/terms-and-conditions/cookie-policy",
+   "/en-SA/information/terms-and-conditions/data-protection-policy",
+   "/en-SA/information/terms-and-conditions/flight-pass-terms-and-conditions",
+   "/en-SA/information/terms-and-conditions/my-upgrade",
+   "/en-SA/information/terms-and-conditions/privacy-policy",
+   "/en-SA/information/terms-and-conditions/terms-of-use",
+   "/en-SA/manage/baggage/additional-baggage",
+   "/en-SA/manage/baggage/permitted-items",
+   "/en-SA/manage/baggage/prohibited-items"
+  ]
+ },
+ {
+  "key": "- | app-jss-title-text",
+  "count": 52,
+  "sample": [
+   "/en-SA/about-us/press-releases/2024/05/press-release-06052024-2",
+   "/en-SA/about-us/press-releases/2024/05/press-release-07052024-2",
+   "/en-SA/about-us/press-releases/2024/05/press-release-07052024-3",
+   "/en-SA/about-us/press-releases/2024/05/press-release-07052024"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/2024/05/press-release-06052024-2",
+   "/en-SA/about-us/press-releases/2024/05/press-release-07052024-2",
+   "/en-SA/about-us/press-releases/2024/05/press-release-07052024-3",
+   "/en-SA/about-us/press-releases/2024/05/press-release-07052024",
+   "/en-SA/about-us/press-releases/2024/05/press-release-08052024-2",
+   "/en-SA/about-us/press-releases/2024/05/press-release-08052024-3",
+   "/en-SA/about-us/press-releases/2024/05/press-release-08052024-4",
+   "/en-SA/about-us/press-releases/2024/05/press-release-08052024",
+   "/en-SA/about-us/press-releases/2024/05/press-release-09052024-02",
+   "/en-SA/about-us/press-releases/2024/05/press-release-09052024-03",
+   "/en-SA/about-us/press-releases/2024/05/press-release-12052024",
+   "/en-SA/about-us/press-releases/2024/05/press-release-13052024",
+   "/en-SA/about-us/press-releases/2024/05/press-release-20052024",
+   "/en-SA/about-us/press-releases/2024/05/press-release-24052024",
+   "/en-SA/about-us/press-releases/2024/06/press-release-05062024",
+   "/en-SA/about-us/press-releases/press-release-02062026",
+   "/en-SA/about-us/press-releases/press-release-04052026-1",
+   "/en-SA/about-us/press-releases/press-release-04052026",
+   "/en-SA/about-us/press-releases/press-release-06052026",
+   "/en-SA/about-us/press-releases/press-release-06062026",
+   "/en-SA/about-us/press-releases/press-release-07082026",
+   "/en-SA/about-us/press-releases/press-release-09062026",
+   "/en-SA/about-us/press-releases/press-release-09072026",
+   "/en-SA/about-us/press-releases/press-release-09092026",
+   "/en-SA/about-us/press-releases/press-release-10092026-1",
+   "/en-SA/about-us/press-releases/press-release-10092026",
+   "/en-SA/about-us/press-releases/press-release-11052026",
+   "/en-SA/about-us/press-releases/press-release-11062026",
+   "/en-SA/about-us/press-releases/press-release-12062026",
+   "/en-SA/about-us/press-releases/press-release-15072026",
+   "/en-SA/about-us/press-releases/press-release-16092026",
+   "/en-SA/about-us/press-releases/press-release-17042026",
+   "/en-SA/about-us/press-releases/press-release-17092026",
+   "/en-SA/about-us/press-releases/press-release-18042026",
+   "/en-SA/about-us/press-releases/press-release-18092026",
+   "/en-SA/about-us/press-releases/press-release-20042026",
+   "/en-SA/about-us/press-releases/press-release-20072026",
+   "/en-SA/about-us/press-releases/press-release-20082026",
+   "/en-SA/about-us/press-releases/press-release-21092026",
+   "/en-SA/about-us/press-releases/press-release-22072026",
+   "/en-SA/about-us/press-releases/press-release-22092026",
+   "/en-SA/about-us/press-releases/press-release-23072026",
+   "/en-SA/about-us/press-releases/press-release-24052026",
+   "/en-SA/about-us/press-releases/press-release-27062026",
+   "/en-SA/about-us/press-releases/press-release-27082026",
+   "/en-SA/about-us/press-releases/press-release-28052026",
+   "/en-SA/about-us/press-releases/press-release-28072026",
+   "/en-SA/about-us/press-releases/press-release-29062026",
+   "/en-SA/about-us/press-releases/press-release-30042026-2",
+   "/en-SA/about-us/press-releases/press-release-30042026",
+   "/en-SA/about-us/press-releases/press-release-30052026",
+   "/en-SA/about-us/press-releases/press-release-30092026"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-title-text",
+  "count": 31,
+  "sample": [
+   "/en-SA/before-flying/travel-information/announcements-and-travel-updates",
+   "/en-SA/before-flying/travel-information/fare-families",
+   "/en-SA/before-flying/travel-information/fare-rules",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/choice-privileges"
+  ],
+  "paths": [
+   "/en-SA/before-flying/travel-information/announcements-and-travel-updates",
+   "/en-SA/before-flying/travel-information/fare-families",
+   "/en-SA/before-flying/travel-information/fare-rules",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/choice-privileges",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/intercontinental-hotels-group",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/jumeirah",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/marriott-bonvoy",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/rotana",
+   "/en-SA/earn-and-redeem/program-partners/hotels-partners/shangri-la",
+   "/en-SA/experience",
+   "/en-SA/experience/explore/alfursan-virtual-world",
+   "/en-SA/experience/on-board/sky-sales",
+   "/en-SA/help/useful-links/legal-and-terms-and-conditions/customer-service-plan",
+   "/en-SA/help/useful-links/legal-and-terms-and-conditions/tarmac-delay-contingency-plan",
+   "/en-SA/information/accessibility",
+   "/en-SA/information/terms-and-conditions/accessibility-plan-progress-report",
+   "/en-SA/information/terms-and-conditions/accessibility-plan",
+   "/en-SA/information/terms-and-conditions/customer-service-plan",
+   "/en-SA/information/terms-and-conditions/general-conditions-of-carriage",
+   "/en-SA/information/terms-and-conditions/rules-and-regulations-governing-carriage-by-air",
+   "/en-SA/information/terms-and-conditions/saudia-terms-conditions-passenger-advice-notices-and-liability",
+   "/en-SA/information/terms-and-conditions/seat-plus-terms-and-conditions",
+   "/en-SA/information/terms-and-conditions/sla",
+   "/en-SA/information/terms-and-conditions/tarmac-delay-contingency-plan",
+   "/en-SA/information/terms-and-conditions/web-check-in-terms-and-conditions",
+   "/en-SA/information/work-in-progress",
+   "/en-SA/loyalty-program/join-alfursan-frequent-flyer-program/join-alfursan-frequent-flyer-program",
+   "/en-SA/plan/before-you-fly/hajj-and-umrah",
+   "/en-SA/site-map",
+   "/en-SA/sxa/search/results",
+   "/en-SA/travel-with-saudia/where-we-fly/our-network"
+  ]
+ },
+ {
+  "key": "APP",
+  "count": 23,
+  "sample": [
+   "/en-SA/AISearch",
+   "/en-SA/BaggageTracker/BagStatus",
+   "/en-SA/BaggageTracker/Passengerbags",
+   "/en-SA/BaggageTracker/Trackbags"
+  ],
+  "paths": [
+   "/en-SA/AISearch",
+   "/en-SA/BaggageTracker/BagStatus",
+   "/en-SA/BaggageTracker/Passengerbags",
+   "/en-SA/BaggageTracker/Trackbags",
+   "/en-SA/book-and-manage/manage/manage-booking",
+   "/en-SA/booking",
+   "/en-SA/EMD-Receipt",
+   "/en-SA/EVisa/EVisaPassengerDetails",
+   "/en-SA/experience/explore/sustainability",
+   "/en-SA/Fare-Detail",
+   "/en-SA/information/terms-and-conditions/fare-ancillary-conditions",
+   "/en-SA/loyalty/milestoneProgress",
+   "/en-SA/loyalty/partner-offers/halalbooking-sep26",
+   "/en-SA/manage-booking",
+   "/en-SA/Plusgrade",
+   "/en-SA/PromoCode",
+   "/en-SA/Register",
+   "/en-SA/Residual",
+   "/en-SA/Search-result-page",
+   "/en-SA/socialLogin",
+   "/en-SA/socialLogin/LinkSocialAccounts",
+   "/en-SA/Subscribe",
+   "/en/loyalty/manage-profile"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-title-text | app-jss-image-link-list",
+  "count": 15,
+  "sample": [
+   "/en-SA/book-and-manage/book/travel-insurance",
+   "/en-SA/explore/saudia-new-destinations-2026",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-abha"
+  ],
+  "paths": [
+   "/en-SA/book-and-manage/book/travel-insurance",
+   "/en-SA/explore/saudia-new-destinations-2026",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-abha",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-alexandria",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-cairo",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-jakarta",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-jeddah",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-manila",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-mauritius",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-redsea",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-sharm-el-Sheikh",
+   "/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-singapore",
+   "/en-SA/summer-destinations-2024/visit-athens",
+   "/en-SA/summer-destinations-2024/visit-malaga"
+  ]
+ },
+ {
+  "key": "loyalty-offer | app-jss-breadcrumbs | app-jss-about-special-offers | app-jss-special-offers",
+  "count": 12,
+  "sample": [
+   "/en-SA/loyalty/partner-offers/almosafer-sep26",
+   "/en-SA/loyalty/partner-offers/buy-miles-sep26",
+   "/en-SA/loyalty/partner-offers/damas-sep26",
+   "/en-SA/loyalty/partner-offers/flyadeal-sep26"
+  ],
+  "paths": [
+   "/en-SA/loyalty/partner-offers/almosafer-sep26",
+   "/en-SA/loyalty/partner-offers/buy-miles-sep26",
+   "/en-SA/loyalty/partner-offers/damas-sep26",
+   "/en-SA/loyalty/partner-offers/flyadeal-sep26",
+   "/en-SA/loyalty/partner-offers/fursan-store-sep26",
+   "/en-SA/loyalty/partner-offers/ihg-sep26",
+   "/en-SA/loyalty/partner-offers/Jahez-sep26",
+   "/en-SA/loyalty/partner-offers/Mobil-sep26",
+   "/en-SA/loyalty/partner-offers/mokafaa-sep26",
+   "/en-SA/loyalty/partner-offers/more-miles-sep26",
+   "/en-SA/loyalty/partner-offers/sixt-sep26",
+   "/en-SA/loyalty/partner-offers/snb-sep26"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-tabs",
+  "count": 8,
+  "sample": [
+   "/en-SA/alfursan-information/family-member-program",
+   "/en-SA/before-flying/special-assistance/special-care",
+   "/en-SA/book/special-assistance/special-care",
+   "/en-SA/book/travel-information/branded-fares"
+  ],
+  "paths": [
+   "/en-SA/alfursan-information/family-member-program",
+   "/en-SA/before-flying/special-assistance/special-care",
+   "/en-SA/book/special-assistance/special-care",
+   "/en-SA/book/travel-information/branded-fares",
+   "/en-SA/explore/about-saudia/awards-recognitions",
+   "/en-SA/explore/about-saudia/saudia-history",
+   "/en-SA/loyalty-program/about-alfursan-program/family-member-program",
+   "/en-SA/plan/about-saudia/travel-partners"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-space",
+  "count": 8,
+  "sample": [
+   "/en-SA/book-n-manage/travel-services/private-aircrafts",
+   "/en-SA/earn-and-redeem/program-partners/credit-cards",
+   "/en-SA/experience/about-us/corporate-communication",
+   "/en-SA/experience/on-board/classes-of-travel"
+  ],
+  "paths": [
+   "/en-SA/book-n-manage/travel-services/private-aircrafts",
+   "/en-SA/earn-and-redeem/program-partners/credit-cards",
+   "/en-SA/experience/about-us/corporate-communication",
+   "/en-SA/experience/on-board/classes-of-travel",
+   "/en-SA/explore/about-saudia/our-fleet",
+   "/en-SA/help/contact-us/student-travel-care-team",
+   "/en-SA/information/media-centre",
+   "/en-SA/Support/help-centre/student-travel-care"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-title-text | app-jss-faq",
+  "count": 8,
+  "sample": [
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-abha",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-antalya",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-bodrum",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-el-alamein"
+  ],
+  "paths": [
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-abha",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-antalya",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-bodrum",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-el-alamein",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-malaga",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-mykonos",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-nice",
+   "/en-SA/explore/saudia-new-destinations-2026/fly-to-salalah"
+  ]
+ },
+ {
+  "key": "faqs | app-jss-faqs",
+  "count": 6,
+  "sample": [
+   "/en-SA/help/faqs/baggage-faq",
+   "/en-SA/help/faqs/faq",
+   "/en-SA/help/faqs/pensioner-faq",
+   "/en-SA/help/faqs/specialneeds-faq"
+  ],
+  "paths": [
+   "/en-SA/help/faqs/baggage-faq",
+   "/en-SA/help/faqs/faq",
+   "/en-SA/help/faqs/pensioner-faq",
+   "/en-SA/help/faqs/specialneeds-faq",
+   "/en-SA/help/faqs/stopovervisa-faq",
+   "/en-SA/Support/HelpAndSupport/FAQs"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-space | app-jss-tabs",
+  "count": 5,
+  "sample": [
+   "/en-SA/book-n-manage/manage/seat-selection",
+   "/en-SA/manage/baggage/extra-baggage",
+   "/en-SA/manage/extras",
+   "/en-SA/travel-with-saudia/manage/extra-baggage"
+  ],
+  "paths": [
+   "/en-SA/book-n-manage/manage/seat-selection",
+   "/en-SA/manage/baggage/extra-baggage",
+   "/en-SA/manage/extras",
+   "/en-SA/travel-with-saudia/manage/extra-baggage",
+   "/en-SA/travel-with-saudia/manage/seats-reservation-service"
+  ]
+ },
+ {
+  "key": "alfursan-program-guest transit-visa-page | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-title-text-button",
+  "count": 4,
+  "sample": [
+   "/en-SA/alfursan-information/partners/financial-partners/KFH-rewrads",
+   "/en-SA/alfursan-information/partners/financial-partners/rize",
+   "/en-SA/alfursan-information/partners/financial-partners/Sahm",
+   "/en-SA/alfursan-information/partners/financial-partners/sifi"
+  ],
+  "paths": [
+   "/en-SA/alfursan-information/partners/financial-partners/KFH-rewrads",
+   "/en-SA/alfursan-information/partners/financial-partners/rize",
+   "/en-SA/alfursan-information/partners/financial-partners/Sahm",
+   "/en-SA/alfursan-information/partners/financial-partners/sifi"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-title-text-button",
+  "count": 4,
+  "sample": [
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/berain",
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/jahez",
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/Panda",
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/the-bicester-collection"
+  ],
+  "paths": [
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/berain",
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/jahez",
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/Panda",
+   "/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/the-bicester-collection"
+  ]
+ },
+ {
+  "key": "loyalty-offer | app-jss-title-text",
+  "count": 3,
+  "sample": [
+   "/en-SA/earn-and-redeem/earning-with-saudia",
+   "/en-SA/earn-and-redeem/miles-types",
+   "/en-SA/earn-and-redeem/miles-types/expiry-policy"
+  ],
+  "paths": [
+   "/en-SA/earn-and-redeem/earning-with-saudia",
+   "/en-SA/earn-and-redeem/miles-types",
+   "/en-SA/earn-and-redeem/miles-types/expiry-policy"
+  ]
+ },
+ {
+  "key": "homepage | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-featured-fare | app-jss-deals-for-you",
+  "count": 3,
+  "sample": [
+   "/en-SA/eWallet/Transactions",
+   "/en-SA/flightschedulelist",
+   "/en-SA/flightstatuslist"
+  ],
+  "paths": [
+   "/en-SA/eWallet/Transactions",
+   "/en-SA/flightschedulelist",
+   "/en-SA/flightstatuslist"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-tabs",
+  "count": 3,
+  "sample": [
+   "/en-SA/help/careers/careers-overview",
+   "/en-SA/information/careers-overview",
+   "/en-SA/information/terms-and-conditions/seats-reservation"
+  ],
+  "paths": [
+   "/en-SA/help/careers/careers-overview",
+   "/en-SA/information/careers-overview",
+   "/en-SA/information/terms-and-conditions/seats-reservation"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image | app-jss-title-text-button",
+  "count": 3,
+  "sample": [
+   "/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/buy-miles",
+   "/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/missing-miles",
+   "/en-SA/loyalty/alfursan-partners/financial-partners/alinma-bank-card"
+  ],
+  "paths": [
+   "/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/buy-miles",
+   "/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/missing-miles",
+   "/en-SA/loyalty/alfursan-partners/financial-partners/alinma-bank-card"
+  ]
+ },
+ {
+  "key": "light-theme transit-visa-page | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-title-text | app-jss-image-link-list",
+  "count": 3,
+  "sample": [
+   "/en-SA/transit-visa",
+   "/en-SA/transit-visa/stopover-in-jeddah",
+   "/en-SA/transit-visa/stopover-in-riyadh"
+  ],
+  "paths": [
+   "/en-SA/transit-visa",
+   "/en-SA/transit-visa/stopover-in-jeddah",
+   "/en-SA/transit-visa/stopover-in-riyadh"
+  ]
+ },
+ {
+  "key": "alfursan-program-guest transit-visa-page | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-tabs",
+  "count": 2,
+  "sample": [
+   "/en-SA/alfursan-information/partners/hotel-partners/anantara",
+   "/en-SA/alfursan-information/partners/hotel-partners/atheel"
+  ],
+  "paths": [
+   "/en-SA/alfursan-information/partners/hotel-partners/anantara",
+   "/en-SA/alfursan-information/partners/hotel-partners/atheel"
+  ]
+ },
+ {
+  "key": "jssform-page travel-requirements-page | app-jss-image | app-jss-title-description",
+  "count": 2,
+  "sample": [
+   "/en-SA/before-flying/travel-information/travel-requirements-by-international-stations",
+   "/en-SA/plan/before-you-fly/travel-requirements"
+  ],
+  "paths": [
+   "/en-SA/before-flying/travel-information/travel-requirements-by-international-stations",
+   "/en-SA/plan/before-you-fly/travel-requirements"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-title-text-button | app-jss-space",
+  "count": 2,
+  "sample": [
+   "/en-SA/book-and-manage/manage/refund",
+   "/en-SA/travel-with-saudia/manage/refund"
+  ],
+  "paths": [
+   "/en-SA/book-and-manage/manage/refund",
+   "/en-SA/travel-with-saudia/manage/refund"
+  ]
+ },
+ {
+  "key": "jssform-page upgrade-page | app-jss-image | app-jss-space | app-jss-title-text-button | app-jss-space",
+  "count": 2,
+  "sample": [
+   "/en-SA/book-n-manage/manage/my-upgrade",
+   "/en-SA/travel-with-saudia/manage/my-upgrade"
+  ],
+  "paths": [
+   "/en-SA/book-n-manage/manage/my-upgrade",
+   "/en-SA/travel-with-saudia/manage/my-upgrade"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-tabs",
+  "count": 2,
+  "sample": [
+   "/en-SA/book/flight-information/reservation-services",
+   "/en-SA/travel-with-saudia/book-with-us/reservation-services"
+  ],
+  "paths": [
+   "/en-SA/book/flight-information/reservation-services",
+   "/en-SA/travel-with-saudia/book-with-us/reservation-services"
+  ]
+ },
+ {
+  "key": "loyalty-offer | app-jss-special-offers | app-jss-faq",
+  "count": 2,
+  "sample": [
+   "/en-SA/earn-and-redeem",
+   "/en-SA/tier-credits"
+  ],
+  "paths": [
+   "/en-SA/earn-and-redeem",
+   "/en-SA/tier-credits"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-title-text | app-jss-image-link-list",
+  "count": 2,
+  "sample": [
+   "/en-SA/earn-and-redeem/program-partners/skyteam-partners",
+   "/en-SA/loyalty-program/alfursan-partners/skyteam-partners"
+  ],
+  "paths": [
+   "/en-SA/earn-and-redeem/program-partners/skyteam-partners",
+   "/en-SA/loyalty-program/alfursan-partners/skyteam-partners"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image-link-list | app-jss-title-text | app-jss-saudia-general-tablayout | app-jss-title-text",
+  "count": 2,
+  "sample": [
+   "/en-SA/experience-saudia/at-the-airport/altanfeethi",
+   "/en-SA/experience-saudia/at-the-airport/fast-track"
+  ],
+  "paths": [
+   "/en-SA/experience-saudia/at-the-airport/altanfeethi",
+   "/en-SA/experience-saudia/at-the-airport/fast-track"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image | app-jss-title-text-button | app-jss-image-link-list",
+  "count": 2,
+  "sample": [
+   "/en-SA/loyalty-program/about-alfursan-program/membership-tiers-benefits",
+   "/en-SA/loyalty/about-alfursan-program/about-alfursan-program"
+  ],
+  "paths": [
+   "/en-SA/loyalty-program/about-alfursan-program/membership-tiers-benefits",
+   "/en-SA/loyalty/about-alfursan-program/about-alfursan-program"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image | app-jss-title-text-button | app-jss-table | app-jss-title-text-button",
+  "count": 2,
+  "sample": [
+   "/en-SA/loyalty-program/about-alfursan-program/membership-tiers-benefits/membership-tiers",
+   "/en-SA/loyalty/about-alfursan-program/membership-tiers-benefits/membership-tiers"
+  ],
+  "paths": [
+   "/en-SA/loyalty-program/about-alfursan-program/membership-tiers-benefits/membership-tiers",
+   "/en-SA/loyalty/about-alfursan-program/membership-tiers-benefits/membership-tiers"
+  ]
+ },
+ {
+  "key": "loyalty-guest | app-jss-image-link-list",
+  "count": 2,
+  "sample": [
+   "/en-SA/loyalty",
+   "/en-SA/loyalty/overview"
+  ],
+  "paths": [
+   "/en-SA/loyalty",
+   "/en-SA/loyalty/overview"
+  ]
+ },
+ {
+  "key": "choosealfursancreditcard | app-jss-alfursan-cc",
+  "count": 2,
+  "sample": [
+   "/en-SA/loyalty/chooseAlfursanCreditCard",
+   "/en-SA/loyalty/chooseAlfursanCreditCard/alfursanCreditCard"
+  ],
+  "paths": [
+   "/en-SA/loyalty/chooseAlfursanCreditCard",
+   "/en-SA/loyalty/chooseAlfursanCreditCard/alfursanCreditCard"
+  ]
+ },
+ {
+  "key": "help-support | app-jss-title-text",
+  "count": 2,
+  "sample": [
+   "/en-SA/manage/baggage/baggage-info",
+   "/en-SA/Support/HelpAndSupport"
+  ],
+  "paths": [
+   "/en-SA/manage/baggage/baggage-info",
+   "/en-SA/Support/HelpAndSupport"
+  ]
+ },
+ {
+  "key": "- | app-jss-modal",
+  "count": 2,
+  "sample": [
+   "/en-SA/plan/at-the-airport/lounges-information/AlFursanLounges",
+   "/en-SA/plan/at-the-airport/lounges-information/SkyTeamLounges"
+  ],
+  "paths": [
+   "/en-SA/plan/at-the-airport/lounges-information/AlFursanLounges",
+   "/en-SA/plan/at-the-airport/lounges-information/SkyTeamLounges"
+  ]
+ },
+ {
+  "key": "light-theme sn-pensioner-class | app-jss-title-text",
+  "count": 2,
+  "sample": [
+   "/en-SA/travel-with-saudia/book-with-us/pensioners-services-portal",
+   "/en-SA/travel-with-saudia/book-with-us/persons-with-disabilities-services-portal"
+  ],
+  "paths": [
+   "/en-SA/travel-with-saudia/book-with-us/pensioners-services-portal",
+   "/en-SA/travel-with-saudia/book-with-us/persons-with-disabilities-services-portal"
+  ]
+ },
+ {
+  "key": "cms-page cms-page-pressrelease | app-jss-image-link-list | app-jss-title-text | app-jss-image | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/about-us/press-releases/press-release-10012025"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/press-release-10012025"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image-link-list | app-jss-title-text | app-jss-image | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/about-us/press-releases/press-release-11012025"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/press-release-11012025"
+  ]
+ },
+ {
+  "key": "transit-visa-page | app-jss-image-link-list | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/about-us/press-releases/press-release-15012025"
+  ],
+  "paths": [
+   "/en-SA/about-us/press-releases/press-release-15012025"
+  ]
+ },
+ {
+  "key": "alfursan-program-guest cms-page | app-jss-title-text | app-jss-tabs",
+  "count": 1,
+  "sample": [
+   "/en-SA/alfursan-complete-digital"
+  ],
+  "paths": [
+   "/en-SA/alfursan-complete-digital"
+  ]
+ },
+ {
+  "key": "milescalculatorpage | app-jss-image-link-list | app-jss-title-text-button | app-jss-faq | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/alfursan-information/partners/other-carriers/alfursan-etihad-airways"
+  ],
+  "paths": [
+   "/en-SA/alfursan-information/partners/other-carriers/alfursan-etihad-airways"
+  ]
+ },
+ {
+  "key": "light-theme transit-visa-page | app-jss-image-link-list | app-jss-title-text | app-jss-faq",
+  "count": 1,
+  "sample": [
+   "/en-SA/alfursan-information/partners/other-carriers/flyadeal"
+  ],
+  "paths": [
+   "/en-SA/alfursan-information/partners/other-carriers/flyadeal"
+  ]
+ },
+ {
+  "key": "- | app-jss-register-alfursan",
+  "count": 1,
+  "sample": [
+   "/en-SA/alfursanRegistration"
+  ],
+  "paths": [
+   "/en-SA/alfursanRegistration"
+  ]
+ },
+ {
+  "key": "light-theme | app-jss-image-link-list | app-jss-title-text | app-jss-faq | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/before-flying/travel-information/hajj-and-umrah/tourist-visa"
+  ],
+  "paths": [
+   "/en-SA/before-flying/travel-information/hajj-and-umrah/tourist-visa"
+  ]
+ },
+ {
+  "key": "boardingpasses-page internal-page mwebcompactheader | app-jss-checkin-boarding-passess",
+  "count": 1,
+  "sample": [
+   "/en-SA/boardingPasses"
+  ],
+  "paths": [
+   "/en-SA/boardingPasses"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-title-text | app-jss-space",
+  "count": 1,
+  "sample": [
+   "/en-SA/book-and-manage/book/lounge-pass"
+  ],
+  "paths": [
+   "/en-SA/book-and-manage/book/lounge-pass"
+  ]
+ },
+ {
+  "key": "jssform-page seat-plus-page | app-jss-image | app-jss-space | app-jss-title-text-button | app-jss-space",
+  "count": 1,
+  "sample": [
+   "/en-SA/book-n-manage/manage/seat-plus"
+  ],
+  "paths": [
+   "/en-SA/book-n-manage/manage/seat-plus"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-tabs | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/book/special-assistance/medif"
+  ],
+  "paths": [
+   "/en-SA/book/special-assistance/medif"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-tabs | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/book/special-assistance/travelling-with-children"
+  ],
+  "paths": [
+   "/en-SA/book/special-assistance/travelling-with-children"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-tabs",
+  "count": 1,
+  "sample": [
+   "/en-SA/book/travel-information/guidance-and-tips"
+  ],
+  "paths": [
+   "/en-SA/book/travel-information/guidance-and-tips"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image | app-jss-space | app-jss-title-text-button | app-jss-space",
+  "count": 1,
+  "sample": [
+   "/en-SA/business"
+  ],
+  "paths": [
+   "/en-SA/business"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image",
+  "count": 1,
+  "sample": [
+   "/en-SA/campaigns/flights-to-tokyo"
+  ],
+  "paths": [
+   "/en-SA/campaigns/flights-to-tokyo"
+  ]
+ },
+ {
+  "key": "- | app-jss-subscription-modal",
+  "count": 1,
+  "sample": [
+   "/en-SA/cdp/subscriberdiscount"
+  ],
+  "paths": [
+   "/en-SA/cdp/subscriberdiscount"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image | app-jss-space | app-jss-title-text-button | app-jss-space",
+  "count": 1,
+  "sample": [
+   "/en-SA/Companion"
+  ],
+  "paths": [
+   "/en-SA/Companion"
+  ]
+ },
+ {
+  "key": "loyalty-offer | app-jss-earn-partners",
+  "count": 1,
+  "sample": [
+   "/en-SA/earn-and-redeem/program-partners"
+  ],
+  "paths": [
+   "/en-SA/earn-and-redeem/program-partners"
+  ]
+ },
+ {
+  "key": "- | app-jss-accordian-mmb",
+  "count": 1,
+  "sample": [
+   "/en-SA/eTicket"
+  ],
+  "paths": [
+   "/en-SA/eTicket"
+  ]
+ },
+ {
+  "key": "- | app-jss-add-voucher",
+  "count": 1,
+  "sample": [
+   "/en-SA/eWallet/AddVoucher"
+  ],
+  "paths": [
+   "/en-SA/eWallet/AddVoucher"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-news",
+  "count": 1,
+  "sample": [
+   "/en-SA/experience-saudia/about-saudia/saudia-news"
+  ],
+  "paths": [
+   "/en-SA/experience-saudia/about-saudia/saudia-news"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-faq | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/explore/visit-saudi-arabia/visas"
+  ],
+  "paths": [
+   "/en-SA/explore/visit-saudi-arabia/visas"
+  ]
+ },
+ {
+  "key": "flight-schedule-standalone | app-jss-flight-schedule",
+  "count": 1,
+  "sample": [
+   "/en-SA/flightschedule"
+  ],
+  "paths": [
+   "/en-SA/flightschedule"
+  ]
+ },
+ {
+  "key": "homepage | app-jss-image-link-list | app-jss-saudia-general-tablayout | app-jss-deals-for-you | app-jss-image-link-list",
+  "count": 1,
+  "sample": [
+   "/en-SA/flightschedulelist/editsearch"
+  ],
+  "paths": [
+   "/en-SA/flightschedulelist/editsearch"
+  ]
+ },
+ {
+  "key": "- | app-jss-airport-combobox",
+  "count": 1,
+  "sample": [
+   "/en-SA/flightschedulelist/flighteditsearch"
+  ],
+  "paths": [
+   "/en-SA/flightschedulelist/flighteditsearch"
+  ]
+ },
+ {
+  "key": "flight-status-standalone | app-jss-flight-status",
+  "count": 1,
+  "sample": [
+   "/en-SA/flightstatus"
+  ],
+  "paths": [
+   "/en-SA/flightstatus"
+  ]
+ },
+ {
+  "key": "- | app-jss-date-range-picker",
+  "count": 1,
+  "sample": [
+   "/en-SA/flightstatuslist/statuseditsearch"
+  ],
+  "paths": [
+   "/en-SA/flightstatuslist/statuseditsearch"
+  ]
+ },
+ {
+  "key": "form-baggage-claim jssform-page | app-jss-image-link-list | app-jss-faq | app-jss-title-text | app-jss-dynamic-form",
+  "count": 1,
+  "sample": [
+   "/en-SA/forms/baggage-claim-form"
+  ],
+  "paths": [
+   "/en-SA/forms/baggage-claim-form"
+  ]
+ },
+ {
+  "key": "contact-form jssform-page | app-jss-image-link-list | app-jss-breadcrumbs | app-jss-title-text | app-jss-dynamic-form",
+  "count": 1,
+  "sample": [
+   "/en-SA/forms/contact-form"
+  ],
+  "paths": [
+   "/en-SA/forms/contact-form"
+  ]
+ },
+ {
+  "key": "form-mice jssform-page | app-jss-image-link-list | app-jss-breadcrumbs | app-jss-dynamic-form",
+  "count": 1,
+  "sample": [
+   "/en-SA/forms/mice-form"
+  ],
+  "paths": [
+   "/en-SA/forms/mice-form"
+  ]
+ },
+ {
+  "key": "form-sales-support jssform-page | app-jss-image-link-list | app-jss-breadcrumbs | app-jss-dynamic-form",
+  "count": 1,
+  "sample": [
+   "/en-SA/forms/sales-support-form"
+  ],
+  "paths": [
+   "/en-SA/forms/sales-support-form"
+  ]
+ },
+ {
+  "key": "cms-page | app-jss-image | app-jss-title-text-button",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/miles-redemption"
+  ],
+  "paths": [
+   "/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/miles-redemption"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image | app-jss-title-text-button | app-jss-table",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty-program/about-alfursan-program/contact-us"
+  ],
+  "paths": [
+   "/en-SA/loyalty-program/about-alfursan-program/contact-us"
+  ]
+ },
+ {
+  "key": "cms-img-with-header cms-page | app-jss-image | app-jss-space | app-jss-title-text-button",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/alfursan-partners/financial-partners/SNB-LAK"
+  ],
+  "paths": [
+   "/en-SA/loyalty/alfursan-partners/financial-partners/SNB-LAK"
+  ]
+ },
+ {
+  "key": "alfursan-program-guest light-theme transit-visa-page | app-jss-image-link-list | app-jss-title-text-button | app-jss-space | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/cash-plus-miles"
+  ],
+  "paths": [
+   "/en-SA/loyalty/cash-plus-miles"
+  ]
+ },
+ {
+  "key": "loyalty | app-jss-user-details | app-jss-saudia-loyalty-tab-layout",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/family-program"
+  ],
+  "paths": [
+   "/en-SA/loyalty/family-program"
+  ]
+ },
+ {
+  "key": "alfursan-program-guest | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-title-text-button",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/manage-reward-ticket"
+  ],
+  "paths": [
+   "/en-SA/loyalty/manage-reward-ticket"
+  ]
+ },
+ {
+  "key": "loyalty | app-jss-special-offers | app-jss-user-details",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/Partneroffers"
+  ],
+  "paths": [
+   "/en-SA/loyalty/Partneroffers"
+  ]
+ },
+ {
+  "key": "purchasemilespage | app-jss-image-link-list",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/purchase-miles"
+  ],
+  "paths": [
+   "/en-SA/loyalty/purchase-miles"
+  ]
+ },
+ {
+  "key": "loyalty | app-jss-user-details | app-jss-saudia-loyalty-tab-layout | app-jss-activity",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/recent-activity"
+  ],
+  "paths": [
+   "/en-SA/loyalty/recent-activity"
+  ]
+ },
+ {
+  "key": "loyalty | app-jss-user-details | app-jss-saudia-loyalty-tab-layout | app-jss-special-offers",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/special-offers"
+  ],
+  "paths": [
+   "/en-SA/loyalty/special-offers"
+  ]
+ },
+ {
+  "key": "transfermilespage | app-jss-image-link-list",
+  "count": 1,
+  "sample": [
+   "/en-SA/loyalty/transfer-miles"
+  ],
+  "paths": [
+   "/en-SA/loyalty/transfer-miles"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-title-text | app-jss-faq",
+  "count": 1,
+  "sample": [
+   "/en-SA/manage/baggage/carry-on-baggage"
+  ],
+  "paths": [
+   "/en-SA/manage/baggage/carry-on-baggage"
+  ]
+ },
+ {
+  "key": "light-theme | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-tabs",
+  "count": 1,
+  "sample": [
+   "/en-SA/manage/baggage/special-baggage"
+  ],
+  "paths": [
+   "/en-SA/manage/baggage/special-baggage"
+  ]
+ },
+ {
+  "key": "light-theme milescalculatorpage | app-jss-miles-calculator",
+  "count": 1,
+  "sample": [
+   "/en-SA/milesCalculator"
+  ],
+  "paths": [
+   "/en-SA/milesCalculator"
+  ]
+ },
+ {
+  "key": "loyalty | app-jss-space | app-jss-title-description | app-jss-special-deals",
+  "count": 1,
+  "sample": [
+   "/en-SA/offers"
+  ],
+  "paths": [
+   "/en-SA/offers"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-space | app-jss-title-text | app-jss-tabs",
+  "count": 1,
+  "sample": [
+   "/en-SA/our-network"
+  ],
+  "paths": [
+   "/en-SA/our-network"
+  ]
+ },
+ {
+  "key": "light-theme transit-visa-page | app-jss-image-link-list | app-jss-title-text | app-jss-tabs | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/plan/about-saudia/discover-saudi-arabia"
+  ],
+  "paths": [
+   "/en-SA/plan/about-saudia/discover-saudi-arabia"
+  ]
+ },
+ {
+  "key": "cms-page lounge-page | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/plan/about-saudia/skyteam"
+  ],
+  "paths": [
+   "/en-SA/plan/about-saudia/skyteam"
+  ]
+ },
+ {
+  "key": "cms-page lounge-page | app-jss-image-link-list | app-jss-title-text | app-jss-space | app-jss-title-text-button",
+  "count": 1,
+  "sample": [
+   "/en-SA/plan/at-the-airport/lounges-information"
+  ],
+  "paths": [
+   "/en-SA/plan/at-the-airport/lounges-information"
+  ]
+ },
+ {
+  "key": "light-theme | app-jss-image-link-list | app-jss-space | app-jss-title-text | app-jss-faq",
+  "count": 1,
+  "sample": [
+   "/en-SA/plan/before-you-fly/umrah-with-saudia"
+  ],
+  "paths": [
+   "/en-SA/plan/before-you-fly/umrah-with-saudia"
+  ]
+ },
+ {
+  "key": "- | app-jss-image | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/saudia-holidays/holidays-exclusive-offers"
+  ],
+  "paths": [
+   "/en-SA/saudia-holidays/holidays-exclusive-offers"
+  ]
+ },
+ {
+  "key": "- | app-jss-image-link-list | app-jss-tabs | app-jss-space",
+  "count": 1,
+  "sample": [
+   "/en-SA/Support/help-centre/call-centers"
+  ],
+  "paths": [
+   "/en-SA/Support/help-centre/call-centers"
+  ]
+ },
+ {
+  "key": "worldwide-offices | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/Support/HelpAndSupport/WorldWideOffices"
+  ],
+  "paths": [
+   "/en-SA/Support/HelpAndSupport/WorldWideOffices"
+  ]
+ },
+ {
+  "key": "- | app-jss-space | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/travel-updates/202602281"
+  ],
+  "paths": [
+   "/en-SA/travel-updates/202602281"
+  ]
+ },
+ {
+  "key": "- | app-jss-title-text | app-jss-space | app-jss-saudia-general-tablayout | app-jss-title-text",
+  "count": 1,
+  "sample": [
+   "/en-SA/umrah/fly-saudia-for-umrah-packages"
+  ],
+  "paths": [
+   "/en-SA/umrah/fly-saudia-for-umrah-packages"
+  ]
+ },
+ {
+  "key": "milescalculatorpage | app-jss-image-link-list | app-jss-title-text-button | app-jss-title-text | app-jss-miles-calculator",
+  "count": 1,
+  "sample": [
+   "/en-SA/upgrade-by-miles"
+  ],
+  "paths": [
+   "/en-SA/upgrade-by-miles"
+  ]
+ }
+]

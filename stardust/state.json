@@ -1,0 +1,151 @@
+{
+  "_provenance": {
+    "writtenBy": "stardust:replica",
+    "writtenAt": "2026-10-07T10:28:31Z",
+    "stardustVersion": "replica-bounded"
+  },
+  "site": {
+    "originUrl": "https://www.saudia.com",
+    "deployUrl": null,
+    "extractedAt": "2026-10-07T09:58:46Z",
+    "pageCap": 3,
+    "totalDiscovered": 3,
+    "crawled": 3
+  },
+  "direction": {
+    "resolvedAt": "2026-10-07T09:58:46Z",
+    "phrase": "/stardust:replica sample Explore, Book and manage, Experience",
+    "directionFile": "stardust/direction.md",
+    "iaFidelity": "verbatim"
+  },
+  "pages": [
+    {
+      "slug": "explore-destination",
+      "url": "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026/fly-to-athens",
+      "title": "Fly to Athens",
+      "type": "landing",
+      "status": "approved",
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "approved",
+          "at": "2026-10-07T10:28:31Z",
+          "approvedBy": "user"
+        }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/explore-destination.json",
+      "prototypePath": "stardust/prototypes/explore-destination-proposed.html",
+      "migratedPath": null
+    },
+    {
+      "slug": "book-manage-flight-pass",
+      "url": "https://www.saudia.com/en-SA/book-and-manage/book/flight-pass",
+      "title": "Saudia Annual Flight Pass: Fixed Fares & Flexible Travel",
+      "type": "program",
+      "status": "approved",
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "approved",
+          "at": "2026-10-07T10:28:31Z",
+          "approvedBy": "user"
+        }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/book-manage-flight-pass.json",
+      "prototypePath": "stardust/prototypes/book-manage-flight-pass-proposed.html",
+      "migratedPath": null
+    },
+    {
+      "slug": "experience-classes",
+      "url": "https://www.saudia.com/en-SA/experience/on-board/classes-of-travel",
+      "title": "Classes of Travel and Cabin Experience | Saudia",
+      "type": "listing",
+      "status": "approved",
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-10-07T09:58:46Z"
+        },
+        {
+          "status": "approved",
+          "at": "2026-10-07T10:28:31Z",
+          "approvedBy": "user"
+        }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/experience-classes.json",
+      "prototypePath": "stardust/prototypes/experience-classes-proposed.html",
+      "migratedPath": null
+    },
+    {
+      "slug": "home",
+      "url": "https://www.saudia.com/en-SA",
+      "title": "Saudia | Book flights | Hotels | Holidays",
+      "type": "home",
+      "status": "migrated",
+      "history": [
+        {
+          "status": "extracted",
+          "at": "2026-10-08T08:13:53Z"
+        },
+        {
+          "status": "directed",
+          "at": "2026-10-08T08:13:53Z"
+        },
+        {
+          "status": "prototyped",
+          "at": "2026-10-08T08:13:53Z"
+        },
+        {
+          "status": "approved",
+          "at": "2026-10-08T08:40:54Z",
+          "approvedBy": "user"
+        },
+        {
+          "status": "migrated",
+          "at": "2026-10-08T09:17:34Z"
+        }
+      ],
+      "stale": false,
+      "staleReason": null,
+      "currentStatePath": "stardust/current/pages/home.json",
+      "prototypePath": "stardust/prototypes/home-proposed.html",
+      "migratedPath": "content/en/index.plain.html"
+    }
+  ]
+}

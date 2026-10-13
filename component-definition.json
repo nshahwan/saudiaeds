@@ -83,6 +83,54 @@
       "id": "blocks",
       "components": [
         {
+          "title": "Accordion",
+          "id": "accordion",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Accordion",
+                  "filter": "accordion",
+                  "model": "accordion"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Accordion Item",
+          "id": "accordion-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Accordion Item",
+                  "model": "accordion-item",
+                  "summary": "Lorem Ipsum",
+                  "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat consequat dui, sit amet ...</p>"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Booking",
+          "id": "booking",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Booking",
+                  "model": "booking"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -91,7 +139,8 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Cards",
-                  "filter": "cards"
+                  "filter": "cards",
+                  "model": "cards"
                 }
               }
             }
@@ -113,6 +162,68 @@
           }
         },
         {
+          "title": "Carousel",
+          "id": "carousel",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Carousel",
+                  "filter": "carousel",
+                  "model": "carousel"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Slide",
+          "id": "slide",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Slide",
+                  "model": "slide"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Checklist",
+          "id": "checklist",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Checklist",
+                  "filter": "checklist",
+                  "model": "checklist"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Checklist Item",
+          "id": "checklist-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Checklist Item",
+                  "model": "checklist-item"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns",
           "id": "columns",
           "plugins": {
@@ -122,6 +233,68 @@
                 "template": {
                   "columns": "2",
                   "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fares",
+          "id": "fares",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fares",
+                  "filter": "fares",
+                  "model": "fares"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fare",
+          "id": "fare",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Fare",
+                  "model": "fare"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Features",
+          "id": "features",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Features",
+                  "filter": "features",
+                  "model": "features"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Feature",
+          "id": "feature",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Feature",
+                  "model": "feature"
                 }
               }
             }
@@ -152,6 +325,114 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Offers",
+          "id": "offers",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Offers",
+                  "filter": "offers",
+                  "model": "offers"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Offer",
+          "id": "offer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Offer",
+                  "model": "offer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plans",
+          "id": "plans",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Plans",
+                  "filter": "plans",
+                  "model": "plans"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Plan",
+          "id": "plan-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Plan",
+                  "model": "plan-item"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Promo",
+          "id": "promo",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Promo",
+                  "model": "promo"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Stories",
+          "id": "stories",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Stories",
+                  "filter": "stories",
+                  "model": "stories"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Story",
+          "id": "story",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Story",
+                  "model": "story"
                 }
               }
             }

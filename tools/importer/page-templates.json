@@ -1,0 +1,70 @@
+{
+  "templates": [
+    {
+      "name": "replica",
+      "description": "Approved Saudia replica archetypes (home, destination, product, listing) plus the shared nav/footer, migrated to /content/saudiaeds/en",
+      "representativeUrl": "http://127.0.0.1:8795/en/explore/saudia-new-destinations-2026/fly-to-athens.html",
+      "importScript": "tools/importer/import-replica.js",
+      "parsers": [
+        "eds-block"
+      ],
+      "transformers": [
+        "eds-sections"
+      ],
+      "blocks": [
+        {
+          "name": "hero",
+          "parser": "eds-block"
+        },
+        {
+          "name": "booking",
+          "parser": "eds-block"
+        },
+        {
+          "name": "accordion",
+          "parser": "eds-block"
+        },
+        {
+          "name": "checklist",
+          "parser": "eds-block"
+        },
+        {
+          "name": "plans",
+          "parser": "eds-block"
+        },
+        {
+          "name": "cards",
+          "parser": "eds-block"
+        },
+        {
+          "name": "carousel",
+          "parser": "eds-block"
+        },
+        {
+          "name": "fares",
+          "parser": "eds-block"
+        },
+        {
+          "name": "offers",
+          "parser": "eds-block"
+        },
+        {
+          "name": "promo",
+          "parser": "eds-block"
+        },
+        {
+          "name": "stories",
+          "parser": "eds-block"
+        }
+      ],
+      "urls": [
+        "http://127.0.0.1:8795/en/index.html",
+        "http://127.0.0.1:8795/en/explore/saudia-new-destinations-2026/fly-to-athens.html",
+        "http://127.0.0.1:8795/en/book-and-manage/book/flight-pass.html",
+        "http://127.0.0.1:8795/en/plan/on-board/classes-of-travel.html",
+        "http://127.0.0.1:8795/en/nav.html",
+        "http://127.0.0.1:8795/en/footer.html"
+      ]
+    }
+  ]
+}

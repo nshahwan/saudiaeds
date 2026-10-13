@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/faq-item"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/booking-link"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/booking-engine"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/destination"/>
+    <filter root="/content/dam/saudiaeds/jcr:content" mode="merge_properties"/>
+    <filter root="/content/dam/saudiaeds/fragments/booking-engine"/>
+    <filter root="/content/dam/saudiaeds/fragments/booking-links"/>
+</workspaceFilter>

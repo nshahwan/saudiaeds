@@ -1,23 +1,50 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+/**
+ * cards — image cards with a gradient title overlay; the whole card is one link
+ * (Saudia replica, Experience › classes of travel; .sa-fleet-* on the live page).
+ *
+ * Rows (xwalk item model `card`), one per card:
+ *   cell 1  image — <picture>
+ *   cell 2  text  — <h3> card title · <p> description · <p> link
+ *                   (link text = CTA label, href = card target)
+ *
+ * The row's editor instrumentation moves to the card; the text cell is reused as the content
+ * slot (EW1) — its title is laid over the image by CSS, and the authored CTA link stays in
+ * place, stretched over the whole card by CSS.
+ * @param {Element} block The cards block element
+ */
+
+// carry the Universal Editor instrumentation of an authored row over to the element that
+// replaces it (same as moveInstrumentation in scripts.js, inlined so the block has no imports),
+// together with the row's classes: the item's "Text style" options
+function moveInstrumentation(from, to) {
+  if (from.className) to.classList.add(...from.classList);
+  [...from.attributes]
+    .filter(({ name }) => name.startsWith('data-aue-') || name.startsWith('data-richtext-'))
+    .forEach(({ name, value }) => {
+      to.setAttribute(name, value);
+      from.removeAttribute(name);
+    });
+}
 
 export default function decorate(block) {
-  /* change to ul, li */
-  const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    moveInstrumentation(row, li);
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
-    ul.append(li);
+  const cards = [...block.children].map((row) => {
+    const picture = row.querySelector('picture');
+    const heading = row.querySelector('h1, h2, h3, h4, h5, h6');
+    const textCell = heading ? heading.parentElement : row.lastElementChild;
+    const link = textCell ? textCell.querySelector('a[href]') : null;
+    const cta = link ? link.closest('p') : null;
+    if (cta) cta.classList.add('cards__cta');
+
+    const card = document.createElement('article');
+    card.className = 'cards__card';
+    moveInstrumentation(row, card);
+    const media = document.createElement('div');
+    media.className = 'cards__media';
+    if (picture) media.append(picture);
+    const content = textCell || document.createElement('div');
+    content.classList.add('cards__content');
+    card.append(media, content);
+    return card;
   });
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    moveInstrumentation(img, optimizedPic.querySelector('img'));
-    img.closest('picture').replaceWith(optimizedPic);
-  });
-  block.replaceChildren(ul);
+  block.replaceChildren(...cards);
 }
