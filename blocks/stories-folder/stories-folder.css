@@ -1,0 +1,8 @@
+/* stories-folder — renders with blocks/stories/stories.css (loaded by the block); only the
+   Universal Editor prompt is its own. */
+.stories-folder .stories-folder__placeholder {
+  padding: 20px;
+  border: 1px dashed #ccc;
+  font-size: 14px;
+  text-align: center;
+}

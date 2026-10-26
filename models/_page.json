@@ -45,6 +45,44 @@
           "valueType": "string",
           "name": "footer",
           "label": "Footer fragment"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image (social + story image)",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "story-title",
+          "label": "Story title (Stories Folder)"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "story-summary",
+          "label": "Story summary (Stories Folder)"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "story-link-text",
+          "label": "Story link text (Stories Folder)"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "story-mobile-image",
+          "label": "Story mobile image (Stories Folder)",
+          "multi": false
+        },
+        {
+          "component": "number",
+          "valueType": "number",
+          "name": "story-order",
+          "label": "Story order (Stories Folder)"
         }
       ]
     }
