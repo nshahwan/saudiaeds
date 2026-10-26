@@ -26,6 +26,35 @@ function moveInstrumentation(from, to) {
     });
 }
 
+/**
+ * one story list item: the media slot (desktop + optional mobile <picture>) and the text slot
+ * (shared with stories-folder)
+ * @param {Element} [desktop] desktop rendition
+ * @param {Element} [mobile] mobile rendition
+ * @param {Element} text the text slot (h3 · summary · link paragraph)
+ * @returns {Element} the <li>
+ */
+export function storyItem(desktop, mobile, text) {
+  const item = document.createElement('li');
+  const story = document.createElement('div');
+  story.className = 'stories__item';
+
+  const media = document.createElement('div');
+  media.className = 'stories__media';
+  [[desktop, mobile ? 'stories__pic--desktop' : ''], [mobile, 'stories__pic--mobile']].forEach(([pic, cls]) => {
+    if (!pic) return;
+    const slot = document.createElement('div');
+    slot.className = `stories__pic ${cls}`.trim();
+    slot.append(pic);
+    media.append(slot);
+  });
+
+  text.classList.add('stories__text');
+  story.append(media, text);
+  item.append(story);
+  return item;
+}
+
 export default function decorate(block) {
   const list = document.createElement('ul');
   list.className = 'stories__list';
@@ -34,27 +63,10 @@ export default function decorate(block) {
     const heading = row.querySelector('h1, h2, h3, h4, h5, h6');
     const textCell = heading ? heading.parentElement : row.lastElementChild;
 
-    const item = document.createElement('li');
-    moveInstrumentation(row, item);
-    const story = document.createElement('div');
-    story.className = 'stories__item';
-
-    const media = document.createElement('div');
-    media.className = 'stories__media';
-    [[desktop, mobile ? 'stories__pic--desktop' : ''], [mobile, 'stories__pic--mobile']].forEach(([pic, cls]) => {
-      if (!pic) return;
-      const slot = document.createElement('div');
-      slot.className = `stories__pic ${cls}`.trim();
-      slot.append(pic);
-      media.append(slot);
-    });
-
     // the text cell is reused as the text slot (keeps its editor instrumentation); the authored
     // link stays in place and is stretched over the whole story by CSS
-    const text = textCell || document.createElement('div');
-    text.classList.add('stories__text');
-    story.append(media, text);
-    item.append(story);
+    const item = storyItem(desktop, mobile, textCell || document.createElement('div'));
+    moveInstrumentation(row, item);
     list.append(item);
   });
   block.replaceChildren(list);

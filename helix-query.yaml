@@ -14,3 +14,30 @@ indices:
       robots:
         select: head > meta[name="robots"]
         value: attribute(el, "content")
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      heading:
+        select: main h1
+        value: textContent(el)
+      storyTitle:
+        select: head > meta[name="story-title"]
+        value: attribute(el, "content")
+      storySummary:
+        select: head > meta[name="story-summary"]
+        value: attribute(el, "content")
+      storyLinkText:
+        select: head > meta[name="story-link-text"]
+        value: attribute(el, "content")
+      mobileImage:
+        select: head > meta[name="story-mobile-image"]
+        value: attribute(el, "content")
+      storyOrder:
+        select: head > meta[name="story-order"]
+        value: attribute(el, "content")
