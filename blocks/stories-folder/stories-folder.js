@@ -14,17 +14,11 @@
  * @ew-exempt all — index-driven listing; the block's only authored content is its config (EW5 c)
  */
 import { loadCSS } from '../../scripts/aem.js';
-import { storyItem } from '../stories/stories.js';
+import {
+  AUTHOR_ROOT, readStoryPage, storyItem, storyPicture, storyText, usable,
+} from '../stories/stories.js';
 
 const INDEX = '/query-index.json';
-const LINK_TEXT = 'Learn more';
-
-/**
- * AEM author (Universal Editor): pages are addressed as /content/<site>/… on an AEM host (the
- * local preview also serves /content/… but reads like the published site)
- */
-const AUTHOR_ROOT = /\.adobeaemcloud\.(com|net)$/.test(window.location.hostname)
-  ? (window.location.pathname.match(/^\/content\/(?!dam\/)[^/.]+/) || [])[0] : undefined;
 
 const normalise = (path) => path.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 
@@ -60,60 +54,25 @@ function readConfig(block) {
   return config;
 }
 
-/**
- * an image URL this page can show: not a broken reference, and on AEM author not an Edge
- * Delivery media URL (./media_… only exists on the published site; author serves the DAM)
- */
-const usable = (src) => Boolean(src) && !src.startsWith('about:')
-  && !/\/default-meta-image\.(png|jpe?g)/.test(src)
-  && !(AUTHOR_ROOT && /\/media_[0-9a-f]+\./.test(src));
-
-/** <picture> for a story image; Edge Delivery media get the usual optimised renditions */
-function storyPicture(src, width) {
-  const url = new URL(src, window.location.href);
-  const pic = document.createElement('picture');
-  const img = document.createElement('img');
-  img.alt = '';
-  img.loading = 'lazy';
-  if (url.origin === window.location.origin && /\/media_/.test(url.pathname)) {
-    const source = document.createElement('source');
-    source.type = 'image/webp';
-    source.srcset = `${url.pathname}?width=${width}&format=webply&optimize=medium`;
-    pic.append(source);
-    const format = url.pathname.endsWith('.png') ? 'png' : 'jpg';
-    img.src = `${url.pathname}?width=${width}&format=${format}&optimize=medium`;
-  } else {
-    img.src = url.href;
-  }
-  // an image that still fails to load drops its slot rather than showing a broken icon
-  img.addEventListener('error', () => pic.closest('.stories__pic')?.remove(), { once: true });
-  pic.append(img);
-  return pic;
-}
-
 /** page titles carry the site name ("… | Saudia"); the story heading drops it */
 function withoutSiteName(title = '') {
   return title.replace(/^Saudia\s*[|–-]\s*|\s*[|–-]\s*Saudia$/i, '').trim();
 }
 
 function indexStory(entry) {
-  const text = el('div');
-  text.append(el('h3', entry.storyTitle || entry.heading || withoutSiteName(entry.title)));
-  const summary = entry.storySummary || entry.description;
-  if (summary) text.append(el('p', summary));
-  const a = el('a', entry.storyLinkText || LINK_TEXT);
-  a.href = entry.href || entry.path;
-  const p = el('p');
-  p.append(a);
-  text.append(p);
-  const desktop = usable(entry.image) ? storyPicture(entry.image, 750) : null;
-  const mobile = usable(entry.mobileImage) ? storyPicture(entry.mobileImage, 750) : null;
+  const text = storyText({
+    title: entry.storyTitle || entry.heading || withoutSiteName(entry.title),
+    summary: entry.storySummary || entry.description,
+    linkText: entry.storyLinkText,
+  }, entry.href || entry.path);
+  const desktop = usable(entry.image) ? storyPicture(entry.image, entry.imageAlt) : null;
+  const mobile = usable(entry.mobileImage) ? storyPicture(entry.mobileImage, entry.imageAlt) : null;
   return storyItem(desktop || mobile, desktop && mobile, text);
 }
 
 /**
- * fill what the index lacks from the page itself: its story properties and description
- * (head meta), its first heading, and its hero images (desktop, mobile) or first image
+ * fill what the index lacks from the page itself (see readStoryPage in blocks/stories); the
+ * page's images win: the indexed og:image is often just the page's (generic) hero banner
  */
 async function summarise(entry) {
   const out = {
@@ -121,48 +80,11 @@ async function summarise(entry) {
     image: usable(entry.image) ? entry.image : '',
     mobileImage: usable(entry.mobileImage) ? entry.mobileImage : '',
   };
-  if ((out.storyTitle || out.heading) && (out.storySummary || out.description) && out.image) {
-    return out;
-  }
-  try {
-    // published pages answer on their path; author pages need .html (entry.href)
-    const resp = await fetch(entry.href || entry.path);
-    if (!resp.ok) return out;
-    const doc = new DOMParser().parseFromString(await resp.text(), 'text/html');
-    const base = new URL(entry.href || entry.path, window.location.origin);
-    // keep the query: author image URLs can carry rendition parameters
-    const local = (src) => {
-      const u = new URL(src, base);
-      return u.origin === window.location.origin ? `${u.pathname}${u.search}` : u.href;
-    };
-    const meta = (name) => doc.head.querySelector(`meta[name="${name}"], meta[property="${name}"]`)
-      ?.getAttribute('content')?.trim();
-    const main = doc.querySelector('main') || doc.body;
-    const heroImages = [...main.querySelectorAll('.hero img')]
-      .map((img) => img.getAttribute('src')).filter(usable);
-    const firstImage = [...main.querySelectorAll('img')]
-      .map((img) => img.getAttribute('src')).find(usable);
-    out.storyTitle ||= meta('story-title');
-    out.storySummary ||= meta('story-summary');
-    out.storyLinkText ||= meta('story-link-text');
-    out.storyOrder ||= meta('story-order');
-    out.heading ||= main.querySelector('h1, h2')?.textContent.trim();
-    out.description ||= meta('description');
-    // published: og:image is the page's Image property (else its first image); author pages
-    // fill og:image with a site default, so the hero comes first there
-    const ogImage = meta('og:image');
-    const shareImage = usable(ogImage) ? local(ogImage) : '';
-    const pageImage = heroImages[0] || firstImage;
-    if (!out.image) {
-      out.image = AUTHOR_ROOT ? (pageImage && local(pageImage)) || shareImage
-        : shareImage || (pageImage && local(pageImage)) || '';
-    }
-    const mobileMeta = meta('story-mobile-image');
-    if (!out.mobileImage && usable(mobileMeta)) out.mobileImage = local(mobileMeta);
-    if (!out.mobileImage && heroImages[1]) out.mobileImage = local(heroImages[1]);
-  } catch {
-    // page unreadable: keep what the index had
-  }
+  const page = await readStoryPage(entry.href || entry.path);
+  if (!page) return out;
+  const { image, imageAlt, mobileImage } = page;
+  Object.entries(page).forEach(([key, value]) => { out[key] ||= value; });
+  if (image) Object.assign(out, { image, imageAlt, mobileImage });
   return out;
 }
 

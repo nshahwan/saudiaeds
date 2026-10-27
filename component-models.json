@@ -9627,10 +9627,17 @@
         "name": "content-tab"
       },
       {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "pressRelease",
+        "label": "Press release",
+        "description": "Pick the press release this story shows: its title, summary, images and link are taken from it. Leave the fields below empty, or fill them to replace what the press release shows."
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image (desktop)",
+        "label": "Image (desktop, optional: replaces the press release images)",
         "multi": false
       },
       {
@@ -9644,7 +9651,7 @@
         "component": "reference",
         "valueType": "string",
         "name": "mobileImage",
-        "label": "Image (mobile)",
+        "label": "Image (mobile, optional)",
         "multi": false
       },
       {
@@ -9658,7 +9665,7 @@
         "component": "richtext",
         "name": "text",
         "value": "",
-        "label": "Text (title, summary, link — the link is the story target)",
+        "label": "Text (optional: title, summary, link; replaces the press release text)",
         "valueType": "string"
       },
       {
