@@ -66,6 +66,14 @@
       {
        "name": "Light page theme from here (home)",
        "value": "theme-light"
+      },
+      {
+       "name": "Article (press release body)",
+       "value": "article"
+      },
+      {
+       "name": "Article end (Back to news)",
+       "value": "article-end"
       }
      ]
     },
@@ -487,7 +495,9 @@
     "offers",
     "promo",
     "stories",
-    "stories-folder"
+    "stories-folder",
+    "article-hero",
+    "quote"
    ]
   }
  ]

@@ -112,7 +112,8 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
-body.product {
+body.product,
+body.no-notice {
   --nav-height: 64px;
 }
 
@@ -437,6 +438,92 @@ main .section.faq .default-content-wrapper h2 {
   letter-spacing: -1.2px;
 }
 
+/* article (press release, template "article"): section "article" holds the article-hero, the
+   body copy and quotes; section "article-end" the "Back to news" link (authored in italics →
+   secondary button, outlined green). Values from the approved replica
+   (stardust/prototypes/press-release.css, the live article's own CMS stylesheet) */
+body.article main {
+  padding: 76px 0 188px;
+}
+
+/* live: the article is a flex column (40px gap), so its margins never collapse with the hero's
+   gap or past its end */
+main .section.article {
+  display: flow-root;
+  color: rgb(51 51 51);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.16px;
+}
+
+main .section.article .article-hero-wrapper + div {
+  padding-top: 40px;
+}
+
+main .section.article .default-content-wrapper p {
+  margin: 16px 0 24px;
+  color: #4a4a4a;
+  font-size: 16px;
+  line-height: 25.6px;
+}
+
+main .section.article .default-content-wrapper p + p {
+  margin-top: 0;
+}
+
+main .section.article .default-content-wrapper :is(ul, ol) {
+  margin: 0 0 24px;
+  padding-left: 24px;
+  color: #4a4a4a;
+}
+
+main .section.article .default-content-wrapper ul {
+  list-style: disc;
+}
+
+main .section.article .default-content-wrapper ol {
+  list-style: decimal;
+}
+
+main .section.article .default-content-wrapper li {
+  line-height: 25.6px;
+}
+
+main .section.article .default-content-wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+main .section.article-end .default-content-wrapper p {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 0;
+  padding: 32px 0;
+  border-top: 1px solid #e6e6e6;
+}
+
+main .section.article-end a.button.secondary {
+  padding: 12px 24px;
+  background: none;
+  color: #00803e;
+  border-color: #00803e;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.16px;
+  transition: all 0.25s ease;
+}
+
+main .section.article-end a.button.secondary:hover {
+  background: #00803e;
+  color: #fff;
+}
+
+main .section.article-end a.button.secondary:focus-visible {
+  outline: 3px solid #6abf4b;
+  outline-offset: 2px;
+}
+
 /* ---- Experience Workspace / Universal Editor edit mode (EW3/EW6) ---- */
 .prosemirror-editor p > :is(strong, em) > a:any-link,
 .prosemirror-editor p > a:any-link:has(> :is(strong, em):only-child) {
@@ -473,7 +560,8 @@ a .prosemirror-editor a:any-link {
     --nav-height: 112px;
   }
 
-  body.product {
+  body.product,
+  body.no-notice {
     --nav-height: 72px;
   }
 
@@ -575,5 +663,13 @@ a .prosemirror-editor a:any-link {
 
   main .section.faq .default-content-wrapper h2 {
     padding-bottom: 24px;
+  }
+
+  body.article main {
+    padding: 32px 0 120px;
+  }
+
+  main .section.article-end .default-content-wrapper p {
+    margin-top: 32px;
   }
 }

@@ -294,3 +294,22 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   which also matches live). UE markers intact, text options 100%, lint clean.
 - Note: the live "AlFursan Store" menu link is broken on live itself
   (`https://www.saudia.com/unsafe:javascript:void(0)`); carried as captured.
+
+## Press release article layout rebuilt (2026-10-28)
+
+- The 51 article-layout press releases still in the workspace referenced code removed on
+  2026-10-12 (Article Hero 404'd, unknown to Universal Editor). User decision: rebuild the
+  article layout (the legacy `news` layout, 167 pages, stays removed).
+- Rebuilt from the approved prototype (stardust/prototypes/press-release{-proposed.html,.css}):
+  blocks `article-hero` (image, meta, text; cells matched by content, meta separators in CSS)
+  and `quote` (quotation, attribution → `<figure><blockquote>…<figcaption>`, no `<footer>`),
+  with models, section filter and Text style tabs; section styles `article` (flow-root, 40px
+  padding after the hero: the live flex column never collapses margins) and `article-end`
+  (Back to news, outlined secondary button); template `article` main padding 76/188 (mobile),
+  32/120 (desktop); theme `no-notice` hides the strip and reserves the header like `product`;
+  with the notice the footer is the `listing` one (empty SkyTeam slot).
+- Verified: harness en-press-release vs the prototype at 1440 and 360 — all 12 measured
+  elements 0px off, same document height (2929 / 5749); sweep of all 51 pages at both widths
+  (no 404s or errors, hero/quotes/back button present, notice on 12, hidden on 39, no overflow);
+  UE probe 100% on 5 variants (base, div quote, in-body image, list, no subtitle) and on home and
+  Flight Pass; text options 93/93; lint clean.

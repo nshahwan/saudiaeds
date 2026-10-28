@@ -4,10 +4,11 @@ header .header .nav-wrapper {
   position: relative;
 }
 
-/* one nav fragment serves every template; the live product pages carry no notice strip
-   and only destination pages and the home page carry AI search (the header reservation per
-   template assumes this) */
+/* one nav fragment serves every template; the live product pages (and the press releases
+   themed "no-notice") carry no notice strip and only destination pages and the home page
+   carry AI search (the header reservation per template assumes this) */
 body.product header .notice,
+body.no-notice header .notice,
 body:not(.destination, .home) header .ai-search {
   display: none;
 }

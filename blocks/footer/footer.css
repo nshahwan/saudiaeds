@@ -163,8 +163,10 @@ footer .footer-brand p {
   gap: 14px;
 }
 
-/* one footer fragment serves every template; the live listing pages leave the SkyTeam slot empty */
-body.listing footer .footer-brand a + a {
+/* one footer fragment serves every template; the live listing pages (and the press releases
+   that show the notice strip) leave the SkyTeam slot empty */
+body.listing footer .footer-brand a + a,
+body.article:not(.no-notice) footer .footer-brand a + a {
   visibility: hidden;
 }
 
@@ -331,7 +333,8 @@ footer .footer-legal p {
   color: var(--text-55);
 }
 
-body.listing footer .footer-legal p {
+body.listing footer .footer-legal p,
+body.article:not(.no-notice) footer .footer-legal p {
   margin-top: 68px;
 }
 
@@ -345,7 +348,8 @@ body.listing footer .footer-legal p {
   }
 
   body.product footer .site-footer,
-  body.listing footer .site-footer {
+  body.listing footer .site-footer,
+  body.article footer .site-footer {
     padding-bottom: 20px;
   }
 
@@ -596,7 +600,8 @@ body.listing footer .footer-legal p {
   }
 
   footer .footer-legal p,
-  body.listing footer .footer-legal p {
+  body.listing footer .footer-legal p,
+  body.article:not(.no-notice) footer .footer-legal p {
     margin: 0;
   }
 }
