@@ -21,9 +21,10 @@ module.exports = {
     // the "Text style" options (tools/text-options) are classes_* fields — block classes, not
     // cells — and the section model renders as key-value section metadata, not as cells;
     // booking: 4 label cells + the Booking Engine fragment picker and its (hidden) variation;
-    // story: 4 cells (press release, image, mobile image, text) + its Text style classes
+    // story: 6 cells (fragment + its hidden variation, press release, image, mobile image, text)
+    // + its Text style classes
     'xwalk/max-cells': ['error', {
-      '*': 4, booking: 7, section: 14, story: 5,
+      '*': 4, booking: 7, section: 14, story: 7,
     }],
   },
 };

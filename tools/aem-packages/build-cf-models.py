@@ -8,8 +8,8 @@ folder /content/dam/saudiaeds at /conf/saudiaeds (cq:conf, merged — nothing el
 touched) so the models are offered when authors create fragments there.
 
 The models describe the structured content of the migrated page types: destination landings and
-their FAQ items, and the booking engine (the press release / quote models were withdrawn with
-the press release pages).
+their FAQ items, the booking engine, and the stories of a stories list (the press release /
+quote models were withdrawn with the press release pages).
 
 The package also carries the booking engine Content Fragments, one per page that shows the
 booking engine, built from tools/aem-packages/booking-engine-fragments.json (extracted from the
@@ -24,10 +24,11 @@ import zipfile
 from xml.sax.saxutils import quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.2.0'
+NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.3.0'
 CONF = '/conf/saudiaeds'
 MODELS = f'{CONF}/settings/dam/cfm/models'
 DAM = '/content/dam/saudiaeds'
+SITE = '/content/saudiaeds'
 NS = ('xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" '
       'xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"')
 
@@ -58,6 +59,14 @@ def asset(name, label, required=False, desc=None):
                 **{'sling:resourceType': 'dam/cfm/models/editor/components/contentreference',
                    'metaType': 'reference', 'valueType': 'string', 'rootPath': DAM,
                    'showThumbnail': 'true', 'validation': 'cfm.validation.contenttype.image'})
+
+
+def page(name, label, required=False, desc=None):
+    """a reference to a site page (content path, no asset validation)"""
+    return dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
+                **{'sling:resourceType': 'dam/cfm/models/editor/components/contentreference',
+                   'metaType': 'reference', 'valueType': 'string', 'rootPath': SITE,
+                   'showThumbnail': 'false'})
 
 
 def fragments(name, label, model, desc=None):
@@ -129,6 +138,18 @@ MODEL_DEFS = {
         richtext('intro', 'Introduction'),
         richtext('itinerary', 'Itinerary'),
         fragments('faqs', 'FAQs', 'faq-item', 'Questions shown in the FAQ section, in order.'),
+    ]),
+    'story': ('Story', 'One story in a stories list (home "Exceptional experiences with Saudia").', [
+        text('title', 'Title', True, desc='e.g. "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards".'),
+        text('summary', 'Summary', desc='One or two sentences under the title.', maxlength=500),
+        asset('image', 'Image (desktop)'),
+        asset('imageMobile', 'Image (mobile)', desc='Optional; the desktop image is used when empty.'),
+        text('imageAlt', 'Image alt text', maxlength=500),
+        page('pressRelease', 'Press release',
+             desc='Optional: the press release page the story is about; the story links to it.'),
+        text('link', 'Link', desc='Where the story links to when no press release is picked '
+             '(a page path or a full URL).', maxlength=2000),
+        text('linkText', 'Link text', desc='Defaults to "Learn more".'),
     ]),
 }
 
@@ -251,6 +272,8 @@ fragment_files = {
     f'jcr_root{FRAGMENTS}/.content.xml': folder_xml('Content Fragments'),
     f'jcr_root{FRAGMENTS}/booking-engine/.content.xml': folder_xml('Booking engine'),
     f'jcr_root{FRAGMENTS}/booking-links/.content.xml': folder_xml('Booking links'),
+    # authors' Story fragments live here (the stories block's fragment picker opens it)
+    f'jcr_root{FRAGMENTS}/stories/.content.xml': folder_xml('Stories'),
 }
 for key, link in BOOKING['links'].items():
     fragment_files[f'jcr_root{FRAGMENTS}/booking-links/{key}/.content.xml'] = fragment_xml(
@@ -273,14 +296,16 @@ files = {
     + ''.join(f'    <filter root="{MODELS}/{m}"/>\n' for m in MODEL_DEFS)
     + f'    <filter root="{DAM}/jcr:content" mode="merge_properties"/>\n'
     + f'    <filter root="{DAM}/fragments/booking-engine"/>\n'
-    + f'    <filter root="{DAM}/fragments/booking-links"/>\n</workspaceFilter>\n',
+    + f'    <filter root="{DAM}/fragments/booking-links"/>\n'
+    # merge: creates the folder, never touches the Story fragments authors put in it
+    + f'    <filter root="{DAM}/fragments/stories" mode="merge"/>\n</workspaceFilter>\n',
     'META-INF/vault/properties.xml': f'''<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="name">{NAME}</entry>
 <entry key="group">{GROUP}</entry>
 <entry key="version">{VERSION}</entry>
-<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link), the booking engine Content Fragments and the cq:conf of {DAM}.</entry>
+<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine Content Fragments and the cq:conf of {DAM}.</entry>
 <entry key="packageType">content</entry>
 <entry key="requiresRoot">false</entry>
 <entry key="allowIndexDefinitions">false</entry>

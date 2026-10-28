@@ -4,15 +4,25 @@
  * (heading + intro) on desktop.
  *
  * Rows (xwalk item model `story`), one per story:
- *   1. pressRelease link to the press release the story shows (properties panel)
- *   2. image        desktop rendition (<picture>, used without a press release)
- *   3. mobileImage  mobile rendition (<picture>, used without a press release)
- *   4. text         <h3> title · <p> summary · <p> link (used without a press release)
- * With a press release picked, the story always takes its title (Story title, else first
- * heading), summary (Story summary, else description), images (Image / Story mobile image, else
- * the article or hero image) and link from that page, so picking another press release changes
- * the whole story; the authored fields are the fallback when none is picked or it can't be read.
- * Rows authored before the press release field (3 cells: image, mobileImage, text) still render.
+ *   1. fragment           Story content fragment (properties panel)
+ *   2. fragmentVariation  its variation (hidden, set by the fragment picker)
+ *   3. pressRelease       link to the press release the story shows (properties panel)
+ *   4. image              desktop rendition (<picture>, used without a fragment / press release)
+ *   5. mobileImage        mobile rendition (<picture>, used without a fragment / press release)
+ *   6. text               <h3> title · <p> summary · <p> link (same)
+ * The story comes from, in this order:
+ *   - a picked Story fragment (AEM GraphQL persisted query saudiaeds/story-by-path, author inside
+ *     Universal Editor, publish on the site): its title, summary, images, alt and link text; what
+ *     it leaves empty comes from the press release it references, and it links to that press
+ *     release (else to its own link). The story is a reference to the fragment in the editor;
+ *     the texts and image it supplies are edited in place;
+ *   - a picked press release: its title (Story title, else first heading), summary (Story
+ *     summary, else description), images (Image / Story mobile image, else the article or hero
+ *     image) and link;
+ *   - the authored image and text fields (also when the fragment / page can't be loaded).
+ * Picking another fragment or press release changes the whole story.
+ * Rows authored before these fields (3 cells: image, mobileImage, text; 4 cells: pressRelease,
+ * image, mobileImage, text) still render.
  *
  * Authored nodes are MOVED and the text cell is reused (EW1, editor instrumentation kept); the
  * link stays in its paragraph and a CSS stretched link makes the whole story clickable.
@@ -21,6 +31,13 @@
  */
 
 const LINK_TEXT = 'Learn more';
+const STORY_QUERY = '/graphql/execute.json/saudiaeds/story-by-path';
+// AEM environment of this site (fstab.yaml, as in blocks/booking); <meta name="aem-publish-host">
+// overrides publish
+const AEM_AUTHOR = 'https://author-p208666-e2180259.adobeaemcloud.com';
+const AEM_PUBLISH = 'https://publish-p208666-e2180259.adobeaemcloud.com';
+const SITE_ROOT = '/content/saudiaeds';
+const TIMEOUT = 4000;
 
 /**
  * AEM author (Universal Editor): pages are addressed as /content/<site>/… on an AEM host (the
@@ -79,11 +96,12 @@ export function storyPicture(src, alt = '') {
   return pic;
 }
 
-/** the generated text slot: <h3> title · <p> summary · <p><a> link */
+/** the generated text slot: <h3> title · <p> summary · <p><a> link (when there is one) */
 export function storyText({ title, summary, linkText }, href) {
   const text = el('div');
   if (title) text.append(el('h3', title));
   if (summary) text.append(el('p', summary));
+  if (!href) return text;
   const a = el('a', linkText || LINK_TEXT);
   a.href = href;
   const p = el('p');
@@ -185,18 +203,105 @@ export function storyItem(desktop, mobile, text) {
   return item;
 }
 
-/** the press release cell (4-cell rows): its link, or a path typed as text */
-function pressReleaseOf(cell) {
-  const a = cell.querySelector('a');
-  const raw = a ? a.getAttribute('href') : cell.textContent.trim();
+/** a reference cell (fragment, press release): its link, or a path typed as text */
+function refPath(cell) {
+  const a = cell?.querySelector('a');
+  const raw = a ? a.getAttribute('href') : cell?.textContent.trim();
   return raw && /^(\/|https?:)/.test(raw) ? raw : '';
 }
 
+const onAemAuthor = () => window.location.origin === AEM_AUTHOR
+  || /^author-/.test(window.location.hostname);
+const aemHost = () => (onAemAuthor() ? window.location.origin
+  : document.querySelector('meta[name="aem-publish-host"]')?.content || AEM_PUBLISH);
+
+/** load a Story fragment; null when it is not reachable (the story falls back) */
+async function loadStoryFragment(path, variation) {
+  const url = `${aemHost()}${STORY_QUERY};path=${encodeURIComponent(path)};variation=${encodeURIComponent(variation)}`;
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), TIMEOUT);
+  try {
+    const resp = await fetch(url, { credentials: onAemAuthor() ? 'include' : 'omit', signal: ctl.signal });
+    if (!resp.ok) return null;
+    const json = await resp.json();
+    return json?.data?.storyByPath?.item || null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/* eslint-disable no-underscore-dangle -- AEM GraphQL reference fields */
+/** a fragment image (GraphQL ImageRef): the author rendition there, else the optimised delivery */
+function fragmentImage(ref) {
+  if (!ref) return '';
+  if (onAemAuthor()) return ref._authorUrl || ref._path || '';
+  return ref._dynamicUrl ? `${aemHost()}${ref._dynamicUrl}` : ref._publishUrl || '';
+}
+
+/** a site page from its AEM path: .html on author, the published path on the site */
+function pageHref(path) {
+  if (!path) return '';
+  if (AUTHOR_ROOT || onAemAuthor()) return `${path}.html`;
+  return path.startsWith(`${SITE_ROOT}/`) ? path.slice(SITE_ROOT.length) : path;
+}
+
+/** a Story fragment as a story; what it leaves empty comes from its press release */
+async function fragmentStory(item) {
+  const href = pageHref(item.pressRelease?._path);
+  /* eslint-enable no-underscore-dangle */
+  const image = fragmentImage(item.image);
+  const page = href && !(item.title && item.summary && image) ? await readStoryPage(href) : null;
+  return {
+    title: item.title || page?.storyTitle || page?.heading,
+    summary: item.summary || page?.storySummary || page?.description,
+    image: image || page?.image || '',
+    mobileImage: fragmentImage(item.imageMobile) || (image ? '' : page?.mobileImage || ''),
+    imageAlt: item.imageAlt || (image ? '' : page?.imageAlt || ''),
+    linkText: item.linkText || page?.storyLinkText,
+    href: href || item.link || '',
+    // the fields the fragment supplied, edited in place in the editor
+    props: { title: Boolean(item.title), summary: Boolean(item.summary), image: Boolean(image) },
+  };
+}
+
+function pageStory(page, href) {
+  return {
+    title: page.storyTitle || page.heading,
+    summary: page.storySummary || page.description,
+    image: page.image,
+    mobileImage: page.mobileImage,
+    imageAlt: page.imageAlt,
+    linkText: page.storyLinkText,
+    href,
+  };
+}
+
+/** the story is a reference to its fragment in Universal Editor; supplied fields edit in place */
+function instrumentFragment(story, path, variation, props) {
+  Object.assign(story.dataset, {
+    aueResource: `urn:aemconnection:${path}/jcr:content/data/${variation}`,
+    aueType: 'reference',
+    aueLabel: 'Story content fragment',
+  });
+  const mark = (node, prop, label, type = 'text') => node && Object.assign(node.dataset, {
+    aueProp: prop, aueLabel: label, aueType: type,
+  });
+  if (props.title) mark(story.querySelector('.stories__text h3'), 'title', 'Title');
+  if (props.summary) mark(story.querySelector('.stories__text h3 + p, .stories__text > p:first-child'), 'summary', 'Summary');
+  if (props.image) mark(story.querySelector('.stories__pic img'), 'image', 'Image (desktop)', 'media');
+}
+
 async function decorateRow(row) {
-  const linkCell = row.children.length > 3 ? row.firstElementChild : null;
-  const href = linkCell ? pressReleaseOf(linkCell) : '';
+  // reference cells lead the row: [fragment, fragmentVariation,] pressRelease (see above)
+  const refs = [...row.children].slice(0, Math.max(0, row.children.length - 3));
+  const [fragmentCell, variationCell] = refs.length >= 3 ? refs : [];
+  const fragmentPath = refPath(fragmentCell);
+  const variation = variationCell?.textContent.trim() || 'master';
+  const href = refPath(refs[refs.length - 1]);
   // cells not shown stay in the item, hidden, so they keep their editor instrumentation: the
-  // press release (picked in the properties panel) and authored fields the press release replaces
+  // references (picked in the properties panel) and authored fields the story source replaces
   const hiddenCells = [];
   const hide = (cell) => {
     if (!cell) return;
@@ -204,7 +309,7 @@ async function decorateRow(row) {
     cell.hidden = true;
     hiddenCells.push(cell);
   };
-  hide(linkCell);
+  refs.forEach(hide);
 
   let [desktop, mobile] = [...row.querySelectorAll('picture')];
   const heading = row.querySelector('h1, h2, h3, h4, h5, h6');
@@ -213,25 +318,31 @@ async function decorateRow(row) {
   // link stays in place and is stretched over the whole story by CSS
   let text = textCell?.textContent.trim() ? textCell : null;
 
-  // a picked press release supplies the story; the authored fields are the fallback for
-  // stories without one (or a press release that can't be read)
-  const page = href ? await readStoryPage(href) : null;
-  if (page) {
-    if (usable(page.image)) {
+  // a picked fragment, else a picked press release, supplies the story; the authored fields
+  // are the fallback for stories without one (or one that can't be loaded)
+  const fragment = fragmentPath.startsWith('/content/dam/')
+    ? await loadStoryFragment(fragmentPath, variation) : null;
+  let source = fragment ? await fragmentStory(fragment) : null;
+  if (!source && href) {
+    const page = await readStoryPage(href);
+    if (page) source = pageStory(page, href);
+  }
+  if (source) {
+    if (usable(source.image)) {
       const cellOf = (pic) => pic && [...row.children].find((cell) => cell.contains(pic));
       [desktop, mobile].forEach((pic) => hide(cellOf(pic)));
-      desktop = storyPicture(page.image, page.imageAlt);
-      mobile = usable(page.mobileImage) ? storyPicture(page.mobileImage, page.imageAlt) : null;
+      const { image, mobileImage, imageAlt } = source;
+      desktop = storyPicture(image, imageAlt);
+      mobile = usable(mobileImage) ? storyPicture(mobileImage, imageAlt) : null;
     }
     if (text) hide(textCell);
-    text = storyText({
-      title: page.storyTitle || page.heading,
-      summary: page.storySummary || page.description,
-      linkText: page.storyLinkText,
-    }, href);
+    text = storyText(source, source.href);
   }
 
   const item = storyItem(desktop || mobile, desktop && mobile, text || textCell || el('div'));
+  if (fragment) {
+    instrumentFragment(item.querySelector('.stories__item'), fragmentPath, variation, source.props);
+  }
   item.append(...hiddenCells);
   moveInstrumentation(row, item);
   return item;

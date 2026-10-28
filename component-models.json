@@ -9627,17 +9627,32 @@
         "name": "content-tab"
       },
       {
+        "component": "aem-content-fragment",
+        "name": "fragment",
+        "label": "Story content fragment",
+        "description": "Optional: pick a Story fragment. It supplies the story (and the press release it references fills what it leaves empty); the press release and fields below are then not used.",
+        "variationName": "fragmentVariation",
+        "validation": {
+          "rootPath": "/content/dam/saudiaeds/fragments/stories"
+        }
+      },
+      {
+        "component": "text",
+        "name": "fragmentVariation",
+        "hidden": true
+      },
+      {
         "component": "aem-content",
         "valueType": "string",
         "name": "pressRelease",
         "label": "Press release",
-        "description": "Pick the press release this story shows: its title, summary, images and link are taken from it, and change when you pick another one. The fields below are only used when no press release is picked."
+        "description": "Pick the press release this story shows (when no story fragment is picked): its title, summary, images and link are taken from it, and change when you pick another one. The fields below are only used when neither is picked."
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image (desktop, only used without a press release)",
+        "label": "Image (desktop, only used without a fragment or press release)",
         "multi": false
       },
       {
@@ -9651,7 +9666,7 @@
         "component": "reference",
         "valueType": "string",
         "name": "mobileImage",
-        "label": "Image (mobile, only used without a press release)",
+        "label": "Image (mobile, only used without a fragment or press release)",
         "multi": false
       },
       {
@@ -9665,7 +9680,7 @@
         "component": "richtext",
         "name": "text",
         "value": "",
-        "label": "Text (title, summary, link; only used without a press release)",
+        "label": "Text (title, summary, link; only used without a fragment or press release)",
         "valueType": "string"
       },
       {

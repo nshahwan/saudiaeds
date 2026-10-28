@@ -1,0 +1,33 @@
+query storyByPath($path: String!, $variation: String = "master") {
+  storyByPath(_path: $path, variation: $variation) {
+    item {
+      _path
+      title
+      summary
+      image {
+        ... on ImageRef {
+          _path
+          _authorUrl
+          _publishUrl
+          _dynamicUrl
+        }
+      }
+      imageMobile {
+        ... on ImageRef {
+          _path
+          _authorUrl
+          _publishUrl
+          _dynamicUrl
+        }
+      }
+      imageAlt
+      pressRelease {
+        ... on PageRef {
+          _path
+        }
+      }
+      link
+      linkText
+    }
+  }
+}

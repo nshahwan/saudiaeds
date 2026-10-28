@@ -4,7 +4,9 @@
     <filter root="/conf/saudiaeds/settings/dam/cfm/models/booking-link"/>
     <filter root="/conf/saudiaeds/settings/dam/cfm/models/booking-engine"/>
     <filter root="/conf/saudiaeds/settings/dam/cfm/models/destination"/>
+    <filter root="/conf/saudiaeds/settings/dam/cfm/models/story"/>
     <filter root="/content/dam/saudiaeds/jcr:content" mode="merge_properties"/>
     <filter root="/content/dam/saudiaeds/fragments/booking-engine"/>
     <filter root="/content/dam/saudiaeds/fragments/booking-links"/>
+    <filter root="/content/dam/saudiaeds/fragments/stories" mode="merge"/>
 </workspaceFilter>

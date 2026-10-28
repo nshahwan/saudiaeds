@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Register the GraphQL persisted queries of tools/aem-packages/graphql/ on the AEM author
-# (config `saudiaeds`): saudiaeds/booking-engine-by-path, used by blocks/booking.
+# (config `saudiaeds`): saudiaeds/booking-engine-by-path (blocks/booking) and
+# saudiaeds/story-by-path (blocks/stories).
 #
 # Run it yourself, from your own terminal, with your own credentials:
 #   AEM_TOKEN=<developer console access token> tools/aem-packages/persist-queries.sh
