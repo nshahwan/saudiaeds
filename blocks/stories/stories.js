@@ -5,12 +5,13 @@
  *
  * Rows (xwalk item model `story`), one per story:
  *   1. pressRelease link to the press release the story shows (properties panel)
- *   2. image        desktop rendition (<picture>, optional override)
- *   3. mobileImage  mobile rendition (<picture>, optional override)
- *   4. text         <h3> title · <p> summary · <p> link (optional override)
- * With a press release picked, the story takes its title (Story title, else first heading),
- * summary (Story summary, else description), images (Image / Story mobile image, else hero or
- * first image) and link from that page; authored images or text replace the page's.
+ *   2. image        desktop rendition (<picture>, used without a press release)
+ *   3. mobileImage  mobile rendition (<picture>, used without a press release)
+ *   4. text         <h3> title · <p> summary · <p> link (used without a press release)
+ * With a press release picked, the story always takes its title (Story title, else first
+ * heading), summary (Story summary, else description), images (Image / Story mobile image, else
+ * the article or hero image) and link from that page, so picking another press release changes
+ * the whole story; the authored fields are the fallback when none is picked or it can't be read.
  * Rows authored before the press release field (3 cells: image, mobileImage, text) still render.
  *
  * Authored nodes are MOVED and the text cell is reused (EW1, editor instrumentation kept); the
@@ -194,12 +195,16 @@ function pressReleaseOf(cell) {
 async function decorateRow(row) {
   const linkCell = row.children.length > 3 ? row.firstElementChild : null;
   const href = linkCell ? pressReleaseOf(linkCell) : '';
-  // the press release is picked in the properties panel: its cell stays in the item (keeping
-  // its editor instrumentation) but is not shown
-  if (linkCell) {
-    linkCell.remove();
-    linkCell.hidden = true;
-  }
+  // cells not shown stay in the item, hidden, so they keep their editor instrumentation: the
+  // press release (picked in the properties panel) and authored fields the press release replaces
+  const hiddenCells = [];
+  const hide = (cell) => {
+    if (!cell) return;
+    cell.remove();
+    cell.hidden = true;
+    hiddenCells.push(cell);
+  };
+  hide(linkCell);
 
   let [desktop, mobile] = [...row.querySelectorAll('picture')];
   const heading = row.querySelector('h1, h2, h3, h4, h5, h6');
@@ -208,14 +213,18 @@ async function decorateRow(row) {
   // link stays in place and is stretched over the whole story by CSS
   let text = textCell?.textContent.trim() ? textCell : null;
 
-  const page = href && (!desktop || !text) ? await readStoryPage(href) : null;
+  // a picked press release supplies the story; the authored fields are the fallback for
+  // stories without one (or a press release that can't be read)
+  const page = href ? await readStoryPage(href) : null;
   if (page) {
-    // images go as a pair: authored images replace both of the page's
-    if (!desktop && usable(page.image)) {
+    if (usable(page.image)) {
+      const cellOf = (pic) => pic && [...row.children].find((cell) => cell.contains(pic));
+      [desktop, mobile].forEach((pic) => hide(cellOf(pic)));
       desktop = storyPicture(page.image, page.imageAlt);
       mobile = usable(page.mobileImage) ? storyPicture(page.mobileImage, page.imageAlt) : null;
     }
-    text ||= storyText({
+    if (text) hide(textCell);
+    text = storyText({
       title: page.storyTitle || page.heading,
       summary: page.storySummary || page.description,
       linkText: page.storyLinkText,
@@ -223,7 +232,7 @@ async function decorateRow(row) {
   }
 
   const item = storyItem(desktop || mobile, desktop && mobile, text || textCell || el('div'));
-  if (linkCell) item.append(linkCell);
+  item.append(...hiddenCells);
   moveInstrumentation(row, item);
   return item;
 }
