@@ -1,0 +1,26 @@
+{
+  "_comment": "Story Content Fragments packaged under /content/dam/saudiaeds/fragments/stories (build-cf-models.py): the three home page stories. Images are left empty: the stories block then shows the press release's own image.",
+  "stories": [
+    {
+      "name": "thaqafeyah-in-flight-entertainment",
+      "title": "Saudia Enriches In-Flight Entertainment with Cultural Content from Thaqafeyah",
+      "summary": "As part of the airlines’ ongoing efforts to showcase Saudi culture",
+      "pressRelease": "/content/saudiaeds/en/about-us/press-releases/press-release-05052025-3",
+      "linkText": "Learn more"
+    },
+    {
+      "name": "skytrax-2025-best-airline-staff-service",
+      "title": "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards",
+      "summary": "The airline climbs to 17th place in global ranking, reflecting excellence across the guest journey",
+      "pressRelease": "/content/saudiaeds/en/about-us/press-releases/press-release-17062025",
+      "linkText": "Learn more"
+    },
+    {
+      "name": "skytrax-2026-top-15-airlines",
+      "title": "Saudia Ranks Among World’s Top 15 Airlines and Wins Two Skytrax Awards in 2026",
+      "summary": "Reflecting continued progress in guest experience and service excellence",
+      "pressRelease": "/content/saudiaeds/en/about-us/press-releases/press-release-18092026",
+      "linkText": "Learn more"
+    }
+  ]
+}

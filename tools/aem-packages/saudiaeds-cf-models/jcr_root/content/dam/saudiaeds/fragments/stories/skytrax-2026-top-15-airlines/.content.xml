@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        cq:name="skytrax-2026-top-15-airlines"
+        cq:parentPath="/content/dam/saudiaeds/fragments/stories"
+        contentFragment="{Boolean}true"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Saudia Ranks Among World’s Top 15 Airlines and Wins Two Skytrax Awards in 2026">
+        <data
+            cq:model="/conf/saudiaeds/settings/dam/cfm/models/story"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:primaryType="nt:unstructured"
+                title="Saudia Ranks Among World’s Top 15 Airlines and Wins Two Skytrax Awards in 2026"
+                summary="Reflecting continued progress in guest experience and service excellence"
+                pressRelease="/content/saudiaeds/en/about-us/press-releases/press-release-18092026"
+                linkText="Learn more"/>
+        </data>
+        <metadata jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

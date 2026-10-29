@@ -24,7 +24,7 @@ import zipfile
 from xml.sax.saxutils import quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.3.0'
+NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.4.0'
 CONF = '/conf/saudiaeds'
 MODELS = f'{CONF}/settings/dam/cfm/models'
 DAM = '/content/dam/saudiaeds'
@@ -288,6 +288,14 @@ for e in BOOKING['engines']:
     fragment_files[f"jcr_root{FRAGMENTS}/booking-engine/{e['name']}/.content.xml"] = fragment_xml(
         'booking-engine', e['name'], f'{FRAGMENTS}/booking-engine', e['title'], values)
 
+# ---- story content fragments (the home page stories; created once, the folder is merged) ----
+STORIES = json.load(open(os.path.join(HERE, 'story-fragments.json'), encoding='utf-8'))['stories']
+for st in STORIES:
+    values = {k: st[k] for k in ('title', 'summary', 'image', 'imageMobile', 'imageAlt', 'pressRelease',
+                                 'link', 'linkText') if st.get(k)}
+    fragment_files[f"jcr_root{FRAGMENTS}/stories/{st['name']}/.content.xml"] = fragment_xml(
+        'story', st['name'], f'{FRAGMENTS}/stories', st['title'], values)
+
 root = os.path.join(HERE, NAME)
 if os.path.isdir(root):
     shutil.rmtree(root)
@@ -297,7 +305,8 @@ files = {
     + f'    <filter root="{DAM}/jcr:content" mode="merge_properties"/>\n'
     + f'    <filter root="{DAM}/fragments/booking-engine"/>\n'
     + f'    <filter root="{DAM}/fragments/booking-links"/>\n'
-    # merge: creates the folder, never touches the Story fragments authors put in it
+    # merge: creates the folder and the packaged stories once, never changes or removes
+    # Story fragments that already exist there (authors' edits survive a re-install)
     + f'    <filter root="{DAM}/fragments/stories" mode="merge"/>\n</workspaceFilter>\n',
     'META-INF/vault/properties.xml': f'''<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
@@ -305,7 +314,7 @@ files = {
 <entry key="name">{NAME}</entry>
 <entry key="group">{GROUP}</entry>
 <entry key="version">{VERSION}</entry>
-<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine Content Fragments and the cq:conf of {DAM}.</entry>
+<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine and home page Story Content Fragments and the cq:conf of {DAM}.</entry>
 <entry key="packageType">content</entry>
 <entry key="requiresRoot">false</entry>
 <entry key="allowIndexDefinitions">false</entry>
@@ -341,4 +350,4 @@ with zipfile.ZipFile(zpath, 'w', zipfile.ZIP_DEFLATED) as z:
     for rel in sorted(files):
         z.write(os.path.join(root, rel), rel)
 print(zpath, len(files), 'files;', ', '.join(f'{m} ({len(f[2])} fields)' for m, f in MODEL_DEFS.items()),
-      f"; fragments: {len(BOOKING['engines'])} booking engines, {len(BOOKING['links'])} links")
+      f"; fragments: {len(BOOKING['engines'])} booking engines, {len(BOOKING['links'])} links, {len(STORIES)} stories")

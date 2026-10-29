@@ -3,8 +3,8 @@
 <properties>
 <entry key="name">saudiaeds-cf-models</entry>
 <entry key="group">saudiaeds</entry>
-<entry key="version">1.3.0</entry>
-<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine Content Fragments and the cq:conf of /content/dam/saudiaeds.</entry>
+<entry key="version">1.4.0</entry>
+<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine and home page Story Content Fragments and the cq:conf of /content/dam/saudiaeds.</entry>
 <entry key="packageType">content</entry>
 <entry key="requiresRoot">false</entry>
 <entry key="allowIndexDefinitions">false</entry>
