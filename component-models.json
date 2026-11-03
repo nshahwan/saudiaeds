@@ -49,39 +49,45 @@
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image (social + story image)",
+        "label": "Image (social + card image)",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "story-title",
-        "label": "Story title (Stories Folder)"
+        "name": "card-title",
+        "label": "Card title"
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "story-summary",
-        "label": "Story summary (Stories Folder)"
+        "name": "card-summary",
+        "label": "Card summary"
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "story-link-text",
-        "label": "Story link text (Stories Folder)"
+        "name": "card-link-text",
+        "label": "Card link text"
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "card-order",
+        "label": "Card order"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category"
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "story-mobile-image",
-        "label": "Story mobile image (Stories Folder)",
+        "label": "Card mobile image (stories)",
         "multi": false
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "story-order",
-        "label": "Story order (Stories Folder)"
       }
     ]
   },
@@ -10072,7 +10078,7 @@
         "valueType": "string",
         "name": "folder",
         "label": "Folder",
-        "description": "Pick a folder: one story per page directly inside it (this page excluded). Each story uses the page's Story title, Story summary, Story link text, Image and Story mobile image properties, falling back to its first heading, description and hero images."
+        "description": "Pick a folder: one story per page directly inside it (this page excluded). Each story uses the page's Card title, Card summary, Card link text, Image and Card mobile image properties, falling back to its first heading, description and first image."
       },
       {
         "component": "number",
@@ -10082,14 +10088,26 @@
         "value": 3
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "category",
+        "label": "Category filter",
+        "value": "",
+        "description": "Optional: only pages with this Category page property, from anywhere under the folder"
+      },
+      {
         "component": "multiselect",
         "name": "classes",
-        "label": "Order",
+        "label": "Style",
         "valueType": "string",
         "options": [
           {
-            "name": "Sort by Story order (default: latest first)",
-            "value": "story-order"
+            "name": "Sort by Card order (default: latest first)",
+            "value": "card-order"
+          },
+          {
+            "name": "Include sub-folders (their pages, not the folder pages)",
+            "value": "include-subfolders"
           }
         ]
       },

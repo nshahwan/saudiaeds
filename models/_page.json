@@ -50,39 +50,45 @@
           "component": "reference",
           "valueType": "string",
           "name": "image",
-          "label": "Image (social + story image)",
+          "label": "Image (social + card image)",
           "multi": false
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "story-title",
-          "label": "Story title (Stories Folder)"
+          "name": "card-title",
+          "label": "Card title"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "story-summary",
-          "label": "Story summary (Stories Folder)"
+          "name": "card-summary",
+          "label": "Card summary"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "story-link-text",
-          "label": "Story link text (Stories Folder)"
+          "name": "card-link-text",
+          "label": "Card link text"
+        },
+        {
+          "component": "number",
+          "valueType": "number",
+          "name": "card-order",
+          "label": "Card order"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "category",
+          "label": "Category"
         },
         {
           "component": "reference",
           "valueType": "string",
           "name": "story-mobile-image",
-          "label": "Story mobile image (Stories Folder)",
+          "label": "Card mobile image (stories)",
           "multi": false
-        },
-        {
-          "component": "number",
-          "valueType": "number",
-          "name": "story-order",
-          "label": "Story order (Stories Folder)"
         }
       ]
     }

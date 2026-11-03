@@ -16,8 +16,8 @@
  *     press release it references, and it links to that press release (else to its own link).
  *     In Universal Editor the story is a reference to the fragment and the fields it supplies are
  *     edited in place;
- *   - a picked press release: its title (Story title, else first heading), summary (Story
- *     summary, else description), images (Image / Story mobile image, else the article or hero
+ *   - a picked press release: its title (Card title, else first heading), summary (Card
+ *     summary, else description), images (Image / Card mobile image, else the article or hero
  *     image) and link;
  *   - the authored image and text fields (also when the fragment / page can't be loaded).
  * Picking another fragment or press release changes the whole story.
@@ -194,10 +194,12 @@ export async function readStoryPage(href) {
   return {
     heading: main.querySelector('h1, h2')?.textContent.trim(),
     description: meta('description'),
-    storyTitle: meta('story-title'),
-    storySummary: meta('story-summary'),
-    storyLinkText: meta('story-link-text'),
-    storyOrder: meta('story-order'),
+    // Card page properties (the cards-folder convention); Story ones from before as fallback
+    cardTitle: meta('card-title') || meta('story-title'),
+    cardSummary: meta('card-summary') || meta('story-summary'),
+    cardLinkText: meta('card-link-text') || meta('story-link-text'),
+    cardOrder: meta('card-order') ?? meta('story-order'),
+    category: meta('category'),
     image: chosen || pageImage || shareImage,
     imageAlt: (!chosen && pick?.getAttribute('alt')) || '',
     // the hero's mobile rendition only goes with the hero
@@ -344,12 +346,12 @@ async function fragmentStory(item) {
   const summary = /</.test(summaryHtml || '') ? richText(summaryHtml, 'stories__summary') : summaryHtml;
   const page = href && !(item.title && summary && image) ? await readStoryPage(href) : null;
   return {
-    title: item.title || page?.storyTitle || page?.heading,
-    summary: summary || page?.storySummary || page?.description,
+    title: item.title || page?.cardTitle || page?.heading,
+    summary: summary || page?.cardSummary || page?.description,
     image: image || page?.image || '',
     mobileImage: fragmentImage(item.imageMobile) || (image ? '' : page?.mobileImage || ''),
     imageAlt: item.imageAlt || (image ? '' : page?.imageAlt || ''),
-    linkText: item.linkText || page?.storyLinkText,
+    linkText: item.linkText || page?.cardLinkText,
     href: href || item.link || '',
     // the fields the fragment supplied, edited in place in the editor
     props: {
@@ -363,12 +365,12 @@ async function fragmentStory(item) {
 
 function pageStory(page, href) {
   return {
-    title: page.storyTitle || page.heading,
-    summary: page.storySummary || page.description,
+    title: page.cardTitle || page.heading,
+    summary: page.cardSummary || page.description,
     image: page.image,
     mobileImage: page.mobileImage,
     imageAlt: page.imageAlt,
-    linkText: page.storyLinkText,
+    linkText: page.cardLinkText,
     href,
   };
 }

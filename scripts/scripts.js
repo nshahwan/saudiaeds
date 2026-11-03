@@ -22,8 +22,23 @@ import { SECTION_TEXT_OPTIONS, TEXT_OPTION_PREFIXES } from './text-options.js';
  *   connection      Universal Editor connection name
  * Author detection: an author-*.adobeaemcloud.com host (override with `author`).
  */
+/*
+ * stories-folder settings (conventions of waringme/eds-reusable-blocks cards-folder):
+ *   indexPath   the query index; siteRoot  AEM prefix removed from folder selections;
+ *   authorRoot  AEM author API root: left to the block's /content/<site>/ detection on the AEM
+ *               author host, '' (published behaviour) everywhere else — the local preview also
+ *               serves pages under /content/…
+ */
+const onAemAuthorHost = window.location.hostname.startsWith('author-')
+  && window.location.hostname.endsWith('.adobeaemcloud.com');
 window.edsReusableBlocks = {
   ...window.edsReusableBlocks,
+  storiesFolder: {
+    indexPath: '/query-index.json',
+    siteRoot: '/content/saudiaeds',
+    ...(onAemAuthorHost ? {} : { authorRoot: '' }),
+    ...window.edsReusableBlocks?.storiesFolder,
+  },
   contentFragment: {
     publishHost: 'https://publish-p208666-e2180259.adobeaemcloud.com',
     queryNamespace: 'saudiaeds',

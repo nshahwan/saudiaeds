@@ -22,22 +22,25 @@ indices:
         value: attribute(el, "content")
       image:
         select: head > meta[property="og:image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        value: attribute(el, "content")
+      cardTitle:
+        select: head > meta[name="card-title"]
+        value: attribute(el, "content")
+      cardSummary:
+        select: head > meta[name="card-summary"]
+        value: attribute(el, "content")
+      cardLinkText:
+        select: head > meta[name="card-link-text"]
+        value: attribute(el, "content")
+      cardOrder:
+        select: head > meta[name="card-order"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
       heading:
         select: main h1
         value: textContent(el)
-      storyTitle:
-        select: head > meta[name="story-title"]
-        value: attribute(el, "content")
-      storySummary:
-        select: head > meta[name="story-summary"]
-        value: attribute(el, "content")
-      storyLinkText:
-        select: head > meta[name="story-link-text"]
-        value: attribute(el, "content")
       mobileImage:
         select: head > meta[name="story-mobile-image"]
-        value: attribute(el, "content")
-      storyOrder:
-        select: head > meta[name="story-order"]
         value: attribute(el, "content")

@@ -335,3 +335,25 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   maps to <siteRoot><path>.html.
 - Verified with a stand-in GraphQL: site/author request URLs, credentials and ts; markers only
   on author; sanitising; fallbacks + messages; UE probe (home, Abha) 100%; Stories Folder; lint.
+
+## Stories Folder: cards-folder conventions (2026-11-03)
+
+- User request: implement waringme/eds-reusable-blocks `blocks/cards-folder` for the stories
+  block → applied to `stories-folder` (the folder-driven stories list), rendering the stories
+  design. Settings `window.edsReusableBlocks.storiesFolder` (indexPath, siteRoot
+  `/content/saudiaeds`, authorRoot: detected on the AEM author host, '' elsewhere — the local
+  preview serves /content/…).
+- Three positional rows (folder, count, category); errors for a non-site-path folder and an
+  unsafe count; `card-order` (0 first, missing 999, ties by title; `story-order` still read),
+  `include-subfolders` (leaves); category any depth / any case, landing pages included; index up
+  to 2000 entries, author `.2.json` / querybuilder (500, lower-cased category); nav / footer /
+  fragments and the current page (canonical) excluded; only incomplete entries are read from
+  the page (warn on failure); listing failure → visible message + console.error; distinct author
+  prompts; decorative images, full-URL index images.
+- Page properties now the reference's: Image, Card title, Card summary, Card link text, Card
+  order, Category (+ Card mobile image for stories); the Story ones are read as fallback.
+  helix-query.yaml: cardTitle / cardSummary / cardLinkText / cardOrder / category, image keeps
+  its full URL (heading + mobileImage kept for stories).
+- Kept for the stories design: count 3, link text "Learn more", titles from the first heading;
+  the reference's card layout options (three-up, four-up, small titles, centred) don't apply.
+- Homepage package rebuilt (page field list only): saudiaeds-pages-homepage-2026.11.03-0932.zip.
