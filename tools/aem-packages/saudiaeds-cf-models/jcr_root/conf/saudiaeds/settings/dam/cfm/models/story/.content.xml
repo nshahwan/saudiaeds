@@ -48,10 +48,11 @@
                             name="summary"
                             fieldLabel="Summary"
                             fieldDescription="One or two sentences under the title."
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            metaType="text-single"
+                            sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
+                            metaType="text-multi"
                             valueType="string"
-                            maxlength="500"/>
+                            default-mime-type="text/html"
+                            cfm-element="true"/>
                         <image
                             jcr:primaryType="nt:unstructured"
                             listOrder="3"
@@ -63,8 +64,7 @@
                             metaType="reference"
                             valueType="string"
                             rootPath="/content/dam/saudiaeds"
-                            showThumbnail="true"
-                            validation="cfm.validation.contenttype.image"/>
+                            showThumbnail="true"/>
                         <imageMobile
                             jcr:primaryType="nt:unstructured"
                             listOrder="4"
@@ -77,8 +77,7 @@
                             metaType="reference"
                             valueType="string"
                             rootPath="/content/dam/saudiaeds"
-                            showThumbnail="true"
-                            validation="cfm.validation.contenttype.image"/>
+                            showThumbnail="true"/>
                         <imageAlt
                             jcr:primaryType="nt:unstructured"
                             listOrder="5"

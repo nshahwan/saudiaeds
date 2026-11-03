@@ -1,4 +1,11 @@
-query bookingEngineByPath($path: String!, $variation: String = "master") {
+# Get a booking engine content fragment (blocks/booking) and its booking links by path.
+#
+# Persist under the configured namespace (saudiaeds) as booking-engine-by-path; execute with
+#   GET /graphql/execute.json/saudiaeds/booking-engine-by-path;path=/content/dam/saudiaeds/fragments/booking-engine/home
+# (path is passed unencoded; add ;variation=<name> for a variation other than master)
+# The links are multiple typed fragment references to Booking Link.
+
+query getBookingEngineByPath($path: String!, $variation: String = "master") {
   bookingEngineByPath(_path: $path, variation: $variation) {
     item {
       _path

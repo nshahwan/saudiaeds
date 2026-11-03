@@ -43,9 +43,11 @@
         },
         {
           "component": "aem-content-fragment",
+          "valueType": "string",
           "name": "fragment",
           "label": "Story content fragment",
-          "description": "Optional: pick a Story fragment. It supplies the story (and the press release it references fills what it leaves empty); the press release and fields below are then not used.",
+          "description": "Optional: a Story fragment. It supplies the story (the press release it references fills what it leaves empty); the press release and fields below are then not used.",
+          "rootPath": "/content/dam/saudiaeds/fragments/stories",
           "variationName": "fragmentVariation",
           "validation": {
             "rootPath": "/content/dam/saudiaeds/fragments/stories"
@@ -53,8 +55,19 @@
         },
         {
           "component": "text",
+          "valueType": "string",
           "name": "fragmentVariation",
-          "hidden": true
+          "label": "Selected variation",
+          "value": "",
+          "description": "Stored by the fragment picker; empty means master.",
+          "condition": {
+            "==": [
+              {
+                "var": "__alwaysFalse"
+              },
+              true
+            ]
+          }
         },
         {
           "component": "aem-content",

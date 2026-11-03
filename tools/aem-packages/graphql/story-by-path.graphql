@@ -1,15 +1,29 @@
-query storyByPath($path: String!, $variation: String = "master") {
+# Get a story content fragment (blocks/stories) by path.
+#
+# Persist under the configured namespace (saudiaeds) as story-by-path; execute with
+#   GET /graphql/execute.json/saudiaeds/story-by-path;path=/content/dam/saudiaeds/fragments/stories/skytrax-2026-top-15-airlines
+# (path is passed unencoded; add ;variation=<name> for a variation other than master)
+# SVG assets resolve as DocumentRef, raster images as ImageRef: both are selected; the press
+# release is a site page (PageRef).
+
+query getStoryByPath($path: String!, $variation: String = "master") {
   storyByPath(_path: $path, variation: $variation) {
     item {
       _path
       title
-      summary
+      summary {
+        html
+      }
       image {
         ... on ImageRef {
           _path
           _authorUrl
           _publishUrl
-          _dynamicUrl
+        }
+        ... on DocumentRef {
+          _path
+          _authorUrl
+          _publishUrl
         }
       }
       imageMobile {
@@ -17,7 +31,11 @@ query storyByPath($path: String!, $variation: String = "master") {
           _path
           _authorUrl
           _publishUrl
-          _dynamicUrl
+        }
+        ... on DocumentRef {
+          _path
+          _authorUrl
+          _publishUrl
         }
       }
       imageAlt

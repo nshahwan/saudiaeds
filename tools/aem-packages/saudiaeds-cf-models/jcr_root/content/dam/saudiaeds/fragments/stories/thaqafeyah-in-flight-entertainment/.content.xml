@@ -13,9 +13,10 @@
             <master
                 jcr:primaryType="nt:unstructured"
                 title="Saudia Enriches In-Flight Entertainment with Cultural Content from Thaqafeyah"
-                summary="As part of the airlines’ ongoing efforts to showcase Saudi culture"
+                summary="&lt;p&gt;As part of the airlines’ ongoing efforts to showcase Saudi culture&lt;/p&gt;"
                 pressRelease="/content/saudiaeds/en/about-us/press-releases/press-release-05052025-3"
-                linkText="Learn more"/>
+                linkText="Learn more"
+                summary_x0040_ContentType="text/html"/>
         </data>
         <metadata jcr:primaryType="nt:unstructured"/>
         <related jcr:primaryType="nt:unstructured"/>

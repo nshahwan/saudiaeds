@@ -313,3 +313,25 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   (no 404s or errors, hero/quotes/back button present, notice on 12, hidden on 39, no overflow);
   UE probe 100% on 5 variants (base, div quote, in-body image, list, no subtitle) and on home and
   Flight Pass; text options 93/93; lint clean.
+
+## Content Fragment delivery conventions (2026-11-03)
+
+- User request: follow waringme/eds-reusable-blocks `blocks/content-fragment` for every content
+  fragment created here. Applied to the two blocks that render fragments (booking → Booking
+  Engine + Booking Link, stories → Story) and to the CF model package (now 1.5.0); Destination /
+  FAQ Item have models only (no fragments, queries or blocks).
+- Settings `window.edsReusableBlocks.contentFragment` in scripts.js (publishHost, queryNamespace
+  `saudiaeds`, siteRoot `/content/saudiaeds`, connection `aemconnection`; aem-publish-host /
+  aem-query-namespace metadata as fallbacks); author = author-*.adobeaemcloud.com; author queries
+  same-origin with credentials, site queries publish without; path slashes kept unencoded, `ts`
+  5-minute bucket (author: now); variations normalised; only /content/dam paths; ImageRef /
+  DocumentRef via publish/author URL; PageRef via siteRoot; UE annotations author-only with the
+  `cf` filter; fragment rich text sanitised; failures console.error + author-only message.
+  Deliberate difference: visitors keep the block's fallback instead of an error message.
+- UE fields as the reference (picker `rootPath` + `variationName`, hidden "Selected variation"
+  field via condition). Story summary → multi-line HTML; Story images accept SVG documents;
+  queries carry the reference's header comment and ImageRef/DocumentRef selections.
+- Also fixed: on author, the stories' press release fallback (stored as /en/… by the import) now
+  maps to <siteRoot><path>.html.
+- Verified with a stand-in GraphQL: site/author request URLs, credentials and ts; markers only
+  on author; sanitising; fallbacks + messages; UE probe (home, Abha) 100%; Stories Folder; lint.

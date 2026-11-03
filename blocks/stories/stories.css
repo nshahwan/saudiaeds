@@ -82,7 +82,7 @@ main .stories-container .default-content-wrapper p {
   letter-spacing: 0.28px;
 }
 
-.stories .stories__text p:last-child {
+.stories .stories__text > p:last-child {
   display: flex;
   align-items: center;
   color: #08b35f;
@@ -91,12 +91,27 @@ main .stories-container .default-content-wrapper p {
   letter-spacing: 0.16px;
 }
 
-.stories .stories__text p:last-child::after {
+.stories .stories__text > p:last-child::after {
   content: '';
   width: 24px;
   height: 24px;
   background-color: currentcolor;
   mask: url('/icons/navigate_next.svg') center / contain no-repeat;
+}
+
+/* rich-text summary from a Story fragment: its paragraphs read as one summary */
+.stories .stories__summary p + p {
+  margin-top: 4px;
+}
+
+/* Universal Editor only: why a story shows its fallback instead of its fragment */
+.stories .stories__message {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border: 1px dashed #c00;
+  color: #c00;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 /* light page theme (home, once this section reaches the top of the viewport) */
@@ -108,7 +123,7 @@ body.theme-light .stories .stories__text p {
   color: var(--text);
 }
 
-body.theme-light .stories .stories__text p:last-child {
+body.theme-light .stories .stories__text > p:last-child {
   color: var(--green);
 }
 

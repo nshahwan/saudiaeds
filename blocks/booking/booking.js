@@ -13,8 +13,15 @@
  *   6. fragmentVariation  its variation (hidden, set by the fragment picker)
  *
  * With a fragment, the widget's labels and links come from it (AEM GraphQL persisted query
- * saudiaeds/booking-engine-by-path — author inside Universal Editor, publish on the site); the
- * authored rows render first and stay as the fallback when the fragment cannot be loaded.
+ * <namespace>/booking-engine-by-path); the authored rows render first and stay as the fallback
+ * when the fragment cannot be loaded (the error is logged, and shown on author only — the
+ * reference block shows it to everyone).
+ * Content Fragment delivery follows waringme/eds-reusable-blocks content-fragment: settings in
+ * window.edsReusableBlocks.contentFragment (scripts.js; aem-publish-host / aem-query-namespace
+ * metadata as fallbacks); author = an author-*.adobeaemcloud.com host, queried on the current
+ * origin with same-origin credentials, the site queries publish without credentials; the path
+ * keeps its slashes, a `ts` parameter busts caches (5-minute buckets for visitors); variations are
+ * lower case with underscores (empty = master); editor annotations only on author.
  * Universal Editor: from a fragment, the widget is a reference to it (single-value labels and the
  * links' labels are edited inline, everything in the Content Fragment editor). From the authored
  * rows, the labels sit between generated controls, so the cells' inline instrumentation is not
@@ -22,11 +29,51 @@
  * @param {Element} block The booking block element
  */
 
-const QUERY = '/graphql/execute.json/saudiaeds/booking-engine-by-path';
-// AEM environment of this site (fstab.yaml); <meta name="aem-publish-host"> overrides publish
-const AEM_AUTHOR = 'https://author-p208666-e2180259.adobeaemcloud.com';
-const AEM_PUBLISH = 'https://publish-p208666-e2180259.adobeaemcloud.com';
-const TIMEOUT = 4000;
+const QUERY = ['booking-engine-by-path', 'bookingEngineByPath'];
+const DAM_ROOT = '/content/dam';
+const CACHE_WINDOW = 5 * 60 * 1000; // visitors may see a fragment up to 5 minutes old
+const TIMEOUT = 4000; // a fragment that doesn't answer in time leaves the authored rows
+
+const settings = () => window.edsReusableBlocks?.contentFragment || {};
+const metadata = (name) => document.head.querySelector(`meta[name="${name}"]`)?.content?.trim();
+
+/** AEM author (Universal Editor): an author-*.adobeaemcloud.com host, unless configured */
+const isAuthor = () => settings().author ?? (
+  window.location.hostname.startsWith('author-')
+  && window.location.hostname.endsWith('.adobeaemcloud.com')
+);
+
+/** the AEM origin to query: '' on author (same origin), the configured HTTPS publish origin */
+function aemHost() {
+  if (isAuthor()) return '';
+  const raw = settings().publishHost || metadata('aem-publish-host');
+  if (!raw) throw new Error('Configure contentFragment.publishHost or aem-publish-host metadata');
+  const url = new URL(raw);
+  if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/'
+    || url.search || url.hash) throw new Error('publishHost must be an HTTPS origin');
+  return url.origin;
+}
+
+/** Universal Editor (author only): a fragment as an editable reference */
+function resource(node, path, label, variation = 'master') {
+  if (node && isAuthor() && path) {
+    Object.assign(node.dataset, {
+      aueResource: `urn:${settings().connection || 'aemconnection'}:${path}/jcr:content/data/${variation}`,
+      aueType: 'reference',
+      aueFilter: 'cf',
+      aueLabel: label,
+    });
+  }
+  return node;
+}
+
+/** Universal Editor (author only): a fragment field edited in place */
+function prop(node, name, type, label) {
+  if (node && isAuthor()) {
+    Object.assign(node.dataset, { aueProp: name, aueType: type, aueLabel: label });
+  }
+  return node;
+}
 
 function el(tag, className, ...kids) {
   const e = document.createElement(tag);
@@ -42,10 +89,9 @@ function icon(name, extra = '') {
 }
 
 /** a <p> holding text, optionally instrumented as a Content Fragment text field */
-function para(text, prop, label) {
+function para(text, name, label) {
   const p = el('p', null, text || '');
-  if (prop) Object.assign(p.dataset, { aueProp: prop, aueLabel: label, aueType: 'text' });
-  return p;
+  return name ? prop(p, name, 'text', label) : p;
 }
 
 function linkPara(link) {
@@ -56,14 +102,8 @@ function linkPara(link) {
     a.target = '_blank';
     a.rel = 'noopener';
   }
-  if (link.path) {
-    Object.assign(a.dataset, {
-      aueResource: `urn:aemconnection:${link.path}/jcr:content/data/master`,
-      aueType: 'reference',
-      aueLabel: `Link: ${link.label}`,
-      aueProp: 'label',
-    });
-  }
+  // a Booking Link fragment: its label is edited in place
+  if (link.path) prop(resource(a, link.path, `Link: ${link.label}`), 'label', 'text', 'Label');
   return el('p', null, a);
 }
 
@@ -154,22 +194,29 @@ function render(d) {
   return [el('div', 'booking__panel', tabsBox, promoBox, options, fields), links, info].filter(Boolean);
 }
 
-/** load the Booking Engine fragment; null when it is not reachable (the authored rows stay) */
+/** load the Booking Engine fragment (GraphQL item); throws when it can't be loaded */
 async function loadFragment(path, variation) {
-  const meta = document.querySelector('meta[name="aem-publish-host"]')?.content;
-  // inside Universal Editor the page is served by the author: query it there (session cookie)
-  const onAuthor = window.location.origin === AEM_AUTHOR || /^author-/.test(window.location.hostname);
-  const host = onAuthor ? window.location.origin : (meta || AEM_PUBLISH);
-  const url = `${host}${QUERY};path=${encodeURIComponent(path)};variation=${encodeURIComponent(variation || 'master')}`;
+  const namespace = settings().queryNamespace || metadata('aem-query-namespace');
+  if (!namespace || !/^[\w-]+$/.test(namespace)) {
+    throw new Error('Configure contentFragment.queryNamespace or aem-query-namespace metadata');
+  }
+  const [name, field] = QUERY;
+  const host = aemHost();
+  // AEM does not decode %2F in persisted query parameters: keep the slashes of the path
+  const params = `;path=${path.split('/').map(encodeURIComponent).join('/')};variation=${encodeURIComponent(variation)}`;
+  const ts = isAuthor() ? Date.now() : Math.floor(Date.now() / CACHE_WINDOW) * CACHE_WINDOW;
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), TIMEOUT);
   try {
-    const resp = await fetch(url, { credentials: onAuthor ? 'include' : 'omit', signal: ctl.signal });
-    if (!resp.ok) return null;
-    const json = await resp.json();
-    return json?.data?.bookingEngineByPath?.item || null;
-  } catch {
-    return null;
+    const resp = await fetch(`${host}/graphql/execute.json/${namespace}/${name}${params};ts=${ts}`, {
+      credentials: host ? 'omit' : 'same-origin',
+      signal: ctl.signal,
+    });
+    if (!resp.ok) throw new Error(`${resp.status} ${namespace}/${name}`);
+    const item = (await resp.json())?.data?.[field]?.item;
+    // a Booking Engine has its own fields (another model's partial item has none)
+    if (!item || !Array.isArray(item.tabs)) throw new Error('not a Booking Engine fragment');
+    return item;
   } finally {
     clearTimeout(timer);
   }
@@ -178,22 +225,33 @@ async function loadFragment(path, variation) {
 export default async function decorate(block) {
   const cells = [...block.querySelectorAll(':scope > div > div')];
   const [fragmentCell, variationCell] = cells.slice(4);
-  const path = fragmentCell?.querySelector('a')?.getAttribute('href') || fragmentCell?.textContent.trim();
-  const variation = variationCell?.textContent.trim();
+  // the picked fragment: a /content/dam/ path (link or text, extension dropped)
+  const raw = (fragmentCell?.querySelector('a')?.getAttribute('href') || fragmentCell?.textContent)?.trim();
+  let path = raw ? new URL(raw, window.location.origin).pathname.replace(/\.[a-z]+$/, '') : '';
+  if (!path.startsWith(`${DAM_ROOT}/`)) path = '';
+  // the picked variation: lower case, spaces as underscores; empty means master
+  const variation = variationCell?.textContent.trim().toLowerCase().replace(/\s+/g, '_') || 'master';
 
   block.replaceChildren(...render(fromCells(cells.slice(0, 4))));
-  if (!path || !path.startsWith('/content/dam/')) return;
+  if (!path) return;
 
-  const item = await loadFragment(path, variation);
-  if (!item) return;
+  let item;
+  try {
+    item = await loadFragment(path, variation);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('booking: could not load booking engine fragment', path, e);
+    if (isAuthor()) {
+      // authors see why the widget shows its authored labels (outside every field)
+      const message = el('p', 'booking__message', `Could not load booking engine fragment ${path} (${e.message}); showing the authored labels.`);
+      message.setAttribute('role', 'status');
+      block.prepend(message);
+    }
+    return;
+  }
   // the widget is a reference to the fragment: selectable and editable in Universal Editor
-  const widget = el('div', 'booking__fragment', ...render(fromFragment(item)));
-  Object.assign(widget.dataset, {
-    aueResource: `urn:aemconnection:${path}/jcr:content/data/${variation || 'master'}`,
-    aueType: 'reference',
-    aueLabel: 'Booking engine content fragment',
-  });
-  if (block.dataset.aueResource) block.dataset.aueType = 'container';
+  const widget = resource(el('div', 'booking__fragment', ...render(fromFragment(item))), path, `Booking engine content fragment (${variation})`, variation);
+  if (isAuthor() && block.dataset.aueResource) block.dataset.aueType = 'container';
   block.replaceChildren(widget);
   block.classList.add('booking--fragment');
 }

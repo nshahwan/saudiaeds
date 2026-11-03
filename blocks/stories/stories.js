@@ -11,11 +11,11 @@
  *   5. mobileImage        mobile rendition (<picture>, used without a fragment / press release)
  *   6. text               <h3> title · <p> summary · <p> link (same)
  * The story comes from, in this order:
- *   - a picked Story fragment (AEM GraphQL persisted query saudiaeds/story-by-path, author inside
- *     Universal Editor, publish on the site): its title, summary, images, alt and link text; what
- *     it leaves empty comes from the press release it references, and it links to that press
- *     release (else to its own link). The story is a reference to the fragment in the editor;
- *     the texts and image it supplies are edited in place;
+ *   - a picked Story fragment (AEM GraphQL persisted query <namespace>/story-by-path): its
+ *     title, summary (rich text), images, alt and link text; what it leaves empty comes from the
+ *     press release it references, and it links to that press release (else to its own link).
+ *     In Universal Editor the story is a reference to the fragment and the fields it supplies are
+ *     edited in place;
  *   - a picked press release: its title (Story title, else first heading), summary (Story
  *     summary, else description), images (Image / Story mobile image, else the article or hero
  *     image) and link;
@@ -27,24 +27,52 @@
  * Authored nodes are MOVED and the text cell is reused (EW1, editor instrumentation kept); the
  * link stays in its paragraph and a CSS stretched link makes the whole story clickable.
  * Generated press release text goes into its own slot, never into the text field.
+ *
+ * Content Fragment delivery follows waringme/eds-reusable-blocks content-fragment: settings in
+ * window.edsReusableBlocks.contentFragment (scripts.js; aem-publish-host / aem-query-namespace
+ * metadata as fallbacks); author = an author-*.adobeaemcloud.com host, queried on the current
+ * origin with same-origin credentials, the site queries publish without credentials; the path
+ * keeps its slashes, a `ts` parameter busts caches (5-minute buckets for visitors); variations are
+ * lower case with underscores (empty = master); image references (ImageRef / DocumentRef) use the
+ * publish or author URL; page references lose the site root on Edge Delivery; editor annotations
+ * only on author; fragment rich text is sanitised. Unlike the reference, a fragment that can't be
+ * loaded falls back to the press release / authored fields: the error is logged, and shown on
+ * author only.
  * @param {Element} block The stories block element
  */
 
 const LINK_TEXT = 'Learn more';
-const STORY_QUERY = '/graphql/execute.json/saudiaeds/story-by-path';
-// AEM environment of this site (fstab.yaml, as in blocks/booking); <meta name="aem-publish-host">
-// overrides publish
-const AEM_AUTHOR = 'https://author-p208666-e2180259.adobeaemcloud.com';
-const AEM_PUBLISH = 'https://publish-p208666-e2180259.adobeaemcloud.com';
-const SITE_ROOT = '/content/saudiaeds';
-const TIMEOUT = 4000;
+const STORY_QUERY = ['story-by-path', 'storyByPath'];
+const DAM_ROOT = '/content/dam';
+const CACHE_WINDOW = 5 * 60 * 1000; // visitors may see a fragment up to 5 minutes old
+const TIMEOUT = 4000; // a fragment that doesn't answer in time falls back
+
+const settings = () => window.edsReusableBlocks?.contentFragment || {};
+const metadata = (name) => document.head.querySelector(`meta[name="${name}"]`)?.content?.trim();
+
+/** AEM author (Universal Editor): an author-*.adobeaemcloud.com host, unless configured */
+export const isAuthor = () => settings().author ?? (
+  window.location.hostname.startsWith('author-')
+  && window.location.hostname.endsWith('.adobeaemcloud.com')
+);
 
 /**
- * AEM author (Universal Editor): pages are addressed as /content/<site>/… on an AEM host (the
- * local preview also serves /content/… but reads like the published site)
+ * on author, pages are addressed as /content/<site>/… (the local preview also serves /content/…
+ * but reads like the published site)
  */
-export const AUTHOR_ROOT = /\.adobeaemcloud\.(com|net)$/.test(window.location.hostname)
+export const AUTHOR_ROOT = isAuthor()
   ? (window.location.pathname.match(/^\/content\/(?!dam\/)[^/.]+/) || [])[0] : undefined;
+
+/** the AEM origin to query: '' on author (same origin), the configured HTTPS publish origin */
+function aemHost() {
+  if (isAuthor()) return '';
+  const raw = settings().publishHost || metadata('aem-publish-host');
+  if (!raw) throw new Error('Configure contentFragment.publishHost or aem-publish-host metadata');
+  const url = new URL(raw);
+  if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/'
+    || url.search || url.hash) throw new Error('publishHost must be an HTTPS origin');
+  return url.origin;
+}
 
 // carry the Universal Editor instrumentation of an authored row over to the element that
 // replaces it (same as moveInstrumentation in scripts.js, inlined so the block has no imports),
@@ -96,11 +124,15 @@ export function storyPicture(src, alt = '') {
   return pic;
 }
 
-/** the generated text slot: <h3> title · <p> summary · <p><a> link (when there is one) */
+/**
+ * the generated text slot: <h3> title · summary (a <p>, or a rich-text <div>) · <p><a> link (when
+ * there is one)
+ */
 export function storyText({ title, summary, linkText }, href) {
   const text = el('div');
   if (title) text.append(el('h3', title));
-  if (summary) text.append(el('p', summary));
+  if (summary instanceof Element) text.append(summary);
+  else if (summary) text.append(el('p', summary));
   if (!href) return text;
   const a = el('a', linkText || LINK_TEXT);
   a.href = href;
@@ -210,59 +242,122 @@ function refPath(cell) {
   return raw && /^(\/|https?:)/.test(raw) ? raw : '';
 }
 
-const onAemAuthor = () => window.location.origin === AEM_AUTHOR
-  || /^author-/.test(window.location.hostname);
-const aemHost = () => (onAemAuthor() ? window.location.origin
-  : document.querySelector('meta[name="aem-publish-host"]')?.content || AEM_PUBLISH);
+/**
+ * an authored page link as this page can follow it: on author, a site path (e.g. /en/…, as the
+ * migrated content stores it) becomes its AEM page, <siteRoot><path>.html, like a page reference
+ */
+function pageLink(raw) {
+  if (!raw || !isAuthor() || !raw.startsWith('/') || raw.startsWith(DAM_ROOT)) return raw;
+  const path = raw.replace(/\.html$/, '').replace(/\/$/, '');
+  if (path.startsWith('/content/')) return `${path}.html`;
+  const root = settings().siteRoot?.replace(/\/$/, '');
+  return root ? `${root}${path}.html` : raw;
+}
 
-/** load a Story fragment; null when it is not reachable (the story falls back) */
+/** the picked fragment: a /content/dam/ path (link or text, extension dropped), else null */
+function fragmentPathOf(cell) {
+  const raw = refPath(cell);
+  if (!raw) return null;
+  const path = new URL(raw, window.location.origin).pathname.replace(/\.[a-z]+$/, '');
+  return path.startsWith(`${DAM_ROOT}/`) ? path : null;
+}
+
+/** the picked variation: lower case, spaces as underscores; empty means master */
+const variationOf = (cell) => cell?.textContent.trim().toLowerCase().replace(/\s+/g, '_') || 'master';
+
+/** load a Story fragment (GraphQL item); throws when it can't be loaded */
 async function loadStoryFragment(path, variation) {
-  const url = `${aemHost()}${STORY_QUERY};path=${encodeURIComponent(path)};variation=${encodeURIComponent(variation)}`;
+  const namespace = settings().queryNamespace || metadata('aem-query-namespace');
+  if (!namespace || !/^[\w-]+$/.test(namespace)) {
+    throw new Error('Configure contentFragment.queryNamespace or aem-query-namespace metadata');
+  }
+  const [name, field] = STORY_QUERY;
+  const host = aemHost();
+  // AEM does not decode %2F in persisted query parameters: keep the slashes of the path
+  const params = `;path=${path.split('/').map(encodeURIComponent).join('/')};variation=${encodeURIComponent(variation)}`;
+  const ts = isAuthor() ? Date.now() : Math.floor(Date.now() / CACHE_WINDOW) * CACHE_WINDOW;
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), TIMEOUT);
   try {
-    const resp = await fetch(url, { credentials: onAemAuthor() ? 'include' : 'omit', signal: ctl.signal });
-    if (!resp.ok) return null;
-    const json = await resp.json();
-    return json?.data?.storyByPath?.item || null;
-  } catch {
-    return null;
+    const resp = await fetch(`${host}/graphql/execute.json/${namespace}/${name}${params};ts=${ts}`, {
+      credentials: host ? 'omit' : 'same-origin',
+      signal: ctl.signal,
+    });
+    if (!resp.ok) throw new Error(`${resp.status} ${namespace}/${name}`);
+    const item = (await resp.json())?.data?.[field]?.item;
+    if (!item) throw new Error('not a Story fragment');
+    return item;
   } finally {
     clearTimeout(timer);
   }
 }
 
-/* eslint-disable no-underscore-dangle -- AEM GraphQL reference fields */
-/** a fragment image (GraphQL ImageRef): the author rendition there, else the optimised delivery */
-function fragmentImage(ref) {
-  if (!ref) return '';
-  if (onAemAuthor()) return ref._authorUrl || ref._path || '';
-  return ref._dynamicUrl ? `${aemHost()}${ref._dynamicUrl}` : ref._publishUrl || '';
+/** fragment rich text (multi-line text, HTML) without scripts, handlers or script URLs */
+function richText(html, className) {
+  if (!html || !String(html).trim()) return null;
+  const tpl = document.createElement('template');
+  tpl.innerHTML = html;
+  tpl.content.querySelectorAll('script, style, iframe, object, embed').forEach((n) => n.remove());
+  tpl.content.querySelectorAll('*').forEach((node) => {
+    [...node.attributes].forEach(({ name, value }) => {
+      if (/^on/i.test(name) || name === 'srcdoc'
+        || (/^(href|src|xlink:href)$/i.test(name)
+          && /^(javascript|vbscript|data):/i.test(value.replace(/\s/g, '')))) {
+        node.removeAttribute(name);
+      }
+    });
+  });
+  const div = el('div');
+  div.className = className;
+  div.append(tpl.content);
+  return div;
 }
 
-/** a site page from its AEM path: .html on author, the published path on the site */
-function pageHref(path) {
-  if (!path) return '';
-  if (AUTHOR_ROOT || onAemAuthor()) return `${path}.html`;
-  return path.startsWith(`${SITE_ROOT}/`) ? path.slice(SITE_ROOT.length) : path;
+/** GraphQL system field `_path` of a fragment, image or page reference */
+const pathOf = ({ _path: path } = {}) => path;
+
+/** a fragment image (GraphQL ImageRef / DocumentRef): its publish URL, or author URL on author */
+function fragmentImage(ref) {
+  if (!ref) return '';
+  const host = aemHost();
+  const { _publishUrl: publishUrl, _authorUrl: authorUrl, _path: path } = ref;
+  const src = (host ? publishUrl : authorUrl) || path || '';
+  return src.startsWith('/') ? `${host}${src}` : src;
+}
+
+/** a page reference (GraphQL PageRef): the site path on Edge Delivery, the page on author */
+function pageHref(ref) {
+  const path = pathOf(ref) || '';
+  if (!path.startsWith('/content/')) return path;
+  if (isAuthor()) return `${path}.html`;
+  const root = settings().siteRoot?.replace(/\/$/, '');
+  if (root && (path === root || path.startsWith(`${root}/`))) return path.slice(root.length) || '/';
+  return path.replace(/^\/content\/[^/]+/, '') || '/';
 }
 
 /** a Story fragment as a story; what it leaves empty comes from its press release */
 async function fragmentStory(item) {
-  const href = pageHref(item.pressRelease?._path);
-  /* eslint-enable no-underscore-dangle */
+  const href = pageHref(item.pressRelease);
   const image = fragmentImage(item.image);
-  const page = href && !(item.title && item.summary && image) ? await readStoryPage(href) : null;
+  // multi-line text: { html } (a plain string from an earlier single-line model)
+  const summaryHtml = typeof item.summary === 'string' ? item.summary : item.summary?.html;
+  const summary = /</.test(summaryHtml || '') ? richText(summaryHtml, 'stories__summary') : summaryHtml;
+  const page = href && !(item.title && summary && image) ? await readStoryPage(href) : null;
   return {
     title: item.title || page?.storyTitle || page?.heading,
-    summary: item.summary || page?.storySummary || page?.description,
+    summary: summary || page?.storySummary || page?.description,
     image: image || page?.image || '',
     mobileImage: fragmentImage(item.imageMobile) || (image ? '' : page?.mobileImage || ''),
     imageAlt: item.imageAlt || (image ? '' : page?.imageAlt || ''),
     linkText: item.linkText || page?.storyLinkText,
     href: href || item.link || '',
     // the fields the fragment supplied, edited in place in the editor
-    props: { title: Boolean(item.title), summary: Boolean(item.summary), image: Boolean(image) },
+    props: {
+      title: Boolean(item.title),
+      summary: Boolean(summary),
+      image: Boolean(image),
+      linkText: Boolean(item.linkText),
+    },
   };
 }
 
@@ -278,28 +373,38 @@ function pageStory(page, href) {
   };
 }
 
-/** the story is a reference to its fragment in Universal Editor; supplied fields edit in place */
+/**
+ * Universal Editor (author only): the story is a reference to its fragment, the fields it
+ * supplied are edited in place
+ */
 function instrumentFragment(story, path, variation, props) {
+  if (!isAuthor()) return;
   Object.assign(story.dataset, {
-    aueResource: `urn:aemconnection:${path}/jcr:content/data/${variation}`,
+    aueResource: `urn:${settings().connection || 'aemconnection'}:${path}/jcr:content/data/${variation}`,
     aueType: 'reference',
-    aueLabel: 'Story content fragment',
+    aueFilter: 'cf',
+    aueLabel: `Story content fragment (${variation})`,
   });
-  const mark = (node, prop, label, type = 'text') => node && Object.assign(node.dataset, {
-    aueProp: prop, aueLabel: label, aueType: type,
+  const mark = (node, prop, type, label) => node && Object.assign(node.dataset, {
+    aueProp: prop, aueType: type, aueLabel: label,
   });
-  if (props.title) mark(story.querySelector('.stories__text h3'), 'title', 'Title');
-  if (props.summary) mark(story.querySelector('.stories__text h3 + p, .stories__text > p:first-child'), 'summary', 'Summary');
-  if (props.image) mark(story.querySelector('.stories__pic img'), 'image', 'Image (desktop)', 'media');
+  const text = story.querySelector('.stories__text');
+  if (props.title) mark(text.querySelector('h3'), 'title', 'text', 'Title');
+  if (props.summary) {
+    const summary = text.querySelector('.stories__summary') || text.querySelector('h3 + p');
+    mark(summary, 'summary', summary?.matches('.stories__summary') ? 'richtext' : 'text', 'Summary');
+  }
+  if (props.image) mark(story.querySelector('.stories__pic picture'), 'image', 'media', 'Image (desktop)');
+  if (props.linkText) mark(text.querySelector(':scope > p:last-child a'), 'linkText', 'text', 'Link text');
 }
 
 async function decorateRow(row) {
   // reference cells lead the row: [fragment, fragmentVariation,] pressRelease (see above)
   const refs = [...row.children].slice(0, Math.max(0, row.children.length - 3));
   const [fragmentCell, variationCell] = refs.length >= 3 ? refs : [];
-  const fragmentPath = refPath(fragmentCell);
-  const variation = variationCell?.textContent.trim() || 'master';
-  const href = refPath(refs[refs.length - 1]);
+  const fragmentPath = fragmentPathOf(fragmentCell);
+  const variation = variationOf(variationCell);
+  const href = pageLink(refPath(refs[refs.length - 1]));
   // cells not shown stay in the item, hidden, so they keep their editor instrumentation: the
   // references (picked in the properties panel) and authored fields the story source replaces
   const hiddenCells = [];
@@ -320,8 +425,17 @@ async function decorateRow(row) {
 
   // a picked fragment, else a picked press release, supplies the story; the authored fields
   // are the fallback for stories without one (or one that can't be loaded)
-  const fragment = fragmentPath.startsWith('/content/dam/')
-    ? await loadStoryFragment(fragmentPath, variation) : null;
+  let fragment = null;
+  let failure = null;
+  if (fragmentPath) {
+    try {
+      fragment = await loadStoryFragment(fragmentPath, variation);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('stories: could not load story fragment', fragmentPath, e);
+      failure = e;
+    }
+  }
   let source = fragment ? await fragmentStory(fragment) : null;
   if (!source && href) {
     const page = await readStoryPage(href);
@@ -342,6 +456,13 @@ async function decorateRow(row) {
   const item = storyItem(desktop || mobile, desktop && mobile, text || textCell || el('div'));
   if (fragment) {
     instrumentFragment(item.querySelector('.stories__item'), fragmentPath, variation, source.props);
+  }
+  if (failure && isAuthor()) {
+    // authors see why the story shows its fallback (outside every field)
+    const message = el('p', `Could not load story fragment ${fragmentPath} (${failure.message}); showing the fallback.`);
+    message.className = 'stories__message';
+    message.setAttribute('role', 'status');
+    item.prepend(message);
   }
   item.append(...hiddenCells);
   moveInstrumentation(row, item);

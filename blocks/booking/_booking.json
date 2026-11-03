@@ -55,8 +55,11 @@
         },
         {
           "component": "aem-content-fragment",
+          "valueType": "string",
           "name": "fragment",
           "label": "Booking engine content fragment",
+          "description": "Optional: a Booking Engine fragment. Its labels and links replace the ones above; they stay as the fallback when the fragment cannot be loaded.",
+          "rootPath": "/content/dam/saudiaeds/fragments/booking-engine",
           "variationName": "fragmentVariation",
           "validation": {
             "rootPath": "/content/dam/saudiaeds/fragments/booking-engine"
@@ -64,8 +67,19 @@
         },
         {
           "component": "text",
+          "valueType": "string",
           "name": "fragmentVariation",
-          "hidden": true
+          "label": "Selected variation",
+          "value": "",
+          "description": "Stored by the fragment picker; empty means master.",
+          "condition": {
+            "==": [
+              {
+                "var": "__alwaysFalse"
+              },
+              true
+            ]
+          }
         },
         {
           "component": "tab",

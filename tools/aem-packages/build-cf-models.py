@@ -18,13 +18,14 @@ reference, /content/dam/saudiaeds/fragments/booking-links/<name>.
 usage: python3 tools/aem-packages/build-cf-models.py
 """
 import json
+from html import escape as html_escape
 import os
 import shutil
 import zipfile
 from xml.sax.saxutils import quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.4.0'
+NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.5.0'
 CONF = '/conf/saudiaeds'
 MODELS = f'{CONF}/settings/dam/cfm/models'
 DAM = '/content/dam/saudiaeds'
@@ -54,11 +55,16 @@ def date(name, label, required=False, desc=None):
                    'displayedFormat': 'YYYY-MM-DD'})
 
 
-def asset(name, label, required=False, desc=None):
-    return dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
-                **{'sling:resourceType': 'dam/cfm/models/editor/components/contentreference',
-                   'metaType': 'reference', 'valueType': 'string', 'rootPath': DAM,
-                   'showThumbnail': 'true', 'validation': 'cfm.validation.contenttype.image'})
+def asset(name, label, required=False, desc=None, documents=False):
+    """an image reference; documents=True also accepts SVG documents (GraphQL ImageRef or
+    DocumentRef, as in waringme/eds-reusable-blocks content-fragment)"""
+    field = dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
+                 **{'sling:resourceType': 'dam/cfm/models/editor/components/contentreference',
+                    'metaType': 'reference', 'valueType': 'string', 'rootPath': DAM,
+                    'showThumbnail': 'true', 'validation': 'cfm.validation.contenttype.image'})
+    if documents:
+        del field['validation']
+    return field
 
 
 def page(name, label, required=False, desc=None):
@@ -141,9 +147,10 @@ MODEL_DEFS = {
     ]),
     'story': ('Story', 'One story in a stories list (home "Exceptional experiences with Saudia").', [
         text('title', 'Title', True, desc='e.g. "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards".'),
-        text('summary', 'Summary', desc='One or two sentences under the title.', maxlength=500),
-        asset('image', 'Image (desktop)'),
-        asset('imageMobile', 'Image (mobile)', desc='Optional; the desktop image is used when empty.'),
+        richtext('summary', 'Summary', desc='One or two sentences under the title.'),
+        asset('image', 'Image (desktop)', documents=True),
+        asset('imageMobile', 'Image (mobile)', desc='Optional; the desktop image is used when empty.',
+              documents=True),
         text('imageAlt', 'Image alt text', maxlength=500),
         page('pressRelease', 'Press release',
              desc='Optional: the press release page the story is about; the story links to it.'),
@@ -293,6 +300,10 @@ STORIES = json.load(open(os.path.join(HERE, 'story-fragments.json'), encoding='u
 for st in STORIES:
     values = {k: st[k] for k in ('title', 'summary', 'image', 'imageMobile', 'imageAlt', 'pressRelease',
                                  'link', 'linkText') if st.get(k)}
+    if values.get('summary'):
+        # multi-line text: HTML, with its content type (summary@ContentType, '@' escaped by FileVault)
+        values['summary'] = f"<p>{html_escape(values['summary'], quote=False)}</p>"
+        values['summary_x0040_ContentType'] = 'text/html'
     fragment_files[f"jcr_root{FRAGMENTS}/stories/{st['name']}/.content.xml"] = fragment_xml(
         'story', st['name'], f'{FRAGMENTS}/stories', st['title'], values)
 

@@ -421,3 +421,14 @@ body.home .booking .booking__tabs li[aria-selected='true'] {
     display: none;
   }
 }
+
+/* Universal Editor only: why the widget shows its authored labels instead of its fragment */
+.booking .booking__message {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px dashed #c00;
+  background: #fff;
+  color: #c00;
+  font-size: 13px;
+  line-height: 18px;
+}

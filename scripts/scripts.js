@@ -14,6 +14,26 @@ import {
 import { SECTION_TEXT_OPTIONS, TEXT_OPTION_PREFIXES } from './text-options.js';
 
 /**
+ * AEM Content Fragment delivery settings for the blocks that render fragments (booking, stories),
+ * set before any block decorates (conventions of waringme/eds-reusable-blocks content-fragment):
+ *   publishHost     HTTPS origin of AEM publish (page metadata aem-publish-host if unset)
+ *   queryNamespace  persisted-query namespace (page metadata aem-query-namespace if unset)
+ *   siteRoot        AEM page root removed from page links on Edge Delivery (paths.json)
+ *   connection      Universal Editor connection name
+ * Author detection: an author-*.adobeaemcloud.com host (override with `author`).
+ */
+window.edsReusableBlocks = {
+  ...window.edsReusableBlocks,
+  contentFragment: {
+    publishHost: 'https://publish-p208666-e2180259.adobeaemcloud.com',
+    queryNamespace: 'saudiaeds',
+    siteRoot: '/content/saudiaeds',
+    connection: 'aemconnection',
+    ...window.edsReusableBlocks?.contentFragment,
+  },
+};
+
+/**
  * Moves all the attributes from a given elmenet to another given element.
  * @param {Element} from the element to copy attributes from
  * @param {Element} to the element to copy attributes to

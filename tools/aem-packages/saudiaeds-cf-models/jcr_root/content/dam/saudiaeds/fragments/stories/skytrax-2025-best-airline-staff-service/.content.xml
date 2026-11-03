@@ -13,9 +13,10 @@
             <master
                 jcr:primaryType="nt:unstructured"
                 title="Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards"
-                summary="The airline climbs to 17th place in global ranking, reflecting excellence across the guest journey"
+                summary="&lt;p&gt;The airline climbs to 17th place in global ranking, reflecting excellence across the guest journey&lt;/p&gt;"
                 pressRelease="/content/saudiaeds/en/about-us/press-releases/press-release-17062025"
-                linkText="Learn more"/>
+                linkText="Learn more"
+                summary_x0040_ContentType="text/html"/>
         </data>
         <metadata jcr:primaryType="nt:unstructured"/>
         <related jcr:primaryType="nt:unstructured"/>
