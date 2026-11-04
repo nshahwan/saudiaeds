@@ -422,13 +422,15 @@ body.home .booking .booking__tabs li[aria-selected='true'] {
   }
 }
 
-/* Universal Editor only: why the widget shows its authored labels instead of its fragment */
+/* in place of the widget: the picker prompt (no fragment) or a fragment that could not be loaded
+   (waringme/eds-reusable-blocks content-fragment message) */
 .booking .booking__message {
-  margin: 0 0 12px;
-  padding: 8px 12px;
-  border: 1px dashed #c00;
+  margin: 0;
+  padding: 16px;
+  border: 1px dashed #ccc;
   background: #fff;
-  color: #c00;
-  font-size: 13px;
-  line-height: 18px;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
 }

@@ -2,37 +2,32 @@
  * booking — static initial state of Saudia's flight-booking widget (dynamics D-01:
  * the live widget is an Angular app; integrate it here when the embed method is agreed).
  *
- * Rows (xwalk model `booking`):
- *   1. tabs      <ul> of tab labels (first = active) · then either one <p> with a promo link
- *                (Flight + Hotel, external-link icon) or several <p> quick links (home:
- *                Stopover, Flight + Hotel, Umrah, Hotels — the first three show on mobile)
- *   2. trip      <p> per trip type (first = selected) · last <p> Book with Miles (desktop only)
- *   3. route     <p> From label · <p> default origin (desktop only) · <p> To label
- *   4. info      <p> travel-requirements message · <p> with the Learn more link
- *   5. fragment  optional Booking Engine Content Fragment (path link)
- *   6. fragmentVariation  its variation (hidden, set by the fragment picker)
+ * Rows (xwalk model `booking`), two single-cell rows in order, even if variation is empty:
+ *   1. fragment           the Booking Engine Content Fragment (required; link or path)
+ *   2. fragmentVariation  its variation (hidden, set by the fragment picker; empty = master)
+ * Earlier content carried four authored label rows (tabs, trip, route, info) before these; they
+ * are skipped. The widget's tabs, trip types, route labels, notice and links all come from the
+ * fragment (AEM GraphQL persisted query <namespace>/booking-engine-by-path) and its Booking Link
+ * fragments.
  *
- * With a fragment, the widget's labels and links come from it (AEM GraphQL persisted query
- * <namespace>/booking-engine-by-path); the authored rows render first and stay as the fallback
- * when the fragment cannot be loaded (the error is logged, and shown on author only — the
- * reference block shows it to everyone).
- * Content Fragment delivery follows waringme/eds-reusable-blocks content-fragment: settings in
- * window.edsReusableBlocks.contentFragment (scripts.js; aem-publish-host / aem-query-namespace
- * metadata as fallbacks); author = an author-*.adobeaemcloud.com host, queried on the current
- * origin with same-origin credentials, the site queries publish without credentials; the path
- * keeps its slashes, a `ts` parameter busts caches (5-minute buckets for visitors); variations are
- * lower case with underscores (empty = master); editor annotations only on author.
- * Universal Editor: from a fragment, the widget is a reference to it (single-value labels and the
- * links' labels are edited inline, everything in the Content Fragment editor). From the authored
- * rows, the labels sit between generated controls, so the cells' inline instrumentation is not
- * carried over — the block is edited from the properties panel.
+ * Content Fragment handling follows waringme/eds-reusable-blocks content-fragment strictly:
+ * settings in window.edsReusableBlocks.contentFragment (scripts.js; aem-publish-host /
+ * aem-query-namespace metadata as fallbacks); author = an author-*.adobeaemcloud.com host,
+ * queried on the current origin with same-origin credentials, the site queries publish without
+ * credentials; the path keeps its slashes, a `ts` parameter busts caches (5-minute buckets for
+ * visitors); variations are lower case with underscores; only /content/dam paths. A missing
+ * selection shows a picker prompt; a fragment that can't be loaded (or isn't a Booking Engine)
+ * shows a visible failure and logs an error (with the detail on author).
+ * Universal Editor (author only): the widget is a reference to the fragment, its single-value
+ * labels and the links' labels are edited in place; everything else in the Content Fragment
+ * editor.
  * @param {Element} block The booking block element
  */
 
 const QUERY = ['booking-engine-by-path', 'bookingEngineByPath'];
 const DAM_ROOT = '/content/dam';
 const CACHE_WINDOW = 5 * 60 * 1000; // visitors may see a fragment up to 5 minutes old
-const TIMEOUT = 4000; // a fragment that doesn't answer in time leaves the authored rows
+const TIMEOUT = 4000; // a fragment that doesn't answer in time counts as unavailable
 
 const settings = () => window.edsReusableBlocks?.contentFragment || {};
 const metadata = (name) => document.head.querySelector(`meta[name="${name}"]`)?.content?.trim();
@@ -105,28 +100,6 @@ function linkPara(link) {
   // a Booking Link fragment: its label is edited in place
   if (link.path) prop(resource(a, link.path, `Link: ${link.label}`), 'label', 'text', 'Label');
   return el('p', null, a);
-}
-
-/** the authored rows as widget nodes (moved, not copied — EW1) */
-function fromCells(cells) {
-  const ps = (cell) => (cell ? [...cell.querySelectorAll(':scope > p')] : []);
-  const [tabsCell, tripCell, routeCell, infoCell] = cells;
-  const trips = ps(tripCell);
-  const miles = trips.length > 1 ? trips.pop() : null;
-  const [fromLabel, origin, toLabel] = ps(routeCell);
-  const [message, more] = ps(infoCell);
-  return {
-    tabs: tabsCell ? tabsCell.querySelector('ul') : null,
-    links: ps(tabsCell),
-    trips,
-    miles,
-    fromLabel,
-    origin,
-    toLabel,
-    message,
-    more,
-    swapLabel: 'Click here to swap to and from Destinations',
-  };
 }
 
 /** a Booking Engine fragment (GraphQL item) as widget nodes, instrumented for Universal Editor */
@@ -222,36 +195,49 @@ async function loadFragment(path, variation) {
   }
 }
 
+/** a visible status line in place of the widget (prompt or failure) */
+function message(text) {
+  const p = el('p', 'booking__message', text);
+  p.setAttribute('role', 'status');
+  return p;
+}
+
+/** row 1 the fragment (link or path), row 2 the picked variation (after 4 legacy label rows) */
+function readConfig(block) {
+  const rows = [...block.children];
+  const [fragmentRow, variationRow] = rows.length >= 6 ? rows.slice(4) : rows;
+  const link = fragmentRow?.querySelector('a');
+  const raw = (link ? link.getAttribute('href') : fragmentRow?.textContent)?.trim();
+  let path = null;
+  if (raw) {
+    path = new URL(raw, window.location.origin).pathname.replace(/\.[a-z]+$/, '');
+    if (!path.startsWith(`${DAM_ROOT}/`)) path = null;
+  }
+  const variation = variationRow?.textContent.trim().toLowerCase().replace(/\s+/g, '_') || 'master';
+  return { path, variation };
+}
+
 export default async function decorate(block) {
-  const cells = [...block.querySelectorAll(':scope > div > div')];
-  const [fragmentCell, variationCell] = cells.slice(4);
-  // the picked fragment: a /content/dam/ path (link or text, extension dropped)
-  const raw = (fragmentCell?.querySelector('a')?.getAttribute('href') || fragmentCell?.textContent)?.trim();
-  let path = raw ? new URL(raw, window.location.origin).pathname.replace(/\.[a-z]+$/, '') : '';
-  if (!path.startsWith(`${DAM_ROOT}/`)) path = '';
-  // the picked variation: lower case, spaces as underscores; empty means master
-  const variation = variationCell?.textContent.trim().toLowerCase().replace(/\s+/g, '_') || 'master';
-
-  block.replaceChildren(...render(fromCells(cells.slice(0, 4))));
-  if (!path) return;
-
-  let item;
+  let path;
   try {
-    item = await loadFragment(path, variation);
+    const config = readConfig(block);
+    ({ path } = config);
+    const { variation } = config;
+    block.textContent = '';
+    if (!path) {
+      block.append(message('Select a booking engine content fragment under /content/dam/.'));
+      return;
+    }
+    const item = await loadFragment(path, variation);
+    // the widget is a reference to the fragment: selectable and editable in Universal Editor
+    const widget = resource(el('div', 'booking__fragment', ...render(fromFragment(item))), path, `Booking engine content fragment (${variation})`, variation);
+    if (isAuthor() && block.dataset.aueResource) block.dataset.aueType = 'container';
+    block.replaceChildren(widget);
+    block.classList.add('booking--fragment');
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error('booking: could not load booking engine fragment', path, e);
-    if (isAuthor()) {
-      // authors see why the widget shows its authored labels (outside every field)
-      const message = el('p', 'booking__message', `Could not load booking engine fragment ${path} (${e.message}); showing the authored labels.`);
-      message.setAttribute('role', 'status');
-      block.prepend(message);
-    }
-    return;
+    const detail = isAuthor() ? ` (${e.message})` : '';
+    block.replaceChildren(message(`Could not load booking engine fragment ${path || ''}${detail}.`));
   }
-  // the widget is a reference to the fragment: selectable and editable in Universal Editor
-  const widget = resource(el('div', 'booking__fragment', ...render(fromFragment(item))), path, `Booking engine content fragment (${variation})`, variation);
-  if (isAuthor() && block.dataset.aueResource) block.dataset.aueType = 'container';
-  block.replaceChildren(widget);
-  block.classList.add('booking--fragment');
 }

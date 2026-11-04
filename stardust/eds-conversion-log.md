@@ -357,3 +357,21 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
 - Kept for the stories design: count 3, link text "Learn more", titles from the first heading;
   the reference's card layout options (three-up, four-up, small titles, centred) don't apply.
 - Homepage package rebuilt (page field list only): saudiaeds-pages-homepage-2026.11.03-0932.zip.
+
+## Booking block: content-fragment instructions, strictly (2026-11-04)
+
+- User decision: follow waringme/eds-reusable-blocks content-fragment strictly for `booking`.
+  The Booking Engine fragment is required and the widget's only source; the authored label
+  fields (tabs, trip, route, info) are removed from the model (older 6-row content is still
+  read: its fragment rows are rows 5–6); no fragment → picker prompt; a fragment that can't be
+  loaded or isn't a Booking Engine → visible "Could not load booking engine fragment …" for
+  everyone (reason on author) + console.error. Message styled like the reference's (neutral,
+  dashed). xwalk/max-cells exception for booking removed.
+- en-sa Athens (older 4-row booking, no fragment) linked to fragments/booking-engine/athens (same
+  labels) — local content change.
+- Consequence: until the Booking Engine fragments, the persisted query and CORS are live on AEM
+  publish, every booking block shows the failure message instead of the widget.
+- Verified with a stand-in GraphQL: site/author URLs and credentials, editor markers author-only,
+  variation normalisation, 2-row and legacy rows, prompt, wrong-model failure; UE probe home +
+  Abha; lint.
+- homepage package rebuilt (booking block: fragment only): saudiaeds-pages-homepage-2026.11.04-0729.zip; all 11 booking pages' local content converted to the 2-row booking model (they convert to JCR again).

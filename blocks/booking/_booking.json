@@ -26,40 +26,13 @@
           "name": "content-tab"
         },
         {
-          "component": "richtext",
-          "name": "tabs",
-          "label": "Tabs (bulleted list, first = active) + promo link paragraph",
-          "valueType": "string",
-          "value": ""
-        },
-        {
-          "component": "richtext",
-          "name": "trip",
-          "label": "Trip options (round trip, one way, miles toggle)",
-          "valueType": "string",
-          "value": ""
-        },
-        {
-          "component": "richtext",
-          "name": "route",
-          "label": "Route fields (From label, default origin, To label)",
-          "valueType": "string",
-          "value": ""
-        },
-        {
-          "component": "richtext",
-          "name": "info",
-          "label": "Info bar (message + link)",
-          "valueType": "string",
-          "value": ""
-        },
-        {
           "component": "aem-content-fragment",
           "valueType": "string",
           "name": "fragment",
           "label": "Booking engine content fragment",
-          "description": "Optional: a Booking Engine fragment. Its labels and links replace the ones above; they stay as the fallback when the fragment cannot be loaded.",
+          "description": "A Booking Engine fragment: the widget's tabs, trip types, route labels, notice and links come from it.",
           "rootPath": "/content/dam/saudiaeds/fragments/booking-engine",
+          "required": true,
           "variationName": "fragmentVariation",
           "validation": {
             "rootPath": "/content/dam/saudiaeds/fragments/booking-engine"

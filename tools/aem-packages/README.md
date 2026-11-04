@@ -82,9 +82,11 @@ The booking and stories blocks follow the content-fragment conventions of
 - **References**: images as `ImageRef` or `DocumentRef` (SVG), shown from their publish URL (author
   URL on author); pages as `PageRef`, linked without the site root on the site and as
   `<path>.html` on author. Rich text (`{ html }`) is sanitised before it is shown.
-- **Failures** are logged (`console.error`) and shown on author as a message above the block's
-  fallback. Unlike the reference block, visitors keep the authored labels / press release
-  rather than an error message.
+- **Failures** are logged (`console.error`). The booking block follows the reference strictly: no
+  fragment picked shows a picker prompt, and a fragment that can't be loaded shows "Could not load
+  booking engine fragment …" to everyone (with the reason on author). The stories block keeps
+  its fallback for visitors (the press release, then the story's own fields) and shows the
+  message on author only.
 - The site must be allowed to call publish (CORS, see the setup below) and, if the site sets a
   Content-Security-Policy, its `connect-src` and `img-src` must include the publish origin.
 
@@ -111,13 +113,17 @@ through GraphQL and stories should use their own Link instead.
 
 ### Connecting the booking block (pages → fragments)
 
-Every booking block (home + nine destinations) now carries a **Booking engine content
-fragment** reference (`fragment` field, e.g. `/content/dam/saudiaeds/fragments/booking-engine/home`).
-The block renders its authored labels first, then loads the fragment through the GraphQL
-persisted query `saudiaeds/booking-engine-by-path` (`graphql/booking-engine-by-path.graphql`)
-— from the author inside Universal Editor, from publish on the site — and re-renders from it.
-If the query is not reachable the authored labels stay, so nothing breaks before the setup
-below is done (until then the browser console shows one 404 per page for the query).
+Every booking block (home + nine destinations, and the en-sa Athens page) carries a required
+**Booking engine content fragment** reference (`fragment` field, e.g.
+`/content/dam/saudiaeds/fragments/booking-engine/home`); it is the widget's only source. The
+block loads it through the GraphQL persisted query `saudiaeds/booking-engine-by-path`
+(`graphql/booking-engine-by-path.graphql`) — from the author inside Universal Editor, from
+publish on the site — and renders the widget from it. The earlier authored label fields (tabs,
+trip, route, info) are no longer in the block model and are not shown.
+
+**Until the setup below is done, every booking block shows "Could not load booking engine
+fragment …" instead of the widget** (and the browser console logs the error): install the
+package, persist the query and publish them before this code reaches the live site.
 
 One-time setup on AEM:
 
