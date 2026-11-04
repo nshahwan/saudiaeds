@@ -390,3 +390,16 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
 - persist-queries.sh: documented JSON body ({"query": …}), optional PUBLISH=1 (replication of
   /conf/saudiaeds/settings/graphql/persistentQueries/<name>), and a final check on publish with the
   site's request and origin (non-zero exit until data + CORS). README: troubleshooting.
+
+## CF package 1.6.0: GraphQL endpoint and persisted queries packaged (2026-11-04)
+
+- Following waringme/admiral-xwalk `tools/cf-package` (the site the reference blocks come from):
+  the package now creates the GraphQL endpoint `/content/cq:graphql/saudiaeds/endpoint` and the
+  persisted queries `/conf/saudiaeds/settings/graphql/persistentQueries/{booking-engine-by-path,
+  story-by-path}` (graphql/persistent/query nodes, query text as the jcr:data binary from
+  `graphql/*.graphql`); filter roots are those nodes only. Multi-line fields stored as AEM's
+  model editor writes them (cfm-element = label, checked=false).
+- Install + Package Manager › Replicate now publishes models, fragments, endpoint and queries in
+  one step — the missing step behind publish's `Could not find Persisted Query`.
+- Queries re-validated against the packaged models; 49 XML files parse; packaged query text is
+  byte-identical to graphql/*.graphql.

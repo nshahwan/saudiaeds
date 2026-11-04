@@ -51,7 +51,8 @@
                             metaType="text-multi"
                             valueType="string"
                             default-mime-type="text/html"
-                            cfm-element="true"/>
+                            cfm-element="Answer"
+                            checked="false"/>
                     </items>
                 </content>
             </cq:dialog>

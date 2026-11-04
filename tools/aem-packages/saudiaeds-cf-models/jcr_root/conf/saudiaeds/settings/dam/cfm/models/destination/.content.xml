@@ -100,7 +100,8 @@
                             metaType="text-multi"
                             valueType="string"
                             default-mime-type="text/html"
-                            cfm-element="true"/>
+                            cfm-element="Introduction"
+                            checked="false"/>
                         <itinerary
                             jcr:primaryType="nt:unstructured"
                             listOrder="7"
@@ -112,7 +113,8 @@
                             metaType="text-multi"
                             valueType="string"
                             default-mime-type="text/html"
-                            cfm-element="true"/>
+                            cfm-element="Itinerary"
+                            checked="false"/>
                         <faqs
                             jcr:primaryType="nt:unstructured"
                             listOrder="8"

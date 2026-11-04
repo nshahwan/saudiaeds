@@ -9,4 +9,7 @@
     <filter root="/content/dam/saudiaeds/fragments/booking-engine"/>
     <filter root="/content/dam/saudiaeds/fragments/booking-links"/>
     <filter root="/content/dam/saudiaeds/fragments/stories" mode="merge"/>
+    <filter root="/content/cq:graphql/saudiaeds/endpoint"/>
+    <filter root="/conf/saudiaeds/settings/graphql/persistentQueries/booking-engine-by-path"/>
+    <filter root="/conf/saudiaeds/settings/graphql/persistentQueries/story-by-path"/>
 </workspaceFilter>

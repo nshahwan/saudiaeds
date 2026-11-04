@@ -22,14 +22,19 @@ from html import escape as html_escape
 import os
 import shutil
 import zipfile
+from datetime import datetime, timezone
 from xml.sax.saxutils import quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.5.0'
+NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.6.0'
 CONF = '/conf/saudiaeds'
 MODELS = f'{CONF}/settings/dam/cfm/models'
 DAM = '/content/dam/saudiaeds'
 SITE = '/content/saudiaeds'
+# GraphQL endpoint and persisted queries, packaged like waringme/admiral-xwalk tools/cf-package:
+# installing (then replicating) the package creates what the blocks call on publish
+GRAPHQL_ENDPOINT = '/content/cq:graphql/saudiaeds/endpoint'
+PERSISTED_QUERIES = f'{CONF}/settings/graphql/persistentQueries'
 NS = ('xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" '
       'xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"')
 
@@ -45,7 +50,7 @@ def richtext(name, label, required=False, desc=None):
     return dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
                 **{'sling:resourceType': 'dam/cfm/admin/components/authoring/contenteditor/multieditor',
                    'metaType': 'text-multi', 'valueType': 'string', 'default-mime-type': 'text/html',
-                   'cfm-element': 'true'})
+                   'cfm-element': label, 'checked': 'false'})
 
 
 def date(name, label, required=False, desc=None):
@@ -307,6 +312,51 @@ for st in STORIES:
     fragment_files[f"jcr_root{FRAGMENTS}/stories/{st['name']}/.content.xml"] = fragment_xml(
         'story', st['name'], f'{FRAGMENTS}/stories', st['title'], values)
 
+# ---- GraphQL: the endpoint and one persisted query per graphql/*.graphql (the query text is the
+# node's jcr:data binary)
+GRAPHQL_DIR = os.path.join(HERE, 'graphql')
+QUERIES = sorted(f[:-len('.graphql')] for f in os.listdir(GRAPHQL_DIR) if f.endswith('.graphql'))
+BUILT = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
+
+
+def endpoint_xml():
+    return (f'<?xml version="1.0" encoding="UTF-8"?>\n<jcr:root {NS}\n    jcr:primaryType="nt:unstructured"\n'
+            '    jcr:title="saudiaeds Endpoint"\n    sling:resourceType="graphql/sites/components/endpoint"/>\n')
+
+
+def persisted_query_xml():
+    return f'''<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root {NS}
+    jcr:created="{{Date}}{BUILT}"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="graphql/persistent/query">
+    <jcr:content
+        jcr:data="{{Binary}}"
+        jcr:lastModified="{{Date}}{BUILT}"
+        jcr:mimeType="text/html"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="graphql/persistent/query/content"/>
+</jcr:root>
+'''
+
+
+def page_with_content():
+    return f'<?xml version="1.0" encoding="UTF-8"?>\n<jcr:root {NS}\n    jcr:primaryType="cq:Page">\n    <jcr:content jcr:primaryType="nt:unstructured"/>\n</jcr:root>\n'
+
+
+graphql_files = {
+    # ancestors: created only if missing (outside the filter roots)
+    'jcr_root/content/_cq_graphql/.content.xml': simple('sling:Folder'),
+    'jcr_root/content/_cq_graphql/saudiaeds/.content.xml': simple('sling:Folder'),
+    'jcr_root/content/_cq_graphql/saudiaeds/endpoint/.content.xml': endpoint_xml(),
+    'jcr_root/conf/saudiaeds/settings/graphql/.content.xml': page_with_content(),
+    'jcr_root/conf/saudiaeds/settings/graphql/persistentQueries/.content.xml': page_with_content(),
+}
+for q in QUERIES:
+    graphql_files[f'jcr_root{PERSISTED_QUERIES}/{q}/.content.xml'] = persisted_query_xml()
+    graphql_files[f'jcr_root{PERSISTED_QUERIES}/{q}/_jcr_content/_jcr_data.binary'] = open(
+        os.path.join(GRAPHQL_DIR, f'{q}.graphql'), encoding='utf-8').read()
+
 root = os.path.join(HERE, NAME)
 if os.path.isdir(root):
     shutil.rmtree(root)
@@ -318,14 +368,17 @@ files = {
     + f'    <filter root="{DAM}/fragments/booking-links"/>\n'
     # merge: creates the folder and the packaged stories once, never changes or removes
     # Story fragments that already exist there (authors' edits survive a re-install)
-    + f'    <filter root="{DAM}/fragments/stories" mode="merge"/>\n</workspaceFilter>\n',
+    + f'    <filter root="{DAM}/fragments/stories" mode="merge"/>\n'
+    + f'    <filter root="{GRAPHQL_ENDPOINT}"/>\n'
+    + ''.join(f'    <filter root="{PERSISTED_QUERIES}/{q}"/>\n' for q in QUERIES)
+    + '</workspaceFilter>\n',
     'META-INF/vault/properties.xml': f'''<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="name">{NAME}</entry>
 <entry key="group">{GROUP}</entry>
 <entry key="version">{VERSION}</entry>
-<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine and home page Story Content Fragments and the cq:conf of {DAM}.</entry>
+<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine and home page Story Content Fragments, the cq:conf of {DAM}, the GraphQL endpoint and the persisted queries {', '.join(f'saudiaeds/{q}' for q in QUERIES)}.</entry>
 <entry key="packageType">content</entry>
 <entry key="requiresRoot">false</entry>
 <entry key="allowIndexDefinitions">false</entry>
@@ -349,6 +402,7 @@ files = {
 for m, (title, desc, fields) in MODEL_DEFS.items():
     files[f'jcr_root{MODELS}/{m}/.content.xml'] = model_xml(m, title, desc, fields)
 files.update(fragment_files)
+files.update(graphql_files)
 
 for rel, text_ in files.items():
     path = os.path.join(root, rel)
@@ -361,4 +415,5 @@ with zipfile.ZipFile(zpath, 'w', zipfile.ZIP_DEFLATED) as z:
     for rel in sorted(files):
         z.write(os.path.join(root, rel), rel)
 print(zpath, len(files), 'files;', ', '.join(f'{m} ({len(f[2])} fields)' for m, f in MODEL_DEFS.items()),
-      f"; fragments: {len(BOOKING['engines'])} booking engines, {len(BOOKING['links'])} links, {len(STORIES)} stories")
+      f"; fragments: {len(BOOKING['engines'])} booking engines, {len(BOOKING['links'])} links, {len(STORIES)} stories"
+      f"; graphql: endpoint + {', '.join(QUERIES)}")
