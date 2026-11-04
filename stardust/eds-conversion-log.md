@@ -403,3 +403,27 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   one step — the missing step behind publish's `Could not find Persisted Query`.
 - Queries re-validated against the packaged models; 49 XML files parse; packaged query text is
   byte-identical to graphql/*.graphql.
+
+## Stories + Story Content Fragment rebuilt from scratch (2026-11-04)
+
+- Root causes (verified live): publish answers story-by-path (package 1.6.0 installed), but the
+  old block crashed on `pressRelease: null` (destructuring null) and rendered empty cells; each
+  story chained three sources (fragment → scraped press release page → authored fields); cell
+  positions were guessed from the cell count (AEM renders 7 cells); the packaged fragments had
+  no image or link and relied on press release pages that are not in AEM (2 of 3) and whose
+  images are not on publish; no DAM image is on publish.
+- Rebuilt following waringme/eds-reusable-blocks content-fragment: Story model flat — title*,
+  summary, image (ImageRef/DocumentRef), imageAlt, link (site path or URL); persisted query
+  story-by-path with exactly those fields; block = one required Story fragment per item (two
+  positional cells, picker cells kept hidden for the editor), one by-path request each, values
+  as text, http(s)/site-path URLs only, GraphQL errors reported, prompt / failure message in
+  place, UE reference + props on author only. 485 → ~190 lines. Press release page reading moved
+  to stories-folder (its only user). siteRoot content-fragment setting removed (unused).
+- Package 2.0.0: Story model (5 fields), the three home stories complete (images packaged under
+  /content/dam/saudiaeds/images/stories as plain files like admiral-xwalk's images packages;
+  links: press-release-17062025 on the site, the two others on saudia.com), each packaged story
+  its own filter root; homepage package rebuilt (story rows: fragment only).
+- Validated: query against the packaged models' schema; block against live publish (3× 200, no
+  errors; today's fragments have the old shape → titles only until 2.0.0 is installed); packaged
+  values (stand-in) match the baseline layout at 1440 and 360 (only story 3's summary is shorter,
+  now the real summary); edge cases; Stories Folder and live booking unchanged; UE probe 100%; lint.

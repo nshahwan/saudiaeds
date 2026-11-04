@@ -19,11 +19,9 @@ module.exports = {
     'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
     'no-param-reassign': [2, { props: false }], // allow modifying properties of param
     // the "Text style" options (tools/text-options) are classes_* fields — block classes, not
-    // cells — and the section model renders as key-value section metadata, not as cells;
-    // story: 6 cells (fragment + its hidden variation, press release, image, mobile image, text)
-    // + its Text style classes
+    // cells — and the section model renders as key-value section metadata, not as cells
     'xwalk/max-cells': ['error', {
-      '*': 4, section: 14, story: 7,
+      '*': 4, section: 14,
     }],
   },
 };

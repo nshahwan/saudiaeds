@@ -8,7 +8,10 @@
     <filter root="/content/dam/saudiaeds/jcr:content" mode="merge_properties"/>
     <filter root="/content/dam/saudiaeds/fragments/booking-engine"/>
     <filter root="/content/dam/saudiaeds/fragments/booking-links"/>
-    <filter root="/content/dam/saudiaeds/fragments/stories" mode="merge"/>
+    <filter root="/content/dam/saudiaeds/fragments/stories/thaqafeyah-in-flight-entertainment"/>
+    <filter root="/content/dam/saudiaeds/fragments/stories/skytrax-2025-best-airline-staff-service"/>
+    <filter root="/content/dam/saudiaeds/fragments/stories/skytrax-2026-top-15-airlines"/>
+    <filter root="/content/dam/saudiaeds/images/stories" mode="update"/>
     <filter root="/content/cq:graphql/saudiaeds/endpoint"/>
     <filter root="/conf/saudiaeds/settings/graphql/persistentQueries/booking-engine-by-path"/>
     <filter root="/conf/saudiaeds/settings/graphql/persistentQueries/story-by-path"/>

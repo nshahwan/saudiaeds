@@ -27,9 +27,7 @@
  * @ew-exempt all — index-driven listing; the block's only authored content is its config (EW5 c)
  */
 import { loadCSS } from '../../scripts/aem.js';
-import {
-  readStoryPage, storyItem, storyPicture, storyText, usable,
-} from '../stories/stories.js';
+import { storyItem, storyText } from '../stories/stories.js';
 
 const settings = () => window.edsReusableBlocks?.storiesFolder || {};
 const SETTINGS = ['folder', 'count', 'category'];
@@ -85,6 +83,95 @@ function readConfig(block) {
     }
   });
   return config;
+}
+
+/**
+ * an image URL this page can show: not a broken reference, and on AEM author not an Edge
+ * Delivery media URL (./media_… only exists on the published site; author serves the DAM)
+ */
+const usable = (src) => Boolean(src) && !src.startsWith('about:')
+  && !/\/default-meta-image\.(png|jpe?g)/.test(src)
+  && !(authorRoot() && /\/media_[0-9a-f]+\./.test(src));
+
+/** <picture> for a story image; Edge Delivery media get the usual optimised renditions */
+function storyPicture(src) {
+  const url = new URL(src, window.location.href);
+  const pic = document.createElement('picture');
+  const img = document.createElement('img');
+  img.alt = '';
+  img.loading = 'lazy';
+  if (url.origin === window.location.origin && /\/media_/.test(url.pathname)) {
+    const source = document.createElement('source');
+    source.type = 'image/webp';
+    source.srcset = `${url.pathname}?width=750&format=webply&optimize=medium`;
+    pic.append(source);
+    const format = url.pathname.endsWith('.png') ? 'png' : 'jpg';
+    img.src = `${url.pathname}?width=750&format=${format}&optimize=medium`;
+  } else {
+    img.src = url.href;
+  }
+  // an image that fails to load drops its slot rather than showing a broken icon
+  img.addEventListener('error', () => pic.closest('.stories__pic')?.remove(), { once: true });
+  pic.append(img);
+  return pic;
+}
+
+/** published pages answer on their path, the local preview serves them under /content */
+async function fetchPage(href) {
+  const { pathname } = new URL(href, window.location.href);
+  const local = !authorRoot() && window.location.pathname.startsWith('/content/')
+    && !pathname.startsWith('/content/');
+  const resp = await fetch(href).catch(() => null);
+  if (resp?.ok || !local) return resp;
+  return fetch(`/content${pathname}`).catch(() => null);
+}
+
+/**
+ * what a page offers as a story: its card properties and description (head meta), its first
+ * heading, and its images (Image / Card mobile image properties, else its article or hero image)
+ * @param {string} href the page (author pages need .html)
+ * @returns {Promise<object|null>} null when the page can't be read
+ */
+async function readStoryPage(href) {
+  const resp = await fetchPage(href);
+  if (!resp?.ok) return null;
+  const doc = new DOMParser().parseFromString(await resp.text(), 'text/html');
+  const base = new URL(resp.url, window.location.origin);
+  // keep the query: author image URLs can carry rendition parameters
+  const local = (src) => {
+    const u = new URL(src, base);
+    return u.origin === window.location.origin ? `${u.pathname}${u.search}` : u.href;
+  };
+  const meta = (name) => doc.head.querySelector(`meta[name="${name}"], meta[property="${name}"]`)
+    ?.getAttribute('content')?.trim();
+  const main = doc.querySelector('main') || doc.body;
+  const images = (selector) => [...main.querySelectorAll(selector)]
+    .filter((img) => usable(img.getAttribute('src')));
+  const [hero, heroMobile] = images('.hero img');
+  const all = images('img');
+  // many press releases share a generic hero banner: the article's own image comes first
+  const pick = all.find((img) => !img.closest('.hero')) || hero;
+  const pathOf = (src) => new URL(src, base).pathname;
+  // published: og:image is the page's Image property, else its first image (not a choice);
+  // author pages fill og:image with a site default
+  const shareImage = usable(meta('og:image')) ? local(meta('og:image')) : '';
+  const chosen = !authorRoot() && shareImage
+    && (!all[0] || pathOf(shareImage) !== pathOf(all[0].getAttribute('src'))) ? shareImage : '';
+  const pageImage = pick ? local(pick.getAttribute('src')) : '';
+  const mobileMeta = meta('story-mobile-image');
+  return {
+    heading: main.querySelector('h1, h2')?.textContent.trim(),
+    description: meta('description'),
+    // Card page properties (the cards-folder convention); Story ones from before as fallback
+    cardTitle: meta('card-title') || meta('story-title'),
+    cardSummary: meta('card-summary') || meta('story-summary'),
+    cardLinkText: meta('card-link-text') || meta('story-link-text'),
+    cardOrder: meta('card-order') ?? meta('story-order'),
+    image: chosen || pageImage || shareImage,
+    // the hero's mobile rendition only goes with the hero
+    mobileImage: (usable(mobileMeta) && local(mobileMeta))
+      || (!chosen && pick === hero && heroMobile ? local(heroMobile.getAttribute('src')) : ''),
+  };
 }
 
 /** page titles carry the site name ("Saudia | …" or "… - Saudia"); the story heading drops it */

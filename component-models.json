@@ -10492,8 +10492,9 @@
         "valueType": "string",
         "name": "fragment",
         "label": "Story content fragment",
-        "description": "Optional: a Story fragment. It supplies the story (the press release it references fills what it leaves empty); the press release and fields below are then not used.",
+        "description": "A Story fragment: its title, summary, image and link make the story.",
         "rootPath": "/content/dam/saudiaeds/fragments/stories",
+        "required": true,
         "variationName": "fragmentVariation",
         "validation": {
           "rootPath": "/content/dam/saudiaeds/fragments/stories"
@@ -10514,48 +10515,6 @@
             true
           ]
         }
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "pressRelease",
-        "label": "Press release",
-        "description": "Pick the press release this story shows (when no story fragment is picked): its title, summary, images and link are taken from it, and change when you pick another one. The fields below are only used when neither is picked."
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image (desktop, only used without a fragment or press release)",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "mobileImage",
-        "label": "Image (mobile, only used without a fragment or press release)",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "mobileImageAlt",
-        "label": "Mobile alt",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text (title, summary, link; only used without a fragment or press release)",
-        "valueType": "string"
       },
       {
         "component": "tab",

@@ -13,10 +13,9 @@
             <master
                 jcr:primaryType="nt:unstructured"
                 title="Saudia Enriches In-Flight Entertainment with Cultural Content from Thaqafeyah"
-                summary="&lt;p&gt;As part of the airlines’ ongoing efforts to showcase Saudi culture&lt;/p&gt;"
-                pressRelease="/content/saudiaeds/en/about-us/press-releases/press-release-05052025-3"
-                linkText="Learn more"
-                summary_x0040_ContentType="text/html"/>
+                summary="As part of the airlines’ ongoing efforts to showcase Saudi culture"
+                link="https://www.saudia.com/en-SA/about-us/press-releases/press-release-05052025-3"
+                image="/content/dam/saudiaeds/images/stories/Saudia-X-Thaqafeyah-e09010.jpg"/>
         </data>
         <metadata jcr:primaryType="nt:unstructured"/>
         <related jcr:primaryType="nt:unstructured"/>

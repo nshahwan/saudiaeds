@@ -13,10 +13,9 @@
             <master
                 jcr:primaryType="nt:unstructured"
                 title="Saudia Ranks Among World’s Top 15 Airlines and Wins Two Skytrax Awards in 2026"
-                summary="&lt;p&gt;Reflecting continued progress in guest experience and service excellence&lt;/p&gt;"
-                pressRelease="/content/saudiaeds/en/about-us/press-releases/press-release-18092026"
-                linkText="Learn more"
-                summary_x0040_ContentType="text/html"/>
+                summary="Reflecting continued progress in guest experience and service excellence"
+                link="https://www.saudia.com/en-SA/about-us/press-releases/press-release-18092026"
+                image="/content/dam/saudiaeds/images/stories/Saudia-at-SkyTrax-2026-7680c6.jpg"/>
         </data>
         <metadata jcr:primaryType="nt:unstructured"/>
         <related jcr:primaryType="nt:unstructured"/>

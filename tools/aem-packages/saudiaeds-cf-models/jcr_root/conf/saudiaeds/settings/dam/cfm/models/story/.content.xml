@@ -35,7 +35,7 @@
                             name="title"
                             fieldLabel="Title"
                             required="on"
-                            fieldDescription='e.g. "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards".'
+                            fieldDescription="The story heading."
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             metaType="text-single"
                             valueType="string"
@@ -48,32 +48,18 @@
                             name="summary"
                             fieldLabel="Summary"
                             fieldDescription="One or two sentences under the title."
-                            sling:resourceType="dam/cfm/admin/components/authoring/contenteditor/multieditor"
-                            metaType="text-multi"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            metaType="text-single"
                             valueType="string"
-                            default-mime-type="text/html"
-                            cfm-element="Summary"
-                            checked="false"/>
+                            maxlength="500"/>
                         <image
                             jcr:primaryType="nt:unstructured"
                             listOrder="3"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             name="image"
-                            fieldLabel="Image (desktop)"
-                            sling:resourceType="dam/cfm/models/editor/components/contentreference"
-                            metaType="reference"
-                            valueType="string"
-                            rootPath="/content/dam/saudiaeds"
-                            showThumbnail="true"/>
-                        <imageMobile
-                            jcr:primaryType="nt:unstructured"
-                            listOrder="4"
-                            renderReadOnly="false"
-                            showEmptyInReadOnly="true"
-                            name="imageMobile"
-                            fieldLabel="Image (mobile)"
-                            fieldDescription="Optional; the desktop image is used when empty."
+                            fieldLabel="Image"
+                            fieldDescription="Shown beside the text on desktop, above it on mobile."
                             sling:resourceType="dam/cfm/models/editor/components/contentreference"
                             metaType="reference"
                             valueType="string"
@@ -81,52 +67,28 @@
                             showThumbnail="true"/>
                         <imageAlt
                             jcr:primaryType="nt:unstructured"
-                            listOrder="5"
+                            listOrder="4"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             name="imageAlt"
                             fieldLabel="Image alt text"
+                            fieldDescription="Leave empty when the image only illustrates the heading."
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             metaType="text-single"
                             valueType="string"
                             maxlength="500"/>
-                        <pressRelease
-                            jcr:primaryType="nt:unstructured"
-                            listOrder="6"
-                            renderReadOnly="false"
-                            showEmptyInReadOnly="true"
-                            name="pressRelease"
-                            fieldLabel="Press release"
-                            fieldDescription="Optional: the press release page the story is about; the story links to it."
-                            sling:resourceType="dam/cfm/models/editor/components/contentreference"
-                            metaType="reference"
-                            valueType="string"
-                            rootPath="/content/saudiaeds"
-                            showThumbnail="false"/>
                         <link
                             jcr:primaryType="nt:unstructured"
-                            listOrder="7"
+                            listOrder="5"
                             renderReadOnly="false"
                             showEmptyInReadOnly="true"
                             name="link"
                             fieldLabel="Link"
-                            fieldDescription="Where the story links to when no press release is picked (a page path or a full URL)."
+                            fieldDescription='Where "Learn more" goes: a site path (/en/…) or a full URL.'
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                             metaType="text-single"
                             valueType="string"
                             maxlength="2000"/>
-                        <linkText
-                            jcr:primaryType="nt:unstructured"
-                            listOrder="8"
-                            renderReadOnly="false"
-                            showEmptyInReadOnly="true"
-                            name="linkText"
-                            fieldLabel="Link text"
-                            fieldDescription='Defaults to "Learn more".'
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            metaType="text-single"
-                            valueType="string"
-                            maxlength="255"/>
                     </items>
                 </content>
             </cq:dialog>

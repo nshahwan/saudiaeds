@@ -18,7 +18,6 @@ reference, /content/dam/saudiaeds/fragments/booking-links/<name>.
 usage: python3 tools/aem-packages/build-cf-models.py
 """
 import json
-from html import escape as html_escape
 import os
 import shutil
 import zipfile
@@ -26,11 +25,12 @@ from datetime import datetime, timezone
 from xml.sax.saxutils import quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '1.6.0'
+NAME, GROUP, VERSION = 'saudiaeds-cf-models', 'saudiaeds', '2.0.0'
 CONF = '/conf/saudiaeds'
 MODELS = f'{CONF}/settings/dam/cfm/models'
 DAM = '/content/dam/saudiaeds'
-SITE = '/content/saudiaeds'
+# the story images, packaged as plain files like waringme/admiral-xwalk's images packages
+STORY_IMAGES = f'{DAM}/images/stories'
 # GraphQL endpoint and persisted queries, packaged like waringme/admiral-xwalk tools/cf-package:
 # installing (then replicating) the package creates what the blocks call on publish
 GRAPHQL_ENDPOINT = '/content/cq:graphql/saudiaeds/endpoint'
@@ -70,14 +70,6 @@ def asset(name, label, required=False, desc=None, documents=False):
     if documents:
         del field['validation']
     return field
-
-
-def page(name, label, required=False, desc=None):
-    """a reference to a site page (content path, no asset validation)"""
-    return dict(name=name, fieldLabel=label, required=required, fieldDescription=desc,
-                **{'sling:resourceType': 'dam/cfm/models/editor/components/contentreference',
-                   'metaType': 'reference', 'valueType': 'string', 'rootPath': SITE,
-                   'showThumbnail': 'false'})
 
 
 def fragments(name, label, model, desc=None):
@@ -150,18 +142,17 @@ MODEL_DEFS = {
         richtext('itinerary', 'Itinerary'),
         fragments('faqs', 'FAQs', 'faq-item', 'Questions shown in the FAQ section, in order.'),
     ]),
+    # one story of the home "Exceptional experiences with Saudia" list: heading, one-line summary,
+    # image and the "Learn more" link — flat, no references to other fragments or pages
     'story': ('Story', 'One story in a stories list (home "Exceptional experiences with Saudia").', [
-        text('title', 'Title', True, desc='e.g. "Saudia Named “Best Airline Staff Service” at the 2025 Skytrax Awards".'),
-        richtext('summary', 'Summary', desc='One or two sentences under the title.'),
-        asset('image', 'Image (desktop)', documents=True),
-        asset('imageMobile', 'Image (mobile)', desc='Optional; the desktop image is used when empty.',
+        text('title', 'Title', True, desc='The story heading.'),
+        text('summary', 'Summary', desc='One or two sentences under the title.', maxlength=500),
+        asset('image', 'Image', desc='Shown beside the text on desktop, above it on mobile.',
               documents=True),
-        text('imageAlt', 'Image alt text', maxlength=500),
-        page('pressRelease', 'Press release',
-             desc='Optional: the press release page the story is about; the story links to it.'),
-        text('link', 'Link', desc='Where the story links to when no press release is picked '
-             '(a page path or a full URL).', maxlength=2000),
-        text('linkText', 'Link text', desc='Defaults to "Learn more".'),
+        text('imageAlt', 'Image alt text', maxlength=500,
+             desc='Leave empty when the image only illustrates the heading.'),
+        text('link', 'Link', desc='Where "Learn more" goes: a site path (/en/…) or a full URL.',
+             maxlength=2000),
     ]),
 }
 
@@ -301,14 +292,18 @@ for e in BOOKING['engines']:
         'booking-engine', e['name'], f'{FRAGMENTS}/booking-engine', e['title'], values)
 
 # ---- story content fragments (the home page stories; created once, the folder is merged) ----
-STORIES = json.load(open(os.path.join(HERE, 'story-fragments.json'), encoding='utf-8'))['stories']
+STORY_DATA = json.load(open(os.path.join(HERE, 'story-fragments.json'), encoding='utf-8'))
+STORIES = STORY_DATA['stories']
+IMAGES_FROM = os.path.join(HERE, '..', '..', STORY_DATA['imagesFrom'])
+binary_files = {}  # package path -> bytes (the story images)
+fragment_files[f'jcr_root{DAM}/images/.content.xml'] = folder_xml('Images')
+fragment_files[f'jcr_root{STORY_IMAGES}/.content.xml'] = folder_xml('Stories')
 for st in STORIES:
-    values = {k: st[k] for k in ('title', 'summary', 'image', 'imageMobile', 'imageAlt', 'pressRelease',
-                                 'link', 'linkText') if st.get(k)}
-    if values.get('summary'):
-        # multi-line text: HTML, with its content type (summary@ContentType, '@' escaped by FileVault)
-        values['summary'] = f"<p>{html_escape(values['summary'], quote=False)}</p>"
-        values['summary_x0040_ContentType'] = 'text/html'
+    values = {k: st[k] for k in ('title', 'summary', 'imageAlt', 'link') if st.get(k)}
+    if st.get('image'):
+        values['image'] = f"{STORY_IMAGES}/{st['image']}"
+        binary_files[f"jcr_root{STORY_IMAGES}/{st['image']}"] = open(
+            os.path.join(IMAGES_FROM, st['image']), 'rb').read()
     fragment_files[f"jcr_root{FRAGMENTS}/stories/{st['name']}/.content.xml"] = fragment_xml(
         'story', st['name'], f'{FRAGMENTS}/stories', st['title'], values)
 
@@ -366,9 +361,10 @@ files = {
     + f'    <filter root="{DAM}/jcr:content" mode="merge_properties"/>\n'
     + f'    <filter root="{DAM}/fragments/booking-engine"/>\n'
     + f'    <filter root="{DAM}/fragments/booking-links"/>\n'
-    # merge: creates the folder and the packaged stories once, never changes or removes
-    # Story fragments that already exist there (authors' edits survive a re-install)
-    + f'    <filter root="{DAM}/fragments/stories" mode="merge"/>\n'
+    # each packaged story (re-installing restores it); other Story fragments in the folder are
+    # never touched; the story images folder is updated, never emptied
+    + ''.join(f'    <filter root="{FRAGMENTS}/stories/{st["name"]}"/>\n' for st in STORIES)
+    + f'    <filter root="{STORY_IMAGES}" mode="update"/>\n'
     + f'    <filter root="{GRAPHQL_ENDPOINT}"/>\n'
     + ''.join(f'    <filter root="{PERSISTED_QUERIES}/{q}"/>\n' for q in QUERIES)
     + '</workspaceFilter>\n',
@@ -378,7 +374,7 @@ files = {
 <entry key="name">{NAME}</entry>
 <entry key="group">{GROUP}</entry>
 <entry key="version">{VERSION}</entry>
-<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine and home page Story Content Fragments, the cq:conf of {DAM}, the GraphQL endpoint and the persisted queries {', '.join(f'saudiaeds/{q}' for q in QUERIES)}.</entry>
+<entry key="description">Saudia Content Fragment Models (destination, FAQ item, booking engine, booking link, story), the booking engine and home page Story Content Fragments (with their images), the cq:conf of {DAM}, the GraphQL endpoint and the persisted queries {', '.join(f'saudiaeds/{q}' for q in QUERIES)}.</entry>
 <entry key="packageType">content</entry>
 <entry key="requiresRoot">false</entry>
 <entry key="allowIndexDefinitions">false</entry>
@@ -408,11 +404,15 @@ for rel, text_ in files.items():
     path = os.path.join(root, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, 'w', encoding='utf-8').write(text_)
+for rel, data in binary_files.items():
+    path = os.path.join(root, rel)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, 'wb').write(data)
 
 os.makedirs(os.path.join(HERE, 'dist'), exist_ok=True)
 zpath = os.path.join(HERE, 'dist', f'{NAME}-{VERSION}.zip')
 with zipfile.ZipFile(zpath, 'w', zipfile.ZIP_DEFLATED) as z:
-    for rel in sorted(files):
+    for rel in sorted({**files, **binary_files}):
         z.write(os.path.join(root, rel), rel)
 print(zpath, len(files), 'files;', ', '.join(f'{m} ({len(f[2])} fields)' for m, f in MODEL_DEFS.items()),
       f"; fragments: {len(BOOKING['engines'])} booking engines, {len(BOOKING['links'])} links, {len(STORIES)} stories"
