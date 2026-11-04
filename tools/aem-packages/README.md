@@ -131,17 +131,30 @@ One-time setup on AEM:
    *GraphQL Persisted Queries*.
 2. Install this package (models, fragments, `cq:conf` on the DAM folder).
 3. **Tools › General › GraphQL**: create an endpoint for the `saudiaeds` configuration.
-4. Persist the query — from your own terminal, with your own credentials:
-   `AEM_TOKEN=<access token> tools/aem-packages/persist-queries.sh` (or paste
-   `graphql/booking-engine-by-path.graphql` into **Tools › GraphQL Query Editor** and save it
-   as `booking-engine-by-path` in `saudiaeds`).
-5. **Publish** the models, the two fragment folders, the endpoint and the persisted query.
+4. Persist **and publish** both queries — from your own terminal, with your own credentials:
+   `PUBLISH=1 AEM_TOKEN=<access token> tools/aem-packages/persist-queries.sh` (or paste each
+   `graphql/<name>.graphql` into **Tools › GraphQL Query Editor**, save it as `<name>` in
+   `saudiaeds`, then **Publish** it). The script ends by calling both queries on publish the way
+   the site does, and exits non-zero until they answer with data and a CORS header.
+5. **Publish** the models, the fragment folders (booking engine, booking links, stories) and the
+   fragments in them, and the endpoint.
 6. CORS: the site (`*.aem.page`, `*.aem.live`, the production domain) must be allowed to call
-   `https://publish-p208666-e2180259.adobeaemcloud.com/graphql/execute.json/*` — check with
-   `curl -H "Origin: https://main--saudiaeds--nshahwan.aem.page" -I
-   "https://publish-p208666-e2180259.adobeaemcloud.com/graphql/execute.json/saudiaeds/booking-engine-by-path;path=/content/dam/saudiaeds/fragments/booking-engine/home"`
-   — the response needs an `Access-Control-Allow-Origin` header; if it has none, add a CORS
-   policy for those origins in the AEM project's OSGi configuration.
+   `https://publish-p208666-e2180259.adobeaemcloud.com/graphql/execute.json/*`. Checked on
+   2026-11-04: publish already answers the preview origin with `Access-Control-Allow-Origin`;
+   check the live and production origins the same way (`ORIGIN=… persist-queries.sh`, or
+   `curl -H "Origin: <origin>" -I "<publish>/graphql/execute.json/saudiaeds/booking-engine-by-path;path=/content/dam/saudiaeds/fragments/booking-engine/home"`).
+
+**Troubleshooting** — the blocks report AEM's GraphQL error (on author in the message, on the
+site in the console):
+
+- `PersistenceError: Could not find Persisted Query` — the query is not persisted under
+  `saudiaeds`, or persisted on author but **not published**: step 4 (this is the state on
+  2026-11-04 for both queries).
+- `… does not resolve to an existing Persisted Query` with another configuration name — the
+  `queryNamespace` setting (scripts.js) and the configuration the query is saved in differ.
+- a GraphQL validation error when persisting — the models on AEM differ from this package
+  (re-install it); the queries are validated against the packaged models' schema before release.
+- no `Access-Control-Allow-Origin` — step 6.
 
 Then edit a fragment (e.g. rename a tab in `booking-engine/home`), publish it, and the home
 page's booking engine shows the change — no page edit needed. In Universal Editor, select the

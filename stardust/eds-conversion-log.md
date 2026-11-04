@@ -375,3 +375,18 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   variation normalisation, 2-row and legacy rows, prompt, wrong-model failure; UE probe home +
   Abha; lint.
 - homepage package rebuilt (booking block: fragment only): saudiaeds-pages-homepage-2026.11.04-0729.zip; all 11 booking pages' local content converted to the 2-row booking model (they convert to JCR again).
+
+## GraphQL: diagnosis and fixes (2026-11-04)
+
+- Publish answers both persisted queries with HTTP 404 `PersistenceError: Could not find
+  Persisted Query` (configuration `saudiaeds` resolves; the queries are not persisted/published).
+  CORS is already fine for the main preview origin. The author is not reachable from the
+  workspace (401), so persisting/publishing has to be run with the user's credentials.
+- Both queries validated with graphql-js against a schema derived from the packaged CF models
+  (AEM naming: BookingEngineModel / bookingEngineByPath, StoryModel / storyByPath, …): valid;
+  the check rejects broken field names.
+- Blocks (booking, stories) now report AEM's GraphQL `errors` (errorType: message) instead of a
+  bare status / "not a … fragment".
+- persist-queries.sh: documented JSON body ({"query": …}), optional PUBLISH=1 (replication of
+  /conf/saudiaeds/settings/graphql/persistentQueries/<name>), and a final check on publish with the
+  site's request and origin (non-zero exit until data + CORS). README: troubleshooting.

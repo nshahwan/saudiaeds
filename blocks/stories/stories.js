@@ -285,8 +285,13 @@ async function loadStoryFragment(path, variation) {
       credentials: host ? 'omit' : 'same-origin',
       signal: ctl.signal,
     });
+    // AEM answers GraphQL problems (e.g. a query that isn't persisted or published) with an
+    // `errors` array, whatever the status: report its messages rather than a bare status
+    const json = await resp.json().catch(() => null);
+    const errors = (json?.errors || []).map((e) => [e.errorType, e.message].filter(Boolean).join(': '));
+    if (errors.length) throw new Error(`${namespace}/${name}: ${errors.join('; ')}`);
     if (!resp.ok) throw new Error(`${resp.status} ${namespace}/${name}`);
-    const item = (await resp.json())?.data?.[field]?.item;
+    const item = json?.data?.[field]?.item;
     if (!item) throw new Error('not a Story fragment');
     return item;
   } finally {
