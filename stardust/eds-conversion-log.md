@@ -427,3 +427,26 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   errors; today's fragments have the old shape → titles only until 2.0.0 is installed); packaged
   values (stand-in) match the baseline layout at 1440 and 360 (only story 3's summary is shorter,
   now the real summary); edge cases; Stories Folder and live booking unchanged; UE probe 100%; lint.
+
+## Home: Explore destination cards (2026-11-10)
+
+- User request: a reusable Cards block showing the Explore folder, after "Exclusive Offers for
+  You". The reference library (waringme/eds-reusable-blocks) has no plain cards block; its
+  cards-folder lists pages from the query index, but the published index has no Explore pages
+  and none of the nine Explore pages is published (404 on preview and live), so a listing would
+  be empty. Used the project's existing authored `cards` block (Classes of Travel) instead.
+- `cards` block model: new Layout option "Title below the image" (class `stacked` — a hyphenated
+  `title-below` became classes "title below" in md2jcr). CSS only, scoped to `.cards.stacked`:
+  title under the image, 1 / 2 (600px) / 3 (900px) per row, section head as the home offers
+  head. No JS change; Classes of Travel unchanged.
+- Home section "Your summer is a world of choices" (heading of the live Explore landing): nine
+  cards = the nine en Explore pages (saudia-new-destinations-2026/fly-to-*), live landing order;
+  image = each page's own card photo (670×423) or its mobile hero (Salalah, Mykonos, Bodrum);
+  title = destination; description and "Book Now" = the live landing card. Red Sea (links to a
+  holidays page, not Explore) left out.
+- Verified at 1440 / 768 / 360: 9 cards, 3 / 2 / 1 per row, images load, links, focus outline,
+  no card overflow (the 360px page overflow is the carousel / booking / fares blocks); Classes
+  of Travel unchanged; UE probe 107/107 + 12/12; JCR conversion; lint.
+- Found on the way: publish answers story-by-path with 500 (FieldUndefined pressRelease /
+  linkText): the 2.0.0 Story model is on publish, the old persisted query too — replicate the
+  2.0.0 query (or persist-queries.sh).

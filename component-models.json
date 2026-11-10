@@ -2749,6 +2749,29 @@
     "fields": [
       {
         "component": "tab",
+        "label": "Content",
+        "name": "content-tab"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "",
+        "description": "Where the card title goes.",
+        "options": [
+          {
+            "name": "Title over the image (default)",
+            "value": ""
+          },
+          {
+            "name": "Title below the image",
+            "value": "stacked"
+          }
+        ]
+      },
+      {
+        "component": "tab",
         "label": "Text style",
         "name": "text-style-tab"
       },
