@@ -462,3 +462,15 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   var(--text) under body.theme-light (as the stories), CTA a green button (var(--green), white
   16/24 600 text, darker on hover; contrast 5.1:1), focus outline #08b35f. Classes of Travel
   (default layout) unchanged.
+
+## Explore pages package (2026-11-10)
+
+- "Publish the Explore pages": admin preview of all nine fly-to-* pages answers 404
+  AEM_BACKEND_FETCH_FAILED — the pages are not in the AEM author (they only exist in the
+  workspace). Nothing was previewed or published.
+- build-page-package.py `--new <root>`: new pages with their parent pages (minimal, titled after
+  the folder) and the DAM images they reference, filter mode merge (creates what is missing,
+  never changes or removes existing pages or assets). dist/saudiaeds-pages-explore-2026.11.10-1021.zip:
+  /content/saudiaeds/en/explore (+ saudia-new-destinations-2026, nine fly-to-* pages) and 39
+  images under /content/dam/saudiaeds/explore (16.8 MB). After it is installed, the pages can be
+  previewed and published through the admin API.
