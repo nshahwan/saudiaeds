@@ -8,3 +8,4 @@ test/*
 _*
 stardust/
 tools/aem-packages/
+catalog/

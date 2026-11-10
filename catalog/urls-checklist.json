@@ -1,0 +1,623 @@
+{
+  "analysis-urls-checklist": {
+    "captured": "2026-10-06T15:46:26.964Z",
+    "totalPages": 150,
+    "statusBreakdown": {
+      "marked": 148,
+      "analyzed": 0,
+      "failed": 2
+    },
+    "pages": {
+      "https://www.saudia.com/en": {
+        "url": "https://www.saudia.com/en",
+        "status": "failed",
+        "analyzedAt": "2026-10-06T15:46:35.980Z",
+        "slug": "www_saudia_com_en--ff777f52",
+        "title": null,
+        "blockCount": 0,
+        "pageStatus": "HTTP_403"
+      },
+      "https://www.saudia.com/ar": {
+        "url": "https://www.saudia.com/ar",
+        "status": "failed",
+        "analyzedAt": "2026-10-06T15:46:57.563Z",
+        "slug": "www_saudia_com_ar--148cbfda",
+        "title": null,
+        "blockCount": 0,
+        "pageStatus": "IMPERVA"
+      },
+      "https://www.saudia.com/en-SA": {
+        "url": "https://www.saudia.com/en-SA",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA": {
+        "url": "https://www.saudia.com/ar-SA",
+        "status": "marked"
+      },
+      "https://www.saudia.com/": {
+        "url": "https://www.saudia.com/",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/about-us/press-releases/2024/06/press-release-25062024": {
+        "url": "https://www.saudia.com/ar-SA/about-us/press-releases/2024/06/press-release-25062024",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/about-us/soar-program": {
+        "url": "https://www.saudia.com/ar-SA/about-us/soar-program",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/explore/saudia-new-destinations-2026/fly-to-abha": {
+        "url": "https://www.saudia.com/ar-SA/explore/saudia-new-destinations-2026/fly-to-abha",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/explore/saudia-warm-destinations-dec-2025/fly-to-redsea": {
+        "url": "https://www.saudia.com/ar-SA/explore/saudia-warm-destinations-dec-2025/fly-to-redsea",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/loyalty/partner-offers/buy-miles-sep26": {
+        "url": "https://www.saudia.com/ar-SA/loyalty/partner-offers/buy-miles-sep26",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/loyalty/chooseAlfursanCreditCard": {
+        "url": "https://www.saudia.com/ar-SA/loyalty/chooseAlfursanCreditCard",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/%D8%B9%D8%B1%D9%88%D8%B6-%D8%A7%D9%84%D8%B1%D8%AD%D9%84%D8%A7%D8%AA": {
+        "url": "https://www.saudia.com/ar/%D8%B9%D8%B1%D9%88%D8%B6-%D8%A7%D9%84%D8%B1%D8%AD%D9%84%D8%A7%D8%AA",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/flight-deals-hot-deals": {
+        "url": "https://www.saudia.com/ar/flight-deals-hot-deals",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/flight-deals-from-abu-dhabi-to-umrah": {
+        "url": "https://www.saudia.com/ar/flight-deals-from-abu-dhabi-to-umrah",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/%D8%B9%D8%B1%D9%88%D8%B6-%D8%A7%D9%84%D8%B1%D8%AD%D9%84%D8%A7%D8%AA-%D9%86%D9%8A%D8%B3-%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9": {
+        "url": "https://www.saudia.com/ar/%D8%B9%D8%B1%D9%88%D8%B6-%D8%A7%D9%84%D8%B1%D8%AD%D9%84%D8%A7%D8%AA-%D9%86%D9%8A%D8%B3-%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/flight-deals-to-islands-getaways": {
+        "url": "https://www.saudia.com/ar/flight-deals-to-islands-getaways",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/%D8%B9%D8%B1%D9%88%D8%B6-%D8%A7%D9%84%D8%B1%D8%AD%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%89-%D8%A5%D8%B3%D9%84%D8%A7%D9%85-%D8%A3%D8%A8%D8%A7%D8%AF": {
+        "url": "https://www.saudia.com/ar/%D8%B9%D8%B1%D9%88%D8%B6-%D8%A7%D9%84%D8%B1%D8%AD%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D9%89-%D8%A5%D8%B3%D9%84%D8%A7%D9%85-%D8%A3%D8%A8%D8%A7%D8%AF",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/sitemap/%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A7%D9%86/page-1": {
+        "url": "https://www.saudia.com/ar/sitemap/%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A7%D9%86/page-1",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/sitemap/%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D8%A5%D9%84%D9%89-%D9%85%D8%AF%D9%8A%D9%86%D8%A9/page-8": {
+        "url": "https://www.saudia.com/ar/sitemap/%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D8%A5%D9%84%D9%89-%D9%85%D8%AF%D9%8A%D9%86%D8%A9/page-8",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/about-us/press-releases/2024/06/press-release-25062024": {
+        "url": "https://www.saudia.com/en-SA/about-us/press-releases/2024/06/press-release-25062024",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/about-us/press-releases/press-release-05042026": {
+        "url": "https://www.saudia.com/en-SA/about-us/press-releases/press-release-05042026",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/alfursan-information/family-member-program": {
+        "url": "https://www.saudia.com/en-SA/alfursan-information/family-member-program",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/alfursan-information/partners/financial-partners/rize": {
+        "url": "https://www.saudia.com/en-SA/alfursan-information/partners/financial-partners/rize",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/alfursan-information/partners/hotel-partners/anantara": {
+        "url": "https://www.saudia.com/en-SA/alfursan-information/partners/hotel-partners/anantara",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/alfursan-information/partners/other-carriers/alfursan-etihad-airways": {
+        "url": "https://www.saudia.com/en-SA/alfursan-information/partners/other-carriers/alfursan-etihad-airways",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/the-bicester-collection": {
+        "url": "https://www.saudia.com/en-SA/alfursan-information/partners/retail-and-lifestyle-partners/the-bicester-collection",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/ancillaries/seatselector": {
+        "url": "https://www.saudia.com/en-SA/ancillaries/seatselector",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/ancillaries/wifiFlow": {
+        "url": "https://www.saudia.com/en-SA/ancillaries/wifiFlow",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/before-flying/special-assistance/special-care": {
+        "url": "https://www.saudia.com/en-SA/before-flying/special-assistance/special-care",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/before-flying/travel-information/announcements-and-travel-updates": {
+        "url": "https://www.saudia.com/en-SA/before-flying/travel-information/announcements-and-travel-updates",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book/flight-information/travelling-with-pets": {
+        "url": "https://www.saudia.com/en-SA/book/flight-information/travelling-with-pets",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book/special-assistance/special-meals": {
+        "url": "https://www.saudia.com/en-SA/book/special-assistance/special-meals",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book/travel-information/guidance-and-tips": {
+        "url": "https://www.saudia.com/en-SA/book/travel-information/guidance-and-tips",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book-and-manage/book/travel-insurance": {
+        "url": "https://www.saudia.com/en-SA/book-and-manage/book/travel-insurance",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book-and-manage/manage/manage-booking": {
+        "url": "https://www.saudia.com/en-SA/book-and-manage/manage/manage-booking",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book-n-manage/manage/ancillary": {
+        "url": "https://www.saudia.com/en-SA/book-n-manage/manage/ancillary",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/book-n-manage/travel-services/private-aircrafts": {
+        "url": "https://www.saudia.com/en-SA/book-n-manage/travel-services/private-aircrafts",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/booking/BookingConfirmation/Transfer-Service": {
+        "url": "https://www.saudia.com/en-SA/booking/BookingConfirmation/Transfer-Service",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/booking/passengerDetails": {
+        "url": "https://www.saudia.com/en-SA/booking/passengerDetails",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/checkIn/checkInoverview/checkInStandAlone": {
+        "url": "https://www.saudia.com/en-SA/checkIn/checkInoverview/checkInStandAlone",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/checkIn/checkInoverview": {
+        "url": "https://www.saudia.com/en-SA/checkIn/checkInoverview",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/earn-and-redeem/program-partners": {
+        "url": "https://www.saudia.com/en-SA/earn-and-redeem/program-partners",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/earn-and-redeem/program-partners/hotels-partners/shangri-la": {
+        "url": "https://www.saudia.com/en-SA/earn-and-redeem/program-partners/hotels-partners/shangri-la",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/earn-and-redeem/program-partners/credit-cards": {
+        "url": "https://www.saudia.com/en-SA/earn-and-redeem/program-partners/credit-cards",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/experience/explore/alfursan-virtual-world": {
+        "url": "https://www.saudia.com/en-SA/experience/explore/alfursan-virtual-world",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/experience/on-board/classes-of-travel": {
+        "url": "https://www.saudia.com/en-SA/experience/on-board/classes-of-travel",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/experience-saudia/at-the-airport/fast-track": {
+        "url": "https://www.saudia.com/en-SA/experience-saudia/at-the-airport/fast-track",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/experience-saudia/about-saudia/saudia-news": {
+        "url": "https://www.saudia.com/en-SA/experience-saudia/about-saudia/saudia-news",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/explore/about-saudia/saudia-history": {
+        "url": "https://www.saudia.com/en-SA/explore/about-saudia/saudia-history",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026/fly-to-abha": {
+        "url": "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026/fly-to-abha",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026": {
+        "url": "https://www.saudia.com/en-SA/explore/saudia-new-destinations-2026",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-redsea": {
+        "url": "https://www.saudia.com/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-redsea",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-sharm-el-Sheikh": {
+        "url": "https://www.saudia.com/en-SA/explore/saudia-warm-destinations-dec-2025/fly-to-sharm-el-Sheikh",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Govt/GovernmentFares/WalletAuth": {
+        "url": "https://www.saudia.com/en-SA/Govt/GovernmentFares/WalletAuth",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Govt/Pensioner": {
+        "url": "https://www.saudia.com/en-SA/Govt/Pensioner",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/help/faqs/stopovervisa-faq": {
+        "url": "https://www.saudia.com/en-SA/help/faqs/stopovervisa-faq",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/help/useful-links/legal-and-terms-and-conditions/tarmac-delay-contingency-plan": {
+        "url": "https://www.saudia.com/en-SA/help/useful-links/legal-and-terms-and-conditions/tarmac-delay-contingency-plan",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/help/useful-links/legal-and-terms-and-conditions": {
+        "url": "https://www.saudia.com/en-SA/help/useful-links/legal-and-terms-and-conditions",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/information/terms-and-conditions/cookie-policy": {
+        "url": "https://www.saudia.com/en-SA/information/terms-and-conditions/cookie-policy",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/information/terms-and-conditions/customer-service-plan": {
+        "url": "https://www.saudia.com/en-SA/information/terms-and-conditions/customer-service-plan",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty/chooseAlfursanCreditCard": {
+        "url": "https://www.saudia.com/en-SA/loyalty/chooseAlfursanCreditCard",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty/family-program": {
+        "url": "https://www.saudia.com/en-SA/loyalty/family-program",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty/about-alfursan-program/membership-tiers-benefits/membership-tiers": {
+        "url": "https://www.saudia.com/en-SA/loyalty/about-alfursan-program/membership-tiers-benefits/membership-tiers",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty/alfursan-partners/financial-partners/alinma-bank-card": {
+        "url": "https://www.saudia.com/en-SA/loyalty/alfursan-partners/financial-partners/alinma-bank-card",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty-program/join-alfursan-frequent-flyer-program/join-alfursan-frequent-flyer-program": {
+        "url": "https://www.saudia.com/en-SA/loyalty-program/join-alfursan-frequent-flyer-program/join-alfursan-frequent-flyer-program",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/buy-miles": {
+        "url": "https://www.saudia.com/en-SA/loyalty-program/about-alfursan-program/alfursan-miles/buy-miles",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty-program/about-alfursan-program/membership-tiers-benefits": {
+        "url": "https://www.saudia.com/en-SA/loyalty-program/about-alfursan-program/membership-tiers-benefits",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty/partner-offers/buy-miles-sep26": {
+        "url": "https://www.saudia.com/en-SA/loyalty/partner-offers/buy-miles-sep26",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/loyalty/partner-offers/ihg-sep26": {
+        "url": "https://www.saudia.com/en-SA/loyalty/partner-offers/ihg-sep26",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/manage/baggage/baggage-info": {
+        "url": "https://www.saudia.com/en-SA/manage/baggage/baggage-info",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/manage/extras": {
+        "url": "https://www.saudia.com/en-SA/manage/extras",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/managemybooking/FareConfirmation": {
+        "url": "https://www.saudia.com/en-SA/managemybooking/FareConfirmation",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/managemybooking/unpaidaddon": {
+        "url": "https://www.saudia.com/en-SA/managemybooking/unpaidaddon",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/managemybooking/cancelTrip/passengers": {
+        "url": "https://www.saudia.com/en-SA/managemybooking/cancelTrip/passengers",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/managemybooking/changeflight/payment": {
+        "url": "https://www.saudia.com/en-SA/managemybooking/changeflight/payment",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/plan/at-the-airport/lounges-information/AlFursanLounges": {
+        "url": "https://www.saudia.com/en-SA/plan/at-the-airport/lounges-information/AlFursanLounges",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/plan/on-board/classes-of-travel": {
+        "url": "https://www.saudia.com/en-SA/plan/on-board/classes-of-travel",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/plan/about-saudia/discover-saudi-arabia": {
+        "url": "https://www.saudia.com/en-SA/plan/about-saudia/discover-saudi-arabia",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/plan/before-you-fly/travel-requirements": {
+        "url": "https://www.saudia.com/en-SA/plan/before-you-fly/travel-requirements",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Support/help-centre/student-travel-care": {
+        "url": "https://www.saudia.com/en-SA/Support/help-centre/student-travel-care",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Support/HelpAndSupport/FAQs": {
+        "url": "https://www.saudia.com/en-SA/Support/HelpAndSupport/FAQs",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/travel-with-saudia/book-with-us/pensioners-services-portal": {
+        "url": "https://www.saudia.com/en-SA/travel-with-saudia/book-with-us/pensioners-services-portal",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/travel-with-saudia/manage/my-upgrade": {
+        "url": "https://www.saudia.com/en-SA/travel-with-saudia/manage/my-upgrade",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/travel-with-saudia/where-we-fly/our-network": {
+        "url": "https://www.saudia.com/en-SA/travel-with-saudia/where-we-fly/our-network",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/flight-deals": {
+        "url": "https://www.saudia.com/en/flight-deals",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/flight-deals-nature-discovery": {
+        "url": "https://www.saudia.com/en/flight-deals-nature-discovery",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/flight-deals-from-washington-dc-to-abu-dhabi": {
+        "url": "https://www.saudia.com/en/flight-deals-from-washington-dc-to-abu-dhabi",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/flight-deals-from-dhaka-to-hyderabad": {
+        "url": "https://www.saudia.com/en/flight-deals-from-dhaka-to-hyderabad",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/flight-deals-to-united-arab-emirates": {
+        "url": "https://www.saudia.com/en/flight-deals-to-united-arab-emirates",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/flight-deals-to-amman": {
+        "url": "https://www.saudia.com/en/flight-deals-to-amman",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/checkIn/checkInoverview/checkInStandAlone": {
+        "url": "https://www.saudia.com/ar-SA/checkIn/checkInoverview/checkInStandAlone",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/information/terms-and-conditions/cookie-policy": {
+        "url": "https://www.saudia.com/ar-SA/information/terms-and-conditions/cookie-policy",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/sitemap/flight-deals-to-country/page-1": {
+        "url": "https://www.saudia.com/en/sitemap/flight-deals-to-country/page-1",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/about-us/press-releases/press-release-17062025": {
+        "url": "https://www.saudia.com/ar/about-us/press-releases/press-release-17062025",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/book-n-manage/travel-services/private-aircrafts": {
+        "url": "https://www.saudia.com/ar-SA/book-n-manage/travel-services/private-aircrafts",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/experience-saudia/about-saudia/saudia-news": {
+        "url": "https://www.saudia.com/ar-SA/experience-saudia/about-saudia/saudia-news",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/travel-with-saudia/where-we-fly/our-network": {
+        "url": "https://www.saudia.com/ar-SA/travel-with-saudia/where-we-fly/our-network",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/information/terms-and-conditions/alfursan": {
+        "url": "https://www.saudia.com/ar/information/terms-and-conditions/alfursan",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/ancillaries/seatselector": {
+        "url": "https://www.saudia.com/ar-SA/ancillaries/seatselector",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/managemybooking/FareConfirmation": {
+        "url": "https://www.saudia.com/ar-SA/managemybooking/FareConfirmation",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/BaggageTracker/Trackbags": {
+        "url": "https://www.saudia.com/en-SA/BaggageTracker/Trackbags",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/eWallet/Transactions": {
+        "url": "https://www.saudia.com/en-SA/eWallet/Transactions",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/flightschedulelist/editsearch": {
+        "url": "https://www.saudia.com/en-SA/flightschedulelist/editsearch",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/flightstatuslist/statuseditsearch": {
+        "url": "https://www.saudia.com/en-SA/flightstatuslist/statuseditsearch",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/forms/baggage-claim-form": {
+        "url": "https://www.saudia.com/en-SA/forms/baggage-claim-form",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/information/terms-and-conditions": {
+        "url": "https://www.saudia.com/en-SA/information/terms-and-conditions",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Multicity/FlightSearch": {
+        "url": "https://www.saudia.com/en-SA/Multicity/FlightSearch",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/payment/fareBreakdown": {
+        "url": "https://www.saudia.com/en-SA/payment/fareBreakdown",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/socialLogin/LinkSocialAccounts": {
+        "url": "https://www.saudia.com/en-SA/socialLogin/LinkSocialAccounts",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/summer-destinations-2024/visit-malaga": {
+        "url": "https://www.saudia.com/en-SA/summer-destinations-2024/visit-malaga",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/transit-visa/stopover-in-riyadh": {
+        "url": "https://www.saudia.com/en-SA/transit-visa/stopover-in-riyadh",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/travel-updates/202602281": {
+        "url": "https://www.saudia.com/en-SA/travel-updates/202602281",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/umrah/fly-saudia-for-umrah-packages": {
+        "url": "https://www.saudia.com/en-SA/umrah/fly-saudia-for-umrah-packages",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/cdp/subscriberdiscount": {
+        "url": "https://www.saudia.com/en-SA/cdp/subscriberdiscount",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/EVisa/EVisaPassengerDetails": {
+        "url": "https://www.saudia.com/en-SA/EVisa/EVisaPassengerDetails",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/loyalty/manage-profile": {
+        "url": "https://www.saudia.com/en/loyalty/manage-profile",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en/earn-and-redeem/program-partners": {
+        "url": "https://www.saudia.com/en/earn-and-redeem/program-partners",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/umrah/fly-saudia-for-umrah-packages": {
+        "url": "https://www.saudia.com/ar-SA/umrah/fly-saudia-for-umrah-packages",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/campaigns/flights-to-tokyo": {
+        "url": "https://www.saudia.com/ar-SA/campaigns/flights-to-tokyo",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/Support/HelpAndSupport": {
+        "url": "https://www.saudia.com/ar-SA/Support/HelpAndSupport",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar/loyalty/manage-profile": {
+        "url": "https://www.saudia.com/ar/loyalty/manage-profile",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/manage/extras": {
+        "url": "https://www.saudia.com/ar-SA/manage/extras",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Register": {
+        "url": "https://www.saudia.com/en-SA/Register",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/offers": {
+        "url": "https://www.saudia.com/en-SA/offers",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Companion": {
+        "url": "https://www.saudia.com/en-SA/Companion",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/our-network": {
+        "url": "https://www.saudia.com/en-SA/our-network",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/business": {
+        "url": "https://www.saudia.com/en-SA/business",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/tier-credits": {
+        "url": "https://www.saudia.com/en-SA/tier-credits",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/milesCalculator": {
+        "url": "https://www.saudia.com/en-SA/milesCalculator",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/AISearch": {
+        "url": "https://www.saudia.com/en-SA/AISearch",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Search-result-page": {
+        "url": "https://www.saudia.com/en-SA/Search-result-page",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/manage-booking": {
+        "url": "https://www.saudia.com/en-SA/manage-booking",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/EMD-Receipt": {
+        "url": "https://www.saudia.com/en-SA/EMD-Receipt",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/eTicket": {
+        "url": "https://www.saudia.com/en-SA/eTicket",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/Plusgrade": {
+        "url": "https://www.saudia.com/en-SA/Plusgrade",
+        "status": "marked"
+      },
+      "https://www.saudia.com/en-SA/PromoCode": {
+        "url": "https://www.saudia.com/en-SA/PromoCode",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/site-map": {
+        "url": "https://www.saudia.com/ar-SA/site-map",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/flightstatus": {
+        "url": "https://www.saudia.com/ar-SA/flightstatus",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/offers": {
+        "url": "https://www.saudia.com/ar-SA/offers",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/Companion": {
+        "url": "https://www.saudia.com/ar-SA/Companion",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/flightschedule": {
+        "url": "https://www.saudia.com/ar-SA/flightschedule",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/experience": {
+        "url": "https://www.saudia.com/ar-SA/experience",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/tier-credits": {
+        "url": "https://www.saudia.com/ar-SA/tier-credits",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/milesCalculator": {
+        "url": "https://www.saudia.com/ar-SA/milesCalculator",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/AISearch": {
+        "url": "https://www.saudia.com/ar-SA/AISearch",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/Subscribe": {
+        "url": "https://www.saudia.com/ar-SA/Subscribe",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/manage-booking": {
+        "url": "https://www.saudia.com/ar-SA/manage-booking",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/EMD-Receipt": {
+        "url": "https://www.saudia.com/ar-SA/EMD-Receipt",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/eTicket": {
+        "url": "https://www.saudia.com/ar-SA/eTicket",
+        "status": "marked"
+      },
+      "https://www.saudia.com/ar-SA/alfursanRegistration": {
+        "url": "https://www.saudia.com/ar-SA/alfursanRegistration",
+        "status": "marked"
+      }
+    }
+  }
+}

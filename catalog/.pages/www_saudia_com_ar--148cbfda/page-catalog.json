@@ -1,0 +1,14 @@
+{
+  "url": "https://www.saudia.com/ar",
+  "timestamp": "2026-10-06T15:46:57.526Z",
+  "error": {
+    "isError": true,
+    "type": "IMPERVA",
+    "detected": "bot protection: Incapsula challenge iframe",
+    "confidence": "high",
+    "message": "IMPERVA - Page appears to be an error page (detected: \"bot protection: Incapsula challenge iframe\")"
+  },
+  "cleanup": null,
+  "template": null,
+  "blocks": []
+}
