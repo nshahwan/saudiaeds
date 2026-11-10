@@ -2,10 +2,13 @@
  * cards — image cards with a gradient title overlay; the whole card is one link
  * (Saudia replica, Experience › classes of travel; .sa-fleet-* on the live page).
  *
- * Rows (xwalk item model `card`), one per card:
- *   cell 1  image — <picture>
- *   cell 2  text  — <h3> card title · <p> description · <p> link
- *                   (link text = CTA label, href = card target)
+ * Rows (xwalk block model `cards`, then item model `card`):
+ *   optional first row, one cell: count — how many cards to show (empty: all)
+ *   then one row per card:
+ *     cell 1  image — <picture>
+ *     cell 2  text  — <h3> card title · <p> description · <p> link
+ *                     (link text = CTA label, href = card target)
+ * Cards beyond the count stay in the block, hidden (still selectable in the editor).
  *
  * The row's editor instrumentation moves to the card; the text cell is reused as the content
  * slot (EW1) — its title is laid over the image by CSS, and the authored CTA link stays in
@@ -26,8 +29,19 @@ function moveInstrumentation(from, to) {
     });
 }
 
+/** the block's count field: a leading one-cell row holding a whole number or nothing */
+function countRow(row) {
+  if (!row || row.children.length !== 1 || row.querySelector('picture, h1, h2, h3, h4, h5, h6')) return null;
+  return /^\d*$/.test(row.textContent.trim()) ? row : null;
+}
+
 export default function decorate(block) {
-  const cards = [...block.children].map((row) => {
+  const rows = [...block.children];
+  const setting = countRow(rows[0]);
+  if (setting) rows.shift();
+  const count = Number(setting?.textContent.trim()) || 0;
+
+  const cards = rows.map((row, i) => {
     const picture = row.querySelector('picture');
     const heading = row.querySelector('h1, h2, h3, h4, h5, h6');
     const textCell = heading ? heading.parentElement : row.lastElementChild;
@@ -44,7 +58,10 @@ export default function decorate(block) {
     const content = textCell || document.createElement('div');
     content.classList.add('cards__content');
     card.append(media, content);
+    if (count && i >= count) card.hidden = true;
     return card;
   });
-  block.replaceChildren(...cards);
+  // the count cell stays (hidden) so its editor instrumentation is kept
+  if (setting) setting.hidden = true;
+  block.replaceChildren(...cards, ...(setting ? [setting] : []));
 }

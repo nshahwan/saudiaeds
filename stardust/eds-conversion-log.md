@@ -450,3 +450,15 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
 - Found on the way: publish answers story-by-path with 500 (FieldUndefined pressRelease /
   linkText): the 2.0.0 Story model is on publish, the old persisted query too — replicate the
   2.0.0 query (or persist-queries.sh).
+- (2026-11-10, later) cards: new block field `count` ("Number of cards shown", number, min 1;
+  empty = all). It renders as a leading one-cell row; the block reads it (a one-cell row with a
+  whole number or nothing — card rows have two cells), hides the cards beyond it (kept in the
+  block, still selectable in the editor) and keeps the count cell hidden for its editor marker.
+  Content without the row (Classes of Travel, home) still converts and renders unchanged.
+  Verified: none / empty / 3 / 6 / 0 / 20 at 1440 and 360; JCR with count="6" + 9 items; UE probe
+  109/109 + 12/12; lint. Homepage package rebuilt (cards model fields).
+- (2026-11-10, later) cards `stacked` restyled on request: transparent card (no box, border or
+  shadow; image corners 4px), title and description white on the dark home theme and black /
+  var(--text) under body.theme-light (as the stories), CTA a green button (var(--green), white
+  16/24 600 text, darker on hover; contrast 5.1:1), focus outline #08b35f. Classes of Travel
+  (default layout) unchanged.

@@ -29,6 +29,11 @@ main .cards-container > .cards-wrapper {
   transform: translateZ(0);
 }
 
+/* cards beyond the block's count, and the count cell itself */
+.cards > [hidden] {
+  display: none;
+}
+
 .cards .cards__media {
   position: relative;
   flex-shrink: 0;
@@ -179,10 +184,71 @@ main .cards-container:has(.cards.stacked) .default-content-wrapper h2 {
   margin-bottom: 8px;
   padding: 0;
   background: none;
-  color: #111827;
+  color: #fff;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.3;
+}
+
+/* no card box: the card sits on the page background; title and description follow the page
+   theme (white on the dark home theme, like the stories), the CTA is a green button */
+.cards.stacked .cards__card,
+.cards.stacked .cards__card:hover {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cards.stacked .cards__media {
+  border-radius: 4px;
+}
+
+.cards.stacked .cards__content {
+  padding: 16px 0 0;
+}
+
+.cards.stacked .cards__content > p:not(.cards__cta) {
+  color: #fff;
+}
+
+.cards.stacked p.cards__cta::after {
+  content: none;
+}
+
+.cards.stacked p.cards__cta a {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border: 2px solid var(--green);
+  border-radius: 2px;
+  background-color: var(--green);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.cards.stacked .cards__card:hover p.cards__cta a {
+  border-color: var(--green-dark);
+  background-color: var(--green-dark);
+}
+
+.cards.stacked .cards__card:has(a:focus-visible) {
+  outline: 2px solid #08b35f;
+  outline-offset: 4px;
+}
+
+/* light page theme (home, once the section styled "theme-light" reaches the top) */
+body.theme-light main .cards-container:has(.cards.stacked) .default-content-wrapper h2,
+body.theme-light .cards.stacked .cards__content > :is(h2, h3, h4):first-child {
+  color: #000;
+}
+
+body.theme-light .cards.stacked .cards__content > p:not(.cards__cta) {
+  color: var(--text);
 }
 
 @media (width >= 600px) {

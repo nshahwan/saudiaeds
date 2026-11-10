@@ -483,6 +483,16 @@
           ]
         },
         {
+          "component": "number",
+          "valueType": "number",
+          "name": "count",
+          "label": "Number of cards shown",
+          "description": "Show only the first cards, in order. Leave empty to show all of them.",
+          "validation": {
+            "numberMin": 1
+          }
+        },
+        {
           "component": "tab",
           "label": "Text style",
           "name": "text-style-tab"
