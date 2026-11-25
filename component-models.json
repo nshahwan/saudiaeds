@@ -2771,6 +2771,16 @@
         ]
       },
       {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "folder",
+        "label": "Folder",
+        "description": "Optional: pick a folder to show its pages as cards (this page excluded), ordered by their Card order page property. Each card uses the page's Card title, Card summary, Card link text and Image properties, falling back to its title, description and first image. The cards below are shown while the folder has no pages.",
+        "validation": {
+          "rootPath": "/content/saudiaeds"
+        }
+      },
+      {
         "component": "number",
         "valueType": "number",
         "name": "count",

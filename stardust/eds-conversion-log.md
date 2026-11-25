@@ -474,3 +474,21 @@ Replica approved (prototype gate 1440 2.02%/Δ0, 360 4.86%/Δ−3), converted an
   /content/saudiaeds/en/explore (+ saudia-new-destinations-2026, nine fly-to-* pages) and 39
   images under /content/dam/saudiaeds/explore (16.8 MB). After it is installed, the pages can be
   previewed and published through the admin API.
+
+## Cards: folder selector (2026-11-12)
+
+- cards block field `folder` (aem-content picker, root /content/saudiaeds): the folder's pages
+  become the cards (Card order, then title; Card title / summary / link text / Image, falling
+  back to heading, description and first image; link text "Find out more"); `count` limits
+  them. Authored cards are the fallback when the folder has no pages yet or can't be listed
+  (kept hidden for the editor); without authored cards: "Could not load the page listing." /
+  in the editor "No pages found in …". Field rows told apart by content (link/path = folder,
+  whole number = count; card rows have two cells).
+- The listing (query index on the site, .2.json / querybuilder on author, supplement from the
+  page) moved from stories-folder into scripts/folder-pages.js, shared by both blocks; cards
+  loads it with a dynamic import only when a folder is set. Settings: cardsFolder (same values
+  as storiesFolder, scripts.js).
+- Verified (stand-in index / author JSON): folder + count, no count, not indexed / index down
+  (authored fallback), message, editor child pages and empty prompt, no folder; Stories Folder on
+  the shared module; home + Classes of Travel unchanged; JCR with folder + count; UE probe
+  111/111 + 12/12; lint. Homepage package rebuilt.

@@ -29,9 +29,18 @@ main .cards-container > .cards-wrapper {
   transform: translateZ(0);
 }
 
-/* cards beyond the block's count, and the count cell itself */
+/* cards beyond the block's count (or authored cards replaced by a folder's pages), and the
+   block's field cells */
 .cards > [hidden] {
   display: none;
+}
+
+/* a folder that could not be listed (or, in the editor, has no pages) */
+.cards .cards__message {
+  grid-column: 1 / -1;
+  padding: 16px;
+  border: 1px dashed currentcolor;
+  text-align: center;
 }
 
 .cards .cards__media {
